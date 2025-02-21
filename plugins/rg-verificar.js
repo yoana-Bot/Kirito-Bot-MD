@@ -8,7 +8,6 @@ let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
 
 let handler = async function (m, { conn, text, usedPrefix, command }) {
   let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-  let mentionedJid = [who]
   let pp = await conn.profilePictureUrl(who, 'image').catch(() => 'https://qu.ax/JbNrT.jpg')
   let user = global.db.data.users[m.sender]
   let name2 = conn.getName(m.sender)
@@ -53,25 +52,17 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 
   await m.react('📩')
 
+  let buttons = [
+    { index: 1, quickReplyButton: { displayText: '🔥 PERFIL', id: '.profile' } },
+    { index: 2, quickReplyButton: { displayText: '🔥 MENU', id: '.menu' } }
+  ]
+
   await conn.sendMessage(m.chat, {
-        text: regbot,
-        contextInfo: {
-            externalAdReply: {
-                title: '🚀 Registro Exitoso',
-                body: 'Tu cuenta ha sido verificada correctamente',
-                thumbnailUrl: pp,
-                sourceUrl: channel,
-                mediaType: 1,
-                showAdAttribution: true,
-                renderLargerThumbnail: true
-            }
-        },
-        buttons: [
-          { buttonId: '.profile', buttonText: { displayText: '🔥 PERFIL' }, type: 1 },
-          { buttonId: '.menu', buttonText: { displayText: '🔥 MENU' }, type: 1 }
-        ],
-        footer: '🔹 Usa los botones para acceder rápido 🔹'
-    }, { quoted: m })    
+    text: regbot,
+    footer: '🔹 Usa los botones para acceder rápido 🔹',
+    templateButtons: buttons,
+    headerType: 1
+  }, { quoted: m })
 }; 
 
 handler.help = ['reg']
