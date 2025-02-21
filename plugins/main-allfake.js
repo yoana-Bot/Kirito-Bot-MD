@@ -59,7 +59,7 @@ global.done = '✅'
 global.error = '✖️'
 global.msm = '⚠︎'
 
-//Emojis determinado de Yuki Bot
+//Emojis determinado de kirito Bot
 global.emoji = '👑'
 global.emoji2 = '👑'
 global.emoji3 = '👑'
