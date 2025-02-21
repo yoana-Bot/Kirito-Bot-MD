@@ -65,16 +65,15 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
                 showAdAttribution: true,
                 renderLargerThumbnail: true
             }
-        }
+        },
+        buttons: [  
+            {  
+              buttonId: '.menu',  
+              buttonText: { displayText: '🔥 MENU' },  
+            },  
+        ] 
     }, { quoted: m })    
 }; 
-
-buttons: [  
-    {  
-      buttonId: '.menu',  
-      buttonText: { displayText: '🔥 MENU' },  
-    },  
-  ],
 
 handler.help = ['reg']
 handler.tags = ['rg']
