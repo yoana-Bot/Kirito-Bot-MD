@@ -1,30 +1,43 @@
-// Código Creado Por Niño Piña Wa.me/50557865603
 import fetch from 'node-fetch';
-const handler = async (m, {conn, text, usedPrefix, command}) => {
-// Verificamos que el usuario haya ingresado un texto
-if (!text) throw '*👑 𝒇𝒂𝒍𝒕𝒂 𝒕𝒆𝒙𝒕𝒐 𝒑𝒂𝒓𝒂 𝒈𝒆𝒏𝒆𝒓𝒂𝒓 𝒊𝒎𝒂𝒈𝒆𝒏*';
-// Mostramos un emoji de reloj mientras generamos la imagen
-m.react('✨');
-await conn.sendMessage(m.chat, {text: '*👑 𝒈𝒆𝒏𝒆𝒓𝒂𝒏𝒅𝒐 𝒊𝒎𝒂𝒈𝒆𝒏*'}, {quoted: m});
-try {
-// Hacemos la solicitud a la API con el texto proporcionado
-const response = await fetch(`https://eliasar-yt-api.vercel.app/api/ai/text2img?prompt=${encodeURIComponent(text)}`);
-// Verificamos si la respuesta fue exitosa
-if (!response.ok) throw new Error('Network response was not ok');
-// Obtenemos el buffer de la imagen
-const buffer = await response.buffer();
-// Mostramos un emoji de éxito
-m.react('🪄');
-// Enviamos la imagen generada al chat
-await conn.sendMessage(m.chat, {image: buffer}, {quoted: m});
-} catch (error) {
-console.error(error);
-throw `*⚠️error *`;
-}
-}
-// Definimos las etiquetas y comandos para el handler
+
+const handler = async (m, { conn, text }) => {
+  if (!text) {
+    await conn.sendMessage(m.chat, { text: '*🌺 𝑭𝒂𝒍𝒕𝒂 𝒆𝒍 𝒕𝒆𝒙𝒕𝒐 𝒑𝒂𝒓𝒂 𝒄𝒓𝒆𝒂𝒓 𝒍𝒂 𝒊𝒎𝒂𝒈𝒆𝒏✎*' }, { quoted: m });
+    return;
+  }
+
+  m.react('✨');
+  await conn.sendMessage(m.chat, { text: `*🌹 𝒄𝒓𝒆𝒂𝒏𝒅𝒐 𝒊𝒎𝒂𝒈𝒆𝒏 𝒅𝒆 ✎ ${text}*` }, { quoted: m });
+
+  try {
+    const res = await fetch(`https://eliasar-yt-api.vercel.app/api/ai/text2img?prompt=${encodeURIComponent(text)}`);
+    if (!res.ok) throw new Error();
+
+    const buffer = await res.buffer();
+    m.react('🪄');
+    await conn.sendMessage(m.chat, { 
+      image: buffer, 
+      caption: 'Imagen generada con éxito. Elige una opción:',
+      buttons: [
+        {
+          buttonId: '.menu',
+          buttonText: { displayText: 'Menú' },
+        },
+        {
+          buttonId: '.profile',
+          buttonText: { displayText: 'Perfil' },
+        },
+      ],
+      footer: '¡Disfruta!',
+      viewOnce: true,
+    }, { quoted: m });
+  } catch (e) {
+    await conn.sendMessage(m.chat, { text: '*🚨 Ha ocurrido un error 😔*' }, { quoted: m });
+  }
+};
+
 handler.tags = ['tools'];
 handler.help = ['genearimg'];
-handler.command = ['genearimg', 'imgg'];
-// Exportamos el handler
+handler.command = ['imgIA', 'imgg', 'Imgia'];
+
 export default handler;
