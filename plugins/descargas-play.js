@@ -1,3 +1,4 @@
+import fetch from 'node-fetch';
 import yts from 'yt-search';
 
 const handler = async (m, { conn, text, command }) => {
@@ -24,6 +25,7 @@ const handler = async (m, { conn, text, command }) => {
       ],
       viewOnce: true,
     }, { quoted: m });
+
     return m.react('⏳');
   }
 
@@ -49,16 +51,23 @@ const downloadMedia = async (m, conn, url, type) => {
   for (let api of apis) {
     try {
       const response = await fetch(api);
+      if (!response.ok) continue; // Si la API falla, intenta con la siguiente
       const data = await response.json();
       if (data?.data?.url) {
         if (type === 'mp3') {
-          return conn.sendFile(m.chat, data.data.url, 'audio.mp3', '', m, null, { mimetype: 'audio/mpeg' });
+          return conn.sendMessage(m.chat, { 
+            audio: { url: data.data.url }, 
+            mimetype: 'audio/mpeg' 
+          }, { quoted: m });
         } else {
-          return conn.sendMessage(m.chat, { video: { url: data.data.url }, mimetype: 'video/mp4' }, { quoted: m });
+          return conn.sendMessage(m.chat, { 
+            video: { url: data.data.url }, 
+            mimetype: 'video/mp4' 
+          }, { quoted: m });
         }
       }
     } catch (error) {
-      continue;
+      console.error(`Error con la API: ${api}`, error);
     }
   }
 
