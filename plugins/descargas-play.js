@@ -17,28 +17,27 @@ const handler = async (m, { conn, text, command }) => {
     `📅 *Publicado:* ${videoInfo.ago}\n` +
     `🔗 *Link:* ${videoInfo.url}`;
 
-  if (command === 'play' || command === 'play2' || command === 'playvid') {
-    let msg = await conn.sendMessage(m.chat, {
-      image: { url: videoInfo.thumbnail },
-      caption: body,
-      footer: dev,
-      buttons: [
-        {
-          buttonId: `.ytmp3 ${videoInfo.url}`,
-          buttonText: { displayText: 'ᯓᡣ𐭩 ᥲᥙძі᥆' },
-          type: 1
-        },
-        {
-          buttonId: `.ytmp4 ${videoInfo.url}`,
-          buttonText: { displayText: 'ᯓᡣ𐭩 ᥎іძᥱ᥆' },
-          type: 1
-        }
-      ],
-      viewOnce: true,
-      headerType: 4
-    }, { quoted: fkontak });
+ if (command === 'play' || command === 'play2' || command === 'playvid') {
+  let msg = await conn.sendMessage(m.chat, {
+    image: { url: videoInfo.thumbnail },
+    caption: body,
+    footer: dev,
+    buttons: [
+      {
+        buttonId: `.ytmp3 ${videoInfo.url}`,
+        buttonText: { displayText: 'ᯓᡣ𐭩 ᥲᥙძі᥆' },
+        type: 1
+      },
+      {
+        buttonId: `.ytmp4 ${videoInfo.url}`,
+        buttonText: { displayText: 'ᯓᡣ𐭩 ᥎іძᥱ᥆' },
+        type: 1
+      }
+    ],
+    headerType: 4
+  }, { quoted: fkontak });
 
-    return m.react('🕒');
+  return m.react('🕒');
   }
 
   if (command.startsWith('yta') || command.startsWith('ytmp3')) {
