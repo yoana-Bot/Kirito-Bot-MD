@@ -28,20 +28,20 @@ console.log(`Error : ${e}`)
 }}
   
 //creador y otros
-global.creador = 'Wa.me/584120346669'
+global.creador = 'Wa.me/50488198573'
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
-global.asistencia = 'Wa.me/584120346669'
-global.namechannel = 'ᥫ᭡ ᥡᥙkіᑲ᥆𝗍-mძ - ᥙ⍴ძᥲ𝗍ᥱs ❀'
-global.namechannel2 = 'ᥫ᭡ ᥡᥙkіᑲ᥆𝗍-mძ - ᥲ᥎іs᥆s ❀'
-global.namegrupo = '.•♫•♬• ʏᴜᴋɪ-ꜱᴜᴏᴜ-ʙᴏᴛ  •♬•♫•.'
-global.namecomu = '✿:･✧ 𝓨𝓾𝓴𝓲 𝓢𝓾𝓸𝓾 𝓒𝓸𝓶𝓾𝓷𝓲𝓽𝔂 ✧･:✿'
-global.listo = '❮✦❯ *Aquí tienes ฅ^•ﻌ•^ฅ*'
+global.asistencia = 'Wa.me/50488198573'
+global.namechannel = '𝑲𝒊𝒓𝒊𝒕𝒐-𝑴𝑫 - 𝒖𝒑𝒅𝒂𝒕𝒆𝒔☆'
+global.namechannel2 = '𝑲𝒊𝒓𝒊𝒕𝒐-𝑴𝑫 - 𝒂𝒗𝒊𝒔𝒐𝒔☆'
+global.namegrupo = '✦ 𝐤𝐢𝐫𝐢𝐭𝐨-𝐁𝐨𝐭 𝐌𝐃 ☆'
+global.namecomu = '✭𝐊𝐢𝐫𝐢𝐭𝐨 𝐌𝐃 𝐂𝐨𝐦𝐮𝐧𝐢𝐭𝐲 ✪'
+global.listo = '⚡ *Aquí tienes o(^▽^)o*'
 global.fotoperfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg')
 
 //Ids channel
 global.idchannel = '120363372653753296@newsletter'
 global.canalIdM = ["120363365444927738@newsletter", "120363365444927738@newsletter"]
-global.canalNombreM = ["ᥫ᭡ ᥡᥙkіᑲ᥆𝗍-mძ - ᥙ⍴ძᥲ𝗍ᥱs ❀", "ᥫ᭡ ᥡᥙkіᑲ᥆𝗍-mძ - ᥲ᥎іs᥆s ❀"]
+global.canalNombreM = ["𝑲𝒊𝒓𝒊𝒕𝒐-𝑴𝑫 - 𝒖𝒑𝒅𝒂𝒕𝒆𝒔☆", "𝑲𝒊𝒓𝒊𝒕𝒐-𝑴𝑫 - 𝒂𝒗𝒊𝒔𝒐𝒔☆"]
 global.channelRD = await getRandomChannel()
 
 //fechas
@@ -68,10 +68,10 @@ global.emoji5 = '👑'
 global.emojis = [emoji, emoji2, emoji3, emoji4].getRandom()
 
 //mensaje en espera
-global.wait = '❀ Espera un momento, soy lenta...';
-global.waitt = '❀ Espera un momento, soy lenta...';
-global.waittt = '❀ Espera un momento, soy lenta...';
-global.waitttt = '❀ Espera un momento, soy lenta...';
+global.wait = '✪ Espera un momento, soy lento...';
+global.waitt = '★ Espera un momento, soy lento...';
+global.waittt = '✭ Espera un momento, soy lento...';
+global.waitttt = '✯ Espera un momento, soy lento...';
 
 //Enlaces
 var canal = 'https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m'  
@@ -102,8 +102,8 @@ global.taguser = '@' + m.sender.split("@s.whatsapp.net")
 var more = String.fromCharCode(8206)
 global.readMore = more.repeat(850)
 
-global.packsticker = `°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°\nᰔᩚ Usuario: ${nombre}\n❀ Bot: ${botname}\n✦ Fecha: ${fecha}\nⴵ Hora: ${tiempo}`;
-global.packsticker2 = `\n°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°\n\n${dev}`
+global.packsticker = `◆━━━━━━◆❃◆━━━━━━◆\n✰ Usuario: ${nombre}\n✰ Bot: ${botname}\n✦ Fecha: ${fecha}\n⌛ Hora: ${tiempo}`;
+global.packsticker2 = `\n◆━━━━━━◆❃◆━━━━━━◆\n\n${dev}`
   
 //Fakes
 global.fkontak = { key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `6285600793871-1614953337@g.us` } : {}) }, message: { 'contactMessage': { 'displayName': `${nombre}`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${nombre},;;;\nFN:${nombre},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, 'jpegThumbnail': null, thumbnail: null,sendEphemeral: true}}}
