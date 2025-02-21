@@ -53,6 +53,17 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 
   await m.react('📩')
 
+buttons: [  
+    {  
+      buttonId: '.profile',  
+      buttonText: { displayText: '🔥 PERFIL' },  
+    },  
+    {  
+      buttonId: '.menu',  
+      buttonText: { displayText: '🔥 MENU' },  
+    },  
+  ],
+
   await conn.sendMessage(m.chat, {
         text: regbot,
         contextInfo: {
