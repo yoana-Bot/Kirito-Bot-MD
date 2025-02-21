@@ -11,7 +11,7 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
     let pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg')
     let user = global.db.data.users[m.sender]
     let name2 = conn.getName(m.sender)
-    
+
     if (user.registered) return m.reply(`「 ✦ 」Ya estás registrado.\n\n⚔️ *¿Quieres volver a registrarte?*\n\nUsa *${usedPrefix}unreg* para eliminar tu registro.`)
 
     if (!Reg.test(text)) return m.reply(`「 ✦ 」Formato incorrecto.\n\n🛡️ Uso: *${usedPrefix + command} nombre.edad*\n🔹 Ejemplo: *${usedPrefix + command} ${name2}.18*`)
@@ -20,7 +20,7 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
     if (!name) return m.reply(`「 ✦ 」El nombre no puede estar vacío.`)
     if (!age) return m.reply(`「 ✦ 」La edad no puede estar vacía.`)
     if (name.length >= 100) return m.reply(`「 ✦ 」El nombre es demasiado largo.`)
-    
+
     age = parseInt(age)
     if (age > 1000) return m.reply(`「 ✦ 」Wow, un anciano guerrero quiere jugar al bot.`)
     if (age < 5) return m.reply(`「 ✦ 」¡Un bebé espadachín se ha unido! ⚔️`)
@@ -68,6 +68,21 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
             }
         }
     }, { quoted: m })
+
+    // Agregando botones
+    let buttons = [
+        { buttonId: `${usedPrefix}menu`, buttonText: { displayText: '📜 Menú' }, type: 1 },
+        { buttonId: `${usedPrefix}profile`, buttonText: { displayText: '👤 Perfil' }, type: 1 }
+    ]
+
+    let buttonMessage = {
+        text: '✨ ¡Registro exitoso! ¿Qué quieres hacer ahora?',
+        footer: 'Selecciona una opción:',
+        buttons: buttons,
+        headerType: 1
+    }
+
+    await conn.sendMessage(m.chat, buttonMessage, { quoted: m })
 }
 
 handler.help = ['reg']
