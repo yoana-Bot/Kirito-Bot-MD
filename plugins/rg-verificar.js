@@ -7,7 +7,6 @@ let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
 
 let handler = async function (m, { conn, text, usedPrefix, command }) {
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-    let pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg')
     let user = global.db.data.users[m.sender]
     let name2 = conn.getName(m.sender)
 
@@ -78,6 +77,8 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 
     await m.react('📩')
 
+    let imagenFija = 'https://files.catbox.moe/xr2m6u.jpg' // URL de la imagen fija
+
     await conn.sendMessage(m.chat, { 
         text: regbot,
         buttons: [
@@ -95,9 +96,9 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
         contextInfo: {
             externalAdReply: {
                 title: '✧ Usuario Verificado ✧',
-                body: textbot,
-                thumbnailUrl: pp,
-                sourceUrl: channel,
+                body: 'Bienvenido al bot',
+                thumbnailUrl: imagenFija,
+                sourceUrl: 'https://qu.ax/JbNrT.jpg',
                 mediaType: 1,
                 showAdAttribution: true,
                 renderLargerThumbnail: true
