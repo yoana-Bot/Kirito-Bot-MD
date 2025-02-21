@@ -36,7 +36,7 @@ global.namechannel2 = '𝑲𝒊𝒓𝒊𝒕𝒐-𝑴𝑫 - 𝒂𝒗𝒊𝒔𝒐�
 global.namegrupo = '✦ 𝐤𝐢𝐫𝐢𝐭𝐨-𝐁𝐨𝐭 𝐌𝐃 ☆'
 global.namecomu = '✭𝐊𝐢𝐫𝐢𝐭𝐨 𝐌𝐃 𝐂𝐨𝐦𝐮𝐧𝐢𝐭𝐲 ✪'
 global.listo = '⚡ *Aquí tienes o(^▽^)o*'
-global.fotoperfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg')
+global.fotoperfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://files.catbox.moe/56el7x.jpg')
 
 //Ids channel
 global.idchannel = '120363372653753296@newsletter'
