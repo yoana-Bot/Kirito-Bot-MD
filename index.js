@@ -43,7 +43,7 @@ let { say } = cfonts
 
 console.log(chalk.bold.redBright(`\n✰ Iniciando kirito-Bot ✰\n`))
 
-say('kiritl-MD', {
+say('kirito-MD', {
 font: 'block',
 align: 'center',
 colors: ['magentaBright']
