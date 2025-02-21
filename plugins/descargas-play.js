@@ -17,27 +17,27 @@ const handler = async (m, { conn, text, command }) => {
     `📅 *Publicado:* ${videoInfo.ago}\n` +
     `🔗 *Link:* ${videoInfo.url}`;
 
- if (command === 'play' || command === 'play2' || command === 'playvid') {
-  let msg = await conn.sendMessage(m.chat, {
-    image: { url: videoInfo.thumbnail },
-    caption: body,
-    footer: dev,
-    buttons: [
-      {
-        buttonId: `.ytmp3 ${videoInfo.url}`,
-        buttonText: { displayText: 'ᯓᡣ𐭩 ᥲᥙძі᥆' },
-        type: 1
-      },
-      {
-        buttonId: `.ytmp4 ${videoInfo.url}`,
-        buttonText: { displayText: 'ᯓᡣ𐭩 ᥎іძᥱ᥆' },
-        type: 1
-      }
-    ],
-    headerType: 4
-  }, { quoted: fkontak });
+  if (command === 'play' || command === 'play2' || command === 'playvid') {
+    await conn.sendMessage(m.chat, {
+      image: { url: videoInfo.thumbnail },
+      caption: body,
+      footer: 'Kirito-Bot',
+      buttons: [
+        {
+          buttonId: `.ytmp3 ${videoInfo.url}`,
+          buttonText: { displayText: '🎧 Audio' },
+          type: 1
+        },
+        {
+          buttonId: `.ytmp4 ${videoInfo.url}`,
+          buttonText: { displayText: '🎬 Video' },
+          type: 1
+        }
+      ],
+      headerType: 4
+    }, { quoted: m });
 
-  return m.react('🕒');
+    return m.react('⏳');
   }
 
   if (command.startsWith('yta') || command.startsWith('ytmp3')) {
@@ -84,12 +84,3 @@ handler.tags = ['descargas'];
 handler.register = true;
 
 export default handler;
-
-const getVideoId = (url) => {
-  const regex = /(?:v=|\/)([0-9A-Za-z_-]{11})/;
-  const match = url.match(regex);
-  if (match) {
-    return match[1];
-  }
-  throw new Error("Invalid YouTube URL");
-};
