@@ -1,11 +1,14 @@
 import db from '../lib/database.js'
 import fs from 'fs'
-import { createHash } from 'crypto'
+import PhoneNumber from 'awesome-phonenumber'
+import { createHash } from 'crypto'  
+import fetch from 'node-fetch'
 
 let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
 
 let handler = async function (m, { conn, text, usedPrefix, command }) {
   let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+  let mentionedJid = [who]
   let pp = await conn.profilePictureUrl(who, 'image').catch(() => 'https://qu.ax/JbNrT.jpg')
   let user = global.db.data.users[m.sender]
   let name2 = conn.getName(m.sender)
@@ -50,18 +53,28 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 
   await m.react('📩')
 
-  let buttonsMessage = {
-    text: regbot,
-    footer: '🔹 Usa los botones para acceder rápido 🔹',
-    buttons: [
-      { buttonId: '.profile', buttonText: { displayText: '🔥 PERFIL' }, type: 1 },
-      { buttonId: '.menu', buttonText: { displayText: '🔥 MENU' }, type: 1 }
-    ],
-    headerType: 1
-  }
-
-  await conn.sendMessage(m.chat, buttonsMessage, { quoted: m })
+  await conn.sendMessage(m.chat, {
+        text: regbot,
+        contextInfo: {
+            externalAdReply: {
+                title: '🚀 Registro Exitoso',
+                body: 'Tu cuenta ha sido verificada correctamente',
+                thumbnailUrl: pp,
+                sourceUrl: channel,
+                mediaType: 1,
+                showAdAttribution: true,
+                renderLargerThumbnail: true
+            }
+        }
+    }, { quoted: m })    
 }; 
+
+buttons: [  
+    {  
+      buttonId: '.menu',  
+      buttonText: { displayText: '🔥 MENU' },  
+    },  
+  ],
 
 handler.help = ['reg']
 handler.tags = ['rg']
