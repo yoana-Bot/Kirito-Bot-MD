@@ -1,4 +1,4 @@
-> ⌛ **Versión Actual:** `1.1.2`  
+
 # |⚔️ **Kirito-Bot** | 
 `El Guardián del Código` 🌌 
 
