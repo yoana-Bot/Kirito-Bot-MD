@@ -49,7 +49,7 @@ align: 'center',
 colors: ['magentaBright']
 })
 
-say(`Developed By • The-King-Deylin`, {
+say(`Developed By • Deylin`, {
 font: 'console',
 align: 'center',
 colors: ['blueBright']
