@@ -1,43 +1,113 @@
-import fetch from 'node-fetch';
+import db from '../lib/database.js'
+import fs from 'fs'
+import { createHash } from 'crypto'
+import fetch from 'node-fetch'
 
-const handler = async (m, { conn, text }) => {
-  if (!text) {
-    await conn.sendMessage(m.chat, { text: '*🌺 𝑭𝒂𝒍𝒕𝒂 𝒆𝒍 𝒕𝒆𝒙𝒕𝒐 𝒑𝒂𝒓𝒂 𝒄𝒓𝒆𝒂𝒓 𝒍𝒂 𝒊𝒎𝒂𝒈𝒆𝒏✎*' }, { quoted: m });
-    return;
-  }
+let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
 
-  m.react('✨');
-  await conn.sendMessage(m.chat, { text: `*🌹 𝒄𝒓𝒆𝒂𝒏𝒅𝒐 𝒊𝒎𝒂𝒈𝒆𝒏 𝒅𝒆 ✎ ${text}*` }, { quoted: m });
+let handler = async function (m, { conn, text, usedPrefix, command }) {
+    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+    let pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg')
+    let user = global.db.data.users[m.sender]
+    let name2 = conn.getName(m.sender)
 
-  try {
-    const res = await fetch(`https://eliasar-yt-api.vercel.app/api/ai/text2img?prompt=${encodeURIComponent(text)}`);
-    if (!res.ok) throw new Error();
+    if (user.registered) {
+        await conn.sendMessage(m.chat, { 
+            text: `「 ✦ 」Ya estás registrado.\n\n⚔️ *¿Quieres volver a registrarte?*\n\nUsa *${usedPrefix}unreg* para eliminar tu registro.` 
+        }, { quoted: m })
+        return
+    }
 
-    const buffer = await res.buffer();
-    m.react('🪄');
+    if (!Reg.test(text)) {
+        await conn.sendMessage(m.chat, { 
+            text: `「 ✦ 」Formato incorrecto.\n\n🛡️ Uso: *${usedPrefix + command} nombre.edad*\n🔹 Ejemplo: *${usedPrefix + command} ${name2}.18*` 
+        }, { quoted: m })
+        return
+    }
+
+    let [_, name, splitter, age] = text.match(Reg)
+    if (!name) {
+        await conn.sendMessage(m.chat, { text: `「 ✦ 」El nombre no puede estar vacío.` }, { quoted: m })
+        return
+    }
+    if (!age) {
+        await conn.sendMessage(m.chat, { text: `「 ✦ 」La edad no puede estar vacía.` }, { quoted: m })
+        return
+    }
+    if (name.length >= 100) {
+        await conn.sendMessage(m.chat, { text: `「 ✦ 」El nombre es demasiado largo.` }, { quoted: m })
+        return
+    }
+
+    age = parseInt(age)
+    if (age > 1000) {
+        await conn.sendMessage(m.chat, { text: `「 ✦ 」Wow, un anciano guerrero quiere jugar al bot.` }, { quoted: m })
+        return
+    }
+    if (age < 5) {
+        await conn.sendMessage(m.chat, { text: `「 ✦ 」¡Un bebé espadachín se ha unido! ⚔️` }, { quoted: m })
+        return
+    }
+
+    user.name = name + ' ✓'
+    user.age = age
+    user.regTime = +new Date
+    user.registered = true
+    global.db.data.users[m.sender].coin += 40
+    global.db.data.users[m.sender].exp += 300
+    global.db.data.users[m.sender].joincount += 20
+
+    let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 20)
+
+    let regbot = `┏━━━━━━━━━━━✦\n`
+    regbot += `┃  ✧ 𝗞𝗜𝗥𝗜𝗧𝗢-𝗕𝗢𝗧 ✧\n`
+    regbot += `┣━━━━━━━━━━━✦\n`
+    regbot += `┃ ⚔️ *Usuario Registrado* ⚔️\n`
+    regbot += `┃\n`
+    regbot += `┃ 🏷️ *Nombre:* ${name}\n`
+    regbot += `┃ 🎂 *Edad:* ${age} años\n`
+    regbot += `┃ 🔰 *ID:* ${sn}\n`
+    regbot += `┣━━━━━━━━━━━✦\n`
+    regbot += `┃ 🎁 *Recompensas*\n`
+    regbot += `┃ 💰 *Monedas:* 40\n`
+    regbot += `┃ ⭐ *Exp:* 300\n`
+    regbot += `┃ 🎟️ *Tokens:* 20\n`
+    regbot += `┣━━━━━━━━━━━✦\n`
+    regbot += `┃ 🔗 *${dev}*\n`
+    regbot += `┗━━━━━━━━━━━✦\n`
+
+    await m.react('📩')
+
     await conn.sendMessage(m.chat, { 
-      image: buffer, 
-      caption: 'Imagen generada con éxito. Elige una opción:',
-      buttons: [
-        {
-          buttonId: '.menu',
-          buttonText: { displayText: 'Menú' },
-        },
-        {
-          buttonId: '.profile',
-          buttonText: { displayText: 'Perfil' },
-        },
-      ],
-      footer: '¡Disfruta!',
-      viewOnce: true,
-    }, { quoted: m });
-  } catch (e) {
-    await conn.sendMessage(m.chat, { text: '*🚨 Ha ocurrido un error 😔*' }, { quoted: m });
-  }
-};
+        text: regbot,
+        buttons: [
+            {
+                buttonId: `${usedPrefix}menu`,
+                buttonText: { displayText: '📜 Menú' },
+            },
+            {
+                buttonId: `${usedPrefix}profile`,
+                buttonText: { displayText: '👤 Perfil' },
+            },
+        ],
+        footer: 'Selecciona una opción:',
+        viewOnce: true,
+        contextInfo: {
+            externalAdReply: {
+                title: '✧ Usuario Verificado ✧',
+                body: textbot,
+                thumbnailUrl: pp,
+                sourceUrl: channel,
+                mediaType: 1,
+                showAdAttribution: true,
+                renderLargerThumbnail: true
+            }
+        }
+    }, { quoted: m })
+}
 
-handler.tags = ['tools'];
-handler.help = ['genearimg'];
-handler.command = ['imgIA', 'imgg', 'Imgia'];
+handler.help = ['reg']
+handler.tags = ['rg']
+handler.command = ['verify', 'verificar', 'reg', 'register', 'registrar']
 
-export default handler;
+export default handler
