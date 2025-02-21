@@ -1,70 +1,80 @@
-const normas = `
-┏━━━━━━━━━━━━━━━┓
-┃  📜 *NORMAS DE USO* 📜  
-┗━━━━━━━━━━━━━━━┛
+import moment from 'moment-timezone';
 
-🔹 *1. Respeto y Buen Uso:*  
-Evita insultos, acoso o cualquier actitud ofensiva hacia otros usuarios.  
+let handler = async (m, { conn }) => {
+let owner = `
+┏━━━━━━━━━━⬣
+┃ ✦ 𝐎𝐖𝐍𝐄𝐑𝐒 ✦
+┗━━━━━━━━━━⬣
+👑 *Comandos exclusivos para Moderadores*
 
-🔹 *2. No al Spam:*  
-No abuses de los comandos en poco tiempo para evitar saturar el bot.  
+╭━━⊷ *comandos medios* ⊶━━╮
+┃ 💠 *#addcoins* - Añadir coins a un usuario.
+┃ 💠 *#userpremium* - Otorgar premium a un usuario.
+┃ 💠 *#delprem* - Quitar premium a un usuario.
+┃ 💠 *#addexp* - Añadir XP a un usuario.
+┃ 💠 *#autoadmin* - Admin automático si el bot es admin.
+┃ 💠 *#listban* - Ver lista de baneados.
+┃ 💠 *#banuser* - Banear a un usuario.
+┃ 💠 *#unbanuser* - Desbanear a un usuario.
+┃ 💠 *#block* / *#unblock* - Bloquear o desbloquear usuario.
+┃ 💠 *#listblock* - Ver usuarios bloqueados.
+┃ 💠 *#removecoin* - Quitar coins a un usuario.
+┃ 💠 *#removexp* - Quitar XP a un usuario.
+┃ 💠 *#deletedatauser* - Restablecer datos de usuario.
+┃ 💠 *#cleartmp* - Limpiar archivos temporales.
+┃ 💠 *#dsowner* - Eliminar archivos innecesarios de sesión.
+╰━━━━━━━━━━━━━╯
 
-🔹 *3. Contenido Permitido:*  
-No compartas información ilegal, ofensiva o con derechos de autor.  
+╭━⊷ *comandos avanzados* ⊶━╮
+┃ 🔥 *#addowner* / *#delowner* - Agregar o eliminar owner.
+┃ 🔥 *#codigo* - Crear código de canjeo.
+┃ 🔥 *#backup* - Respaldo de la DB del bot.
+┃ 🔥 *#bcgc* - Mensaje a todos los grupos.
+┃ 🔥 *#cleanfiles* - Eliminar archivos temporales.
+┃ 🔥 *#newgc* - Crear un grupo con el bot.
+┃ 🔥 *#deletefile* - Eliminar archivos del bot.
+┃ 🔥 *#get* - Ver estado de una página web.
+┃ 🔥 *#plugin* - Extraer un plugin del bot.
+┃ 🔥 *#grouplist* - Ver grupos donde está el bot.
+┃ 🔥 *#join* - Unir al bot a un grupo.
+┃ 🔥 *#leave* - Sacar al bot de un grupo.
+┃ 🔥 *#prefix* - Ver o cambiar prefijo del bot.
+┃ 🔥 *#resetprefix* - Restablecer prefijo del bot.
+┃ 🔥 *#reiniciar* - Reiniciar el servidor del bot.
+┃ 🔥 *#reunion* - Aviso de reunión a los owners.
+┃ 🔥 *#savejs* / *#saveplugin* - Guardar archivos en el bot.
+┃ 🔥 *#setbanner* - Cambiar imagen del menú.
+┃ 🔥 *#setcatalogo* - Cambiar imagen del catálogo.
+┃ 🔥 *#addcmd* / *#delcmd* - Guardar o eliminar comandos personalizados.
+┃ 🔥 *#cmdlist* - Ver lista de comandos guardados.
+┃ 🔥 *#setimage* - Cambiar foto de perfil del bot.
+┃ 🔥 *#setmoneda* - Cambiar la moneda del bot.
+┃ 🔥 *#setname* - Cambiar nombre del bot.
+┃ 🔥 *#setbio* - Cambiar biografía del bot.
+┃ 🔥 *#update* - Actualizar bot desde GitHub.
+╰━━━━━━━━━━━━━╯
 
-🔹 *4. Uso Responsable:*  
-Kirito Bot es una herramienta de asistencia y entretenimiento, no un soporte oficial.  
-
-🔹 *5. Seguridad y Ética:*  
-No intentes explotar, hackear o modificar el bot sin autorización.  
-
-🔹 *6. Restricciones de Uso:*  
-El bot puede limitar funciones si detecta abusos.  
-
-🔹 *7. Cierre de Acceso:*  
-El incumplimiento de las normas puede llevar a bloqueos sin previo aviso.  
-
-🔹 *📌 Nota:*  
-El uso del bot implica la aceptación de estas normas.
+💾 *Kirito-Bot* ⚔️ - Administración y control avanzado.
 `;
 
-const politica = `
-┏━━━━━━━━━━━━━━━┓
-┃  🔒 *POLÍTICA DE PRIVACIDAD* 🔒  
-┗━━━━━━━━━━━━━━━┛
-
-📌 *1. Recopilación de Datos:*  
-El bot almacena información básica (número, comandos usados) solo para mejorar su funcionamiento.  
-
-📌 *2. Uso de la Información:*  
-Los datos se utilizan exclusivamente para optimizar la experiencia del usuario y detectar abusos.  
-
-📌 *3. Protección de Datos:*  
-Se aplican medidas de seguridad, pero la protección absoluta no está garantizada en Internet.  
-
-📌 *4. Eliminación de Datos:*  
-Puedes solicitar la eliminación de tu información contactando al administrador.  
-
-📌 *5. Cambios en la Política:*  
-Esta política puede actualizarse en cualquier momento. Se notificará si hay cambios importantes.  
-
-🔹 *📌 Nota:*  
-Al usar Kirito Bot, aceptas estas condiciones.
-`;
-
-const imagenNormas = 'https://files.catbox.moe/7czphn.jpg';
-const imagenPolitica = 'https://files.catbox.moe/da62mt.jpg';
-
-export async function handler(m, { command, conn }) {
-    if (command === 'norma') {
-        await conn.sendMessage(m.chat, { image: { url: imagenNormas }, caption: normas }, { quoted: m });
-    } else if (command === 'política') {
-        await conn.sendMessage(m.chat, { image: { url: imagenPolitica }, caption: politica }, { quoted: m });
-    }
+await conn.sendMessage(m.chat, {
+text: owner,
+contextInfo: {
+externalAdReply: {
+title: 'Kirito-Bot ⚔️',
+body: 'Administración y Control Avanzado',
+thumbnailUrl: icono,
+mediaType: 1,
+showAdAttribution: true,
+renderLargerThumbnail: true
 }
+}
+}, { quoted: m });
+};
 
-handler.help = ['norma', 'política'];
-handler.tags = ['grupo'];
-handler.command = ['norma', 'política'];
+handler.help = ['mods'];
+handler.tags = ['main'];
+handler.command = ['mods', 'dev', 'owners'];
+handler.mods = true;
 
 export default handler;
