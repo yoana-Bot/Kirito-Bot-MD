@@ -73,7 +73,7 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
     regbot += `┃ ⭐ *Exp:* 300\n`
     regbot += `┃ 🎟️ *Tokens:* 20\n`
     regbot += `┣━━━━━━━━━━━✦\n`
-    regbot += `┃ 🔗 *${dev}*\n`
+    regbot += `┃  *${dev}*\n`
     regbot += `┗━━━━━━━━━━━✦\n`
 
     await m.react('📩')
@@ -82,12 +82,12 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
         text: regbot,
         buttons: [
             {
-                buttonId: '.imgg gato',
-                buttonText: { displayText: '😻 gato' },
+                buttonId: '.menu',
+                buttonText: { displayText: '👑 menu' },
             },
             {
-                buttonId: '.imgg perro',
-                buttonText: { displayText: '🐶 perro' },
+                buttonId: '.profile',
+                buttonText: { displayText: '🌟 perfil' },
             },
         ],
         footer: 'Selecciona una opción:',
