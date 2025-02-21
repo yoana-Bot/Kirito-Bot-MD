@@ -80,16 +80,16 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 
     await conn.sendMessage(m.chat, { 
         text: regbot,
-        buttons: [
-            {
-                buttonId: `${usedPrefix}menu`,
-                buttonText: { displayText: '📜 Menú' },
-            },
-            {
-                buttonId: `${usedPrefix}profile`,
-                buttonText: { displayText: '👤 Perfil' },
-            },
-        ],
+             buttons: [
+        {
+          buttonId: '.imgg gato',
+          buttonText: { displayText: '😻 gato' },
+        },
+        {
+          buttonId: '.imgg perro',
+          buttonText: { displayText: '🐶 perro' },
+        },
+      ],
         footer: 'Selecciona una opción:',
         viewOnce: true,
         contextInfo: {
