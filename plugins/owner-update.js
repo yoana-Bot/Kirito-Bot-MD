@@ -1,26 +1,49 @@
-import { exec } from 'child_process';
+import { execSync } from 'child_process'
 
-  exec('git pull', (err, stdout, stderr) => {
-    if (err) {
-      conn.reply(m.chat, `${msm} Error: No se pudo realizar la actualización.\nRazón: ${err.message}`, m);
-      return;
-    }
+var handler = async (m, { conn, text }) => {
 
-    if (stderr) {
-      console.warn('Advertencia durante la actualización:', stderr);
-    }
+m.react('🚀') 
+try {
 
-    if (stdout.includes('Already up to date.')) {
-      conn.reply(m.chat, `${emoji4} El bot ya está actualizado.`, m);
-    } else {
-      conn.reply(m.chat, `${emoji} Actualización realizada con éxito.\n\n${stdout}`, m);
-    }
-  });
-};
+const stdout = execSync('git pull' + (m.fromMe && text ? ' ' + text : ''));
+let messager = stdout.toString()
 
-handler.help = ['update'];
-handler.tags = ['owner'];
-handler.command = ['update'];
-handler.rowner = true;
+if (messager.includes('⚡ Ya estoy actualizada.')) messager = '⚡ Ya estoy actualizada a la última versión.'
 
-export default handler;
+if (messager.includes('👑 Actualizando.')) messager = '⚡ Procesando, espere un momento mientras me actualizo.\n\n' + stdout.toString()
+conn.reply(m.chat, messager, m, rcanal,)
+
+} catch { 
+try {
+
+const status = execSync('git status --porcelain')
+
+if (status.length > 0) {
+const conflictedFiles = status.toString().split('\n').filter(line => line.trim() !== '').map(line => {
+if (line.includes('.npm/') || line.includes('.cache/') || line.includes('tmp/') || line.includes('kiritoSession/') || line.includes('npm-debug.log')) {
+return null
+}
+return '*→ ' + line.slice(3) + '*'}).filter(Boolean)
+if (conflictedFiles.length > 0) {
+const errorMessage = `⚡ Se han hecho cambios locales qué entran en conflicto con las Actualizaciones del Repositorio, Para actualizar, reinstala el Bot o realiza las actualizaciones manualmente.\n\n✰ *ARCHIVOS EN CONFLICTO*\n\n${conflictedFiles.join('\n')}`
+await conn.reply(m.chat, errorMessage, m, rcanal,)
+}
+}
+} catch (error) {
+console.error(error)
+let errorMessage2 = '⚠️ Ocurrió un error inesperado.'
+if (error.message) {
+errorMessage2 += '\n⚠️ Mensaje de error: ' + error.message;
+}
+await conn.reply(m.chat, errorMessage2, m, rcanal,)
+}
+}
+
+}
+
+handler.help = ['update', 'actualizar']
+handler.tags = ['owner']
+handler.command = ['update', 'actualizar']
+handler.rowner = true
+
+export default handler
