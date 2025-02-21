@@ -1,6 +1,5 @@
-{
-"name": "Kirito-Bot-MD",
-"version": "2.2.0",
+"name": "Mitsuri-Kanroji-Bot-MD",
+"version": "2.1.5",
 "description": "Super WhatsApp Bot Multi Device",
 "main": "index.js",
 "type": "module",
@@ -18,20 +17,20 @@
 "eslint": "eslint .",
 "eslintfix": "eslint --fix ."
 },
-"homepage": "https://github.com/deylinqff/Kirito-Bot-MD",
+"homepage": "https://github.com/2277meliodas/Mitsuri-Kanroji-Bot-MD",
 "author": {
-"name": "Deylin"
+"name": "2277meliodas"
 },
 "repository": {
 "type": "git",
-"url": "git+https://github.com/deylinqff/Kirito-Bot-MD.git"
+"url": "git+https://github.com/2277meliodas/Mitsuri-Kanroji-Bot-MD.git"
 },
 "bugs": {
-"url": "https://github.com/deylinqff/Kirito-Bot-MD/issues"
+"url": "https://github.com/2277meliodas/Mitsuri-Kanroji-Bot-MD/issues"
 },
 "license": "GPL-3.0-or-later",
 "dependencies": {
-"@whiskeysockets/baileys": "^6.7.13",
+"@whiskeysockets/baileys": "github:ds6/bails",
 "@adiwajshing/keyed-db": "^0.2.4",
 "@bochilteam/scraper": "^4.2.4",
 "@bochilteam/scraper-sosmed": "^1.0.5",
@@ -40,7 +39,6 @@
 "awesome-phonenumber": "^3.4.0",
 "ruhend-scraper": "^7.0.4",
 "gradient-string": "^2.0.2",
-"google-libphonenumber": "3.2.38",
 "axios": "^1.1.2",
 "acrcloud": "^1.4.0",
 "form-data": "^4.0.0",
