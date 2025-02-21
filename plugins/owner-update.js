@@ -1,8 +1,5 @@
 import { exec } from 'child_process';
 
-let handler = async (m, { conn }) => {
-  m.reply(`${emoji2} Actualizando el bot...`);
-
   exec('git pull', (err, stdout, stderr) => {
     if (err) {
       conn.reply(m.chat, `${msm} Error: No se pudo realizar la actualización.\nRazón: ${err.message}`, m);
