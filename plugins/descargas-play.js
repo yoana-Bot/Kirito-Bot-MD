@@ -3,7 +3,6 @@ import yts from 'yt-search';
 const handler = async (m, { conn, text, command }) => {
   if (!text) throw '⚠️ Ingresa el nombre de la música que deseas descargar.';
 
-  const isVideo = /vid|2|mp4|v$/.test(command);
   const search = await yts(text);
 
   if (!search.all || search.all.length === 0) {
@@ -18,19 +17,28 @@ const handler = async (m, { conn, text, command }) => {
     `📅 *Publicado:* ${videoInfo.ago}\n` +
     `🔗 *Link:* ${videoInfo.url}`;
 
-  if (command.startsWith('play')) {
-    await conn.sendMessage(m.chat, {
+  if (command === 'play' || command === 'play2' || command === 'playvid') {
+    let msg = await conn.sendMessage(m.chat, {
       image: { url: videoInfo.thumbnail },
       caption: body,
-      footer: 'Kirito-Bot',
+      footer: dev,
       buttons: [
-        { buttonId: `.yta ${videoInfo.url}`, buttonText: { displayText: '🎧 Audio' }, type: 1 },
-        { buttonId: `.ytv ${videoInfo.url}`, buttonText: { displayText: '🎬 Video' }, type: 1 }
+        {
+          buttonId: `.ytmp3 ${videoInfo.url}`,
+          buttonText: { displayText: 'ᯓᡣ𐭩 ᥲᥙძі᥆' },
+          type: 1
+        },
+        {
+          buttonId: `.ytmp4 ${videoInfo.url}`,
+          buttonText: { displayText: 'ᯓᡣ𐭩 ᥎іძᥱ᥆' },
+          type: 1
+        }
       ],
+      viewOnce: true,
       headerType: 4
-    }, { quoted: m });
+    }, { quoted: fkontak });
 
-    return m.react('⏳');
+    return m.react('🕒');
   }
 
   if (command.startsWith('yta') || command.startsWith('ytmp3')) {
