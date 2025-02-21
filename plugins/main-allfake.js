@@ -39,8 +39,8 @@ global.listo = '❮✦❯ *Aquí tienes ฅ^•ﻌ•^ฅ*'
 global.fotoperfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg')
 
 //Ids channel
-global.idchannel = '120363343811229130@newsletter'
-global.canalIdM = ["120363322713003916@newsletter", "120363343811229130@newsletter"]
+global.idchannel = '120363372653753296@newsletter'
+global.canalIdM = ["120363365444927738@newsletter", "120363365444927738@newsletter"]
 global.canalNombreM = ["ᥫ᭡ ᥡᥙkіᑲ᥆𝗍-mძ - ᥙ⍴ძᥲ𝗍ᥱs ❀", "ᥫ᭡ ᥡᥙkіᑲ᥆𝗍-mძ - ᥲ᥎іs᥆s ❀"]
 global.channelRD = await getRandomChannel()
 
@@ -74,9 +74,9 @@ global.waittt = '❀ Espera un momento, soy lenta...';
 global.waitttt = '❀ Espera un momento, soy lenta...';
 
 //Enlaces
-var canal = 'https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T'  
-let canal2 = 'https://whatsapp.com/channel/0029VavzewJLikg78gILRn1o'
-var git = 'https://github.com/The-King-Destroy'
+var canal = 'https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m'  
+let canal2 = 'https://whatsapp.com/channel/0029VayQwPsFnSzESZJ9Us3z'
+var git = 'https://github.com/deylinqff'
 var github = 'https://github.com/The-King-Destroy/Yuki_Suou-Bot' 
 let correo = 'thekingdestroy507@gmail.com'
 
