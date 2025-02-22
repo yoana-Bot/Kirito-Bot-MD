@@ -50,8 +50,7 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
   user.registered = true;
 
   let sn = createHash('md5').update(m.sender).digest('hex');
-  let regi = `
-┌─「 *${mssg.regOn.toUpperCase()}* 」─
+  let regi = `┌─「 *${mssg.regOn.toUpperCase()}* 」─
 │ *${mssg.name}:* ${name}
 │ *${mssg.age}:* ${age}
 │ *${mssg.gender}:* ${genStr}
@@ -59,18 +58,21 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 ${sn}
 └──────────────
 
- \`\`\`⏍ Como bono por tu registro, se te han añadido 8400 coins 🪙 a tu cuenta de banco 🏦\`\`\`
+\`\`\`⏍ Como bono por tu registro, se te han añadido 8400 coins 🪙 a tu cuenta de banco 🏦\`\`\`
 `;
 
-  let buttons = [
-    { buttonId: `${usedPrefix}menu`, buttonText: { displayText: '📜 Menú' }, type: 1 }
-  ];
+  let buttonMessage = {
+    text: regi,
+    footer: '𝑲𝒊𝒓𝒊𝒕𝒐-𝑩𝒐𝒕 ©',
+    buttons: [{ buttonId: `${usedPrefix}menu`, buttonText: { displayText: '📜 Menú' }, type: 1 }],
+    headerType: 1
+  };
 
-  conn.sendMessage(m.chat, { text: regi, buttons: buttons, footer: '𝑲𝒊𝒓𝒊𝒕𝒐-𝑩𝒐𝒕 ©', headerType: 1 }, { quoted: m });
+  await conn.sendMessage(m.chat, buttonMessage, { quoted: m });
 };
 
 handler.help = ['reg'].map(v => v + ' <nombre.edad.género>');
 handler.tags = ['rg'];
-handler.command = ['verify', 'rege', 'register', 'registrar', 'verificar'];
+handler.command = ['verify', 'reg', 'register', 'registrar', 'verificar'];
 
 export default handler;
