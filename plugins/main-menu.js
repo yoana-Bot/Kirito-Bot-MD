@@ -22,6 +22,7 @@ const categorias = {
   'audio': '🎵 AUDIOS',
   'advanced': '🚀 AVANZADO',
   'rcanal': '📺 R-CANAL',
+  'ia': '🌟 IA',
 };
 
 const emojisCategorias = {
@@ -43,6 +44,7 @@ const emojisCategorias = {
   'audio': '🎶',
   'advanced': '🚀',
   'rcanal': '📺',
+  'ia': '🌟',
 };
 
 const generarSaludo = () => {
