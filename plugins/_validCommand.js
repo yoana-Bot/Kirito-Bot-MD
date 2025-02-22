@@ -33,7 +33,7 @@ export async function before(m) {
           buttonText: { displayText: '👑 Ver Menú' },
         },
       ],
-      footer: '${comando}',
+      footer: 'KIRITO - BOT MD',
       viewOnce: true,
     }, { quoted: m });
   }
