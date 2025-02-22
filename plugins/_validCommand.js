@@ -30,10 +30,10 @@ export async function before(m) {
       buttons: [
         {
           buttonId: '.menu',
-          buttonText: { displayText: '📜 Ver Menú' },
+          buttonText: { displayText: '👑 Ver Menú' },
         },
       ],
-      footer: 'Kirito-Bot',
+      footer: '${comando}',
       viewOnce: true,
     }, { quoted: m });
   }
