@@ -58,9 +58,9 @@ let handler = async (_0x10bd40, {
         'buttons': [{
           'name': "cta_url",
           'buttonParamsJson': JSON.stringify({
-            "display_text": "Ver en Pinterest",
-            "url": `https://www.pinterest.com/search/pins/?rs=typed&q=${_0x27db11}`,
-            "merchant_url": `https://www.pinterest.com/search/pins/?rs=typed&q=${_0x27db11}`
+            "display_text": "Descargar Imagen",
+            "url": _0x47c48a,
+            "merchant_url": _0x47c48a
           })
         }]
       })
