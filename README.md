@@ -9,7 +9,7 @@ src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" heigh
 </p>  
 
 <a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
-src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
+src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="5" alt="maicolxyz777"/></a>
 
 ### 🏆 **Poder y Precisión en un Solo Bot**  
 📌 **Creado por:** `Deylin`  
