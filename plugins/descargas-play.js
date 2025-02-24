@@ -1,94 +1,83 @@
-import axios from 'axios';
-import cheerio from 'cheerio';
-import qs from 'qs';
+import yts from 'yt-search';
 
-let handler = async (m, { conn, text, usedPrefix, command }) => {
-  if (!text) {
-    return m.reply(`Ejemplo de uso: *${usedPrefix + command} nose como paso*`);
+const handler = async (m, { conn, text, usedPrefix, command }) => {
+  if (!text) throw `${emoji} Por favor ingresa la música que deseas descargar.`;
+
+  const isVideo = /vid|2|mp4|v$/.test(command);
+  const search = await yts(text);
+
+  if (!search.all || search.all.length === 0) {
+    throw "No se encontraron resultados para tu búsqueda.";
   }
 
-  const appleMusic = {
-    search: async (query) => {
-      const url = `https://music.apple.com/us/search?term=${query}`;
+  const videoInfo = search.all[0];
+  const body = `「✦」ძᥱsᥴᥲrgᥲᥒძ᥆ *<${videoInfo.title}>*\n\n> ✦ ᥴᥲᥒᥲᥣ » *${videoInfo.author.name || 'Desconocido'}*\n*◆━━━━━━◆✰◆━━━━━━◆*\n> ✰ ᥎іs𝗍ᥲs » *${videoInfo.views}*\n*◆━━━━━━◆✰◆━━━━━━◆*\n> ⴵ ძᥙrᥲᥴі᥆ᥒ » *${videoInfo.timestamp}*\n*◆━━━━━━◆✰◆━━━━━━◆*\n> ✐ ⍴ᥙᑲᥣіᥴᥲძ᥆ » *${videoInfo.ago}*\n*◆━━━━━━◆✰◆━━━━━━◆*\n> 🜸 ᥣіᥒk » ${videoInfo.url}\n`;
+
+  if (command === 'play' || command === 'play2' || command === 'playvid') {
+    await conn.sendMessage(m.chat, {
+      image: { url: videoInfo.thumbnail },
+      caption: body,
+      footer: dev,
+      viewOnce: true,
+      headerType: 4,
+    }, { quoted: fkontak });
+    m.react('🕒');
+
+  } else if (command === 'yta' || command === 'ytmp3') {
+    m.react(rwait);
+    let audio;
+    try {
+      audio = await (await fetch(`https://api.alyachan.dev/api/youtube?url=${videoInfo.url}&type=mp3&apikey=Gata-Dios`)).json();
+    } catch (error) {
       try {
-        const { data } = await axios.get(url);
-        const $ = cheerio.load(data);
-        const results = [];
-        $('.desktop-search-page .section[data-testid="section-container"] .grid-item').each((_, element) => {
-          const title = $(element).find('.top-search-lockup__primary__title').text().trim();
-          const subtitle = $(element).find('.top-search-lockup__secondary').text().trim();
-          const link = $(element).find('.click-action').attr('href');
-          results.push({ title, subtitle, link });
-        });
-        return results;
+        audio = await (await fetch(`https://delirius-apiofc.vercel.app/download/ytmp3?url=${videoInfo.url}`)).json();
       } catch (error) {
-        console.error("Error en la búsqueda:", error.message);
-        return [];
+        audio = await (await fetch(`https://api.vreden.my.id/api/ytmp3?url=${videoInfo.url}`)).json();
       }
     }
-  };
 
-  const appledown = {
-    download: async (url) => {
+    if (!audio.data || !audio.data.url) throw "No se pudo obtener el audio.";
+    conn.sendFile(m.chat, audio.data.url, videoInfo.title, '', m, null, { mimetype: "audio/mpeg", asDocument: false });
+    m.react(done);
+
+  } else if (command === 'ytv' || command === 'ytmp4') {
+    m.react(rwait);
+    let video;
+    try {
+      video = await (await fetch(`https://api.alyachan.dev/api/youtube?url=${videoInfo.url}&type=mp4&apikey=Gata-Dios`)).json();
+    } catch (error) {
       try {
-        const { data } = await axios.get(`https://aaplmusicdownloader.com/api/applesearch.php?url=${url}`);
-        if (!data || !data.name) return null;
-        
-        console.log("Imagen:", data.thumb);
-        console.log("Descarga:", data.url);
-
-        return {
-          name: data.name,
-          album: data.albumname,
-          artist: data.artist,
-          thumb: data.thumb,
-          duration: data.duration,
-          download: data.url
-        };
+        video = await (await fetch(`https://delirius-apiofc.vercel.app/download/ytmp4?url=${videoInfo.url}`)).json();
       } catch (error) {
-        console.error("Error al obtener la música:", error.message);
-        return null;
+        video = await (await fetch(`https://api.vreden.my.id/api/ytmp4?url=${videoInfo.url}`)).json();
       }
     }
-  };
 
-  conn.sendMessage(m.chat, { react: { text: "🕒", key: m.key } });
-
-  const searchResults = await appleMusic.search(text);
-  if (!searchResults.length) return m.reply("No se encontraron resultados.");
-
-  const musicData = await appledown.download(searchResults[0].link);
-  if (!musicData) return m.reply("No se pudo descargar la música.");
-
-  const { name, album, artist, thumb, duration, download } = musicData;
-
-  try {
-    const imageBuffer = await axios.get(thumb, { responseType: 'arraybuffer' }).then(res => res.data);
+    if (!video.data || !video.data.url) throw "No se pudo obtener el video.";
     await conn.sendMessage(m.chat, {
-      image: imageBuffer,
-      caption: `🎵 *${name}*\n📀 *Álbum:* ${album}\n👤 *Artista:* ${artist}\n⏳ *Duración:* ${duration}`
-    });
-  } catch (error) {
-    console.error("Error al descargar la imagen:", error.message);
-  }
+      video: { url: video.data.url },
+      mimetype: "video/mp4",
+      caption: ``,
+    }, { quoted: m });
+    m.react(done);
 
-  try {
-    const audioBuffer = await axios.get(download, { responseType: 'arraybuffer' }).then(res => res.data);
-    await conn.sendMessage(m.chat, {
-      audio: audioBuffer,
-      mimetype: 'audio/mp4',
-      fileName: `${name}.mp3`
-    });
-  } catch (error) {
-    console.error("Error al descargar el audio:", error.message);
-    return m.reply("Error al descargar la música.");
+  } else {
+    throw "Comando no reconocido.";
   }
-
-  await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key } });
 };
 
-handler.help = ['play'];
-handler.tags = ['downloader'];
-handler.command = /^(applemusicplay|play|song)$/i;
+handler.help = ['play', 'playvid', 'ytv', 'ytmp4', 'yta', 'play2', 'ytmp3'];
+handler.command = ['play', 'playvid', 'ytv', 'ytmp4', 'yta', 'play2', 'ytmp3'];
+handler.tags = ['dl'];
+handler.register = true;
 
 export default handler;
+
+const getVideoId = (url) => {
+  const regex = /(?:v=|\/)([0-9A-Za-z_-]{11}).*/;
+  const match = url.match(regex);
+  if (match) {
+    return match[1];
+  }
+  throw new Error("Invalid YouTube URL");
+};
