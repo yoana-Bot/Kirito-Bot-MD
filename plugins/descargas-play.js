@@ -17,28 +17,30 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     await conn.sendMessage(m.chat, {
       image: { url: videoInfo.thumbnail },
       caption: body,
-      footer: dev,
+      footer: dev,  // Verifica si la variable 'dev' está definida correctamente
       viewOnce: true,
       headerType: 4,
-    }, { quoted: fkontak });
+    }, { quoted: fkontak });  // Asegúrate de que 'fkontak' esté definido
     m.react('🕒');
 
   } else if (command === 'yta' || command === 'ytmp3') {
-    m.react(rwait);
+    m.react(rwait);  // Asegúrate de que 'rwait' esté definido
     let audio;
     try {
       audio = await (await fetch(`https://api.alyachan.dev/api/youtube?url=${videoInfo.url}&type=mp3&apikey=Gata-Dios`)).json();
     } catch (error) {
+      console.log("Error en API Alyachan:", error);
       try {
         audio = await (await fetch(`https://delirius-apiofc.vercel.app/download/ytmp3?url=${videoInfo.url}`)).json();
       } catch (error) {
+        console.log("Error en API Delirius:", error);
         audio = await (await fetch(`https://api.vreden.my.id/api/ytmp3?url=${videoInfo.url}`)).json();
       }
     }
 
     if (!audio.data || !audio.data.url) throw "No se pudo obtener el audio.";
     conn.sendFile(m.chat, audio.data.url, videoInfo.title, '', m, null, { mimetype: "audio/mpeg", asDocument: false });
-    m.react(done);
+    m.react(done);  // Asegúrate de que 'done' esté definido
 
   } else if (command === 'ytv' || command === 'ytmp4') {
     m.react(rwait);
@@ -46,9 +48,11 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     try {
       video = await (await fetch(`https://api.alyachan.dev/api/youtube?url=${videoInfo.url}&type=mp4&apikey=Gata-Dios`)).json();
     } catch (error) {
+      console.log("Error en API Alyachan:", error);
       try {
         video = await (await fetch(`https://delirius-apiofc.vercel.app/download/ytmp4?url=${videoInfo.url}`)).json();
       } catch (error) {
+        console.log("Error en API Delirius:", error);
         video = await (await fetch(`https://api.vreden.my.id/api/ytmp4?url=${videoInfo.url}`)).json();
       }
     }
@@ -59,7 +63,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       mimetype: "video/mp4",
       caption: ``,
     }, { quoted: m });
-    m.react(done);
+    m.react(done);  // Asegúrate de que 'done' esté definido
 
   } else {
     throw "Comando no reconocido.";
@@ -72,12 +76,3 @@ handler.tags = ['dl'];
 handler.register = true;
 
 export default handler;
-
-const getVideoId = (url) => {
-  const regex = /(?:v=|\/)([0-9A-Za-z_-]{11}).*/;
-  const match = url.match(regex);
-  if (match) {
-    return match[1];
-  }
-  throw new Error("Invalid YouTube URL");
-};
