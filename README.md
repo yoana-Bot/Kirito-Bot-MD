@@ -4,10 +4,10 @@
 
 <a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
 src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
+
 <p align="center">
   <img src="https://tinyurl.com/2yeaghq8" alt="Menú Principal">
 </p>  
-
 <a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
 src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="5" alt="maicolxyz777"/></a>
 
