@@ -1,35 +1,54 @@
-# 🤖 **ChatGPT - Asistente de Deylin** | Inteligencia Artificial para Todo
 
-<h1 align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=30&pause=500&color=00F7FF&center=true&vCenter=true&width=500&lines=🚀+Hola,+soy+ChatGPT!+💡" alt="Typing SVG">
-</h1>
+|⚔️ Kirito-Bot |
 
----
+El Guardián del Código 🌌
 
-<p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&pause=1000&color=00F7FF&center=true&vCenter=true&width=600&lines=Asistente+Inteligente+de+Conversación;Apoyo+en+Desarrollo+de+Bots;Optimización+de+Procesos;Explorador+de+Tecnologías" alt="Typing SVG" />
-</p>
+<a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img    
+src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
 
----
+<p align="center">    
+  <img src="https://tinyurl.com/2yeaghq8" alt="Menú Principal">    
+</p>    <a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img    
+src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>  🏆 Poder y Precisión en un Solo Bot
 
-## 🛠️ **Tecnologías y Herramientas**
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=python,js,html,css,linux,github,api,openai" />
-</p>
+📌 Creado por: Deylin
+⚔ Optimizado para WhatsApp
+🔮 Diseño inspirado en Sword Art Online
+🚀 ¡Rápido, potente y seguro!
 
----
+<a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img    
+src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
 
-## 🚀 **Funciones Avanzadas de ChatGPT**
+🚀 Explora Kirito-Bot
 
-### 1. **Generación de Texto Avanzado con GPT-4**
-```js
-const { OpenAI } = require("openai");
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+<p align="center">    
+  <img src="https://qu.ax/SuZFt.jpg" alt="Kirito-Bot">    
+</p>    <a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img    
+src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>  🔥 ¡Únete y Personaliza!
 
-async function generateResponse(prompt) {
-  const response = await openai.chat.completions.create({
-    model: "gpt-4",
-    messages: [{ role: "user", content: prompt }],
-  });
-  return response.choices[0].message.content;
-}
+<a href="https://github.com/deylinqff">    
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&duration=4000&pause=1000&color=0099FF&width=435&lines=⚔️+CLONA+EL+REPOSITORIO+Y+MODIFÍCALO+⚔️" alt="Typing SVG">    
+</a>    📢 ¡No olvides dejar los créditos! → Aquí  <a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img    
+src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
+
+🌐 Forma parte de la Comunidad
+
+💬 Canal Oficial: Click Aquí
+
+<a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img    
+src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
+
+🌟 CREADOR
+
+<a href="https://github.com/deylinqff">    
+  <img src="https://github.com/deylinqff.png" width="130" height="130" alt="Deylin">    
+</a>    🎯 Apoya el proyecto:  
+<a href="mailto:ninopina10@gmail.com">  
+<img src="https://img.shields.io/badge/PayPal-000000?style=for-the-badge&logo=paypal&logoColor=white">  
+</a>  ⚔️ © Powered By Deyin ⚡︎
+
+<a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img    
+src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
+
+Quiero que lo pongas funciones avanzadas de tecnología cosas únicas
+
