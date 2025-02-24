@@ -89,7 +89,7 @@ src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" heigh
 
 <p align="center">
   <a href="https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m" target="_blank">
-    <img src="https://img.shields.io/badge/©%20Powered%20By%20Deyin-00F7FF?style=for-the-badge&logo=whatsapp&logoColor=blue" alt="Canal Oficial de Deyin">
+    <img src="https://img.shields.io/badge/©%20Powered%20By%20Deyin-00F7FF?style=for-the-badge&logo=whatsapp&logoColor=red" alt="Canal Oficial de Deyin">
   </a>
 </p>
 
