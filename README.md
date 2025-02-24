@@ -47,8 +47,8 @@ src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" heigh
 ## 📊 **Estadísticas de GitHub**
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=deylinqff&repo=Kirito-Bot-MD&show_icons=true&theme=radical&hide_border=true" alt="GitHub Stats">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=deylinqff&repo=Kirito-Bot-MD&theme=radical&hide_border=true" alt="GitHub Streak">
+  <img src="https://github-readme-stats.vercel.app/api?username=deylinqff&repo=Kirito-Bot-MD&show_icons=true&theme=radical&hide_border=true" alt="Estadísticas de GitHub">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=deylinqff&repo=Kirito-Bot-MD&theme=radical&hide_border=true" alt="Racha de GitHub">
 </p>
 
 ## 🌟 **CREADOR**  
@@ -57,7 +57,7 @@ src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" heigh
 </a>  
 
 
-## 👑 ¡Contáctame!**
+## 👑 **¡Contáctame!**
 
 <p align="center">
   <a href="https://github.com/deylinqff">
