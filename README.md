@@ -1,61 +1,62 @@
-|⚔️ Kirito-Bot |
 
-El Guardián del Código 🌌
+# ⚔️ **Kirito-Bot** | 
+`El Guardián del Código` 🌌 
 
-<a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img  
+<a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
+src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
+<p align="center">
+  <img src="https://tinyurl.com/2yeaghq8" alt="Menú Principal">
+</p>  
+
+<a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
 src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
 
-<p align="center">  
-  <img src="https://tinyurl.com/2yeaghq8" alt="Menú Principal">  
-</p>    <a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img  
+### 🏆 **Poder y Precisión en un Solo Bot**  
+📌 **Creado por:** `Deylin`  
+⚔ **Optimizado para WhatsApp**  
+🔮 **Diseño inspirado en Sword Art Online**  
+🚀 **¡Rápido, potente y seguro!**  
+
+<a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
+src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
+## 🚀 **Explora Kirito-Bot**  
+<p align="center">
+  <img src="https://qu.ax/SuZFt.jpg" alt="Kirito-Bot">
+</p>  
+
+<a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
+src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
+## 🔥 **¡Únete y Personaliza!**  
+<a href="https://github.com/deylinqff">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&duration=4000&pause=1000&color=0099FF&width=435&lines=⚔️+CLONA+EL+REPOSITORIO+Y+MODIFÍCALO+⚔️" alt="Typing SVG">
+</a>  
+
+📢 **¡No olvides dejar los créditos!** → [**Aquí**](https://github.com/deylinqff/Kirito_Bot/fork)  
+
+<a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
 src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
 
-🏆 Poder y Precisión en un Solo Bot
+## 🌐 ***Forma parte de la Comunidad*** 
+💬 **Canal Oficial:** [`Click Aquí`](https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m)  
 
-📌 Creado por: Deylin
-⚔ Optimizado para WhatsApp
-🔮 Diseño inspirado en Sword Art Online
-🚀 ¡Rápido, potente y seguro!
-
-<a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img  
+<a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
 src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
 
-🚀 Explora Kirito-Bot
-
-<p align="center">  
-  <img src="https://qu.ax/SuZFt.jpg" alt="Kirito-Bot">  
-</p>    <a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img  
-src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
-
-🔥 ¡Únete y Personaliza!
-
-<a href="https://github.com/deylinqff">  
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&duration=4000&pause=1000&color=0099FF&width=435&lines=⚔️+CLONA+EL+REPOSITORIO+Y+MODIFÍCALO+⚔️" alt="Typing SVG">  
-</a>    📢 ¡No olvides dejar los créditos! → Aquí
-
-<a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img  
-src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
-
-🌐 Forma parte de la Comunidad
-
-💬 Canal Oficial: Click Aquí
-
-<a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img  
-src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=400&color=00CCFF&lines=✨+Espero+que+disfrutes+este+repositorio;💙+Creado+con+dedicación;⚔️+By+Mr.|Deyin+🌠🚀)](https://git.io/typing-svg)  
 
 
+🌟 Creador del Proyecto
 
-🌟 CREADOR
+<p align="center">
+  <img src="https://avatars.githubusercontent.com/u/107260663?v=4" alt="Deylin Avatar" width="200" height="200"/>
+</p>Creado por Deylin, apasionado por la tecnología y el desarrollo de bots inteligentes. ¡Gracias por usar Kirito-Bot!
 
-<a href="https://github.com/deylinqff">  
-  <img src="https://github.com/deylinqff.png" width="130" height="130" alt="Deylin">  
-</a>    🎯 Apoya el proyecto:
+🎯 **Apoya el proyecto:**  
 <a href="mailto:ninopina10@gmail.com">
-<img src="https://img.shields.io/badge/PayPal-000000?style=for-the-badge&logo=paypal&logoColor=white">
-</a>
+  <img src="https://img.shields.io/badge/PayPal-000000?style=for-the-badge&logo=paypal&logoColor=white">
+</a>  
 
-⚔️ © Powered By Deyin ⚡︎
+## ⚔️ [© Powered By Deyin ⚡︎](https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m)  
 
-<a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img  
+<a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
 src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
-
