@@ -1,6 +1,6 @@
-> ⌛ **Versión Actual:** `1.1.2`  
+
 # ⚔️ **Kirito-Bot** | 
-`El Guardián del Código` 🌌 
+`El Guardián del Código` 🔥 
 
 <a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
 src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
@@ -50,7 +50,7 @@ src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" heigh
 </a>  
 
 
-📫 ¡Contáctame!
+## 👑 ¡Contáctame!**
 
 <p align="center">
   <a href="https://github.com/deylinqff">
