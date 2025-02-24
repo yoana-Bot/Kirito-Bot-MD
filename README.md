@@ -36,10 +36,10 @@ src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" heigh
 
 `Clonar repositorio`
 ```bash
-git clone https://github.com/deylinqff/Kirito_Bot.git
+<git clone https://github.com/deylinqff/Kirito_Bot.git
 cd Kirito_Bot
 npm install
-npm start
+npm start>
 
 <a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img  
 src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
