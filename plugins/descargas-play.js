@@ -18,20 +18,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       image: { url: videoInfo.thumbnail },
       caption: body,
       footer: dev,
-      buttons: [
-        {
-          buttonId: `.yta ${videoInfo.url}`,
-          buttonText: {
-            displayText: 'ᯓ👑 𝑨𝒖𝒅𝒊𝒐',
-          },
-        },
-        {
-          buttonId: `.ytv ${videoInfo.url}`,
-          buttonText: {
-            displayText: 'ᯓ👑 𝑽𝒊𝒅𝒆𝒐',
-          },
-        },
-      ],
+
       viewOnce: true,
       headerType: 4,
     }, { quoted: fkontak });
@@ -121,20 +108,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       image: { url: videoInfo.thumbnail },
       caption: body,
       footer: dev,
-      buttons: [
-        {
-          buttonId: `.ytmp3 ${videoInfo.url}`,
-          buttonText: {
-            displayText: 'ᯓ👑 𝑨𝒖𝒅𝒊𝒐',
-          },
-        },
-        {
-          buttonId: `.ytmp4 ${videoInfo.url}`,
-          buttonText: {
-            displayText: 'ᯓ👑  𝑽𝒊𝒅𝒆𝒐',
-          },
-        },
-      ],
+      
       viewOnce: true,
       headerType: 4,
     }, { quoted: fkontak });
