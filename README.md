@@ -48,7 +48,7 @@ src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" heigh
 🌟 Creador del Proyecto
 
 <p align="center">
-  <img src="https://avatars.githubusercontent.com/u/107260663?v=4" alt="Deylin Avatar" width="200" height="200"/>
+  <img src="https://github.com/deylinqff" alt="Deylin Avatar" width="200" height="200"/>
 </p>Creado por Deylin, apasionado por la tecnología y el desarrollo de bots inteligentes. ¡Gracias por usar Kirito-Bot!
 
 🎯 **Apoya el proyecto:**  
