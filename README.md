@@ -44,6 +44,13 @@ src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" heigh
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=400&color=00CCFF&lines=✨+Espero+que+disfrutes+este+repositorio;💙+Creado+con+dedicación;⚔️+By+Mr.|Deyin+🌠🚀)](https://git.io/typing-svg)  
 
+📊 Estadísticas de GitHub
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=deylinqff&show_icons=true&theme=radical&hide_border=true" alt="GitHub Stats">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=deylinqff&theme=radical&hide_border=true" alt="GitHub Streak">
+</p>
+
 ## 🌟 **CREADOR**  
 <a href="https://github.com/deylinqff">
   <img src="https://github.com/deylinqff.png" width="130" height="130" alt="Deylin">
