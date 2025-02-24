@@ -21,7 +21,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
           results.push({ title, subtitle, link });
         });
         return results;
-      } catch {
+      } catch (error) {
+        console.error("Error en la búsqueda:", error.message);
         return [];
       }
     }
@@ -32,6 +33,10 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
       try {
         const { data } = await axios.get(`https://aaplmusicdownloader.com/api/applesearch.php?url=${url}`);
         if (!data || !data.name) return null;
+        
+        console.log("Imagen:", data.thumb);
+        console.log("Descarga:", data.url);
+
         return {
           name: data.name,
           album: data.albumname,
@@ -40,7 +45,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
           duration: data.duration,
           download: data.url
         };
-      } catch {
+      } catch (error) {
+        console.error("Error al obtener la música:", error.message);
         return null;
       }
     }
@@ -56,19 +62,27 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
   const { name, album, artist, thumb, duration, download } = musicData;
 
-  await conn.sendMessage(m.chat, {
-    image: { url: thumb },
-    caption: `🎵 *${name}*  
-📀 *Álbum:* ${album}  
-👤 *Artista:* ${artist}  
-⏳ *Duración:* ${duration}`
-  });
+  try {
+    const imageBuffer = await axios.get(thumb, { responseType: 'arraybuffer' }).then(res => res.data);
+    await conn.sendMessage(m.chat, {
+      image: imageBuffer,
+      caption: `🎵 *${name}*\n📀 *Álbum:* ${album}\n👤 *Artista:* ${artist}\n⏳ *Duración:* ${duration}`
+    });
+  } catch (error) {
+    console.error("Error al descargar la imagen:", error.message);
+  }
 
-  await conn.sendMessage(m.chat, {
-    audio: { url: download },
-    mimetype: 'audio/mp4',
-    fileName: `${name}.mp3`
-  });
+  try {
+    const audioBuffer = await axios.get(download, { responseType: 'arraybuffer' }).then(res => res.data);
+    await conn.sendMessage(m.chat, {
+      audio: audioBuffer,
+      mimetype: 'audio/mp4',
+      fileName: `${name}.mp3`
+    });
+  } catch (error) {
+    console.error("Error al descargar el audio:", error.message);
+    return m.reply("Error al descargar la música.");
+  }
 
   await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key } });
 };
