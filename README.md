@@ -1,3 +1,9 @@
+!-- Título Animado -->
+<h1 align="center">
+  <span style="color:#00CCFF;">⚔️ </span>
+  <span style="color:white;">Kirito-Bot </span>
+  <span style="color:#00FF00;">| El Guardián del Código 🌌</span>
+</h1>
 
 # ⚔️ **Kirito-Bot** | 
 `El Guardián del Código` 🔥 
