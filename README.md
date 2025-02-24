@@ -51,11 +51,26 @@ src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" heigh
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=deylinqff&repo=Kirito-Bot-MD&theme=radical&hide_border=true" alt="Racha de GitHub">
 </p>
 
-## 🌟 **CREADOR**  
-<a href="https://github.com/deylinqff">
-  <img src="https://github.com/deylinqff.png" width="130" height="130" alt="Deylin">
-</a>  
+## 🌟 **Creador del Proyecto**
 
+<p align="center">
+  <a href="https://github.com/deylinqff">
+    <img src="https://avatars.githubusercontent.com/u/107260663?v=4" alt="Deylin Avatar" width="200" height="200" style="border-radius: 50%; border: 4px solid #00F7FF;"/>
+  </a>
+</p>
+
+<p align="center">
+  <strong>Creado por Deylin</strong>, un apasionado desarrollador de bots inteligentes y tecnología avanzada. 
+  <br> Con un enfoque en optimización y automatización de procesos, Deylin se dedica a mejorar la interacción de los usuarios con la tecnología.
+</p>
+
+<p align="center">
+  ¡Gracias por usar **Kirito-Bot**! Tu apoyo ayuda a continuar mejorando este proyecto y hacerlo crecer.
+</p>
+
+<p align="center">
+  Conoce más sobre mi trabajo y proyectos visitando mi perfil en <a href="https://github.com/deylinqff" target="_blank">GitHub</a>.
+</p>
 
 ## 👑 **¡Contáctame!**
 
