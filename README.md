@@ -14,7 +14,7 @@ src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" heigh
 
 ### 1. **IA Conversacional Inteligente (GPT-4)**
 
-```js
+
 const { OpenAI } = require("openai");
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
