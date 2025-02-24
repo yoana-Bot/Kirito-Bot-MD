@@ -30,7 +30,7 @@ src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" heigh
 src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
 ## 🔥 **¡Únete y Personaliza!**  
 <a href="https://github.com/deylinqff">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&duration=4000&pause=1000&color=0099FF&width=435&lines=⚔️+CLONA+EL+REPOSITORIO+Y+MODIFÍCALO+⚔️" alt="Typing SVG">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&duration=4000&pause=1000&color=0099FF&width=435&lines=⚔️+CLONA+EL+REPOSITORIO+Y+PERSONALÍZALO+⚔️" alt="Typing SVG">
 </a> 
 
 ```bash
@@ -39,13 +39,13 @@ cd Kirito_Bot
 npm install
 npm start
 ```
-📢 **¡No olvides dejar los créditos!** → [**Aquí**](https://github.com/deylinqff/Kirito_Bot/fork)  
+📢 **¡No olvides dejar los créditos!** → [**Aquí👑**](https://github.com/deylinqff)  
 
 <a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
 src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
 
 ## 🌐 ***Forma parte de la Comunidad*** 
-💬 **Canal Oficial:** [`Click Aquí`](https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m)  
+💬 **Canal Oficial:** [`Click👑Aquí`](https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m)  
 
 <a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
 src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
@@ -89,7 +89,7 @@ src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" heigh
   </a>
 </p>
 
-## ⚔️ [© Powered By Deyin ⚡︎](https://Wa.me/50488198573)
+## ⚔️ [© Powered By Deyin 👑](https://Wa.me/50488198573)
 
 <p align="center">
   <a href="https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m" target="_blank">
