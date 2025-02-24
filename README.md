@@ -73,10 +73,17 @@ src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" heigh
   </a>
 </p>
 
-🎯 **Apoya el proyecto:**  
-<a href="mailto:ninopina10@gmail.com">
-  <img src="https://img.shields.io/badge/PayPal-000000?style=for-the-badge&logo=paypal&logoColor=white">
-</a>  
+## 🎯 **Apoya el Proyecto**
+
+<p align="center">
+  <a href="mailto:ninopina10@gmail.com">
+    <img src="https://img.shields.io/badge/Apoya+en+PayPal-000000?style=for-the-badge&logo=paypal&logoColor=white" alt="Apoya con PayPal" />
+  </a>
+</p>
+
+<p align="center">
+  Si te gusta el proyecto y deseas contribuir, ¡tu apoyo es muy apreciado! Gracias por ayudar a **Kirito-Bot** a seguir creciendo.
+</p>
 
 ## ⚔️ [© Powered By Deyin ⚡︎](https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m)  
 
