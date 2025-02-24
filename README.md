@@ -1,7 +1,7 @@
 
 
 <h1 align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=30&pause=500&color=00F7FF&center=true&vCenter=true&width=5&lines=👑+¡HOLA,+SOY+KIRITO-BOT!+🔥" alt="Typing SVG">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=30&pause=500&color=00F7FF&center=true&vCenter=true&width=500&lines=👑+¡HOLA,+SOY+KIRITO-BOT!+🔥" alt="Typing SVG">
 </h1>
 
 <a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
