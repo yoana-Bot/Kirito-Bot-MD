@@ -82,7 +82,7 @@ src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" heigh
 </p>
 
 <p align="center">
-  Si te gusta el proyecto y deseas contribuir, ¡tu apoyo es muy apreciado! Gracias por ayudar a **Kirito-Bot** a seguir creciendo.
+> Si te gusta el proyecto y deseas contribuir, ¡tu apoyo es muy apreciado! Gracias por ayudar a **Kirito-Bot** a seguir creciendo.
 </p>
 
 ## ⚔️ [© Powered By Deyin ⚡︎](https://Wa.me/50488198573)
