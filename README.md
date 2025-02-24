@@ -1,4 +1,4 @@
-
+> ⌛ **Versión Actual:** `1.1.2`  
 # ⚔️ **Kirito-Bot** | 
 `El Guardián del Código` 🌌 
 
@@ -44,12 +44,25 @@ src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" heigh
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=400&color=00CCFF&lines=✨+Espero+que+disfrutes+este+repositorio;💙+Creado+con+dedicación;⚔️+By+Mr.|Deyin+🌠🚀)](https://git.io/typing-svg)  
 
+## 🌟 **CREADOR**  
+<a href="https://github.com/deylinqff">
+  <img src="https://github.com/deylinqff.png" width="130" height="130" alt="Deylin">
+</a>  
 
-🌟 Creador del Proyecto
+
+📫 ¡Contáctame!
 
 <p align="center">
-  <img src="https://github.com/deylinqff" alt="Deylin Avatar" width="200" height="200"/>
-</p>Creado por Deylin, apasionado por la tecnología y el desarrollo de bots inteligentes. ¡Gracias por usar Kirito-Bot!
+  <a href="https://github.com/deylinqff">
+    <img src="https://img.shields.io/badge/GitHub-Deylinqff-181717?style=for-the-badge&logo=github">
+  </a>
+  <a href="https://wa.me/50488198573">
+    <img src="https://img.shields.io/badge/WhatsApp-Contactar-25D366?style=for-the-badge&logo=whatsapp">
+  </a>
+  <a href="mailto:deylibaquedano801@gmail.com">
+    <img src="https://img.shields.io/badge/Email-Enviame%20un%20un%20correo-EA4335?style=for-the-badge&logo=gmail">
+  </a>
+</p>
 
 🎯 **Apoya el proyecto:**  
 <a href="mailto:ninopina10@gmail.com">
