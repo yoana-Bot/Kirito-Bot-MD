@@ -1,59 +1,59 @@
-# |⚔️ **Kirito-Bot** | 
-`El Guardián del Código` 🌌 
 
-<a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
-src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
+🚀 Kirito-Bot
+ | El Guardián del Código ⚔️🌌
+
 <p align="center">
-  <img src="https://tinyurl.com/2yeaghq8" alt="Menú Principal">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=30&duration=3000&pause=1000&color=00CCFF&center=true&vCenter=true&width=500&lines=⚔️+Bienvenido+a+Kirito-Bot;🚀+El+bot+definitivo+para+WhatsApp;🌟+Creado+por+Deylin+con+pasión" alt="Kirito-Bot">
+</p>  <p align="center">
+  <img src="https://qu.ax/SuZFt.jpg" width="300" alt="Kirito-Bot">
 </p>  
+---
 
-<a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
-src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
+🌟 Características Principales
 
-### 🏆 **Poder y Precisión en un Solo Bot**  
-📌 **Creado por:** `Deylin`  
-⚔ **Optimizado para WhatsApp**  
-🔮 **Diseño inspirado en Sword Art Online**  
-🚀 **¡Rápido, potente y seguro!**  
+🔹 Desarrollado por: Deylin
+🔹 Inspirado en Sword Art Online
+🔹 Optimizado para WhatsApp ⚡
+🔹 Seguro, rápido y personalizable
 
-<a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
-src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
-## 🚀 **Explora Kirito-Bot**  
+
+---
+
+⚡ Instalación y Uso
+
+📌 Clona el repositorio y configúralo fácilmente:
+
+git clone https://github.com/deylinqff/Kirito_Bot.git
+cd Kirito_Bot
+npm install
+npm start
+
+📢 Personalízalo a tu gusto y hazlo único.
+
+
+---
+
+🔗 Conéctate con la Comunidad
+
+🌐 Canal Oficial: Únete Aquí
+📩 Contáctame: WhatsApp | Email
+
+
+---
+
+🛡️ Apoya el Proyecto
+
+Si te gusta este bot, apóyame para seguir mejorándolo.
+
+
+
+
+---
+
+👤 Creador
+
 <p align="center">
-  <img src="https://qu.ax/SuZFt.jpg" alt="Kirito-Bot">
-</p>  
-
-<a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
-src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
-## 🔥 **¡Únete y Personaliza!**  
-<a href="https://github.com/deylinqff">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&duration=4000&pause=1000&color=0099FF&width=435&lines=⚔️+CLONA+EL+REPOSITORIO+Y+MODIFÍCALO+⚔️" alt="Typing SVG">
-</a>  
-
-📢 **¡No olvides dejar los créditos!** → [**Aquí**](https://github.com/deylinqff/Kirito_Bot/fork)  
-
-<a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
-src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
-
-## 🌐 ***Forma parte de la Comunidad*** 
-💬 **Canal Oficial:** [`Click Aquí`](https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m)  
-
-<a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
-src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
-
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=400&color=00CCFF&lines=✨+Espero+que+disfrutes+este+repositorio;💙+Creado+con+dedicación;⚔️+By+Mr.|Deyin+🌠🚀)](https://git.io/typing-svg)  
-
-## 🌟 **CREADOR**  
-<a href="https://github.com/deylinqff">
-  <img src="https://github.com/deylinqff.png" width="130" height="130" alt="Deylin">
-</a>  
-
-🎯 **Apoya el proyecto:**  
-<a href="mailto:ninopina10@gmail.com">
-  <img src="https://img.shields.io/badge/PayPal-000000?style=for-the-badge&logo=paypal&logoColor=white">
-</a>  
-
-## ⚔️ [© Powered By Deyin ⚡︎](https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m)  
-
-<a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
-src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
+  <a href="https://github.com/deylinqff">
+    <img src="https://github.com/deylinqff.png" width="130" height="130" alt="Deylin">
+  </a>  
+</p>  📢 Este bot fue desarrollado con pasión y dedicación. ¡Gracias por el apoyo! 🚀⚔️
