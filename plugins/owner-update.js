@@ -1,15 +1,15 @@
-import { execSync } from 'child_process'
+import { execSync } from 'child_process';
 
 var handler = async (m, { conn, text }) => {
-  m.react('🚀') 
+  m.react('🚀'); 
   try {
     const stdout = execSync('git pull' + (m.fromMe && text ? ' ' + text : ''));
     let messager = stdout.toString();
 
-    conn.reply(m.chat('⚡ Ya estoy actualizado.')) messager = '⚡ Ya estoy actualizado a la última versión.';
+    if (messager.includes('⚡ Ya estoy actualizado.')) messager = '⚡ Ya estoy actualizado a la última versión.';
     if (messager.includes('👑 Actualizando.')) messager = '⚡ Procesando, espere un momento mientras me actualizo.\n\n' + stdout.toString();
 
-    conn.reply(m.chat, messager);
+    conn.reply(m.chat, messager, m);
   } catch { 
     try {
       const status = execSync('git status --porcelain');
@@ -23,8 +23,8 @@ var handler = async (m, { conn, text }) => {
         }).filter(Boolean);
 
         if (conflictedFiles.length > 0) {
-          const errorMessage = `⚡ Se han hecho cambios locales qué entran en conflicto con las Actualizaciones del Repositorio, Para actualizar, reinstala el Bot o realiza las actualizaciones manualmente.\n\n✰ *ARCHIVOS EN CONFLICTO*\n\n${conflictedFiles.join('\n')}`;
-          await conn.reply(m.chat, errorMessage);
+          const errorMessage = `⚡ Se han hecho cambios locales que entran en conflicto con las actualizaciones del repositorio. Para actualizar, reinstala el bot o realiza las actualizaciones manualmente.\n\n✰ *ARCHIVOS EN CONFLICTO*\n\n${conflictedFiles.join('\n')}`;
+          await conn.reply(m.chat, errorMessage, m);
         }
       }
     } catch (error) {
@@ -33,14 +33,14 @@ var handler = async (m, { conn, text }) => {
       if (error.message) {
         errorMessage2 += '\n⚠️ Mensaje de error: ' + error.message;
       }
-      await conn.reply(m.chat, errorMessage2);
+      await conn.reply(m.chat, errorMessage2, m);
     }
   }
-}
+};
 
-handler.help = ['update', 'actualizar']
-handler.tags = ['owner']
-handler.command = ['update', 'actualizar']
-handler.rowner = true
+handler.help = ['update', 'actualizar'];
+handler.tags = ['owner'];
+handler.command = ['update', 'actualizar'];
+handler.rowner = true;
 
-export default handler
+export default handler;
