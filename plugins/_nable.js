@@ -459,7 +459,7 @@ default:
 if (!/[01]/.test(command)) return await conn.reply(m.chat, miniopcion, m, rcanal);
 throw false;
 }
-conn.reply(m.chat, `〘⌬〙  *La Función ${type} Se Ha ${isEnable ? 'Activado' : 'Desactivado'} En Este ${isAll ? 'Bot' : isUser ? '' : 'Chat.'}*`,
+conn.reply(m.chat, `〘⌬〙  *La Función ${type} Se Ha ${isEnable ? 'Activado' : 'Desactivado'} En Este ${isAll ? 'Bot' : isUser ? '' : 'Chat.'}*`
 
 }
 handler.help = ['en', 'dis'].map((v) => v + 'able <option>');
