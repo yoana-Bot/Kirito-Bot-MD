@@ -49,9 +49,13 @@ const emojisCategorias = {
 
 const generarSaludo = () => {
   const hora = new Date().getHours();
-  if (hora >= 5 && hora < 12) return '🌞 ¡Buenos días!';
-  if (hora >= 12 && hora < 18) return '🌤 ¡Buenas tardes!';
-  return '🌙 ¡Buenas noches!';
+  const saludos = [
+    { rango: [5, 12], mensaje: '🌞 ¡Buenos días!' },
+    { rango: [12, 18], mensaje: '🌤 ¡Buenas tardes!' },
+    { rango: [18, 5], mensaje: '🌙 ¡Buenas noches!' }
+  ];
+
+  return saludos.find(saludo => hora >= saludo.rango[0] && hora < saludo.rango[1]).mensaje;
 };
 
 const formatoMenu = {
@@ -95,7 +99,6 @@ const handler = async (m, { conn, usedPrefix }) => {
       return conn.reply(m.chat, '❌ Error: No se encontraron comandos.', m);
     }
 
-    // Aquí se listan todos los comandos disponibles, habilitados o no.
     const comandos = Object.values(global.plugins)
       .map(plugin => ({
         ayuda: Array.isArray(plugin.help) ? plugin.help : [plugin.help],
@@ -113,6 +116,7 @@ const handler = async (m, { conn, usedPrefix }) => {
       .replace(/%totalreg/g, totalUsuarios)
       .replace(/%readmore/g, readMore);
 
+    // Filtra las categorías de comandos y crea el menú de forma optimizada
     for (let categoria in categorias) {
       const comandosFiltrados = comandos.filter(cmd => cmd.categorias.includes(categoria));
       if (comandosFiltrados.length > 0) {
@@ -132,7 +136,6 @@ const handler = async (m, { conn, usedPrefix }) => {
 
     menuTexto += `\n\n${formatoMenu.despues}`;
 
-    // Asegurarse de no sobrecargar con grandes archivos. Utiliza una URL de imagen sin necesidad de descarga.
     const imagenesURL = [
       'https://files.catbox.moe/80uwhc.jpg',
       'https://files.catbox.moe/hyrmn9.jpg',
@@ -148,6 +151,12 @@ const handler = async (m, { conn, usedPrefix }) => {
       contextInfo: {
         mentionedJid: [m.sender],
         isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: 'channelRD.id',
+          newsletterName: 'channelRD.name',
+          serverMessageId: -1
+        },
+        forwardingScore: 999
       }
     }, { quoted: m });
 
