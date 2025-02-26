@@ -95,8 +95,8 @@ const handler = async (m, { conn, usedPrefix }) => {
       return conn.reply(m.chat, '❌ Error: No se encontraron comandos.', m);
     }
 
+    // Aquí se listan todos los comandos disponibles, habilitados o no.
     const comandos = Object.values(global.plugins)
-      .filter(plugin => plugin && !plugin.disabled)
       .map(plugin => ({
         ayuda: Array.isArray(plugin.help) ? plugin.help : [plugin.help],
         categorias: Array.isArray(plugin.tags) ? plugin.tags : [plugin.tags],
