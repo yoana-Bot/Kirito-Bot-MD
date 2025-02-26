@@ -49,9 +49,13 @@ const emojisCategorias = {
 
 const generarSaludo = () => {
   const hora = new Date().getHours();
-  if (hora >= 5 && hora < 12) return '🌞 ¡Buenos días!';
-  if (hora >= 12 && hora < 18) return '🌤 ¡Buenas tardes!';
-  return '🌙 ¡Buenas noches!';
+  const saludos = [
+    { rango: [5, 12], mensaje: '🌞 ¡Buenos días!' },
+    { rango: [12, 18], mensaje: '🌤 ¡Buenas tardes!' },
+    { rango: [18, 5], mensaje: '🌙 ¡Buenas noches!' }
+  ];
+
+  return saludos.find(saludo => hora >= saludo.rango[0] && hora < saludo.rango[1]).mensaje;
 };
 
 const formatoMenu = {
