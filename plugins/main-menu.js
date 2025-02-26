@@ -177,7 +177,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
 
     await m.react('✅');
 
-    await conn.sendMessage(m.chat, { video: { url: 'https://qu.ax/iqWxR.mp4' }, caption: text.trim(), gifPlayback: true }, { quoted: null });
+    await conn.sendMessage(m.chat, { video: { url: 'https://qu.ax/FBjYO.mp4' }, caption: text.trim(), gifPlayback: true }, { quoted: null });
 
   } catch (e) {
     conn.reply(m.chat, `❌️ Lo sentimos, el menú tiene un error: ${e.message}`, m);
