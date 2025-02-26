@@ -17,11 +17,8 @@ const categorias = {
   'tools': '🛠️ HERRAMIENTAS',
   'fun': '🎉 DIVERSIÓN',
   'nsfw': '🔞 NSFW',
-  'cmd': '📂 BASE DE DATOS',
   'owner': '👑 ADMIN',
-  'audio': '🎵 AUDIOS',
   'advanced': '🚀 AVANZADO',
-  'rcanal': '📺 R-CANAL',
   'ia': '🌟 IA',
 };
 
@@ -39,12 +36,8 @@ const emojisCategorias = {
   'tools': '🛠️',
   'fun': '🎉',
   'nsfw': '🔞',
-  'cmd': '📂',
   'owner': '👑',
-  'audio': '🎶',
   'advanced': '🚀',
-  'rcanal': '📺',
-  'ia': '🌟',
 };
 
 const generarSaludo = () => {
@@ -68,9 +61,9 @@ const formatoMenu = {
 ║┗◆━━━━━━◆❃◆━━━━━━◆
 ╚═══════════════════☾
 `.trimStart(),
-  header: '╔═══════ %category ══════╗',
+  header: '╔═════ %category ═════╗',
   body: '┃%emoji » %cmd',
-  footer: '╚══════════════════════╝',
+  footer: '╚═══════════════════╝',
   after: `Powered by Kirito-Bot`,
 };
 
