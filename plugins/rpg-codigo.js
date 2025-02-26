@@ -13,7 +13,7 @@ let handler = async (m, { conn, text }) => {
     conn.reply(m.chat, `${emoji} Código generado: *${code}*\nEste código puede ser canjeado por ${amount} ${moneda} y puede ser utilizado por 50 personas.`, m);
 }
 
-handler.help = ['codigo <cantidad de coins>'];
+handler.help = ['codigo <cantidad de llamas>'];
 handler.tags = ['owner'];
 handler.command = ['codigo']
 handler.rowner = true;
