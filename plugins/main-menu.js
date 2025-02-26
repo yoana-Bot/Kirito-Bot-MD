@@ -55,7 +55,7 @@ const generarSaludo = () => {
     { rango: [18, 5], mensaje: '🌙 ¡Buenas noches!' }
   ];
 
-  return saludos.find(saludo => hora >= saludo.rango[0] && hora < saludo.rango[1]).mensaje;
+  return saludos.find(saludo => (hora >= saludo.rango[0] && hora < saludo.rango[1]))?.mensaje || '🌙 ¡Buenas noches!';
 };
 
 const formatoMenu = {
@@ -99,8 +99,9 @@ const handler = async (m, { conn, usedPrefix }) => {
       return conn.reply(m.chat, '❌ Error: No se encontraron comandos.', m);
     }
 
-    // Aquí se listan todos los comandos disponibles, habilitados o no.
+    // Filtramos los plugins habilitados
     const comandos = Object.values(global.plugins)
+      .filter(plugin => plugin && !plugin.disabled)
       .map(plugin => ({
         ayuda: Array.isArray(plugin.help) ? plugin.help : [plugin.help],
         categorias: Array.isArray(plugin.tags) ? plugin.tags : [plugin.tags],
@@ -162,7 +163,7 @@ const handler = async (m, { conn, usedPrefix }) => {
 
   } catch (error) {
     console.error('Error en el menú:', error);
-    conn.reply(m.chat, '❌ Error al generar el menú.', m);
+    conn.reply(m.chat, '❌ Error al generar el menú. Detalles: ' + error.message, m);
   }
 };
 
