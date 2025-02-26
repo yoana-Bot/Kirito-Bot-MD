@@ -67,8 +67,7 @@ const formatoMenu = {
 ║┃ 💎 *Estrellas:* %estrellas
 ║┗◆━━━━━━◆❃◆━━━━━━◆
 ╚═══════════════════☾
-
-  `.trimStart(),
+`.trimStart(),
   header: '╔═══════ %category ══════╗',
   body: '┃%emoji » %cmd',
   footer: '╚══════════════════════╝',
@@ -83,8 +82,8 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     let name = await conn.getName(m.sender);
     exp = exp || 'Desconocida';
     role = role || 'Aldeano';
-    
-    const d = new Date(new Date + 3600000);
+
+    const d = new Date(new Date() + 3600000);
     const locale = 'es';
     let time = d.toLocaleTimeString(locale, {
       hour: 'numeric',
@@ -114,7 +113,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
         enabled: !plugin.disabled,
       };
     });
-    
+
     for (let plugin of help)
       if (plugin && 'tags' in plugin)
         for (let tag of plugin.tags)
@@ -134,6 +133,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
           ...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
             return menu.help.map(help => {
               return body.replace(/%cmd/g, menu.prefix ? help : '%p' + help)
+                .replace(/%emoji/g, emojisCategorias[tag] || '❓') // Aquí se corrige %emoji
                 .replace(/%isdiamond/g, menu.diamond ? '(ⓓ)' : '')
                 .replace(/%isPremium/g, menu.premium ? '(Ⓟ)' : '')
                 .trim();
@@ -175,7 +175,11 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
 
     await m.react('✅');
 
-    await conn.sendMessage(m.chat, { video: { url: 'https://qu.ax/FBjYO.mp4' }, caption: text.trim(), gifPlayback: true }, { quoted: null });
+    await conn.sendMessage(m.chat, { 
+      video: { url: 'https://qu.ax/FBjYO.mp4' }, 
+      caption: text.trim(), 
+      gifPlayback: true 
+    }, { quoted: m });
 
   } catch (e) {
     conn.reply(m.chat, `❌️ Lo sentimos, el menú tiene un error: ${e.message}`, m);
@@ -189,12 +193,9 @@ handler.command = ['menu', 'help', 'menú', 'Menú', 'Menu', 'menucompleto'];
 
 export default handler;
 
-const more = String.fromCharCode(8206);
-const readMore = more.repeat(4001);
-
 function clockString(ms) {
-  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000);
-  let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60;
-  let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60;
+  let h = Math.floor(ms / 3600000);
+  let m = Math.floor(ms / 60000) % 60;
+  let s = Math.floor(ms / 1000) % 60;
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':');
 }
