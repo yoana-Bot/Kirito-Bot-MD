@@ -1,3 +1,4 @@
+p8m
 import { promises as fs } from 'fs';
 import { join } from 'path';
 import fetch from 'node-fetch';
@@ -18,7 +19,6 @@ const categorias = {
   'fun': '🎉 DIVERSIÓN',
   'nsfw': '🔞 NSFW',
   'cmd': '📂 BASE DE DATOS',
-  'owner': '👑 ADMIN',
   'audio': '🎵 AUDIOS',
   'advanced': '🚀 AVANZADO',
   'rcanal': '📺 R-CANAL',
@@ -40,7 +40,6 @@ const emojisCategorias = {
   'fun': '🎉',
   'nsfw': '🔞',
   'cmd': '📂',
-  'owner': '👑',
   'audio': '🎶',
   'advanced': '🚀',
   'rcanal': '📺',
