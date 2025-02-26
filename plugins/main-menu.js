@@ -49,34 +49,30 @@ const emojisCategorias = {
 
 const generarSaludo = () => {
   const hora = new Date().getHours();
-  const saludos = [
-    { rango: [5, 12], mensaje: '🌞 ¡Buenos días!' },
-    { rango: [12, 18], mensaje: '🌤 ¡Buenas tardes!' },
-    { rango: [18, 5], mensaje: '🌙 ¡Buenas noches!' }
-  ];
-
-  return saludos.find(saludo => hora >= saludo.rango[0] && hora < saludo.rango[1]).mensaje;
+  if (hora >= 5 && hora < 12) return '🌞 ¡Buenos días!';
+  if (hora >= 12 && hora < 18) return '🌤 ¡Buenas tardes!';
+  return '🌙 ¡Buenas noches!';
 };
 
 const formatoMenu = {
-  antes: `╔══════════════════╗\n   *Bienvenido a KIRITO-BOT*\n╚══════════════════╝
+  antes: `╔══════════════════╗\n   Bienvenido a KIRITO-BOT\n╚══════════════════╝
 
-✎ ${generarSaludo()}, *%name*.
+✎ ${generarSaludo()}, %name.
 
-╔═══════ೋೋ═══════☾
+╔═══════ೋೋ═══════☾ 
 ║┏◆━━━━━━◆❃◆━━━━━━◆
-║┃ 🤖 *Modo:* %modo
-║┃ 📊 *Nivel:* %nivel
-║┃ 🏆 *Experiencia:* %exp / %maxexp
-║┃ 👥 *Usuarios registrados:* %totalreg
+║┃ 🤖 Modo: %modo
+║┃ 📊 Nivel: %nivel
+║┃ 🏆 Experiencia: %exp / %maxexp
+║┃ 👥 Usuarios registrados: %totalreg
 ║┗◆━━━━━━◆❃◆━━━━━━◆
 ╚═══════ೋೋ═══════☾
 %readmore
-  ───────────────`,
-  cabecera: '┏━☾➥ *%categoria* ««✰',
+───────────────`,
+  cabecera: '┏━☾➥ %categoria ««✰',
   cuerpo: '┃%emoji %cmd %isLimit %isPremium',
   pie: '┗━━«✰»━━━━«✰»━━━━«✰»━━┛',
-  despues: '🔥 *By DEYLIN* 🔥',
+  despues: '🔥 By DEYLIN 🔥',
 };
 
 const more = String.fromCharCode(8206);
@@ -99,13 +95,26 @@ const handler = async (m, { conn, usedPrefix }) => {
       return conn.reply(m.chat, '❌ Error: No se encontraron comandos.', m);
     }
 
-    const comandos = Object.values(global.plugins)
-      .map(plugin => ({
-        ayuda: Array.isArray(plugin.help) ? plugin.help : [plugin.help],
-        categorias: Array.isArray(plugin.tags) ? plugin.tags : [plugin.tags],
-        limite: plugin.limit ? '🛑' : '',
-        premium: plugin.premium ? '💎' : '',
-      }));
+    // Lee todos los archivos de comandos desde el repositorio
+    const comandos = await fs.readdir(join(__dirname, '..', 'commands')); // Asegúrate de ajustar la ruta según tu estructura
+    const listaComandos = [];
+    
+    // Itera sobre los archivos de comandos y agrega información de cada uno
+    for (let archivo of comandos) {
+      try {
+        const plugin = require(join(__dirname, '..', 'commands', archivo)); // Asegúrate de que la ruta sea correcta
+        if (plugin) {
+          listaComandos.push({
+            ayuda: Array.isArray(plugin.help) ? plugin.help : [plugin.help],
+            categorias: Array.isArray(plugin.tags) ? plugin.tags : [plugin.tags],
+            limite: plugin.limit ? '🛑' : '',
+            premium: plugin.premium ? '💎' : '',
+          });
+        }
+      } catch (e) {
+        console.error(`No se pudo cargar el archivo de comando ${archivo}:`, e);
+      }
+    }
 
     let menuTexto = formatoMenu.antes
       .replace(/%name/g, nombre)
@@ -116,9 +125,9 @@ const handler = async (m, { conn, usedPrefix }) => {
       .replace(/%totalreg/g, totalUsuarios)
       .replace(/%readmore/g, readMore);
 
-    // Filtra las categorías de comandos y crea el menú de forma optimizada
+    // Genera el menú con los comandos cargados
     for (let categoria in categorias) {
-      const comandosFiltrados = comandos.filter(cmd => cmd.categorias.includes(categoria));
+      const comandosFiltrados = listaComandos.filter(cmd => cmd.categorias.includes(categoria));
       if (comandosFiltrados.length > 0) {
         menuTexto += `\n\n${formatoMenu.cabecera.replace(/%categoria/g, categorias[categoria])}\n`;
         comandosFiltrados.forEach(cmd => {
