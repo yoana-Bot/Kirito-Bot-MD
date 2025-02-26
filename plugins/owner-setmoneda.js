@@ -1,5 +1,5 @@
 let handler = async (m, { conn, text, isRowner }) => {
-  if (!text) return m.reply(`${emoji} Por favor, proporciona un nombre para el bot.\n> Ejemplo: #setmoneda Coins`);
+  if (!text) return m.reply(`${emoji} Por favor, proporciona un nombre para el bot.\n> Ejemplo: #setmoneda llamas`);
 
   global.moneda = text.trim();
   
