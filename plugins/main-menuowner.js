@@ -8,7 +8,7 @@ let owner = `
 👑 *Comandos exclusivos para Moderadores*
 
 ╭━━⊷ *comandos medios* ⊶━━╮
-┃ 💠 *#addcoins* - Añadir coins a un usuario.
+┃ 💠 *#addcoins* - Añadir llamas a un usuario.
 ┃ 💠 *#userpremium* - Otorgar premium a un usuario.
 ┃ 💠 *#delprem* - Quitar premium a un usuario.
 ┃ 💠 *#addexp* - Añadir XP a un usuario.
@@ -18,7 +18,7 @@ let owner = `
 ┃ 💠 *#unbanuser* - Desbanear a un usuario.
 ┃ 💠 *#block* / *#unblock* - Bloquear o desbloquear usuario.
 ┃ 💠 *#listblock* - Ver usuarios bloqueados.
-┃ 💠 *#removecoin* - Quitar coins a un usuario.
+┃ 💠 *#removellama* - Quitar llamás a un usuario.
 ┃ 💠 *#removexp* - Quitar XP a un usuario.
 ┃ 💠 *#deletedatauser* - Restablecer datos de usuario.
 ┃ 💠 *#cleartmp* - Limpiar archivos temporales.
