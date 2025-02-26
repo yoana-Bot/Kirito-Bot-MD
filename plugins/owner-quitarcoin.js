@@ -42,9 +42,9 @@ let handler = async (m, { conn, text }) => {
 » ${dmt} \n@${who.split('@')[0]}, te han quitado ${dmt} 💸`, null, { mentions: [who] });
 };
 
-handler.help = ['quitarcoin *<@user>*', 'quitarcoin all'];
+handler.help = ['quitarllama *<@user>*', 'quitarllama all'];
 handler.tags = ['owner'];
-handler.command = ['quitarcoin', 'removecoin', 'removecoins']; 
+handler.command = ['quitarllama', 'removellama', 'removecllamas']; 
 handler.rowner = true;
 
 export default handler;
