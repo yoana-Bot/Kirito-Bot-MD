@@ -1,9 +1,9 @@
 const handler = async (m, { conn }) => {
   const { welcome, autolevelup, antiBot, antiBot2, autoAceptar, autoRechazar, autoresponder, modoadmin, reaction, nsfw, detect, antiLink, antiLink2, antitoxic, antiTraba, antifake } = global.db.data.chats[m.chat];
 
-  const estado = (valor) => valor ? '🟢 *Activado*' : '🔴 *Desactivado*';
+  const estado = (valor) => valor ? ' *Activado*' : ' *Desactivado*';
 
-  const text = `🔥 *[ PANEL DE CONFIGURACIÓN DEL REINO ]* 🔥
+  const text = `*PANEL DE CONFIGURACIÓN DEL GRUPO* 
 
 🔹 *Guardianes del Reino (Seguridad)*  
 > ⚔️ *Anti-Bots:* ${estado(antiBot)}  
@@ -27,7 +27,7 @@ const handler = async (m, { conn }) => {
 > 😂 *Reacciones Épicas:* ${estado(reaction)}  
 > 🔞 *Modo +18:* ${estado(nsfw)}  
 
-_*📝 Usa el comando #config <nombre> para activar/desactivar un módulo.*_`;
+_*📝 Ejemplo de uso *#enable antilink*.*_`;
 
   await conn.sendMessage(m.chat, {
     text: text,
