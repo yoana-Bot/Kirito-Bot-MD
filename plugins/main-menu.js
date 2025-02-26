@@ -1,7 +1,7 @@
-import { promises as fs } from 'fs'
-import { join } from 'path'
-import fetch from 'node-fetch'
-import { xpRange } from '../lib/levelling.js'
+import { promises as fs } from 'fs';
+import { join } from 'path';
+import fetch from 'node-fetch';
+import { xpRange } from '../lib/levelling.js';
 
 const categorias = {
   'anime': '🌸 ANIME',
@@ -49,13 +49,9 @@ const emojisCategorias = {
 
 const generarSaludo = () => {
   const hora = new Date().getHours();
-  const saludos = [
-    { rango: [5, 12], mensaje: '🌞 ¡Buenos días!' },
-    { rango: [12, 18], mensaje: '🌤 ¡Buenas tardes!' },
-    { rango: [18, 5], mensaje: '🌙 ¡Buenas noches!' }
-  ];
-
-  return saludos.find(saludo => (hora >= saludo.rango[0] && hora < saludo.rango[1]))?.mensaje || '🌙 ¡Buenas noches!';
+  if (hora >= 5 && hora < 12) return '🌞 ¡Buenos días!';
+  if (hora >= 12 && hora < 18) return '🌤 ¡Buenas tardes!';
+  return '🌙 ¡Buenas noches!';
 };
 
 const formatoMenu = {
@@ -99,9 +95,8 @@ const handler = async (m, { conn, usedPrefix }) => {
       return conn.reply(m.chat, '❌ Error: No se encontraron comandos.', m);
     }
 
-    // Filtramos los plugins habilitados
+    // Aquí se listan todos los comandos disponibles, habilitados o no.
     const comandos = Object.values(global.plugins)
-      .filter(plugin => plugin && !plugin.disabled)
       .map(plugin => ({
         ayuda: Array.isArray(plugin.help) ? plugin.help : [plugin.help],
         categorias: Array.isArray(plugin.tags) ? plugin.tags : [plugin.tags],
@@ -137,6 +132,7 @@ const handler = async (m, { conn, usedPrefix }) => {
 
     menuTexto += `\n\n${formatoMenu.despues}`;
 
+    // Asegurarse de no sobrecargar con grandes archivos. Utiliza una URL de imagen sin necesidad de descarga.
     const imagenesURL = [
       'https://files.catbox.moe/80uwhc.jpg',
       'https://files.catbox.moe/hyrmn9.jpg',
@@ -152,18 +148,12 @@ const handler = async (m, { conn, usedPrefix }) => {
       contextInfo: {
         mentionedJid: [m.sender],
         isForwarded: true,
-        forwardedNewsletterMessageInfo: {
-          newsletterJid: 'channelRD.id',
-          newsletterName: 'channelRD.name',
-          serverMessageId: -1
-        },
-        forwardingScore: 999
       }
     }, { quoted: m });
 
   } catch (error) {
     console.error('Error en el menú:', error);
-    conn.reply(m.chat, '❌ Error al generar el menú. Detalles: ' + error.message, m);
+    conn.reply(m.chat, '❌ Error al generar el menú.', m);
   }
 };
 
