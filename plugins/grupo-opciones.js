@@ -1,11 +1,11 @@
 const handler = async (m, { conn }) => {
   const { welcome, autolevelup, antiBot, antiBot2, autoAceptar, autoRechazar, autoresponder, modoadmin, reaction, nsfw, detect, antiLink, antiLink2, antitoxic, antiTraba, antifake } = global.db.data.chats[m.chat];
 
-  const estado = (valor) => valor ? ' *Activado*' : ' *Desactivado*';
+  const estado = (valor) => valor ? ' *`Activado*`' : ' `*Desactivado*`';
 
   const text = `*PANEL DE CONFIGURACIÓN DEL GRUPO* 
 
-🔹 *Guardianes del Reino (Seguridad)*  
+
 > ⚔️ *Anti-Bots:* ${estado(antiBot)}  
 > ⚔️ *Anti-SubBots:* ${estado(antiBot2)}  
 > ⚔️ *Modo Admin:* ${estado(modoadmin)}  
@@ -19,7 +19,7 @@ const handler = async (m, { conn }) => {
 > 🔺 *Subida de Nivel Automática:* ${estado(autolevelup)}  
 > 🤖 *Respuesta Automática (IA):* ${estado(autoresponder)}  
 
-⚡ *Interacción del Reino*  
+
 > ✨ *Bienvenida a Guerreros:* ${estado(welcome)}  
 > ✅ *Aceptación Automática de Reinos:* ${estado(autoAceptar)}  
 > ❌ *Rechazo Automático de Invasores:* ${estado(autoRechazar)}  
