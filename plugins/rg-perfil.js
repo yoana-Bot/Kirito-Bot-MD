@@ -31,7 +31,7 @@ let handler = async (m, { conn, args }) => {
     let exp = user.exp || 0;
     let nivel = user.level || 0;
     let role = user.role || 'Esclavo';
-    let coins = user.coin || 0;
+    let llamas = user.llama || 0;
     let bankllamas = user.bank || 0;
 
     let perfil = await conn.profilePictureUrl(userId, 'image').catch(_ => 'https://qu.ax/ESiZc.jpg');
