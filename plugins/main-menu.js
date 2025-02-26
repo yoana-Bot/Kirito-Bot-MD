@@ -23,21 +23,21 @@ const categorias = {
 };
 
 const emojisCategorias = {
-  'anime': '🎴',
-  'main': '📌',
-  'search': '🔎',
-  'game': '🕹️',
-  'serbot': '🤖',
-  'rpg': '⚔️',
-  'sticker': '🎭',
-  'group': '👥',
-  'premium': '💎',
-  'downloader': '📥',
-  'tools': '🛠️',
-  'fun': '🎉',
-  'nsfw': '🔞',
-  'owner': '👑',
-  'advanced': '🚀',
+  'anime': '👑',
+  'main': '☁️',
+  'search': '🔥',
+  'game': '🌟',
+  'serbot': '⭐',
+  'rpg': '⚡',
+  'sticker': '👑',
+  'group': '☁️',
+  'premium': '🔥',
+  'downloader': '🌟',
+  'tools': '⚡',
+  'fun': '👑',
+  'nsfw': '🔥',
+  'owner': '☁️',
+  'advanced': '⚡',
 };
 
 const generarSaludo = () => {
@@ -61,10 +61,10 @@ const formatoMenu = {
 ║┗◆━━━━━━◆❃◆━━━━━━◆
 ╚═══════════════════☾
 `.trimStart(),
-  header: '╔═════ %category ═════╗',
-  body: '┃%emoji » %cmd',
-  footer: '╚═══════════════════╝',
-  after: `Powered by Kirito-Bot`,
+  header: '✰❯────「 *%category* 」────❮✰',
+  body: '➤ %emoji » %cmd',
+  footer: '✰ ── ✦ ──『✭』── ✦ ── ✰',
+  after: `.> Powered by Kirito-Bot`,
 };
 
 let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
