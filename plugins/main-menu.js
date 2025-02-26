@@ -70,7 +70,7 @@ const formatoMenu = {
 
   `.trimStart(),
   header: '╔═══════ %category ══════╗',
-  body: '┃%emoji» %cmd',
+  body: '┃%emoji » %cmd',
   footer: '╚══════════════════════╝',
   after: `Powered by Kirito-Bot`,
 };
