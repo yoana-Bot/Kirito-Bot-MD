@@ -166,7 +166,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
 
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join('|')})`, 'g'), (_, name) => '' + replace[name]);
 
-    await m.react('${emoji}');
+    await m.react(${emoji});
 
     await conn.sendMessage(m.chat, { 
       video: { url: 'https://qu.ax/FBjYO.mp4' }, 
