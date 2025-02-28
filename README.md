@@ -35,7 +35,7 @@ src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" heigh
 
 
 <details>
-<summary><b> 🔱 Info Bot</b></summary>
+<summary><b> 🔥 clona</b></summary>
 
 ```bash
 git clone https://github.com/deylinqff/Kirito_Bot.git
