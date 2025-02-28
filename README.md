@@ -33,12 +33,16 @@ src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" heigh
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&duration=4000&pause=1000&color=0099FF&width=435&lines=⚔️+CLONA+EL+REPOSITORIO+Y+PERSONALÍZALO+⚔️" alt="Typing SVG">
 </a> 
 
+ <summary><b> 🔱 Info Bot</b></summary>
+
 ```bash
 git clone https://github.com/deylinqff/Kirito_Bot.git
 cd Kirito_Bot
 npm install
 npm start
 ```
+</details>
+
 📢 **¡No olvides dejar los créditos!** → [**Aquí👑**](https://github.com/deylinqff)  
 
 <a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
