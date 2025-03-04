@@ -1,79 +1,21 @@
+Copyright (c) 2025 Deylin (KIRITO-BOT). Todos los derechos reservados.
 
-LICENCIA PÚBLICA GENERAL GNU Versión 3, 29 de junio de 2007
+LICENCIA DE USO RESTRINGIDO
 
-Copyright (C) 2024 Deylin
+Este repositorio y su contenido están protegidos por derechos de autor y son propiedad exclusiva de Deylin (KIRITO-BOT). La clonación, distribución, modificación, sublicencia, venta, uso comercial o cualquier forma de explotación de este código o de sus derivados están estrictamente prohibidos sin el permiso expreso y por escrito de Deylin.
 
-Se permite la copia y distribución de copias literales de este documento de licencia, pero no se permite modificarlo.
+**Condiciones de uso:**
+1. No se permite clonar, distribuir, modificar, o crear trabajos derivados de este repositorio.
+2. No se permite el uso comercial del código, ni la redistribución del mismo, ya sea en su forma original o modificada.
+3. No se permite el uso de este código en ninguna plataforma o servicio, ya sea de forma pública o privada, sin una autorización explícita.
+4. Cualquier uso no autorizado de este repositorio constituirá una violación de los derechos de autor y puede resultar en acciones legales.
 
-Preámbulo
+Para obtener permisos adicionales o hacer solicitudes de uso, por favor, contacta a Deylin directamente.
 
-La Licencia Pública General GNU (GPL) es una licencia de software libre que garantiza a los usuarios la libertad de ejecutar, estudiar, compartir y modificar el software. Queremos asegurarnos de que este software siga siendo libre para todos sus usuarios.
+Este código se proporciona tal cual, sin garantías de ningún tipo, ya sea expresa o implícita, incluyendo pero no limitado a las garantías de comerciabilidad y adecuación para un propósito particular.
 
-Cuando hablas de software libre, nos referimos a libertad, no a precio. Nuestras licencias públicas generales están diseñadas para asegurarse de que tengas la libertad de distribuir copias del software libre (y cobrar por ello si lo deseas), recibir el código fuente o poder obtenerlo si lo deseas, modificarlo y usar partes de él en nuevos programas libres.
+**Prohibiciones:**
+- No se permite la ingeniería inversa, descompilación, o desensamblado de cualquier parte de este repositorio.
+- No se permite la redistribución en plataformas públicas o privadas, incluidas redes de distribución de software, servidores de alojamiento o servicios de software como servicio (SaaS).
 
-Para proteger tus derechos, necesitamos hacer restricciones que prohíban a cualquiera que te niegue estos derechos o que te pida que renuncies a ellos.
-
-Si publicas un programa bajo esta licencia, declaras que lo haces sin ninguna garantía, a menos que lo proporciones bajo un contrato separado.
-
-Para proteger cada autor y el software, queremos asegurarnos de que todos tengan los derechos de uso del software y que nadie pueda restringir estos derechos.
-
-Términos y condiciones
-
-0. Definiciones
-
-"Este Licenciante" se refiere a Deylin, el titular de los derechos de autor.
-
-"Programa" se refiere a cualquier trabajo con licencia bajo esta Licencia.
-
-"Licenciatario" se refiere a cualquier persona o entidad que use el software bajo esta Licencia.
-
-
-1. Concesión de la Licencia
-
-Se te otorga una licencia mundial, libre de regalías y no exclusiva para ejecutar, copiar, distribuir, modificar y sublicenciar el Software, siempre y cuando se cumplan las condiciones de esta licencia.
-
-2. Copia y Distribución
-
-Puedes copiar y distribuir copias literales del código fuente del Programa tal como lo recibiste, en cualquier medio, siempre y cuando incluyas una copia visible y apropiada de este aviso de licencia.
-
-3. Modificación del Software
-
-Puedes modificar tu copia del Programa y distribuir tales modificaciones bajo los mismos términos que esta licencia, siempre y cuando:
-
-Incluyas un aviso destacado indicando que has cambiado el Programa.
-
-Licencies el trabajo derivado bajo esta misma licencia GPL.
-
-
-4. Distribución del Código Fuente
-
-Si distribuyes el Programa en forma ejecutable, debes proporcionar el código fuente junto con él o incluir una oferta escrita que proporcione el código fuente a cualquier tercero.
-
-5. Patentes
-
-El uso del software bajo esta licencia no otorga ninguna licencia implícita sobre ninguna patente que posea Deylin.
-
-6. Limitación de Responsabilidad
-
-EL PROGRAMA SE PROPORCIONA "TAL CUAL", SIN NINGUNA GARANTÍA, NI EXPRESA NI IMPLÍCITA, INCLUYENDO PERO NO LIMITADO A GARANTÍAS DE COMERCIABILIDAD E IDONEIDAD PARA UN PROPÓSITO PARTICULAR.
-
-EN NINGÚN CASO EL AUTOR O TITULAR DEL COPYRIGHT SERÁ RESPONSABLE DE NINGUNA RECLAMACIÓN, DAÑO U OTRA RESPONSABILIDAD, YA SEA EN UNA ACCIÓN CONTRACTUAL, EXTRACONTRACTUAL O DE OTRO TIPO, DERIVADA DE, O RELACIONADA CON EL SOFTWARE O SU USO.
-
-7. Terminación de la Licencia
-
-Si incumples los términos de esta licencia, tu derecho a usar el software se revoca automáticamente.
-
-Cómo Aplicar Esta Licencia a Tu Software
-
-Para aplicar esta licencia a tu software, adjunta el siguiente aviso al inicio de cada archivo de código fuente:
-
-```
-Copyright (C) 2024 Deylin
-
-Este programa es software libre: puedes redistribuirlo y/o modificarlo bajo los términos de la Licencia Pública General de GNU publicada por la Free Software Foundation, ya sea la versión 3 de la Licencia, o (a tu elección) cualquier versión posterior.
-
-Este programa se distribuye con la esperanza de que sea útil, pero SIN NINGUNA GARANTÍA; incluso sin la garantía implícita de COMERCIABILIDAD o IDONEIDAD PARA UN PROPÓSITO PARTICULAR. Consulta la Licencia Pública General de GNU para más detalles.
-
-Deberías haber recibido una copia de la Licencia Pública General de GNU junto con este programa. Si no, consulta <https://www.gnu.org/licenses/>.
-
-
+Cualquier uso del código en violación de estas condiciones puede ser motivo para iniciar procedimientos legales, según lo estipulado por las leyes internacionales de propiedad intelectual.
