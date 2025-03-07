@@ -18,16 +18,12 @@ const handler = async (m, { conn, text }) => {
     await conn.sendMessage(m.chat, { 
       image: buffer, 
       caption: 'Imagen generada con éxito. Elige una opción:',
-      buttons: [
-        {
-          buttonId: '.imgg gato',
-          buttonText: { displayText: '😻 gato' },
-        },
-        {
-          buttonId: '.imgg perro',
-          buttonText: { displayText: '🐶 perro' },
-        },
-      ],
+    // Definir botones interactivos
+    const buttons = [
+      { buttonId: '.help', buttonText: { displayText: 'Ayuda' }, type: 1 },
+      { buttonId: '.donar', buttonText: { displayText: 'Donar' }, type: 1 },
+      { buttonId: '.infobot', buttonText: { displayText: 'Info Bot' }, type: 1 }
+    ];
       footer: '¡Disfruta!',
       viewOnce: true,
     }, { quoted: m });
