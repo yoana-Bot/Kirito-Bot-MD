@@ -15,8 +15,8 @@ Contáctame: https://wa.link/jxjhek`,
         buttonText: { displayText: '🌐 Servicios' },
       },
       {
-        buttonId: '.web contacto',
-        buttonText: { displayText: '📞 Contacto' },
+        buttonId: '.creador',
+        buttonText: { displayText: '📞 Contactame' },
       },
       {
         buttonId: '.web plataforma',
