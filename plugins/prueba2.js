@@ -1,8 +1,6 @@
 const handler = async (m, { conn }) => {
-  try {
-    console.log("Iniciando el envío del mensaje...");
-    await conn.sendMessage(m.chat, { 
-      text: `¡Hola!
+  await conn.sendMessage(m.chat, { 
+    text: `¡Hola!
 
 Soy desarrollador web y estoy disponible para ayudarte a crear tu página web de forma profesional y personalizada. Si necesitas una web para tu negocio, emprendimiento o proyecto, puedo diseñarla según tus necesidades.
 
@@ -11,27 +9,23 @@ Soy desarrollador web y estoy disponible para ayudarte a crear tu página web de
 Si estás interesado, contáctame y trabajemos juntos en tu proyecto. ¡Estoy listo para ayudarte a crear tu sitio web!
 
 Contáctame: https://wa.link/jxjhek`,
-      buttons: [
-        {
-          buttonId: '.web servicios',
-          buttonText: { displayText: '🌐 Servicios' },
-        },
-        {
-          buttonId: '.web contacto',
-          buttonText: { displayText: '📞 Contacto' },
-        },
-        {
-          buttonId: '.web plataforma',
-          buttonText: { displayText: '💻 Plataforma' },
-        },
-      ],
-      footer: '¡Con gusto te ayudaré!',
-      viewOnce: true,
-    }, { quoted: m });
-    console.log("Mensaje enviado correctamente.");
-  } catch (error) {
-    console.error("Error al enviar el mensaje:", error);
-  }
+    buttons: [
+      {
+        buttonId: '.web servicios',
+        buttonText: { displayText: '🌐 Servicios' },
+      },
+      {
+        buttonId: '.web contacto',
+        buttonText: { displayText: '📞 Contacto' },
+      },
+      {
+        buttonId: '.web plataforma',
+        buttonText: { displayText: '💻 Plataforma' },
+      },
+    ],
+    footer: '¡Con gusto te ayudaré!',
+    viewOnce: true,
+  }, { quoted: m });
 };
 
 handler.tags = ['tools'];
