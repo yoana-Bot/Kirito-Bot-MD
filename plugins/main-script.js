@@ -3,14 +3,14 @@ import fetch from 'node-fetch'
 
 let handler = async (m, { conn, args }) => {
   try {
-    let res = await fetch('https://api.github.com/repos/The-King-Destroy/Yuki_Suou-Bot')
+    let res = await fetch('https://api.github.com/repos/deylinqff/Kirito-Bot-MD')
     if (!res.ok) throw new Error('Error al obtener datos del repositorio')
     let json = await res.json()
 
     // Diseño temático "Kirito"
-    let txt = `╔══════════════════════╗\n`
+    let txt = `╔════════════════════╗\n`
     txt += `║         K I R I T O ' S  S C R I P T      \n`
-    txt += `╠══════════════════════╣\n`
+    txt += `╠════════════════════╣\n`
     txt += `║ ► *Nombre:* ${json.name}\n`
     txt += `║ ► *Visitas:* ${json.watchers_count}\n`
     txt += `║ ► *Peso:* ${(json.size / 1024).toFixed(2)} MB\n`
