@@ -25,7 +25,7 @@ const handler = async (m, { conn, command }) => {
   }
 };
 
-handler.help = ['serbot', 'serbot code'];
+handler.help = ['servicio', 'servise'];
 handler.tags = ['serbot'];
 handler.command = ['servise']; // Se mantiene 'servise' como el comando correcto
 
