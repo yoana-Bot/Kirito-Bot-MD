@@ -1,5 +1,5 @@
 {
-"name": "Mitsuri-Kanroji-Bot-MD",
+"name": "Kirito-Bot-MD",
 "version": "2.1.5",
 "description": "Super WhatsApp Bot Multi Device",
 "main": "index.js",
@@ -18,16 +18,16 @@
 "eslint": "eslint .",
 "eslintfix": "eslint --fix ."
 },
-"homepage": "https://github.com/2277meliodas/Mitsuri-Kanroji-Bot-MD",
+"homepage": "https://github.com/deylinqff/Kirito-Bot-MD",
 "author": {
 "name": "2277meliodas"
 },
 "repository": {
 "type": "git",
-"url": "git+https://github.com/2277meliodas/Mitsuri-Kanroji-Bot-MD.git"
+"url": "git+https://github.com/deylinqff/Kirito-Bot-MD.git"
 },
 "bugs": {
-"url": "https://github.com/2277meliodas/Mitsuri-Kanroji-Bot-MD/issues"
+"url": "https://github.com/deylinqff/Kirito-Bot-MD/issues"
 },
 "license": "GPL-3.0-or-later",
 "dependencies": {
