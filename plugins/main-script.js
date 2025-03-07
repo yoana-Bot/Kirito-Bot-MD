@@ -18,9 +18,9 @@ let handler = async (m, { conn, args }) => {
     txt += `║ ► *Url:* ${json.html_url}\n`
     txt += `║ ► *Forks:* ${json.forks_count}\n`
     txt += `║ ► *Stars:* ${json.stargazers_count}\n`
-    txt += `╠═════════════════════╗\n`
+    txt += `╠════════════════════╗\n`
     txt += `> *${dev}*\n`
-    txt += `╚═════════════════════╝\n`
+    txt += `╚════════════════════╝\n`
     await conn.sendMessage(m.chat, {
       text: txt,
       contextInfo: {
