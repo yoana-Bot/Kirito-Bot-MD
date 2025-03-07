@@ -8,9 +8,9 @@ let handler = async (m, { conn, args }) => {
     let json = await res.json()
 
     // Diseño temático "Kirito"
-    let txt = `╔══════════════════════════════╗\n`
-    txt += `║         K I R I T O ' S  S C R I P T      ║\n`
-    txt += `╠══════════════════════════════╣\n`
+    let txt = `╔══════════════════════════╗\n`
+    txt += `║         K I R I T O ' S  S C R I P T      \n`
+    txt += `╠══════════════════════════╣\n`
     txt += `║ ► *Nombre:* ${json.name}\n`
     txt += `║ ► *Visitas:* ${json.watchers_count}\n`
     txt += `║ ► *Peso:* ${(json.size / 1024).toFixed(2)} MB\n`
