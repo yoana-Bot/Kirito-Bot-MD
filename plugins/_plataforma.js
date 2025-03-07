@@ -4,7 +4,7 @@ const handler = async (m, { command }) => {
   }
 };
 
-handler.help = ['serbot', 'serbot code'];
+handler.help = ['plataforma', 'platafor'];
 handler.tags = ['serbot'];
 handler.command = ['platafor'];
 
