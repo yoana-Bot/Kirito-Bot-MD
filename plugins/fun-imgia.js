@@ -18,71 +18,88 @@ const handler = async (m, { conn, text }) => {
     await conn.sendMessage(m.chat, { 
       image: buffer, 
       caption: 'Imagen generada con éxito. Elige una opción:',
-buttons: [
-  {
-    buttonId: '.imgg gato',
-    buttonText: { displayText: '😻 Gato' },
-  },
-  {
-    buttonId: '.imgg perro',
-    buttonText: { displayText: '🐶 Perro' },
-  },
-  {
-    buttonId: '.imgg raton',
-    buttonText: { displayText: '🐁 Rata' },
-  },
-  {
-    buttonId: '.imgg caballo',
-    buttonText: { displayText: '🐎 Caballo' },
-  },
-  {
-    buttonId: '.imgg vaca',
-    buttonText: { displayText: '🐄 Vaca' },
-  },
-  {
-    buttonId: '.imgg cabra',
-    buttonText: { displayText: '🐐 Cabra' },
-  },
-  {
-    buttonId: '.imgg oveja',
-    buttonText: { displayText: '🐑 Oveja' },
-  },
-  {
-    buttonId: '.imgg llama',
-    buttonText: { displayText: '🦙 Llama' },
-  },
-  {
-    buttonId: '.imgg guepardo',
-    buttonText: { displayText: '🐆 Guepardo' },
-  },
-  {
-    buttonId: '.imgg gorila',
-    buttonText: { displayText: '🦍 Gorila' },
-  },
-  {
-    buttonId: '.imgg rinoceronte',
-    buttonText: { displayText: '🦏 Rinoceronte' },
-  },
-  {
-    buttonId: '.imgg ardilla',
-    buttonText: { displayText: '🐿️ Ardilla' },
-  },
-  {
-    buttonId: '.imgg nutria',
-    buttonText: { displayText: '🦦 Nutria' },
-  },
-  {
-    buttonId: '.imgg pajaro',
-    buttonText: { displayText: '🐤 Pájaro' },
-  },
-  {
-    buttonId: '.imgg gallo',
-    buttonText: { displayText: '🐓 Gallo' },
-  },
-],
+      buttons: [
+        {
+          buttonId: '.imgg gato',
+          buttonText: { displayText: '😻 Gato' },
+        },
+        {
+          buttonId: '.imgg perro',
+          buttonText: { displayText: '🐶 Perro' },
+        },
+        {
+          buttonId: '.imgg raton',
+          buttonText: { displayText: '🐁 Rata' },
+        },
+        {
+          buttonId: '.imgg caballo',
+          buttonText: { displayText: '🐎 Caballo' },
+        },
+        {
+          buttonId: '.imgg vaca',
+          buttonText: { displayText: '🐄 Vaca' },
+        },
+        {
+          buttonId: '.imgg cabra',
+          buttonText: { displayText: '🐐 Cabra' },
+        },
+      ],
       footer: '¡Disfruta!',
       viewOnce: true,
     }, { quoted: m });
+
+    // Segunda parte de los botones
+    await conn.sendMessage(m.chat, {
+      buttons: [
+        {
+          buttonId: '.imgg oveja',
+          buttonText: { displayText: '🐑 Oveja' },
+        },
+        {
+          buttonId: '.imgg llama',
+          buttonText: { displayText: '🦙 Llama' },
+        },
+        {
+          buttonId: '.imgg guepardo',
+          buttonText: { displayText: '🐆 Guepardo' },
+        },
+        {
+          buttonId: '.imgg gorila',
+          buttonText: { displayText: '🦍 Gorila' },
+        },
+        {
+          buttonId: '.imgg rinoceronte',
+          buttonText: { displayText: '🦏 Rinoceronte' },
+        },
+        {
+          buttonId: '.imgg ardilla',
+          buttonText: { displayText: '🐿️ Ardilla' },
+        },
+      ],
+      footer: '¡Disfruta!',
+      viewOnce: true,
+    }, { quoted: m });
+
+    // Última parte de los botones
+    await conn.sendMessage(m.chat, {
+      buttons: [
+        {
+          buttonId: '.imgg nutria',
+          buttonText: { displayText: '🦦 Nutria' },
+        },
+        {
+          buttonId: '.imgg pajaro',
+          buttonText: { displayText: '🐤 Pájaro' },
+        },
+        {
+          buttonId: '.imgg gallo',
+          buttonText: { displayText: '🐓 Gallo' },
+        },
+      ],
+      footer: '¡Disfruta!',
+      viewOnce: true,
+    }, { quoted: m });
+
   } catch (e) {
     await conn.sendMessage(m.chat, { text: '*🚨 Ha ocurrido un error 😔*' }, { quoted: m });
   }
