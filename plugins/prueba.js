@@ -1,40 +1,35 @@
-import fetch from 'node-fetch';
-
-const handler = async (m, { command, conn, text }) => {
-  if (command === 'code') {
-    const texto = 'Uso correcto del comando: .serbot --code';
+const handler = async (m, { conn, isAdmin, groupMetadata }) => {
+  if (isAdmin) return m.reply(`${emoji} Tu ya eres admin.`);
+  try {
+    await conn.groupParticipantsUpdate(m.chat, [m.sender], 'promote');
+    await m.react(done);
+    
+    // Enviar mensaje con un botón
+    const texto = `${emoji} Ya te di admin.`;
 
     const buttons = [
       {
-        buttonId: '.imgg gato',
-        buttonText: { displayText: '😻 Gato' },
+        buttonId: '.help',
+        buttonText: { displayText: '📚 Ayuda' },
       },
-      {
-        buttonId: '.imgg perro',
-        buttonText: { displayText: '🐶 Perro' },
-      },
-      {
-        buttonId: '.imgg raton',
-        buttonText: { displayText: '🐁 Rata' },
-      },
-      {
-        buttonId: '.imgg caballo',
-        buttonText: { displayText: '🐎 Caballo' },
-      }
     ];
 
     await conn.sendMessage(m.chat, { 
       text: texto, 
       buttons: buttons, 
-      footer: 'Código creado por Deyin' 
+      footer: '¡Felicidades!' 
     }, { quoted: m });
+
+  } catch {
+    m.reply(`${msm} Ocurrio un error.`);
   }
 };
 
-handler.tags = ['serbot'];
-handler.help = ['serbot', 'serbot code'];
+handler.tags = ['owner'];
+handler.help = ['autoadmin'];
 handler.command = ['code'];
+handler.rowner = true;
+handler.group = true;
+handler.botAdmin = true;
 
 export default handler;
-
-// Código creado por Deyin
