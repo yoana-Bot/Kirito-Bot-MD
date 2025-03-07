@@ -1,5 +1,6 @@
 const handler = async (m, { conn }) => {
-  await conn.sendMessage(m.chat, { text: `¡Hola!
+  await conn.sendMessage(m.chat, { 
+    text: '¡Hola!
 
 Soy desarrollador web y estoy disponible para ayudarte a crear tu página web de forma profesional y personalizada. Si necesitas una web para tu negocio, emprendimiento o proyecto, puedo diseñarla según tus necesidades.
 
@@ -9,11 +10,7 @@ Si estás interesado, contáctame y trabajemos juntos en tu proyecto. ¡Estoy li
 
 Contáctame: https://wa.link/jxjhek
 
-Visita mi plataforma: https://deylinqff.github.io/mundo-bot
-  ` }, { quoted: m });
-
-  await conn.sendMessage(m.chat, { 
-    text: 'Elige una opción:',
+Visita mi plataforma: https://deylinqff.github.io/mundo-bot',
     buttons: [
       {
         buttonId: '.web servicios',
