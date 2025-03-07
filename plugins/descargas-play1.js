@@ -77,11 +77,24 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       return m.reply('No se encontraron resultados para tu búsqueda.');
     }
 
-    const videoInfo = search.all[0];
-    const { title, thumbnail, timestamp, views, ago, url } = videoInfo;
-    const vistas = formatViews(views);
-    const infoMessage = `「✦」Descargando *<${title}>*\n\n> ✦ Canal » *${videoInfo.author.name || 'Desconocido'}*\n> ✰ Vistas » *${views}*\n> ⴵ Duración » *${timestamp}*\n> ✐ Publicación » *${ago}*\n> 🜸 Link » ${url}\n`;
-    const thumb = (await conn.getFile(thumbnail))?.data;
+const videoInfo = search.all[0];
+const { title, thumbnail, timestamp, views, ago, url } = videoInfo;
+const vistas = formatViews(views);
+
+const infoMessage = `★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★  
+
+✦ *Archivo encontrado:* *「 ${title} 」*  
+
+⚔ *Canal:* » *${videoInfo.author.name || 'Desconocido'}*  
+◆━━━━━━◆✦◆━━━━━━◆  
+⚔ *Vistas:* » *${vistas}*  
+◆━━━━━━◆✦◆━━━━━━◆  
+⚔ *Duración:* » *${timestamp}*  
+◆━━━━━━◆✦◆━━━━━━◆  
+⚔ *Publicado:* » *${ago}*  
+◆━━━━━━◆✦◆━━━━━━◆  
+⚔ *Enlace:* » ${url}`;
+const thumb = (await conn.getFile(thumbnail))?.data;
 
     const JT = {
       contextInfo: {
