@@ -10,20 +10,8 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     throw "No se encontraron resultados para tu búsqueda.";
   }
 
-const videoInfo = search.all[0];  
-const body = `★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★  
-
-✦ *Descargando...* *「 ${videoInfo.title} 」*  
-
-⚔ *Canal:* » *${videoInfo.author.name || 'Desconocido'}*  
-◆━━━━━━◆✦◆━━━━━━◆  
-⚔ *Vistas:* » *${videoInfo.views}*  
-◆━━━━━━◆✦◆━━━━━━◆  
-⚔ *Duración:* » *${videoInfo.timestamp}*  
-◆━━━━━━◆✦◆━━━━━━◆  
-⚔ *Publicado:* » *${videoInfo.ago}*  
-◆━━━━━━◆✦◆━━━━━━◆  
-⚔ *Enlace:* » ${videoInfo.url}`;
+  const videoInfo = search.all[0];
+  const body = `「✦」ძᥱsᥴᥲrgᥲᥒძ᥆ *<${videoInfo.title}>*\n\n> ✦ ᥴᥲᥒᥲᥣ » *${videoInfo.author.name || 'Desconocido'}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ✰ ᥎іs𝗍ᥲs » *${videoInfo.views}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ⴵ ძᥙrᥲᥴі᥆ᥒ » *${videoInfo.timestamp}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ✐ ⍴ᥙᑲᥣіᥴᥲძ᥆ » *${videoInfo.ago}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> 🜸 ᥣіᥒk » ${videoInfo.url}\n`;
 
   if (command === 'play' || command === 'play2' || command === 'playvid') {
     await conn.sendMessage(m.chat, {
@@ -34,13 +22,13 @@ const body = `★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★
         {
           buttonId: `.yta ${videoInfo.url}`,
           buttonText: {
-            displayText: '⏤͟͟͞͞👑 𝑨𝒖𝒅𝒊𝒐',
+            displayText: 'ᯓᡣ𐭩 ᥲᥙძі᥆',
           },
         },
         {
           buttonId: `.ytv ${videoInfo.url}`,
           buttonText: {
-            displayText: '⏤͟͟͞͞👑 𝑽𝒊𝒅𝒆𝒐',
+            displayText: 'ᯓᡣ𐭩 ᥎іძᥱ᥆',
           },
         },
       ],
@@ -123,20 +111,8 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     throw "No se encontraron resultados para tu búsqueda.";
   }
 
-const videoInfo = search.all[0];  
-const body = `★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★  
-
-✦ *Descargando...* *「 ${videoInfo.title} 」*  
-
-⚔ *Canal:* » *${videoInfo.author.name || 'Desconocido'}*  
-◆━━━━━━◆✦◆━━━━━━◆  
-⚔ *Vistas:* » *${videoInfo.views}*  
-◆━━━━━━◆✦◆━━━━━━◆  
-⚔ *Duración:* » *${videoInfo.timestamp}*  
-◆━━━━━━◆✦◆━━━━━━◆  
-⚔ *Publicado:* » *${videoInfo.ago}*  
-◆━━━━━━◆✦◆━━━━━━◆  
-⚔ *Enlace:* » ${videoInfo.url}`;
+  const videoInfo = search.all[0];
+  const body = `「✦」ძᥱsᥴᥲrgᥲᥒძ᥆ *<${videoInfo.title}>*\n\n> ✦ ᥴᥲᥒᥲᥣ » *${videoInfo.author.name || 'Desconocido'}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ✰ ᥎іs𝗍ᥲs » *${videoInfo.views}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ⴵ ძᥙrᥲᥴі᥆ᥒ » *${videoInfo.timestamp}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ✐ ⍴ᥙᑲᥣіᥴᥲძ᥆ » *${videoInfo.ago}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> 🜸 ᥣіᥒk » ${videoInfo.url}\n`;
   
   if (Object.keys(global.play).length >= 100) global.play = {};
   
@@ -149,13 +125,13 @@ const body = `★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★
         {
           buttonId: `.ytmp3 ${videoInfo.url}`,
           buttonText: {
-            displayText: '⏤͟͟͞͞👑 𝑨𝒖𝒅𝒊𝒐,
+            displayText: 'ᯓᡣ𐭩 ᥲᥙძі᥆',
           },
         },
         {
           buttonId: `.ytmp4 ${videoInfo.url}`,
           buttonText: {
-            displayText: '⏤͟͟͞͞👑 𝑽𝒊𝒅𝒆𝒐',
+            displayText: 'ᯓᡣ𐭩 ᥎іძᥱ᥆',
           },
         },
       ],
