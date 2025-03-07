@@ -1,6 +1,6 @@
 const handler = async (m, { command }) => {
-  if (command === 'code') {
-    m.reply('Uso correcto del comando: .serbot --code');
+  if (command === 'platafor') {
+    m.reply('*plataforma*\n\n https://deylinqff.github.io/mundo-bot');
   }
 };
 
