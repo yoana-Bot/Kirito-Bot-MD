@@ -1,19 +1,10 @@
-const handler = async (m, { command, conn }) => {
+const handler = async (m, { command }) => {
   if (command === 'code') {
-    const texto = 'Uso correcto del comando:\n\n*.serbot --code*';
-
-    const buttons = [
-      {
-        buttonId: '.serbot --code',
-        buttonText: { displayText: '📋 Copiar Código' },
-      }
-    ];
-
-    await conn.sendMessage(m.chat, { text: texto, buttons, footer: 'Código creado por Deyin' }, { quoted: m });
+    m.reply('Uso correcto del comando:\n\n *.serbot --code*');
   }
 };
 
-handler.help = ['serbot'];
+handler.help = ['serbot', 'serbot code'];
 handler.tags = ['serbot'];
 handler.command = ['code'];
 
