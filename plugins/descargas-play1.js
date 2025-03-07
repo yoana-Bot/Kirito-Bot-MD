@@ -27,12 +27,7 @@ const ddownr = {
         const { image } = info;
         const downloadUrl = await ddownr.cekProgress(id);
 
-        return {
-          id: id,
-          image: image,
-          title: title,
-          downloadUrl: downloadUrl
-        };
+        return { id, image, title, downloadUrl };
       } else {
         throw new Error('Fallo al obtener los detalles del video.');
       }
@@ -53,8 +48,7 @@ const ddownr = {
     try {
       while (true) {
         const response = await axios.request(config);
-
-        if (response.data && response.data.success && response.data.progress === 1000) {
+        if (response.data?.success && response.data.progress === 1000) {
           return response.data.download_url;
         }
         await new Promise(resolve => setTimeout(resolve, 5000));
@@ -66,78 +60,57 @@ const ddownr = {
   }
 };
 
-const handler = async (m, { conn, text, usedPrefix, command }) => {
+const handler = async (m, { conn, text }) => {
   try {
     if (!text.trim()) {
-      return conn.reply(m.chat, `❀ Por favor, ingresa el nombre de la música a descargar.`, m);
+      return conn.reply(m.chat, `⚠︎ Ingresa el nombre de la música a descargar.`, m);
     }
 
     const search = await yts(text);
-    if (!search.all || search.all.length === 0) {
-      return m.reply('No se encontraron resultados para tu búsqueda.');
+    if (!search.all?.length) {
+      return m.reply('⚠︎ No se encontraron resultados.');
     }
 
-  const videoInfo = search.all[0];
-  const body = `「✦」ძᥱsᥴᥲrgᥲᥒძ᥆ *<${videoInfo.title}>*\n\n> ✦ ᥴᥲᥒᥲᥣ » *${videoInfo.author.name || 'Desconocido'}*\n*◆━━━━━━◆✰◆━━━━━━◆*\n> ✰ ᥎іs𝗍ᥲs » *${videoInfo.views}*\n*◆━━━━━━◆✰◆━━━━━━◆*\n> ⴵ ძᥙrᥲᥴі᥆ᥒ » *${videoInfo.timestamp}*\n*◆━━━━━━◆✰◆━━━━━━◆*\n> ✐ ⍴ᥙᑲᥣіᥴᥲძ᥆ » *${videoInfo.ago}*\n*◆━━━━━━◆✰◆━━━━━━◆*\n> 🜸 ᥣіᥒk » ${videoInfo.url}\n`;
-    const thumb = (await conn.getFile(thumbnail))?.data;
+    const videoInfo = search.all[0];
+    const { title, thumbnail, timestamp, views, ago, url } = videoInfo;
 
-    const JT = {
-      contextInfo: {
-        externalAdReply: {
-          title: botname,
-          body: dev,
-          mediaType: 1,
-          previewType: 0,
-          mediaUrl: url,
-          sourceUrl: url,
-          thumbnail: thumb,
-          renderLargerThumbnail: true,
-        },
-      },
+    const infoMessage = `★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★  
+
+✦ *Archivo encontrado:* *「 ${title} 」*  
+
+⚔ *Canal:* » *${videoInfo.author.name || 'Desconocido'}*  
+◆━━━━━━◆✦◆━━━━━━◆  
+⚔ *Vistas:* » *${views}*  
+◆━━━━━━◆✦◆━━━━━━◆  
+⚔ *Duración:* » *${timestamp}*  
+◆━━━━━━◆✦◆━━━━━━◆  
+⚔ *Publicado:* » *${ago}*  
+◆━━━━━━◆✦◆━━━━━━◆  
+⚔ *Enlace:* » ${url}  
+
+➤ *Selecciona una opción:*`;
+
+    const buttons = [
+      { buttonId: `.yta ${url}`, buttonText: { displayText: '🎵 Audio' }, type: 1 },
+      { buttonId: `.ytv ${url}`, buttonText: { displayText: '🎥 Video' }, type: 1 },
+    ];
+
+    const message = {
+      image: { url: thumbnail },
+      caption: infoMessage,
+      footer: 'Selecciona una opción para continuar.',
+      buttons,
+      headerType: 4,
     };
 
-    await conn.reply(m.chat, infoMessage, m, JT);
-
-    if (command === 'play' || command === 'yta' || command === 'ytmp3') {
-      const api = await (await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=audio&quality=128kbps&apikey=GataDios`)).json()
-      const result = api.data.url
-      await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m });
-
-    } else if (command === 'play2' || command === 'ytv' || command === 'ytmp4') {
-
-      const response = await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=video&quality=480p&apikey=GataDios`)
-      const json = await response.json()
-
-      try {
-        await conn.sendMessage(m.chat, {
-          video: { url: json.data.url },
-          fileName: json.data.filename,
-          mimetype: 'video/mp4',
-          caption: '',
-          thumbnail: json.thumbnail
-        }, { quoted: m });
-      } catch (e) {
-        console.error(`Error con la fuente de descarga:`, e.message);
-      }
-
-    } else {
-      throw "Comando no reconocido.";
-    }
+    await conn.sendMessage(m.chat, message, { quoted: m });
   } catch (error) {
     return m.reply(`⚠︎ Ocurrió un error: ${error.message}`);
   }
 };
 
-handler.command = handler.help = ['pl', 'pl', 'ytmp3', 'yta', 'ytmp4', 'ytv'];
+handler.command = handler.help = ['play', 'play2', 'ytmp3', 'yta', 'ytmp4', 'ytv'];
 handler.tags = ['downloader'];
 handler.group = true;
 
 export default handler;
-
-function formatViews(views) {
-  if (views >= 1000) {
-    return (views / 1000).toFixed(1) + 'k (' + views.toLocaleString() + ')';
-  } else {
-    return views.toString();
-  }
-}
