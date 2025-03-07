@@ -100,41 +100,15 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 
     await conn.reply(m.chat, infoMessage, m, JT);
 
-    // --- Snippet agregado según lo solicitado, sin modificar el código existente ---
-    if (command === 'play' || command === 'play2' || command === 'playvid') {
-      await conn.sendMessage(m.chat, {
-        image: { url: videoInfo.thumbnail },
-        caption: infoMessage, // Se usa infoMessage en lugar de body
-        footer: dev,
-        buttons: [
-          {
-            buttonId: `.yta ${videoInfo.url}`,
-            buttonText: {
-              displayText: '⏤͟͟͞͞👑 𝑨𝒖𝒅𝒊𝒐',
-            },
-          },
-          {
-            buttonId: `.ytv ${videoInfo.url}`,
-            buttonText: {
-              displayText: '⏤͟͟͞͞👑 𝑽𝒊𝒅𝒆𝒐',
-            },
-          },
-        ],
-        viewOnce: true,
-        headerType: 4,
-      }, { quoted: fkontak });
-      m.react('🕒');
-      return; // Se finaliza la ejecución para evitar seguir con los bloques posteriores.
-    }
-    // --- Fin del snippet agregado ---
-
     if (command === 'play' || command === 'yta' || command === 'ytmp3') {
-      const api = await (await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=audio&quality=128kbps&apikey=GataDios`)).json();
-      const result = api.data.url;
+      const api = await (await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=audio&quality=128kbps&apikey=GataDios`)).json()
+      const result = api.data.url
       await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m });
+
     } else if (command === 'play2' || command === 'ytv' || command === 'ytmp4') {
-      const response = await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=video&quality=480p&apikey=GataDios`);
-      const json = await response.json();
+
+      const response = await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=video&quality=480p&apikey=GataDios`)
+      const json = await response.json()
 
       try {
         await conn.sendMessage(m.chat, {
@@ -147,6 +121,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       } catch (e) {
         console.error(`Error con la fuente de descarga:`, e.message);
       }
+
     } else {
       throw "Comando no reconocido.";
     }
