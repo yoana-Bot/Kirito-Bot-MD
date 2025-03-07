@@ -1,43 +1,57 @@
-import fetch from 'node-fetch';
+import moment from 'moment-timezone'
+import fetch from 'node-fetch'
 
-const handler = async (m, { conn, text }) => {
-  if (!text) {
-    await conn.sendMessage(m.chat, { text: '*👑 𝑭𝒂𝒍𝒕𝒂 𝒆𝒍 𝒕𝒆𝒙𝒕𝒐 𝒑𝒂𝒓𝒂 𝒄𝒓𝒆𝒂𝒓 𝒍𝒂 𝒊𝒎𝒂𝒈𝒆𝒏✎*' }, { quoted: m });
-    return;
-  }
-
-  m.react('✨');
-  await conn.sendMessage(m.chat, { text: `*👑 𝒄𝒓𝒆𝒂𝒏𝒅𝒐 𝒊𝒎𝒂𝒈𝒆𝒏 𝒅𝒆 ✎ ${text}*` }, { quoted: m });
-
+let handler = async (m, { conn, args }) => {
   try {
-    const res = await fetch(`https://eliasar-yt-api.vercel.app/api/ai/text2img?prompt=${encodeURIComponent(text)}`);
-    if (!res.ok) throw new Error();
+    let res = await fetch('https://api.github.com/repos/The-King-Destroy/Yuki_Suou-Bot')
+    if (!res.ok) throw new Error('Error al obtener datos del repositorio')
+    let json = await res.json()
 
-    const buffer = await res.buffer();
-    m.react('🪄');
+    let txt = `*乂  S C R I P T  -  M A I N  乂*\n\n`
+    txt += `✩  *Nombre* : ${json.name}\n`
+    txt += `✩  *Visitas* : ${json.watchers_count}\n`
+    txt += `✩  *Peso* : ${(json.size / 1024).toFixed(2)} MB\n`
+    txt += `✩  *Actualizado* : ${moment(json.updated_at).format('DD/MM/YY - HH:mm:ss')}\n`
+    txt += `✩  *Url* : ${json.html_url}\n`
+    txt += `✩  *Forks* : ${json.forks_count}\n`
+    txt += `✩  *Stars* : ${json.stargazers_count}\n\n`
+    txt += `> *${dev}*`
 
-    let userId = m.sender; // ID del usuario que envió el mensaje
+    // Utiliza el avatar del propietario del repo como imagen
+    let thumbnail = json.owner.avatar_url
 
-    await conn.sendMessage(m.chat, { 
-      image: buffer, 
-      caption: 'Imagen generada con éxito.',
-      buttons: [
-        {
-          buttonId: `.perfil ${userId}`, // Botón de perfil con ID del usuario
-          buttonText: { displayText: '👤 Perfil' },
+    await conn.sendMessage(
+      m.chat,
+      {
+        text: txt,
+        contextInfo: {
+          forwardingScore: 999,
+          isForwarded: true,
+          forwardedNewsletterMessageInfo: {
+            newsletterName: channelRD.name,
+            newsletterJid: channelRD.id,
+          },
+          externalAdReply: {
+            title: packname,
+            body: dev,
+            thumbnailUrl: thumbnail,
+            sourceUrl: redes,
+            mediaType: 1,
+            renderLargerThumbnail: true,
+          },
         },
-      ],
-      footer: '¡Disfruta!',
-      viewOnce: true,
-    }, { quoted: m });
-
-  } catch (e) {
-    await conn.sendMessage(m.chat, { text: '*🚨 Ha ocurrido un error 😔*' }, { quoted: m });
+      },
+      { quoted: fkontak }
+    )
+  } catch (error) {
+    await conn.reply(m.chat, `${msm} Ocurrió un error.`, m)
+    await m.react(error)
   }
-};
+}
 
-handler.tags = ['tools'];
-handler.help = ['genearimg'];
-handler.command = ['imgIA', 'imgg2', 'Imgia'];
+handler.help = ['script']
+handler.tags = ['main']
+handler.command = ['script', 'sc2']
+handler.register = true
 
-export default handler;
+export default handler
