@@ -11,7 +11,7 @@ Si estás interesado, contáctame y trabajemos juntos en tu proyecto. ¡Estoy li
 Contáctame: https://wa.link/jxjhek`,
     buttons: [
       {
-        buttonId: '.web servicios',
+        buttonId: '.servise',
         buttonText: { displayText: '🌐 Servicios' },
       },
       {
