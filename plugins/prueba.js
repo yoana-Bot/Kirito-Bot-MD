@@ -1,4 +1,6 @@
-const handler = async (m, { command, conn }) => {
+import fetch from 'node-fetch';
+
+const handler = async (m, { command, conn, text }) => {
   if (command === 'code') {
     const texto = 'Uso correcto del comando: .serbot --code';
 
@@ -21,12 +23,16 @@ const handler = async (m, { command, conn }) => {
       }
     ];
 
-    await conn.sendMessage(m.chat, { text: texto, buttons, footer: 'Código creado por Deyin' }, { quoted: m });
+    await conn.sendMessage(m.chat, { 
+      text: texto, 
+      buttons: buttons, 
+      footer: 'Código creado por Deyin' 
+    }, { quoted: m });
   }
 };
 
-handler.help = ['serbot', 'serbot code'];
 handler.tags = ['serbot'];
+handler.help = ['serbot', 'serbot code'];
 handler.command = ['code'];
 
 export default handler;
