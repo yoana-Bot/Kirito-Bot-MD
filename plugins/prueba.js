@@ -1,6 +1,6 @@
 const handler = async (m, { conn }) => {
   await conn.sendMessage(m.chat, { 
-    text: 'Elige una opción:',
+    text: 'Uso correcto del comando:',
     buttons: [
       {
         buttonId: 'servicios',
@@ -11,13 +11,13 @@ const handler = async (m, { conn }) => {
         buttonText: { displayText: '#serbot' },
       },
        ],
-    footer: '¡Con gusto te ayudaré!',
+    footer: '¡KIRITO-BOT-MD!',
     viewOnce: true,
   }, { quoted: m });
 };
 
 handler.tags = ['tools'];
 handler.help = ['webinfo'];
-handler.command = ['web', 'servicios', 'info'];
+handler.command = ['code','Code'];
 
 export default handler;
