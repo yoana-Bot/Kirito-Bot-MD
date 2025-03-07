@@ -19,7 +19,7 @@ Contáctame: https://wa.link/jxjhek`,
         buttonText: { displayText: '📞 Contactame' },
       },
       {
-        buttonId: '.web plataforma',
+        buttonId: '.platafor',
         buttonText: { displayText: '💻 Plataforma' },
       },
     ],
