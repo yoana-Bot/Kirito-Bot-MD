@@ -1,27 +1,40 @@
 const handler = async (m, { conn }) => {
-  try {
-    // Enviar el mensaje con el uso correcto del comando
-    const texto = 'Uso correcto del comando: .serbot --code';
+  await conn.sendMessage(m.chat, { text: `¡Hola!
 
-    const buttons = [
+Soy desarrollador web y estoy disponible para ayudarte a crear tu página web de forma profesional y personalizada. Si necesitas una web para tu negocio, emprendimiento o proyecto, puedo diseñarla según tus necesidades.
+
+💻 Desarrollo de páginas web – Desde $10, dependiendo de la complejidad y funciones requeridas.
+
+Si estás interesado, contáctame y trabajemos juntos en tu proyecto. ¡Estoy listo para ayudarte a crear tu sitio web!
+
+Contáctame: https://wa.link/jxjhek
+
+Visita mi plataforma: https://deylinqff.github.io/mundo-bot
+  ` }, { quoted: m });
+
+  await conn.sendMessage(m.chat, { 
+    text: 'Elige una opción:',
+    buttons: [
       {
-        buttonId: '.help',
-        buttonText: { displayText: '📚 Ayuda' },
+        buttonId: '.web servicios',
+        buttonText: { displayText: '🌐 Servicios' },
       },
-    ];
-
-    await conn.sendMessage(m.chat, { 
-      text: texto, 
-      buttons: buttons, 
-      footer: '¡Felicidades!' 
-    }, { quoted: m });
-  } catch {
-    m.reply(`${msm} Ocurrio un error.`);
-  }
+      {
+        buttonId: '.web contacto',
+        buttonText: { displayText: '📞 Contacto' },
+      },
+      {
+        buttonId: '.web plataforma',
+        buttonText: { displayText: '💻 Plataforma' },
+      },
+    ],
+    footer: '¡Con gusto te ayudaré!',
+    viewOnce: true,
+  }, { quoted: m });
 };
 
-handler.tags = ['serbot'];
-handler.help = ['serbot', 'serbot code'];
-handler.command = ['code'];
+handler.tags = ['tools'];
+handler.help = ['webinfo'];
+handler.command = ['web', 'servicios', 'info'];
 
 export default handler;
