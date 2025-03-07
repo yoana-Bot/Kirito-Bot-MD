@@ -4,17 +4,13 @@ const handler = async (m, { conn }) => {
     buttons: [
       {
         buttonId: 'servicios',
-        buttonText: { displayText: '.serbot --code' },
+        buttonText: { displayText: '#serbot --code' },
       },
       {
         buttonId: 'contacto',
-        buttonText: { displayText: '📞 Contacto' },
+        buttonText: { displayText: '#serbot' },
       },
-      {
-        buttonId: '.web plataforma',
-        buttonText: { displayText: '💻 Plataforma' },
-      },
-    ],
+       ],
     footer: '¡Con gusto te ayudaré!',
     viewOnce: true,
   }, { quoted: m });
