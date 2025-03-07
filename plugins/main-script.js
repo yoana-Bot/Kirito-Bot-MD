@@ -7,7 +7,6 @@ let handler = async (m, { conn, args }) => {
     if (!res.ok) throw new Error('Error al obtener datos del repositorio')
     let json = await res.json()
 
-    // Diseño temático "Kirito"
     let txt = `╔════════════════════╗\n`
     txt += `║         K I R I T O ' S  S C R I P T      \n`
     txt += `╠════════════════════╣\n`
@@ -21,26 +20,33 @@ let handler = async (m, { conn, args }) => {
     txt += `╠════════════════════╗\n`
     txt += `> *${dev}*\n`
     txt += `╚════════════════════╝\n`
-    await conn.sendMessage(m.chat, {
-      text: txt,
-      contextInfo: {
-        forwardingScore: 999,
-        isForwarded: true,
-        forwardedNewsletterMessageInfo: {
-          newsletterName: channelRD.name,
-          newsletterJid: channelRD.id,
-        },
-        externalAdReply: {
-          title: packname,
-          body: dev,
-          thumbnailUrl: 'https://qu.ax/nGaLj.jpg',
-          sourceUrl: redes,
-          mediaType: 1,
-          renderLargerThumbnail: true
-        }
-      }
-    }, { quoted: fkontak })
 
+    // Utiliza el avatar del propietario del repo como imagen
+    let thumbnail = json.owner.avatar_url
+
+    await conn.sendMessage(
+      m.chat,
+      {
+        text: txt,
+        contextInfo: {
+          forwardingScore: 999,
+          isForwarded: true,
+          forwardedNewsletterMessageInfo: {
+            newsletterName: channelRD.name,
+            newsletterJid: channelRD.id,
+          },
+          externalAdReply: {
+            title: packname,
+            body: dev,
+            thumbnailUrl: thumbnail,
+            sourceUrl: redes,
+            mediaType: 1,
+            renderLargerThumbnail: true,
+          },
+        },
+      },
+      { quoted: fkontak }
+    )
   } catch (error) {
     await conn.reply(m.chat, `${msm} Ocurrió un error.`, m)
     await m.react(error)
