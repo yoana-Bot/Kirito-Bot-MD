@@ -81,7 +81,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 };
 
 handler.help = ['play', 'playvid', 'ytv', 'yta', 'play2',];
-handler.command = ['play', 'playvid', 'ytv', 'yta', 'play2',];
+handler.command = ['play4', 'playvid', 'ytv', 'yta', 'play23',];
 handler.tags = ['dl'];
 handler.register = true;
 
@@ -163,7 +163,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 };
 
 handler.help = ['play', 'playvid', 'ytv',  'yta', 'play2',];
-handler.command = ['play', 'playvid', 'ytv',  'yta', 'play2',];
+handler.command = ['play4', 'playvid', 'ytv',  'yta', 'play23',];
 handler.tags = ['dl'];
 handler.group = true;
 handler.register = true;
