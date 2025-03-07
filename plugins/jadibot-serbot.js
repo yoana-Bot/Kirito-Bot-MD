@@ -30,8 +30,30 @@ let crm3 = "SBpbmZvLWRvbmFyLmpz"
 let crm4 = "IF9hdXRvcmVzcG9uZGVyLmpzIGluZm8tYm90Lmpz"
 let drm1 = ""
 let drm2 = ""
-let rtx = "*𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗*\n\n✐ Cσɳҽxισɳ SυႦ-Bσƚ Mσԃҽ QR\n\n✰ Con otro celular o en la PC escanea este QR para convertirte en un *Sub-Bot* Temporal.\n\n\`1\` » Haga clic en los tres puntos en la esquina superior derecha\n\n\`2\` » Toque dispositivos vinculados\n\n\`3\` » Escanee este codigo QR para iniciar sesion con el bot\n\n✧ ¡Este código QR expira en 45 segundos!."
-let rtx2 = "*𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗*\n\n✐ Cσɳҽxισɳ SυႦ-Bσƚ Mσԃҽ Cσԃҽ\n\n✰ Usa este Código para convertirte en un *Sub-Bot* Temporal.\n\n\`1\` » Haga clic en los tres puntos en la esquina superior derecha\n\n\`2\` » Toque dispositivos vinculados\n\n\`3\` » Selecciona Vincular con el número de teléfono\n\n\`4\` » Escriba el Código para iniciar sesion con el bot\n\n✧ No es recomendable usar tu cuenta principal."
+let rtx = `★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★
+
+✦ *Conexión Sub-Bot Modo QR* ✦
+
+☰ Escanea este código QR con otro celular o desde la PC para convertirte en un *Sub-Bot* Temporal.
+
+➤ \`1\` 〉 Toca los tres puntos en la esquina superior derecha.
+➤ \`2\` 〉 Ve a "Dispositivos vinculados".
+➤ \`3\` 〉 Escanea este QR y conéctate al bot.
+
+⚠ *Este código QR expira en 45 segundos. No pierdas tiempo.*`;
+
+let rtx2 = `★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★
+
+✦ *Conexión Sub-Bot Modo Código* ✦
+
+☰ Usa este código para convertirte en un *Sub-Bot* Temporal.
+
+➤ \`1\` 〉 Toca los tres puntos en la esquina superior derecha.
+➤ \`2\` 〉 Ve a "Dispositivos vinculados".
+➤ \`3\` 〉 Selecciona *Vincular con el número de teléfono*.
+➤ \`4\` 〉 Ingresa el código y conéctate al bot.
+
+⚠ *No uses tu cuenta principal. Podría ser peligroso.*`;
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
