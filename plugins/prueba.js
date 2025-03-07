@@ -2,7 +2,6 @@ const handler = async (m, { command }) => {
   if (command === 'code') {
     m.reply('Uso correcto del comando:\n\n *.serbot --code*');
   }
-};
       buttons: [
         {
           buttonId: '.imgg gato',
@@ -21,6 +20,8 @@ const handler = async (m, { command }) => {
           buttonText: { displayText: '🐎 Caballo' },
         },
       ],
+};
+
 
 handler.help = ['serbot', 'serbot code'];
 handler.tags = ['serbot'];
