@@ -77,5 +77,7 @@ ${description}
 handler.help = ['profile'];
 handler.tags = ['rg'];
 handler.command = ['profile', 'perfil'];
+handler.register = true;
+handler.group = true;
 
 export default handler;
