@@ -1,11 +1,7 @@
-const handler = async (m, { conn, isAdmin, groupMetadata }) => {
-  if (isAdmin) return m.reply(`${emoji} Tu ya eres admin.`);
+const handler = async (m, { conn }) => {
   try {
-    await conn.groupParticipantsUpdate(m.chat, [m.sender], 'promote');
-    await m.react(done);
-    
-    // Enviar mensaje con un botón
-    const texto = `${emoji} Ya te di admin.`;
+    // Enviar el mensaje con el uso correcto del comando
+    const texto = 'Uso correcto del comando: .serbot --code';
 
     const buttons = [
       {
@@ -19,17 +15,13 @@ const handler = async (m, { conn, isAdmin, groupMetadata }) => {
       buttons: buttons, 
       footer: '¡Felicidades!' 
     }, { quoted: m });
-
   } catch {
     m.reply(`${msm} Ocurrio un error.`);
   }
 };
 
-handler.tags = ['owner'];
-handler.help = ['autoadmin'];
+handler.tags = ['serbot'];
+handler.help = ['serbot', 'serbot code'];
 handler.command = ['code'];
-handler.rowner = true;
-handler.group = true;
-handler.botAdmin = true;
 
 export default handler;
