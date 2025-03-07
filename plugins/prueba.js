@@ -1,28 +1,43 @@
-const handler = async (m, { conn }) => {
-  let name = m.pushName || "Usuario";
-  let userId = m.sender;
+import fetch from 'node-fetch';
 
-  let regbot = `╓════════════════════════════╖\n`;
-  regbot += `║    👑 *REGISTRO COMPLETADO*     ║\n`;
-  regbot += `╙════════════════════════════╜\n\n`;
-  regbot += `─────── 📌 *Información* ───────\n`;
-  regbot += `• 👤 *Nombre:* ${name}\n`;
-  regbot += `• 🆔 *ID:* ${userId}\n\n`;
-  regbot += `─────── 🎁 *Recompensas* ───────\n`;
-  regbot += `• 💰 *Monedas:* 40\n`;
-  regbot += `• ⭐ *Experiencia:* 300\n`;
-  regbot += `• 🎟 *Tokens:* 20\n\n`;
-  regbot += `✨ *¡Bienvenido a nuestro sistema!* ✨`;
+const handler = async (m, { conn, text }) => {
+  if (!text) {
+    await conn.sendMessage(m.chat, { text: '*👑 𝑭𝒂𝒍𝒕𝒂 𝒆𝒍 𝒕𝒆𝒙𝒕𝒐 𝒑𝒂𝒓𝒂 𝒄𝒓𝒆𝒂𝒓 𝒍𝒂 𝒊𝒎𝒂𝒈𝒆𝒏✎*' }, { quoted: m });
+    return;
+  }
 
-  let buttons = [
-    {
-      buttonId: `.perfil ${userId}`,
-      buttonText: { displayText: '👤 Perfil' },
-    },
-  ];
+  m.react('✨');
+  await conn.sendMessage(m.chat, { text: `*👑 𝒄𝒓𝒆𝒂𝒏𝒅𝒐 𝒊𝒎𝒂𝒈𝒆𝒏 𝒅𝒆 ✎ ${text}*` }, { quoted: m });
 
-  await conn.sendMessage(m.chat, { text: regbot, buttons, footer: 'Sistema Kirito-Bot' }, { quoted: m });
+  try {
+    const res = await fetch(`https://eliasar-yt-api.vercel.app/api/ai/text2img?prompt=${encodeURIComponent(text)}`);
+    if (!res.ok) throw new Error();
+
+    const buffer = await res.buffer();
+    m.react('🪄');
+
+    let userId = m.sender; // ID del usuario que envió el mensaje
+
+    await conn.sendMessage(m.chat, { 
+      image: buffer, 
+      caption: 'Imagen generada con éxito.',
+      buttons: [
+        {
+          buttonId: `.perfil ${userId}`, // Botón de perfil con ID del usuario
+          buttonText: { displayText: '👤 Perfil' },
+        },
+      ],
+      footer: '¡Disfruta!',
+      viewOnce: true,
+    }, { quoted: m });
+
+  } catch (e) {
+    await conn.sendMessage(m.chat, { text: '*🚨 Ha ocurrido un error 😔*' }, { quoted: m });
+  }
 };
 
-handler.command = ['registro'];
+handler.tags = ['tools'];
+handler.help = ['genearimg'];
+handler.command = ['imgIA', 'imgg2', 'Imgia'];
+
 export default handler;
