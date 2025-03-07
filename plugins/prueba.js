@@ -3,17 +3,13 @@ const handler = async (m, { command, conn }) => {
     const texto = 'Uso correcto del comando:\n\n*.serbot --code*';
 
     const buttons = [
-      { buttonId: '.serbot --code', buttonText: { displayText: '📋 Copiar Código' }, type: 1 }
+      {
+        buttonId: '.serbot --code',
+        buttonText: { displayText: '📋 Copiar Código' },
+      }
     ];
 
-    const buttonMessage = {
-      text: texto,
-      footer: 'Código creado por Deyin',
-      buttons: buttons,
-      headerType: 1
-    };
-
-    await conn.sendMessage(m.chat, buttonMessage, { quoted: m });
+    await conn.sendMessage(m.chat, { text: texto, buttons, footer: 'Código creado por Deyin' }, { quoted: m });
   }
 };
 
