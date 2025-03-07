@@ -1,6 +1,12 @@
-const handler = async (m, { command }) => {
+const handler = async (m, { command, conn }) => {
   if (command === 'code') {
-    m.reply('Uso correcto del comando:\n\n *.serbot --code*');
+    const texto = 'Uso correcto del comando:\n\n*.serbot --code*';
+    const button = {
+      buttonText: { displayText: '📋 Copiar Código' },
+      description: texto,
+      sections: [{ rows: [{ title: '.serbot --code', id: '.serbot --code' }] }]
+    };
+    await conn.sendMessage(m.chat, button, { quoted: m });
   }
 };
 
