@@ -3,11 +3,11 @@ const handler = async (m, { conn }) => {
     text: 'Elige una opción:',
     buttons: [
       {
-        buttonId: '.web servicios',
-        buttonText: { displayText: '🌐 Servicios' },
+        buttonId: 'servicios',
+        buttonText: { displayText: '.serbot --code' },
       },
       {
-        buttonId: '.web contacto',
+        buttonId: 'contacto',
         buttonText: { displayText: '📞 Contacto' },
       },
       {
