@@ -21,9 +21,8 @@ const handler = async(m, { conn }) => {
 
 - Integración Web-Bot: Conectar la página web con el bot de WhatsApp.
 - Soporte Multicanal: Atención en web y WhatsApp.
-- Automatización de Marketing: Campañas automáticas y seguimiento de usuarios.`
-      }, { quoted: m, rcanal: rcanal }); // Enviamos el mensaje usando el objeto rcanal
-
+- Automatización de Marketing: Campañas automáticas y seguimiento de usuarios.`, m, fake);
+    
     } catch (error) {
       console.error('Error al enviar el mensaje:', error);
       conn.reply(m.chat, 'Ocurrió un error al intentar enviar el mensaje.', m);
