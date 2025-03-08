@@ -29,7 +29,7 @@ El incumplimiento de las normas puede llevar a bloqueos sin previo aviso.
 
 🔹 *📌 Nota:*  
 El uso del bot implica la aceptación de estas normas.
-`, m, { image: { url: imagenNormas } });
+`, m, fake); { image: { url: imagenNormas } });
 };
 
 handler.help = ['norma'];
