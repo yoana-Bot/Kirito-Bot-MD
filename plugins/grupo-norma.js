@@ -37,8 +37,8 @@ export async function normasHandler(m, { command, conn }) {
     }
 }
 
-normasHandler.help = ['norma'];
-normasHandler.tags = ['grupo'];
-normasHandler.command = ['norma'];
+handler.help = ['norma'];
+handler.tags = ['grupo'];
+handler.command = ['norma'];
 
 export default handler;
