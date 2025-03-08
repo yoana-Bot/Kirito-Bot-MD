@@ -1,4 +1,4 @@
-const handler = async (m, { conn, command, rcanal }) => {
+const handler = async(m, { conn }) => {
   if (command === 'servise') {  // Se cambió 'code' por 'servise'
     try {
       await conn.sendMessage(m.chat, { 
