@@ -1,6 +1,6 @@
 const handler = async (m, { command, conn }) => {
   if (command === 'platafor') {
-conn.reply('*plataforma*\n\n https://deylinqff.github.io/mundo-bot', m, rcanal);
+conn.reply(m.chat, '*plataforma*\n\n https://deylinqff.github.io/mundo-bot', m, rcanal);
   }
 };
 
@@ -9,5 +9,3 @@ handler.tags = ['serbot'];
 handler.command = ['platafor'];
 
 export default handler;
-
-// Código creado por Deyin
