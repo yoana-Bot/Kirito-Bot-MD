@@ -1,6 +1,7 @@
-
 let handler = async (m, { conn, usedPrefix, command, args }) => {
-      return conn.reply(m.chat, `
+  const imagenNormas = 'https://files.catbox.moe/7czphn.jpg'; // URL de la imagen
+
+  return conn.reply(m.chat, `
 ┏━━━━━━━━━━━━━━━┓
 ┃  📜 *NORMAS DE USO* 📜  
 ┗━━━━━━━━━━━━━━━┛
@@ -28,10 +29,8 @@ El incumplimiento de las normas puede llevar a bloqueos sin previo aviso.
 
 🔹 *📌 Nota:*  
 El uso del bot implica la aceptación de estas normas.
-`, m, fake);
-
-const imagenNormas = 'https://files.catbox.moe/7czphn.jpg';
-
+`, m, { image: { url: imagenNormas } });
+};
 
 handler.help = ['norma'];
 handler.tags = ['grupo'];
