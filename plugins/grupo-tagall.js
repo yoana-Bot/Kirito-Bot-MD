@@ -1,8 +1,3 @@
-/* 
-- tagall By Angel-OFC  
-- etiqueta en un grupo a todos
-- https://whatsapp.com/channel/0029VaJxgcB0bIdvuOwKTM2Y
-*/
 const handler = async (m, { isOwner, isAdmin, conn, text, participants, args, command, usedPrefix }) => {
   if (usedPrefix == 'a' || usedPrefix == 'A') return;
 
@@ -14,11 +9,16 @@ const handler = async (m, { isOwner, isAdmin, conn, text, participants, args, co
     throw false;
   }
 
+  const emojis = [
+    "😀", "😃", "😄", "😁", "😆", "😅", "😂", "🤣", "😭", "😉", "😗", "😙", "😚", "😘", "🥰", "😍", "🤩", "🥳", "🫠", "🙂", "😔", "🫡", "🤨", "😞", "🙃", "😏", "🥺", "🤔", "🧐", "😓", "🤤", "😬", "🤫", "😒", "😟", "🥲", "😋", "😑", "🫢", "🙄", "😥", "😦", "🥹", "😛", "😐", "🤭", "😮", "😢", "😊", "😝", "😶", "🥱", "😤", "☹️", "😯", "☺️", "😜", "🤗", "😠", "🙁", "😲", "😌", "🤪", "🫥", "🫣", "😡", "😳", "🫤", "🥴", "🤐", "😱", "🤬", "😕", "🤯", "😲", "😯", "😦", "😧", "😨", "😰", "😖", "🤢", "😇", "😣", "🤮", "🤠", "😩", "🤑", "😴", "😫", "😪", "🤓", "😵", "🤧", "😎", "😵‍💫", "🤒", "🥸", "🫨", "🤕", "🥶", "😷", "🥵", "🤥"
+  ];
+
   const pesan = args.join` `;
   const oi = `*» INFO :* ${pesan}`;
   let teks = `*!  MENCION GENERAL  !*\n  *PARA ${participants.length} MIEMBROS* ⚡\n\n ${oi}\n\n┏╍┅┅╍┅╍=͟͟͞${botname} ╍┅╍┅┅╍╍╍☾\n`;
   for (const mem of participants) {
-    teks += `┃⏤͟͟͞͞ꗄ➺ @${mem.id.split('@')[0]}\n`;
+    const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+    teks += `┃⏤͟͟͞͞ꗄ➺ ${emoji} @${mem.id.split('@')[0]}\n`;
   }
   teks += `┗┅╍╍┅╍┅ *${vs}* ╍┅╍┅┅╍┅☾`;
 
