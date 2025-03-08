@@ -1,23 +1,12 @@
-const handler = async (m, { conn }) => {
-  await conn.sendMessage(m.chat, { 
-    text: 'Uso correcto del comando:',
-    buttons: [
-      {
-        buttonId: 'servicios',
-        buttonText: { displayText: '#serbot --code' },
-      },
-      {
-        buttonId: 'contacto',
-        buttonText: { displayText: '#serbot' },
-      },
-       ],
-    footer: '¡KIRITO-BOT-MD!',
-    viewOnce: true,
-  }, { quoted: m });
-};
+handler.help = ['demo *<texto>*'];
+handler.command = ['de', 'openai'];
+handler.tags = ['ai'];
+handler.group = true;
 
-handler.tags = ['tools'];
-handler.help = ['webinfo'];
-handler.command = ['code','Code'];
+handler.run = async (m, { conn, text, rcanal }) => {
+    if (!text) return conn.reply(m.chat, 'Falta el texto.', m, rcanal);
+    // Aquí se envía el texto proporcionado por el usuario
+    conn.reply(m.chat, `Mensaje recibido: ${text}`, m, rcanal);
+};
 
 export default handler;
