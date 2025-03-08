@@ -1,4 +1,4 @@
-const handler = async (m, { conn, command }) => {
+ const handler = async (m, { conn, command }) => {
   if (command === 'servise') {  // Se cambió 'code' por 'servise'
     await conn.sendMessage(m.chat, { text: `*Servicios de un Creador de Página Web:*
 
@@ -20,7 +20,7 @@ const handler = async (m, { conn, command }) => {
 
 - Integración Web-Bot: Conectar la página web con el bot de WhatsApp.
 - Soporte Multicanal: Atención en web y WhatsApp.
-- Automatización de Marketing: Campañas automáticas y seguimiento de usuarios.`
+- Automatización de Marketing: Campañas automáticas y seguimiento de usuarios.`, m, rcanal);
     }, { quoted: conn.reply( m, rcanal);
   }
 };
