@@ -1,7 +1,13 @@
-let handler = async (m, { conn }) => {
-  if (m.command === 'servise') {  // Se cambió 'code' por 'servise'
+let handler = async (m, { conn, command }) => {
+  if (command === 'servise') {  // Comando para este caso
     try {
-      conn.reply(m.chat, `*Servicios de un Creador de Página Web:*
+      // Asegúrate de que el chat esté definido y el comando sea correcto
+      if (!m.chat) {
+        throw new Error('No se pudo obtener el chat.');
+      }
+
+      // Responder con los servicios
+      await conn.reply(m.chat, `*Servicios de un Creador de Página Web:*
 
 1. Diseño y Desarrollo Web: Creación de sitios web modernos y responsivos.
 2. Optimización SEO: Mejora de la visibilidad en motores de búsqueda.
@@ -22,13 +28,16 @@ let handler = async (m, { conn }) => {
 - Integración Web-Bot: Conectar la página web con el bot de WhatsApp.
 - Soporte Multicanal: Atención en web y WhatsApp.
 - Automatización de Marketing: Campañas automáticas y seguimiento de usuarios.`, m);
+
     } catch (error) {
+      // Manejo de errores para depurar
       console.error('Error al enviar el mensaje:', error);
       conn.reply(m.chat, 'Ocurrió un error al intentar enviar el mensaje.', m);
     }
   }
 };
 
+// Configuración de los comandos
 handler.help = ['servicio', 'servise'];
 handler.tags = ['serbot'];
 handler.command = ['servise']; // Se mantiene 'servise' como el comando correcto
