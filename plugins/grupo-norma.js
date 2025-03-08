@@ -25,8 +25,9 @@ El bot puede limitar funciones si detecta abusos.
 El incumplimiento de las normas puede llevar a bloqueos sin previo aviso.  
 
 🔹 *📌 Nota:*  
-El uso del bot implica la aceptación de estas normas.
-`, m, fake);
+El uso del bot implica la aceptación de estas normas.  
+📢 *Fuente: Canal Oficial de Kirito-Bot*  
+`;
 
 const politica = `
 ┏━━━━━━━━━━━━━━━┓
@@ -49,22 +50,39 @@ Puedes solicitar la eliminación de tu información contactando al administrador
 Esta política puede actualizarse en cualquier momento. Se notificará si hay cambios importantes.  
 
 🔹 *📌 Nota:*  
-Al usar Kirito Bot, aceptas estas condiciones.
+Al usar Kirito Bot, aceptas estas condiciones.  
+📢 *Fuente: Canal Oficial de Kirito-Bot*  
 `;
 
 const imagenNormas = 'https://files.catbox.moe/7czphn.jpg';
 const imagenPolitica = 'https://files.catbox.moe/da62mt.jpg';
 
-export async function handler(m, { command, conn }) {
-    if (command === 'norma') {
-        await conn.sendMessage(m.chat, { image: { url: imagenNormas }, caption: normas }, { quoted: m });
-    } else if (command === 'política') {
-        await conn.sendMessage(m.chat, { image: { url: imagenPolitica }, caption: politica }, { quoted: m });
-    }
-}
+// Definiendo un mensaje simulado de canal
+const rcanal = {  
+    key: {  
+        fromMe: false,  
+        participant: "0@s.whatsapp.net",  
+        remoteJid: "status@broadcast"  
+    },  
+    message: {  
+        extendedTextMessage: {  
+            text: "🔵 Mensaje reenviado desde *Canal Oficial de Kirito-Bot*"  
+        }  
+    }  
+};  
 
-handler.help = ['norma', 'política'];
-handler.tags = ['grupo'];
-handler.command = ['norma', 'política'];
+export async function handler(m, { command, conn }) {  
+    if (command === 'norma') {  
+        await conn.sendMessage(m.chat, { image: { url: imagenNormas }, caption: normas }, { quoted: m });  
+        conn.reply(m.chat, '🔵 *Mensaje reenviado desde Canal Oficial de Kirito-Bot*', m, rcanal);  
+    } else if (command === 'política') {  
+        await conn.sendMessage(m.chat, { image: { url: imagenPolitica }, caption: politica }, { quoted: m });  
+        conn.reply(m.chat, 'texto', m, rcanal);  
+    }  
+}  
+
+handler.help = ['norma', 'política'];  
+handler.tags = ['grupo'];  
+handler.command = ['norma', 'política'];  
 
 export default handler;
