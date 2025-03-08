@@ -29,7 +29,7 @@ El incumplimiento de las normas puede llevar a bloqueos sin previo aviso.
 🔹 *📌 Nota:*  
 El uso del bot implica la aceptación de estas normas.`;
 
-      return conn.reply(m.chat, '
+      return conn.reply(m.chat, `
 ┏━━━━━━━━━━━━━━━┓
 ┃  🔒 *POLÍTICA DE PRIVACIDAD* 🔒  
 ┗━━━━━━━━━━━━━━━┛
@@ -50,7 +50,7 @@ Puedes solicitar la eliminación de tu información contactando al administrador
 Esta política puede actualizarse en cualquier momento. Se notificará si hay cambios importantes.  
 
 🔹 *📌 Nota:*  
-Al usar Kirito Bot, aceptas estas condiciones.', m, fake);
+Al usar Kirito Bot, aceptas estas condiciones.`, m, fake);
 
 const imagenNormas = 'https://files.catbox.moe/7czphn.jpg';
 const imagenPolitica = 'https://files.catbox.moe/da62mt.jpg';
