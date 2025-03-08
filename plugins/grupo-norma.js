@@ -32,12 +32,6 @@ El uso del bot implica la aceptación de estas normas.
 
 const imagenNormas = 'https://files.catbox.moe/7czphn.jpg';
 
-// Comando 'norma' que envía las normas de uso
-export async function normasHandler(m, { command, conn }) {
-    if (command === 'norma') {
-        await conn.sendMessage(m.chat, { image: { url: imagenNormas }, caption: normas }, { quoted: m });
-    }
-}
 
 handler.help = ['norma'];
 handler.tags = ['grupo'];
