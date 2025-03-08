@@ -1,6 +1,6 @@
 const handler = async (m, { conn }) => {
   await conn.sendMessage(m.chat, { 
-    text: 'Uso correcto del comando:',
+    text: 'Uso correcto del comando:', m, fake);
     buttons: [
       {
         buttonId: 'servicios',
