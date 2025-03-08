@@ -1,5 +1,3 @@
-
-let handler = async (m, { conn, usedPrefix, command, args }) => {
 const normas = `
 ┏━━━━━━━━━━━━━━━┓
 ┃  📜 *NORMAS DE USO* 📜  
@@ -27,45 +25,20 @@ El bot puede limitar funciones si detecta abusos.
 El incumplimiento de las normas puede llevar a bloqueos sin previo aviso.  
 
 🔹 *📌 Nota:*  
-El uso del bot implica la aceptación de estas normas.`;
-
-      return conn.reply(m.chat, `
-┏━━━━━━━━━━━━━━━┓
-┃  🔒 *POLÍTICA DE PRIVACIDAD* 🔒  
-┗━━━━━━━━━━━━━━━┛
-
-📌 *1. Recopilación de Datos:*  
-El bot almacena información básica (número, comandos usados) solo para mejorar su funcionamiento.  
-
-📌 *2. Uso de la Información:*  
-Los datos se utilizan exclusivamente para optimizar la experiencia del usuario y detectar abusos.  
-
-📌 *3. Protección de Datos:*  
-Se aplican medidas de seguridad, pero la protección absoluta no está garantizada en Internet.  
-
-📌 *4. Eliminación de Datos:*  
-Puedes solicitar la eliminación de tu información contactando al administrador.  
-
-📌 *5. Cambios en la Política:*  
-Esta política puede actualizarse en cualquier momento. Se notificará si hay cambios importantes.  
-
-🔹 *📌 Nota:*  
-Al usar Kirito Bot, aceptas estas condiciones.`, m, fake);
+El uso del bot implica la aceptación de estas normas.
+`;
 
 const imagenNormas = 'https://files.catbox.moe/7czphn.jpg';
-const imagenPolitica = 'https://files.catbox.moe/da62mt.jpg';
 
-export async function handler(m, { command, conn }) {  
-    if (command === 'norma') {  
-        await conn.sendMessage(m.chat, { image: { url: imagenNormas }, caption: normas }, { quoted: m });  
-    } else if (command === 'política') {  
-        await conn.sendMessage(m.chat, { image: { url: imagenPolitica }, caption: politica }, { quoted: m });  
-        conn.reply(m.chat, 'texto', m, rcanal);  
-    }  
-}  
+// Comando 'norma' que envía las normas de uso
+export async function normasHandler(m, { command, conn }) {
+    if (command === 'norma') {
+        await conn.sendMessage(m.chat, { image: { url: imagenNormas }, caption: normas }, { quoted: m });
+    }
+}
 
-handler.help = ['norma', 'política'];  
-handler.tags = ['grupo'];  
-handler.command = ['norma', 'política'];  
+normasHandler.help = ['norma'];
+normasHandler.tags = ['grupo'];
+normasHandler.command = ['norma'];
 
-export default handler;
+export { normas, imagenNormas };
