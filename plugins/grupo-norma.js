@@ -1,3 +1,5 @@
+
+let handler = async (m, { conn, usedPrefix, command, args }) => {
 const normas = `
 ┏━━━━━━━━━━━━━━━┓
 ┃  📜 *NORMAS DE USO* 📜  
