@@ -1,6 +1,6 @@
-const handler = async (m, { command }) => {
+const handler = async (m, { command, conn }) => {
   if (command === 'platafor') {
-    m.reply('*plataforma*\n\n https://deylinqff.github.io/mundo-bot');
+conn.reply('*plataforma*\n\n https://deylinqff.github.io/mundo-bot', m, rcanal);
   }
 };
 
