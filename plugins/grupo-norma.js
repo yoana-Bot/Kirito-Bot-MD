@@ -41,4 +41,4 @@ normasHandler.help = ['norma'];
 normasHandler.tags = ['grupo'];
 normasHandler.command = ['norma'];
 
-export { normas, imagenNormas };
+export default handler;
