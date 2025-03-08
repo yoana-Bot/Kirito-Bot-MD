@@ -26,7 +26,7 @@ El incumplimiento de las normas puede llevar a bloqueos sin previo aviso.
 
 🔹 *📌 Nota:*  
 El uso del bot implica la aceptación de estas normas.
-`;
+`, m, fake);
 
 const politica = `
 ┏━━━━━━━━━━━━━━━┓
