@@ -1,8 +1,7 @@
 const handler = async(m, { conn }) => {
   if (command === 'servise') {  // Se cambió 'code' por 'servise'
     try {
-      await conn.sendMessage(m.chat, { 
-        text: `*Servicios de un Creador de Página Web:*
+      conn.reply(m.chat, 'texto', m, fake); `*Servicios de un Creador de Página Web:*
 
 1. Diseño y Desarrollo Web: Creación de sitios web modernos y responsivos.
 2. Optimización SEO: Mejora de la visibilidad en motores de búsqueda.
