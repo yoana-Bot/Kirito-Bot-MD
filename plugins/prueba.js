@@ -1,5 +1,5 @@
 let handler = async (m, { conn, usedPrefix, command, args }) => {
-    if (!text) return conn.reply(m.chat, 'Falta el texto.', m, rcanal);
+       return conn.reply(m.chat, 'Falta el texto.', m, fake);
     // Aquí se envía el texto proporcionado por el usuario
     conn.reply(m.chat, `Mensaje recibido: ${text}`, m, rcanal);
 };
