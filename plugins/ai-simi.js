@@ -17,7 +17,7 @@ handler.help = ['simi', 'bot'];
 handler.tags = ['fun'];
 handler.group = true;
 handler.register = true
-handler.command = ['kirito', 'Kirito']
+handler.command = ['bot']
 
 export default handler;
 
