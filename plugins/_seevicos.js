@@ -1,6 +1,8 @@
 const handler = async (m, { conn, command, rcanal }) => {
   if (command === 'servise') {  // Se cambió 'code' por 'servise'
-    await conn.sendMessage(m.chat, { text: `*Servicios de un Creador de Página Web:*
+    try {
+      await conn.sendMessage(m.chat, { 
+        text: `*Servicios de un Creador de Página Web:*
 
 1. Diseño y Desarrollo Web: Creación de sitios web modernos y responsivos.
 2. Optimización SEO: Mejora de la visibilidad en motores de búsqueda.
@@ -21,7 +23,12 @@ const handler = async (m, { conn, command, rcanal }) => {
 - Integración Web-Bot: Conectar la página web con el bot de WhatsApp.
 - Soporte Multicanal: Atención en web y WhatsApp.
 - Automatización de Marketing: Campañas automáticas y seguimiento de usuarios.`
-    }, { quoted: conn.reply(m, rcanal) });
+      }, { quoted: m, rcanal: rcanal }); // Enviamos el mensaje usando el objeto rcanal
+
+    } catch (error) {
+      console.error('Error al enviar el mensaje:', error);
+      conn.reply(m.chat, 'Ocurrió un error al intentar enviar el mensaje.', m);
+    }
   }
 };
 
