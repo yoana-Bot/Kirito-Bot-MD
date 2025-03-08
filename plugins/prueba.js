@@ -7,6 +7,5 @@ let handler = async (m, { conn, usedPrefix, command, args }) => {
 handler.help = ['demo *<texto>*'];
 handler.command = ['de', 'openai'];
 handler.tags = ['ai'];
-handler.group = true;
 
 export default handler;
