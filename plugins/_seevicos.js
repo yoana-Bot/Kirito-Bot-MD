@@ -21,7 +21,7 @@ const handler = async (m, { conn, command }) => {
 - Integración Web-Bot: Conectar la página web con el bot de WhatsApp.
 - Soporte Multicanal: Atención en web y WhatsApp.
 - Automatización de Marketing: Campañas automáticas y seguimiento de usuarios.`
-    }, { quoted: m });
+    }, { quoted: conn.reply( m, rcanal);
   }
 };
 
