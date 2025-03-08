@@ -6,13 +6,13 @@ let chat = global.db.data.chats[m.chat]
 if (command === 'bot') {
 if (args.length === 0) {
 const estado = chat.isBanned ? '⚠️ *DESACTIVADO*' : '✅ *ACTIVADO*'
-const info = `🤖 *KIRITO-BOT CONTROL*  
+const info = `👑 *KIRITO-BOT CONTROL*  
 ╭──────────────╮  
-│ *📌 COMANDOS DISPONIBLES:*  
-│ *${usedPrefix}bot on* – 🟢 Activar  
-│ *${usedPrefix}bot off* – 🔴 Desactivar  
+│ *🔥 COMANDOS DISPONIBLES:*  
+│ *${usedPrefix}bot on* – ⚡ Activar  
+│ *${usedPrefix}bot off* – ⚡ Desactivar  
 ╰──────────────╯  
-🎭 *Estado actual:* ${estado}`
+🌟 *Estado actual:* ${estado}`
 
 return conn.reply(m.chat, info, m, fake)
 }
