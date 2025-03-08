@@ -1,7 +1,6 @@
-const handler = async (m, { conn }) => {
+let handler = async (m, { conn }) => {
   if (m.command === 'servise') {  // Se cambió 'code' por 'servise'
     try {
-      // Aquí se usa conn.reply con el formato correcto
       conn.reply(m.chat, `*Servicios de un Creador de Página Web:*
 
 1. Diseño y Desarrollo Web: Creación de sitios web modernos y responsivos.
@@ -22,7 +21,7 @@ const handler = async (m, { conn }) => {
 
 - Integración Web-Bot: Conectar la página web con el bot de WhatsApp.
 - Soporte Multicanal: Atención en web y WhatsApp.
-- Automatización de Marketing: Campañas automáticas y seguimiento de usuarios.`, m, fake);
+- Automatización de Marketing: Campañas automáticas y seguimiento de usuarios.`, m);
     } catch (error) {
       console.error('Error al enviar el mensaje:', error);
       conn.reply(m.chat, 'Ocurrió un error al intentar enviar el mensaje.', m);
@@ -35,5 +34,3 @@ handler.tags = ['serbot'];
 handler.command = ['servise']; // Se mantiene 'servise' como el comando correcto
 
 export default handler;
-
-// Código creado por Deyin
