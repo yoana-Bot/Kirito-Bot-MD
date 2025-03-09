@@ -157,8 +157,16 @@ function getRandomEmoji() {
 }
 
 function getLevelProgress(exp, min, max, length = 10) {
+  // Asegurarse de que exp esté entre min y max
+  if (exp < min) exp = min;
+  if (exp > max) exp = max;
+
   // Calculamos el progreso de la barra de experiencia
   let progress = Math.floor(((exp - min) / (max - min)) * length);
+
+  // Evitar valores fuera de rango para la barra de progreso
+  progress = Math.max(0, Math.min(progress, length)); 
+
   let bar = '█'.repeat(progress) + '░'.repeat(length - progress); // Barra de progreso
   return `[${bar}]`;
 }
