@@ -33,7 +33,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ║┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: @${userId.split`@`[0]}  
 ║┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
 ║┗━━━━━━━━━━━━━━┅┈
-╚═══════『🔥』═══════╝\n> sigue el canal\n https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m`;
+╚═══════『🔥』═══════╝\n> sigue el canal\n https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m`, m, fake);
         try {
             await conn.sendMini(m.chat, packname, dev, wel, img, img, channel, fkontak);
         } catch (sendError) {
