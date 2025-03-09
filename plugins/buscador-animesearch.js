@@ -60,7 +60,7 @@ let handler = async (m, { conn, command, args, text, usedPrefix }) => {
         ]);
     }
 
-    await conn.sendCarousel(m.chat, '', `\`\`\`🍭 ¡Hola! A continuación te muestro la lista de animes encontrados.\`\`\``, "", messages, m);
+    await conn.sendCarousel(m.chat, '', `\`\`\`👑 ¡Hola! A continuación te muestro la lista de animes encontrados.\`\`\``, "", messages, m);
 }
 
 handler.help = ['animes', 'animesearch', 'animess'];
