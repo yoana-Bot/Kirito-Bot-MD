@@ -27,7 +27,7 @@ let handler = async (m, { conn, usedPrefix, command, args }) => {
 
         if (conflictedFiles.length > 0) {
           const errorMessage = `⚡ Se han hecho cambios locales que entran en conflicto con las actualizaciones del repositorio. Para actualizar, reinstala el bot o realiza las actualizaciones manualmente.\n\n✰ *ARCHIVOS EN CONFLICTO*\n\n${conflictedFiles.join('\n')}`;
-          await conn.reply(m.chat, errorMessage, m);
+          await conn.reply(m.chat, errorMessage, m, fake);
         }
       }
     } catch (error) {
