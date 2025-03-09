@@ -33,7 +33,7 @@ El incumplimiento de las normas puede llevar a bloqueos sin previo aviso.
 🔹 *📌 Nota:*  
 El uso del bot implica la aceptación de estas normas.`;
 
-      let imageUrl = 'URL_DE_LA_IMAGEN'; 
+      let imageUrl = 'https://files.catbox.moe/7czphn.jpg'; 
 
       await conn.sendMessage(m.chat, { image: { url: imageUrl }, caption: texto }, { quoted: m });
 
