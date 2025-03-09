@@ -1,13 +1,11 @@
 let handler = async (m, { conn, usedPrefix, command, args }) => {
   if (command === 'privacidad') {  
     try {
-
       if (!m.chat) {
         throw new Error('No se pudo obtener el chat.');
       }
 
-
-       return conn.reply(m.chat, `┏━━━━━━━━━━━━━━━┓
+      let texto = `┏━━━━━━━━━━━━━━━┓
 ┃  🔒 *POLÍTICA DE PRIVACIDAD* 🔒  
 ┗━━━━━━━━━━━━━━━┛
 
@@ -29,8 +27,11 @@ Esta política puede actualizarse en cualquier momento. Se notificará si hay ca
 🔹 *📌 Nota:*  
 Al usar Kirito Bot, aceptas estas condiciones.`, m, fake);
 
-    } catch (error) {
+      let imageUrl = 'https://files.catbox.moe/da62mt.jpg'; 
 
+      await conn.sendMessage(m.chat, { image: { url: imageUrl }, caption: texto }, { quoted: m });
+
+    } catch (error) {
       console.error('Error al enviar el mensaje:', error);
       conn.reply(m.chat, 'Ocurrió un error al intentar enviar el mensaje.', m);
     }
