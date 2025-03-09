@@ -1,13 +1,11 @@
 let handler = async (m, { conn, usedPrefix, command, args }) => {
   if (command === 'norma') {  
     try {
-      
       if (!m.chat) {
         throw new Error('No se pudo obtener el chat.');
       }
 
-      
-       return conn.reply(m.chat, `┏━━━━━━━━━━━━━━━┓
+      let texto = `┏━━━━━━━━━━━━━━━┓
 ┃  📜 *NORMAS DE USO* 📜  
 ┗━━━━━━━━━━━━━━━┛
 
@@ -33,10 +31,13 @@ El bot puede limitar funciones si detecta abusos.
 El incumplimiento de las normas puede llevar a bloqueos sin previo aviso.  
 
 🔹 *📌 Nota:*  
-El uso del bot implica la aceptación de estas normas.`, m, fake);
+El uso del bot implica la aceptación de estas normas.`;
+
+      let imageUrl = 'URL_DE_LA_IMAGEN'; 
+
+      await conn.sendMessage(m.chat, { image: { url: imageUrl }, caption: texto }, { quoted: m });
 
     } catch (error) {
-      
       console.error('Error al enviar el mensaje:', error);
       conn.reply(m.chat, 'Ocurrió un error al intentar enviar el mensaje.', m);
     }
