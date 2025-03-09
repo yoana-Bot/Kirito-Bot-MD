@@ -95,7 +95,7 @@ Hola *%name* soy *kirito*
 \t\t\t⚙_*𝑳𝑰𝑺𝑻𝑨 𝑫𝑬 𝑪𝑶𝑴𝑨𝑵𝑫𝑶𝑺*_ 
 `.trimStart(),
   header: '*┏━━━━▣━━⌬〘 %category 〙*',
-  body: '┃✎›〘 %emoji %cmd %islimit %isPremium\n',
+  body: '┃✎›〘 %cmd %islimit %isPremium\n',
   footer: '*┗━━━▣━━⌬⌨⌬━━▣━━━━⌬*',
   after: `© ${textbot}`,
 }
@@ -104,7 +104,6 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
   try {
      let tag = `@${m.sender.split("@")[0]}`
     let mode = global.opts["self"] ? "Privado" : "Publico"
-                .replace(/%emoji/g, emojisCategorias[tag] || '❓') // Aquí se corrige %emoji
     let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
     let { exp, limit, level } = global.db.data.users[m.sender]
     let { min, xp, max } = xpRange(level, global.multiplier)
