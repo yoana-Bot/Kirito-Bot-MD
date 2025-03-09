@@ -66,6 +66,7 @@ const emojisCategorias = {
   'ia': '🌟',
 };
 
+      video: { url: 'https://qu.ax/FBjYO.mp4' }, 
 
 const defaultMenu = {
   before:  `*⌬━━━━━▣━━◤⌬◢━━▣━━━━━━⌬*
