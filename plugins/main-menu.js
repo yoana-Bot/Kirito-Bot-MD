@@ -3,25 +3,39 @@ import { join } from 'path'
 import { xpRange } from '../lib/levelling.js'
 
 let tags = {
-  'anime': '🧧 ANIME 🎐',
-  'main': '❗ INFO ❕',
-  'search': '🔎 SEARCH 🔍',
-  'game': '🕹️ GAME 🎮',
-  'serbot': '⚙️ SUB BOTS 🤖',
-  'rpg': '🌐 RPG 🥇',
-  'sticker': '💟 STICKER 🏷️',
-  'group': '👥 GROUPS 📢',
-  'nable': '🎛️ ON / OFF 🔌', 
-  'premium': '💎 PREMIUM 👑',
-  'downloader': '📥 DOWNLOAD 📤',
-  'tools': '🔧 TOOLS 🛠️',
-  'fun': '🎉 FUN 🎊',
-  'nsfw': '🔞 NSFW 📛', 
-  'cmd': '🧮 DATABASE 🖥️',
-  'owner': '👤 OWNER 👁️', 
-  'audio': '📣 AUDIOS 🔊', 
-  'advanced': '🗝️ ADVANCED 🎮',
-}
+  'anime': 'ANIME',
+  'main': 'INFO',
+  'search': 'SEARCH',
+  'game': 'GAME',
+  'serbot': 'SUB BOTS',
+  'rpg': 'RPG',
+  'sticker': 'STICKER',
+  'group': 'GROUPS',
+  'nable': 'ON / OFF',
+  'premium': 'PREMIUM',
+  'downloader': 'DOWNLOAD',
+  'tools': 'TOOLS',
+  'fun': 'FUN',
+  'nsfw': 'NSFW',
+  'cmd': 'DATABASE',
+  'owner': 'OWNER',
+  'audio': 'AUDIOS',
+  'advanced': 'ADVANCED',
+  'weather': 'WEATHER',
+  'news': 'NEWS',
+  'finance': 'FINANCE',
+  'education': 'EDUCATION',
+  'health': 'HEALTH',
+  'entertainment': 'ENTERTAINMENT',
+  'sports': 'SPORTS',
+  'travel': 'TRAVEL',
+  'food': 'FOOD',
+  'shopping': 'SHOPPING',
+  'productivity': 'PRODUCTIVITY',
+  'social': 'SOCIAL',
+  'security': 'SECURITY',
+  'custom': 'CUSTOM'
+};
 
 const defaultMenu = {
   before: `*⌬━━━━━▣━━◤⌬◢━━▣━━━━━━⌬*
@@ -50,7 +64,7 @@ Hola *%name* soy *kirito*
 ⚙_*𝑳𝑰𝑺𝑻𝑨 𝑫𝑬 𝑪𝑶𝑴𝑨𝑵𝑫𝑶𝑺*_
 `.trimStart(),
   header: '*┏━━━━▣━━⌬〘 %category %emoji 〙*',
-  body: '┃✎›〘 %cmd %islimit %isPremium\n',
+  body: '┃✎›〘 %emoji %cmd %islimit %isPremium\n',
   footer: '*┗━━━▣━━⌬⌨⌬━━▣━━━━⌬*',
   after: `© Tecno-Bot-Plus`,
 }
