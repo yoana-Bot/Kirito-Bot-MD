@@ -34,7 +34,7 @@ var handler = async (m, { conn }) => {
 \`\`\`🎃 ¡Feliz Halloween! ¡Disfruta de tu regalo de Halloween! 👻\`\`\`
 
 💸 *${moneda}* : +${coinReward}
-🍬 *Dulces* : +${candyReward}
+🍯 *Dulces* : +${candyReward}
 ✨ *Experiencia* : +${expReward}
 🎃 *Regalos de Halloween* : +${giftReward}`);
 
