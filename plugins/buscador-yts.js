@@ -13,7 +13,7 @@ switch (v.type) {
 case 'video': return `「✦」Resultados de la búsqueda para *<${text}>*
 
 > ☁️ Título » *${v.title}*
-> 🍬 Canal » *${v.author.name}*
+> 👑 Canal » *${v.author.name}*
 > 🕝 Duración » *${v.timestamp}*
 > 📆 Subido » *${v.ago}*
 > 👀 Vistas » *${v.views}*
