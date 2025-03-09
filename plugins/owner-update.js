@@ -1,15 +1,18 @@
 import { execSync } from 'child_process';
 
-var handler = async (m, { conn, text }) => {
+let handler = async (m, { conn, usedPrefix, command, args }) => {
+  // Respuesta inicial
+  await conn.reply(m.chat, '⚡ Procesando solicitud de actualización...', m, fake); 
+
   m.react('🚀'); 
   try {
-    const stdout = execSync('git pull' + (m.fromMe && text ? ' ' + text : ''));
+    const stdout = execSync('git pull' + (m.fromMe && args.length ? ' ' + args.join(' ') : ''));
     let messager = stdout.toString();
 
     if (messager.includes('⚡ Ya estoy actualizado.')) messager = '⚡ Ya estoy actualizado a la última versión.';
     if (messager.includes('👑 Actualizando.')) messager = '⚡ Procesando, espere un momento mientras me actualizo.\n\n' + stdout.toString();
 
-    conn.reply(m.chat, messager, m);
+    await conn.reply(m.chat, messager, m);
   } catch { 
     try {
       const status = execSync('git status --porcelain');
