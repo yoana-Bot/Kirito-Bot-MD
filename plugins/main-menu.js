@@ -152,7 +152,9 @@ function getRandomEmoji() {
 }
 
 function getLevelProgress(exp, min, max, length = 10) {
-    let progress = Math.floor(((exp - min) / (max - min)) * length);
+    if (max <= min) return '[░░░░░░░░░░]'; // Evita divisiones por 0 o valores negativos
+
+    let progress = Math.max(0, Math.min(length, Math.floor(((exp - min) / (max - min)) * length)));
     let bar = '█'.repeat(progress) + '░'.repeat(length - progress);
     return `[${bar}]`;
 }
