@@ -53,7 +53,7 @@ Hola *%name* soy *kirito*
 ╚══════ ♢.✰.♢ ══════
 
 ╔═══════⌬『 𝑰𝑵𝑭𝑶-𝑼𝑺𝑬𝑹 』
-║ ✎ Bot: ©Tecno-Bot-Plus®
+║ ✎ Bot: Kirito-Bot MD 
 ║ ✎ Modo: %mode
 ║ ✎ Tiempo Activo: %muptime
 ║ ✎ Usuarios: %totalreg 
