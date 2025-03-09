@@ -25,7 +25,7 @@ Puedes solicitar la eliminación de tu información contactando al administrador
 Esta política puede actualizarse en cualquier momento. Se notificará si hay cambios importantes.  
 
 🔹 *📌 Nota:*  
-Al usar Kirito Bot, aceptas estas condiciones.`, m, fake);
+Al usar Kirito Bot, aceptas estas condiciones.`;
 
       let imageUrl = 'https://files.catbox.moe/da62mt.jpg'; 
 
