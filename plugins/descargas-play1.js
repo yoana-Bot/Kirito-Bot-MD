@@ -69,7 +69,7 @@ const ddownr = {
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   try {
     if (!text.trim()) {
-      return conn.reply(m.chat, `👑 Por favor, ingresa el nombre de la música a descargar.⚡`, m);
+      return conn.reply(m.chat, `┌──⟢ *DESCARGA DE MÚSICA* ⟣──┐\n│\n│ ✦ Ingresa el nombre de la música a descargar.\n│\n└──────────────────────┘`, m, fake);
     }
 
     const search = await yts(text);
