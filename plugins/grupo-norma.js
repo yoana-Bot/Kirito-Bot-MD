@@ -31,15 +31,15 @@ El bot puede limitar funciones si detecta abusos.
 El incumplimiento de las normas puede llevar a bloqueos sin previo aviso.  
 
 🔹 *📌 Nota:*  
-El uso del bot implica la aceptación de estas normas.`, m, fake);
+El uso del bot implica la aceptación de estas normas.`;
 
       let imageUrl = 'https://files.catbox.moe/7czphn.jpg'; 
 
-      await conn.sendMessage(m.chat, { image: { url: imageUrl }, caption: texto }, { quoted: m });
+      await conn.sendMessage(m.chat, { image: { url: imageUrl }, caption: texto }, { quoted: m, fake });
 
     } catch (error) {
       console.error('Error al enviar el mensaje:', error);
-      conn.reply(m.chat, 'Ocurrió un error al intentar enviar el mensaje.', m);
+      conn.reply(m.chat, 'Ocurrió un error al intentar enviar el mensaje.', m, fake);
     }
   }
 };
