@@ -1,4 +1,4 @@
-let handler = async (m, { conn, command }) => {
+let handler = async (m, { conn, usedPrefix, command, args }) => {
   if (command === 'servise') {  // Comando para este caso
     try {
       // Asegúrate de que el chat esté definido y el comando sea correcto
@@ -7,7 +7,7 @@ let handler = async (m, { conn, command }) => {
       }
 
       // Responder con los servicios
-      await conn.reply(m.chat, `*Servicios de un Creador de Página Web:*
+       return conn.reply(m.chat, `*Servicios de un Creador de Página Web:*
 
 1. Diseño y Desarrollo Web: Creación de sitios web modernos y responsivos.
 2. Optimización SEO: Mejora de la visibilidad en motores de búsqueda.
@@ -27,7 +27,7 @@ let handler = async (m, { conn, command }) => {
 
 - Integración Web-Bot: Conectar la página web con el bot de WhatsApp.
 - Soporte Multicanal: Atención en web y WhatsApp.
-- Automatización de Marketing: Campañas automáticas y seguimiento de usuarios.`, m);
+- Automatización de Marketing: Campañas automáticas y seguimiento de usuarios.`, m, fake);
 
     } catch (error) {
       // Manejo de errores para depurar
