@@ -15,14 +15,8 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
     isEnable = false;
 } else {
     const estado = isEnable ? '✓ Activado' : '✗ Desactivado';
-     return conn.reply(m.chat, `👑 *KIRITO-BOT CONTROL*  
-╭──────────────────────────╮  
-│ *🔥 Un administrador puede activar o desactivar el *${command}* utilizando:*  
-│  
-│ *${usedPrefix}${command} on* – 🟢 Activar  
-│ *${usedPrefix}${command} off* – 🔴 Desactivar  
-╰──────────────────────────╯  
-⚡ *Estado actual:* ${estado}`, m, fake)
+    return conn.reply(m.chat, `「✦」Un administrador puede activar o desactivar el *${command}* utilizando:\n\n> ✐ *${usedPrefix}${command} on* para activar.\n> ✐ *${usedPrefix}${command} off* para desactivar.\n\n✧ Estado actual » *${estado}*`, m);
+  }
 
   switch (type) {
     case 'welcome':
