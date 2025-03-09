@@ -70,6 +70,12 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
   try {
     let name = await conn.getName(m.sender)
     let mode = global.opts["self"] ? "Privado" : "Público"
+
+    // Verificar si el usuario existe en la base de datos
+    if (!global.db.data.users[m.sender]) {
+      global.db.data.users[m.sender] = { exp: 0, level: 1 }
+    }
+
     let { exp, level } = global.db.data.users[m.sender]
     let { min, xp, max } = xpRange(level, global.multiplier)
     let totalreg = Object.keys(global.db.data.users).length
@@ -85,7 +91,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     let menuText = [
       defaultMenu.before,
       ...Object.keys(tags).map(tag => {
-        
+
         const commandsForTag = help.filter(menu => menu.tags.includes(tag));
 
         if (commandsForTag.length === 0) return ''; 
@@ -135,7 +141,6 @@ function clockString(ms) {
   let s = Math.floor(ms / 1000) % 60
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
 }
-
 
 function getRandomEmoji() {
   const emojis = ['👑', '🔥', '🌟', '⚡']
