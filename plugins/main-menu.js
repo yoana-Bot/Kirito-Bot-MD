@@ -23,13 +23,6 @@ let tags = {
   'advanced': '🗝️ ADVANCED 🎮',
 }
 
-const emojisCategorias = {
-  'anime': '🎴', 'main': '📌', 'search': '🔎', 'game': '🕹️',
-  'serbot': '🤖', 'rpg': '⚔️', 'sticker': '🎭', 'group': '👥',
-  'premium': '💎', 'downloader': '📥', 'tools': '🛠️', 'fun': '🎉',
-  'nsfw': '🔞', 'cmd': '📂', 'owner': '👑', 'audio': '🎶', 'advanced': '🚀'
-}
-
 const defaultMenu = {
   before: `*⌬━━━━━▣━━◤⌬◢━━▣━━━━━━⌬*
 
@@ -71,16 +64,18 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     let totalreg = Object.keys(global.db.data.users).length
     let muptime = clockString(process.uptime() * 1000)
     let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(plugin => ({
-  help: Array.isArray(plugin.help) ? plugin.help : (plugin.help ? [plugin.help] : []),
-  tags: Array.isArray(plugin.tags) ? plugin.tags : (plugin.tags ? [plugin.tags] : []),
-  limit: plugin.limit || false,
-  premium: plugin.premium || false,
-}))
+      help: Array.isArray(plugin.tags) ? plugin.help : [plugin.help],
+      tags: Array.isArray(plugin.tags) ? plugin.tags : [plugin.tags],
+      limit: plugin.limit,
+      premium: plugin.premium,
+    }))
 
     let menuText = [
       defaultMenu.before,
       ...Object.keys(tags).map(tag => {
-        return defaultMenu.header.replace(/%category/g, tags[tag]).replace(/%emoji/g, emojisCategorias[tag]) + '\n' + [
+        return defaultMenu.header
+          .replace(/%category/g, tags[tag])
+          .replace(/%emoji/g, getRandomEmoji()) + '\n' + [
           ...help.filter(menu => menu.tags.includes(tag)).map(menu =>
             menu.help.map(help => defaultMenu.body
               .replace(/%cmd/g, _p + help)
@@ -121,4 +116,10 @@ function clockString(ms) {
   let m = Math.floor(ms / 60000) % 60
   let s = Math.floor(ms / 1000) % 60
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
+}
+
+// ✅ FUNCIÓN PARA EMOJIS ALEATORIOS
+function getRandomEmoji() {
+  const emojis = ['👑', '🔥', '🌟', '⚡']
+  return emojis[Math.floor(Math.random() * emojis.length)]
 }
