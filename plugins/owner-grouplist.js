@@ -49,5 +49,4 @@ handler.tags = ['owner'];
 handler.command = ['listgroup', 'gruposlista', 'grouplist', 'listagrupos']
 handler.rowner = true;
 handler.private = true
-
 export default handler;
