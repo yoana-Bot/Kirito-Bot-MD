@@ -107,7 +107,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
             ),
             defaultMenu.footer
           ].join('\n')
-      }).filter(text => text !== ''), // Filtrar categorías vacías
+      }).filter(text => text !== ''), 
       defaultMenu.after
     ].join('\n')
 
@@ -139,7 +139,7 @@ function clockString(ms) {
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
 }
 
-// ✅ FUNCIÓN PARA EMOJIS ALEATORIOS
+
 function getRandomEmoji() {
   const emojis = ['👑', '🔥', '🌟', '⚡']
   return emojis[Math.floor(Math.random() * emojis.length)]
