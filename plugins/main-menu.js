@@ -114,9 +114,14 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
 
     let replace = { 
       "%": "%", p: _p, mode, muptime, name, 
-      exp: exp - min, maxexp: xp, totalexp: exp, 
-      xp4levelup: max - exp, totalreg, readmore: readMore, 
-      levelprogress: getLevelProgress(exp, min, max) 
+      exp: exp, // Usamos el valor de experiencia real
+      level, 
+      levelprogress: getLevelProgress(exp, min, max), // Usamos la función para obtener la barra de progreso
+      maxexp: xp, 
+      totalexp: exp, 
+      xp4levelup: max - exp, // Experiencia necesaria para subir de nivel
+      totalreg, 
+      readmore: readMore, 
     };
 
     let text = menuText.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
@@ -152,9 +157,8 @@ function getRandomEmoji() {
 }
 
 function getLevelProgress(exp, min, max, length = 10) {
-    if (max <= min) return '[░░░░░░░░░░]'; // Evita divisiones por 0 o valores negativos
-
-    let progress = Math.max(0, Math.min(length, Math.floor(((exp - min) / (max - min)) * length)));
-    let bar = '█'.repeat(progress) + '░'.repeat(length - progress);
-    return `[${bar}]`;
+  // Calculamos el progreso de la barra de experiencia
+  let progress = Math.floor(((exp - min) / (max - min)) * length);
+  let bar = '█'.repeat(progress) + '░'.repeat(length - progress); // Barra de progreso
+  return `[${bar}]`;
 }
