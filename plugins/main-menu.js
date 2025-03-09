@@ -42,11 +42,10 @@ const defaultMenu = {
 
 Hola *%name* soy *kirito*
 
-
 ╔══════⌬『 𝑰𝑵𝑭𝑶-𝑩𝑶𝑻 』
 ║ ✎ Cliente: %name
 ║ ✎ Exp: %exp
-║ ✎ Nivel: %level
+║ ✎ Nivel: %level %levelprogress
 ╚══════ ♢.✰.♢ ══════
 
 ╔═══════⌬『 𝑰𝑵𝑭𝑶-𝑼𝑺𝑬𝑹 』
@@ -71,7 +70,6 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     let name = await conn.getName(m.sender)
     let mode = global.opts["self"] ? "Privado" : "Público"
 
-    // Verificar si el usuario existe en la base de datos
     if (!global.db.data.users[m.sender]) {
       global.db.data.users[m.sender] = { exp: 0, level: 1 }
     }
@@ -114,7 +112,13 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       defaultMenu.after
     ].join('\n')
 
-    let replace = { "%": "%", p: _p, mode, muptime, name, exp: exp - min, maxexp: xp, totalexp: exp, xp4levelup: max - exp, totalreg, readmore: readMore }
+    let replace = { 
+      "%": "%", p: _p, mode, muptime, name, 
+      exp: exp - min, maxexp: xp, totalexp: exp, 
+      xp4levelup: max - exp, totalreg, readmore: readMore, 
+      levelprogress: getLevelProgress(exp, min, max) 
+    };
+
     let text = menuText.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
     let videoUrl = 'https://qu.ax/FBjYO.mp4'
@@ -145,4 +149,10 @@ function clockString(ms) {
 function getRandomEmoji() {
   const emojis = ['👑', '🔥', '🌟', '⚡']
   return emojis[Math.floor(Math.random() * emojis.length)]
+}
+
+function getLevelProgress(exp, min, max, length = 10) {
+    let progress = Math.floor(((exp - min) / (max - min)) * length);
+    let bar = '█'.repeat(progress) + '░'.repeat(length - progress);
+    return `[${bar}]`;
 }
