@@ -13,7 +13,7 @@ export async function before(m, {conn, isAdmin, isBotAdmin, usedPrefix}) {
   const fakemek = {'key': {'participant': '0@s.whatsapp.net', 'remoteJid': '0@s.whatsapp.net'}, 'message': {'groupInviteMessage': {'groupJid': '51995386439-1616969743@g.us', 'inviteCode': 'm', 'groupName': 'P', 'caption': 'kirito-Bot MD', 'jpegThumbnail': null}}};
 
   if (chat.antiTraba && m.text.length > 5000) { 
-    if (isAdmin) return conn.sendMessage(m.chat, {text: `❗ *ALERTA DEL ADMINISTRADOR* ❗\n@${m.sender.split('@')[0]} ha enviado un mensaje con más de 5000 caracteres. ¡Demasiado largo!`, mentions: [m.sender]}, {quoted: fakemek});
+    if (isAdmin) return conn.sendMessage(m.chat, {text: `> *ALERTA DEL ADMINISTRADOR* \n> @${m.sender.split('@')[0]} ha enviado un mensaje con más de 5000 caracteres. ¡Demasiado largo!`, mentions: [m.sender]}, {quoted: fakemek});
     conn.sendMessage(m.chat, `⚠️ *¡Mensaje con exceso de caracteres detectado!*\n[ ¡ ] Se ha encontrado un mensaje con más de ## caracteres. ¡Ten cuidado!`, `${isBotAdmin ? '' : 'No soy administrador, no puedo tomar acción :'}`, m);
 
     if (isBotAdmin && bot.restrict) {
