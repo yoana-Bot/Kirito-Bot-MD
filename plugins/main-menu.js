@@ -77,12 +77,12 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     let { min, xp, max } = xpRange(level, global.multiplier)
     let totalreg = Object.keys(global.db.data.users).length
     let muptime = clockString(process.uptime() * 1000)
-    let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(plugin => ({
-      help: Array.isArray(plugin.tags) ? plugin.help : [plugin.help],
-      tags: Array.isArray(plugin.tags) ? plugin.tags : [plugin.tags],
-      limit: plugin.limit,
-      premium: plugin.premium,
-    }))
+let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(plugin => ({
+  help: Array.isArray(plugin.help) ? plugin.help : (plugin.help ? [plugin.help] : []),
+  tags: Array.isArray(plugin.tags) ? plugin.tags : (plugin.tags ? [plugin.tags] : []),
+  limit: plugin.limit,
+  premium: plugin.premium,
+}));
 
     let menuText = [
       defaultMenu.before,
