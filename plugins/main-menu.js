@@ -88,10 +88,15 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     let menuText = [
       defaultMenu.before,
       ...Object.keys(tags).map(tag => {
+        // Filtramos las categorías que no tienen comandos
+        const commandsForTag = help.filter(menu => menu.tags.includes(tag));
+
+        if (commandsForTag.length === 0) return ''; // Si no hay comandos, no agregamos esta categoría.
+
         return defaultMenu.header
           .replace(/%category/g, tags[tag])
           .replace(/%emoji/g, getRandomEmoji()) + '\n' + [
-            ...help.filter(menu => menu.tags.includes(tag)).map(menu =>
+            ...commandsForTag.map(menu =>
               menu.help.map(help => defaultMenu.body
                 .replace(/%emoji/g, getRandomEmoji()) // Usamos emoji aleatorio aquí también
                 .replace(/%cmd/g, _p + help)
@@ -102,7 +107,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
             ),
             defaultMenu.footer
           ].join('\n')
-      }),
+      }).filter(text => text !== ''), // Filtrar categorías vacías
       defaultMenu.after
     ].join('\n')
 
