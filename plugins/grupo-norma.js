@@ -1,8 +1,13 @@
 let handler = async (m, { conn, usedPrefix, command, args }) => {
-  const imagenNormas = 'https://files.catbox.moe/7czphn.jpg'; // URL de la imagen
+  if (command === 'norma') {  
+    try {
+      
+      if (!m.chat) {
+        throw new Error('No se pudo obtener el chat.');
+      }
 
-  return conn.reply(m.chat, `
-┏━━━━━━━━━━━━━━━┓
+      
+       return conn.reply(m.chat, `┏━━━━━━━━━━━━━━━┓
 ┃  📜 *NORMAS DE USO* 📜  
 ┗━━━━━━━━━━━━━━━┛
 
@@ -28,8 +33,14 @@ El bot puede limitar funciones si detecta abusos.
 El incumplimiento de las normas puede llevar a bloqueos sin previo aviso.  
 
 🔹 *📌 Nota:*  
-El uso del bot implica la aceptación de estas normas.
-`, m, fake); { image: { url: imagenNormas } });
+El uso del bot implica la aceptación de estas normas.`, m, fake);
+
+    } catch (error) {
+      
+      console.error('Error al enviar el mensaje:', error);
+      conn.reply(m.chat, 'Ocurrió un error al intentar enviar el mensaje.', m);
+    }
+  }
 };
 
 handler.help = ['norma'];
