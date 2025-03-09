@@ -25,7 +25,7 @@ let handler = async (m, { conn, usedPrefix }) => {
                `┋ ✨ *Experiencia:* ${user.exp || 0}\n` + 
                `┋ ❤️ *Salud:* ${user.health || 100}\n` + 
                `┋ 💎 *Diamantes:* ${user.diamond || 0}\n` +   
-               `┋ 🍬 *Dulces:* ${user.candies || 0}\n` + 
+               `┋ 🍯 *Dulces:* ${user.candies || 0}\n` + 
                `┋ 🎁 *Regalos:* ${user.gifts || 0}\n` + 
                `┋ 🎟️ *Tokens:* ${user.joincount || 0}\n` +  
                `┋ ⚜️ *Premium:* ${premium}\n` + 
