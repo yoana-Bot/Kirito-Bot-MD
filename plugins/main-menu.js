@@ -92,6 +92,7 @@ let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(
           .replace(/%emoji/g, getRandomEmoji()) + '\n' + [
           ...help.filter(menu => menu.tags.includes(tag)).map(menu =>
             menu.help.map(help => defaultMenu.body
+.replace(/%emoji/g, emojisCategorias[tag] || '') // Se usa '' si la categoría no tiene emoji
               .replace(/%cmd/g, _p + help)
               .replace(/%islimit/g, menu.limit ? '◜⭐◞' : '')
               .replace(/%isPremium/g, menu.premium ? '◜🪪◞' : '')
