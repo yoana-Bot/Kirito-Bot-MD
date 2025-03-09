@@ -104,6 +104,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
   try {
      let tag = `@${m.sender.split("@")[0]}`
     let mode = global.opts["self"] ? "Privado" : "Publico"
+                .replace(/%emoji/g, emojisCategorias[tag] || '❓') // Aquí se corrige %emoji
     let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
     let { exp, limit, level } = global.db.data.users[m.sender]
     let { min, xp, max } = xpRange(level, global.multiplier)
