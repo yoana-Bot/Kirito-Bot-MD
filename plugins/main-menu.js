@@ -64,7 +64,7 @@ Hola *%name* soy *kirito*
 ⚙_*𝑳𝑰𝑺𝑻𝑨 𝑫𝑬 𝑪𝑶𝑴𝑨𝑵𝑫𝑶𝑺*_
 `.trimStart(),
   header: '*┏━━━━▣━━⌬〘 %category %emoji 〙*',
-  body: '┃✎›〘 %emoji %cmd %islimit %isPremium\n',
+  body: '┃✎›〘  %emoji %cmd %islimit %isPremium\n',
   footer: '*┗━━━▣━━⌬⌨⌬━━▣━━━━⌬*',
   after: `© Tecno-Bot-Plus`,
 }
