@@ -66,7 +66,7 @@ Hola *%name* soy *kirito*
   header: '*┏━━━━▣━━⌬〘 %category %emoji 〙*',
   body: '┃✎›〘  %emoji %cmd %islimit %isPremium\n',
   footer: '*┗━━━▣━━⌬⌨⌬━━▣━━━━⌬*',
-  after: `© Tecno-Bot-Plus`,
+  after: `> © kirito-Bot by Deylin`,
 }
 
 let handler = async (m, { conn, usedPrefix: _p }) => {
@@ -77,12 +77,13 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     let { min, xp, max } = xpRange(level, global.multiplier)
     let totalreg = Object.keys(global.db.data.users).length
     let muptime = clockString(process.uptime() * 1000)
-let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(plugin => ({
-  help: Array.isArray(plugin.help) ? plugin.help : (plugin.help ? [plugin.help] : []),
-  tags: Array.isArray(plugin.tags) ? plugin.tags : (plugin.tags ? [plugin.tags] : []),
-  limit: plugin.limit,
-  premium: plugin.premium,
-}));
+
+    let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(plugin => ({
+      help: Array.isArray(plugin.help) ? plugin.help : (plugin.help ? [plugin.help] : []),
+      tags: Array.isArray(plugin.tags) ? plugin.tags : (plugin.tags ? [plugin.tags] : []),
+      limit: plugin.limit,
+      premium: plugin.premium,
+    }));
 
     let menuText = [
       defaultMenu.before,
@@ -90,17 +91,17 @@ let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(
         return defaultMenu.header
           .replace(/%category/g, tags[tag])
           .replace(/%emoji/g, getRandomEmoji()) + '\n' + [
-          ...help.filter(menu => menu.tags.includes(tag)).map(menu =>
-            menu.help.map(help => defaultMenu.body
-.replace(/%emoji/g, emojisCategorias[tag] || '') // Se usa '' si la categoría no tiene emoji
-              .replace(/%cmd/g, _p + help)
-              .replace(/%islimit/g, menu.limit ? '◜⭐◞' : '')
-              .replace(/%isPremium/g, menu.premium ? '◜🪪◞' : '')
-              .trim()
-            ).join('\n')
-          ),
-          defaultMenu.footer
-        ].join('\n')
+            ...help.filter(menu => menu.tags.includes(tag)).map(menu =>
+              menu.help.map(help => defaultMenu.body
+                .replace(/%emoji/g, getRandomEmoji()) // Usamos emoji aleatorio aquí también
+                .replace(/%cmd/g, _p + help)
+                .replace(/%islimit/g, menu.limit ? '◜⭐◞' : '')
+                .replace(/%isPremium/g, menu.premium ? '◜🪪◞' : '')
+                .trim()
+              ).join('\n')
+            ),
+            defaultMenu.footer
+          ].join('\n')
       }),
       defaultMenu.after
     ].join('\n')
