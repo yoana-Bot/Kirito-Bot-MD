@@ -71,11 +71,11 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     let totalreg = Object.keys(global.db.data.users).length
     let muptime = clockString(process.uptime() * 1000)
     let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(plugin => ({
-      help: Array.isArray(plugin.tags) ? plugin.help : [plugin.help],
-      tags: Array.isArray(plugin.tags) ? plugin.tags : [plugin.tags],
-      limit: plugin.limit,
-      premium: plugin.premium,
-    }))
+  help: Array.isArray(plugin.help) ? plugin.help : (plugin.help ? [plugin.help] : []),
+  tags: Array.isArray(plugin.tags) ? plugin.tags : (plugin.tags ? [plugin.tags] : []),
+  limit: plugin.limit || false,
+  premium: plugin.premium || false,
+}))
 
     let menuText = [
       defaultMenu.before,
