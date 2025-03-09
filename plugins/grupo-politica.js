@@ -1,5 +1,13 @@
-const politica = `
-┏━━━━━━━━━━━━━━━┓
+let handler = async (m, { conn, usedPrefix, command, args }) => {
+  if (command === 'privacidad') {  
+    try {
+
+      if (!m.chat) {
+        throw new Error('No se pudo obtener el chat.');
+      }
+
+
+       return conn.reply(m.chat, `┏━━━━━━━━━━━━━━━┓
 ┃  🔒 *POLÍTICA DE PRIVACIDAD* 🔒  
 ┗━━━━━━━━━━━━━━━┛
 
@@ -19,20 +27,18 @@ Puedes solicitar la eliminación de tu información contactando al administrador
 Esta política puede actualizarse en cualquier momento. Se notificará si hay cambios importantes.  
 
 🔹 *📌 Nota:*  
-Al usar Kirito Bot, aceptas estas condiciones.
-`;
+Al usar Kirito Bot, aceptas estas condiciones.`, m, fake);
 
-const imagenPolitica = 'https://files.catbox.moe/da62mt.jpg';
+    } catch (error) {
 
-// Comando 'política' que envía la política de privacidad
-export async function politicaHandler(m, { command, conn }) {
-    if (command === 'política') {
-        await conn.sendMessage(m.chat, { image: { url: imagenPolitica }, caption: politica }, { quoted: m });
+      console.error('Error al enviar el mensaje:', error);
+      conn.reply(m.chat, 'Ocurrió un error al intentar enviar el mensaje.', m);
     }
-}
+  }
+};
 
-politicaHandler.help = ['política'];
-politicaHandler.tags = ['grupo'];
-politicaHandler.command = ['política'];
+handler.help = ['privacidad'];
+handler.tags = ['grupo'];
+handler.command = ['privacidad'];
 
-export { politica, imagenPolitica };
+export default handler;
