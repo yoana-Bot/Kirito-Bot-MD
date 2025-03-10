@@ -11,8 +11,6 @@ export async function before(m, { conn, participants, groupMetadata }) {
   let img = await (await fetch(`${pp}`)).buffer()
 
   if (chat.welcome) {
-    let messageOptions = { image: img, mentions: [who], ...m.fake } // Agrega m.fake a los mensajes
-
     if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_ADD) {
       let bienvenida = `┏━━━━━━━━━━━━━━━━┅┈
 ┃      🄱🄸🄴🄽🅅🄴🄽🄸🄳🄾
@@ -23,7 +21,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┃
 ┃ 
 ┗━━━━━━━━━━━━━━━━┅┈`
-      await conn.sendMessage(m.chat, { ...messageOptions, caption: bienvenida })
+      await conn.sendMessage(m.chat, { image: img, caption: bienvenida, mentions: [who] }, m, fake);
     }
 
     if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_LEAVE) {
@@ -36,7 +34,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┃
 ┃ 
 ┗━━━━━━━━━━━━━━━━┅┈`
-      await conn.sendMessage(m.chat, { ...messageOptions, caption: bye })
+      await conn.sendMessage(m.chat, { image: img, caption: bye, mentions: [who] }, m, fake);
     }
 
     if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_REMOVE) { 
@@ -49,7 +47,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┃
 ┃ 
 ┗━━━━━━━━━━━━━━━━┅┈`
-      await conn.sendMessage(m.chat, { ...messageOptions, caption: kick })
+      await conn.sendMessage(m.chat, { image: img, caption: kick, mentions: [who] }, m, fake);
     }
   }
 }
