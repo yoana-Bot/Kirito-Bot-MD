@@ -7,7 +7,7 @@ const handler = async (m, { text, conn, args }) => {
 
   let res;
   try {
-    await m.react(rwait);
+    await m.react(rwait);  // Reacción inicial
     res = await igdl(args[0]);
   } catch (e) {
     return conn.reply(m.chat, `${msm} Error al obtener datos. Verifica el enlace.`, m)
@@ -30,12 +30,15 @@ const handler = async (m, { text, conn, args }) => {
   }
 
   let video = data.url;
+
   try {
+    // Intentar enviar el video solo una vez
     await conn.sendMessage(m.chat, { video: { url: video }, caption: `${emoji} Aqui tienes ฅ^•ﻌ•^ฅ.`, fileName: 'fb.mp4', mimetype: 'video/mp4' }, { quoted: m })
-    await m.react(done);
+    await m.react(done); // Reacción de éxito
   } catch (e) {
+    // En caso de error en el envío
+    await m.react(error);  // Reacción de error
     return conn.reply(m.chat, `${msm} Error al enviar el video.`, m)
-    await m.react(error);
   }
 }
 
