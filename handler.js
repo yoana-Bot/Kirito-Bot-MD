@@ -573,16 +573,16 @@ let user2 = m.pushName || 'Anónimo'
 let verifyaleatorio = ['registrar', 'reg', 'verificar', 'verify', 'register'].getRandom()
 
 const msg = {
-  rowner: `👑 *${comando}* es solo para los creadores, no insistas.`,
-  owner: `⚡ *${comando}* es exclusivo para los desarrolladores. Nivel insuficiente.`,
-  mods: `🔰 *${comando}* solo para moderadores. ¿Eres uno? No lo creo.`,
-  premium: `💎 *${comando}* es un lujo de usuarios premium. Tú aún no estás en ese nivel.`,
-  group: `👥 *${comando}* solo funciona en grupos. No intentes engañar al sistema.`,
-  private: `📩 *${comando}* solo en chat privado. Aquí no, amigo.`,
-  admin: `🛡️ *${comando}* es un poder reservado para administradores.`,
-  botAdmin: `⚠️ Necesito ser admin para ejecutar *${comando}*. Dame el rango y hablamos.`,
-  unreg: `📜 Para usar *${comando}*, primero debes registrarte.\n🔹 Usa: #${verifyaleatorio} ${user2}.${edadaleatoria}`,
-  restrict: `🚫 Esta función está bloqueada. Fin de la historia.`
+  rowner: `*👑 *${comando}* es solo para los creadores, no insistas.*`,
+  owner: `*⚡ *${comando}* es exclusivo para los desarrolladores. Nivel insuficiente.*`,
+  mods: `*👑 *${comando}* solo para moderadores. ¿Eres uno? No lo creo.*`,
+  premium: `*👑 *${comando}* es un lujo de usuarios premium. Tú aún no estás en ese nivel.*`,
+  group: `*👑 *${comando}* solo funciona en grupos. No intentes engañar al sistema.*`,
+  private: `*⚡ *${comando}* solo en chat privado. Aquí no, amigo.*`,
+  admin: `*👑 *${comando}* es un poder reservado para administradores.*`,
+  botAdmin: `*⚡ Necesito ser admin para ejecutar *${comando}*. Dame el rango y hablamos.*`,
+  unreg: `*👑 Para usar *${comando}*, primero debes registrarte.*\n\n *⚡ Usa: #${verifyaleatorio} ${user2}.${edadaleatoria}*`,
+  restrict: `*⚡ Esta función está bloqueada. Fin de la historia.*`
 }[type];
 
 if (msg) return m.reply(msg).then(_ => m.react('❌'));}
