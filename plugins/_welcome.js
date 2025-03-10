@@ -1,12 +1,15 @@
 export async function before(m, { conn, participants, groupMetadata }) {
-    const fkontak = { key: { fromMe: false, participant: '0@s.whatsapp.net' }, message: { conversation: '¡Hola!' } };
+    const fkontak = { 
+        key: { fromMe: false, participant: '0@s.whatsapp.net' }, 
+        message: { conversation: '¡Hola!' } 
+    };
 
     if (!m.messageStubType || !m.isGroup) return true;
 
     let userId = m.messageStubParameters[0];
 
     const welcomeImage = 'https://files.catbox.moe/56el7x.jpg'; // Imagen de bienvenida
-    const goodbyeImage = 'https://files.catbox.moe/56el7x.jpg'; // Imagen de despedida
+    const goodbyeImage = 'https://files.catbox.moe/56el7x.jpg';  // Imagen de despedida
 
     let pp;
     try {
@@ -24,6 +27,10 @@ export async function before(m, { conn, participants, groupMetadata }) {
 
     let chat = global.db.data.chats[m.chat];
 
+    // Obtenemos el número exacto de miembros
+    const totalMembers = groupMetadata.participants.length;
+
+    // Mensaje de bienvenida
     if (chat.welcome && m.messageStubType === 27) {
         let wel = ` 
 ┏━━━━━━━━━━━━━━━━┅┈
@@ -32,7 +39,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: @${userId.split`@`[0]} 
 ┃ 
 ┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
-┃
+┃ 𝗠𝗲𝗺𝗯𝗿𝗼𝘀: ${totalMembers}
 ┗━━━━━━━━━━━━━━━━┅┈`;
         try {
             await conn.sendMini(m.chat, packname, dev, wel, img, img, channel, fkontak);
@@ -49,8 +56,8 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: @${userId.split`@`[0]} 
 ┃ 
-┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
-┃
+┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject}
+┃ 𝗠𝗲𝗺𝗯𝗿𝗼𝘀: ${totalMembers}
 ┗━━━━━━━━━━━━━━━━┅┈`;
         let img2;
         try {
@@ -69,8 +76,8 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: @${userId.split`@`[0]} 
 ┃ 
-┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
-┃
+┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject}
+┃ 𝗠𝗲𝗺𝗯𝗿𝗼𝘀: ${totalMembers}
 ┗━━━━━━━━━━━━━━━━┅┈`;
         let img3;
         try {
