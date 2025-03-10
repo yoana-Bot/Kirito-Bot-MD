@@ -18,8 +18,10 @@ BEGIN:VCARD
 VERSION:3.0
 N:;${name};;;
 FN:${name}
+ADR:;;Dirección de tu empresa;;;;
 TEL;waid=${numcreador}:${new PhoneNumber('+' + numcreador).getNumber('international')}
 NOTE:${about}
+X-WA-BIZ-DESCRIPTION:${about}
 END:VCARD`.trim();
 
     // Enviar el vCard al chat
