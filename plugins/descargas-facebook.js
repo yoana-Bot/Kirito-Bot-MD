@@ -7,7 +7,7 @@ const handler = async (m, { text, conn, args }) => {
 
   let res;
   try {
-    await m.react(rwait);  // Reacción inicial
+    await m.react(rwait);  
     res = await igdl(args[0]);
   } catch (e) {
     return conn.reply(m.chat, `${msm} Error al obtener datos. Verifica el enlace.`, m)
@@ -32,16 +32,16 @@ const handler = async (m, { text, conn, args }) => {
   let video = data.url;
 
   try {
-    // Intentar enviar el video solo una vez
+    
     await conn.sendMessage(m.chat, { video: { url: video }, caption: ` ╭──────⚔──────╮  
   ${emoji} 𝑲𝑰𝑹𝑰𝑻𝑶-𝑩𝑶𝑻 𝑴𝑫   
 ╰──────⚔──────╯  
 ⟢ 𝑨𝒌𝒊 𝒕𝒊𝒆𝒏𝒆𝒔: *˙Ⱉ˙ฅ*  
 ⟢ 𝑫𝒊𝒔𝒇𝒓𝒖𝒕𝒂.`, fileName: 'fb.mp4', mimetype: 'video/mp4' }, { quoted: m })
-    await m.react(done); // Reacción de éxito
+    await m.react(done); 
   } catch (e) {
-    // En caso de error en el envío
-    await m.react(error);  // Reacción de error
+    
+    await m.react(error);  
     return conn.reply(m.chat, `${msm} Error al enviar el video.`, m)
   }
 }
