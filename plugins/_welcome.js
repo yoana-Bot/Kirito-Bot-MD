@@ -1,12 +1,18 @@
+import fetch from 'node-fetch'
+import PhoneNumber from 'awesome-phonenumber'
+
 export async function before(m, { conn, participants, groupMetadata }) {
-    const fkontak = { key: { fromMe: false, participant: '0@s.whatsapp.net' }, message: { conversation: '¡Hola!' } };
+    const fkontak = { 
+        key: { fromMe: false, participant: '0@s.whatsapp.net' }, 
+        message: { conversation: '¡Hola!' } 
+    };
 
     if (!m.messageStubType || !m.isGroup) return true;
 
     let userId = m.messageStubParameters[0];
 
     const welcomeImage = 'https://files.catbox.moe/56el7x.jpg'; // Imagen de bienvenida
-    const goodbyeImage = 'https://files.catbox.moe/56el7x.jpg'; // Imagen de despedida
+    const goodbyeImage = 'https://files.catbox.moe/56el7x.jpg';  // Imagen de despedida
 
     let pp;
     try {
@@ -23,10 +29,28 @@ export async function before(m, { conn, participants, groupMetadata }) {
     }
 
     let chat = global.db.data.chats[m.chat];
-    
-    // Obtener fecha y hora actual
-    let now = new Date();
-    let datetime = now.toLocaleString(); // Puedes formatear según tu preferencia
+
+    // --- Obtener fecha y hora local según el prefijo del número ---
+    // Extrae el número (sin el "@s.whatsapp.net")
+    let phoneNum = userId.split('@')[0];
+    // Asegurarse de que el número inicie con '+'
+    if (!phoneNum.startsWith('+')) phoneNum = '+' + phoneNum;
+    // Usar PhoneNumber para obtener el código de región
+    const pn = new PhoneNumber(phoneNum);
+    let region = pn.getRegionCode(); // Ejemplo: "MX", "US", "GB", etc.
+    // Mapeo de algunos países a timezones (agrega más según necesites)
+    const countryTimezones = {
+        MX: "America/Mexico_City",
+        US: "America/New_York",
+        GB: "Europe/London",
+        IN: "Asia/Kolkata",
+        BR: "America/Sao_Paulo",
+        AR: "America/Argentina/Buenos_Aires"
+    };
+    let timezone = countryTimezones[region] || "UTC";
+    let datetime = new Date().toLocaleString("en-US", { timeZone: timezone });
+    // -------------------------------------------------------------------
+
     // Obtener descripción del grupo
     let groupDesc = groupMetadata.desc || 'Sin descripción';
 
@@ -82,7 +106,7 @@ Descripción del grupo: ${groupDesc}`;
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: @${userId.split`@`[0]} 
 ┃ 
-┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
+┃ 𝗚𝗿𝗨𝗽𝗢: ${groupMetadata.subject} 
 ┃
 ┃ 𝗙𝗲𝗰𝗵𝗮 𝘆 𝗛𝗼𝗿𝗮: ${datetime}
 ┗━━━━━━━━━━━━━━━━┅┈
