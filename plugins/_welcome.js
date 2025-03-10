@@ -23,7 +23,14 @@ export async function before(m, { conn, participants, groupMetadata }) {
     }
 
     let chat = global.db.data.chats[m.chat];
+    
+    // Obtener fecha y hora actual
+    let now = new Date();
+    let datetime = now.toLocaleString(); // Puedes formatear según tu preferencia
+    // Obtener descripción del grupo
+    let groupDesc = groupMetadata.desc || 'Sin descripción';
 
+    // Mensaje de bienvenida
     if (chat.welcome && m.messageStubType === 27) {
         let wel = ` 
 ┏━━━━━━━━━━━━━━━━┅┈
@@ -31,9 +38,12 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: @${userId.split`@`[0]} 
 ┃ 
-┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
+┃ 𝗚𝗿𝗨𝗽𝗢: ${groupMetadata.subject} 
 ┃
-┗━━━━━━━━━━━━━━━━┅┈`;
+┃ 𝗙𝗲𝗰𝗵𝗮 𝘆 𝗛𝗼𝗿𝗮: ${datetime}
+┗━━━━━━━━━━━━━━━━┅┈
+
+Descripción del grupo: ${groupDesc}`;
         try {
             await conn.sendMini(m.chat, packname, dev, wel, img, img, channel, fkontak);
         } catch (sendError) {
@@ -49,9 +59,12 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: @${userId.split`@`[0]} 
 ┃ 
-┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
+┃ 𝗚𝗿𝗨𝗽𝗢: ${groupMetadata.subject} 
 ┃
-┗━━━━━━━━━━━━━━━━┅┈`;
+┃ 𝗙𝗲𝗰𝗵𝗮 𝘆 𝗛𝗼𝗿𝗮: ${datetime}
+┗━━━━━━━━━━━━━━━━┅┈
+
+Descripción del grupo: ${groupDesc}`;
         let img2;
         try {
             img2 = await (await fetch(goodbyeImage)).buffer(); 
@@ -71,7 +84,10 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┃ 
 ┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
 ┃
-┗━━━━━━━━━━━━━━━━┅┈`;
+┃ 𝗙𝗲𝗰𝗵𝗮 𝘆 𝗛𝗼𝗿𝗮: ${datetime}
+┗━━━━━━━━━━━━━━━━┅┈
+
+Descripción del grupo: ${groupDesc}`;
         let img3;
         try {
             img3 = await (await fetch(goodbyeImage)).buffer();
