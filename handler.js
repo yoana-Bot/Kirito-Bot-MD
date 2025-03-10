@@ -585,7 +585,7 @@ const msg = {
   restrict: `*⚡ Esta función está bloqueada. Fin de la historia.*`
 }[type];
 
-if (msg) return m.reply(msg).then(_ => m.react('❌'));}
+if (msg) return conn.reply(m.chat, msg, m, rcanal).then(_ => m.react('❌'));}
 
 let file = global.__filename(import.meta.url, true)
 watchFile(file, async () => {
