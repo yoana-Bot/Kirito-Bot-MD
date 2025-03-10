@@ -21,6 +21,12 @@ FN:${name}
 ADR:;;Dirección de tu empresa;;;;
 TEL;waid=${numcreador}:${new PhoneNumber('+' + numcreador).getNumber('international')}
 NOTE:${about}
+ADR:;;Dirección de tu empresa;;;;
+X-ABADR:ES
+X-ABLabel:Dirección Web
+X-ABLabel:Correo Electrónico
+X-ABLabel:Teléfono de contacto
+X-WA-BIZ-NAME:${name}
 X-WA-BIZ-DESCRIPTION:${about}
 END:VCARD`.trim();
 
