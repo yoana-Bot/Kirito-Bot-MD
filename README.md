@@ -56,7 +56,7 @@ src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" heigh
     <img src="https://i.postimg.cc/VNBPcYbd/file-RLR3htnmdr9nb-Zai-Dt-M3-UM.webp" width="150" height="150" alt="Deylin" style="border-radius: 50%; border: 4px solid #00F7FF;"/>
   </a>
 </p>
-
+<h1>Plataforma de Bots</h1>
 💬 **Canal Oficial:** [`Click👑Aquí`](https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m)  
 
 <a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
