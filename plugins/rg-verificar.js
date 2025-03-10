@@ -9,11 +9,12 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 
   let who = (m.mentionedJid && m.mentionedJid[0]) 
     ? String(m.mentionedJid[0]) 
-    : (m.fromMe && conn.user?.jid) 
-      ? String(conn.user.jid) 
+    : (m.fromMe && conn.user?.id) 
+      ? String(conn.user.id) 
       : String(m.sender)
 
-  if (!who.includes('@s.whatsapp.net')) who += '@s.whatsapp.net'  
+  // Asegurarse de que el JID tenga el formato correcto
+  if (!who.includes('@s.whatsapp.net')) who += '@s.whatsapp.net'
 
   let mentionedJid = [who]
   let pp = await conn.profilePictureUrl(who, 'image').catch(() => 'https://files.catbox.moe/xr2m6u.jpg')
@@ -59,6 +60,7 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 
   await conn.sendMessage(String(m.chat), {
     text: regbot,
+    mentions: [who], // Se usa mentions correctamente
     contextInfo: {
       externalAdReply: {
         title: '✧ Usuario Verificado ✧',
