@@ -16,7 +16,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: ${taguser}
 ┃ 
-┃ 𝗚𝗿𝘂𝗽𝗼: ${global.welcom1} 
+┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
 ┃
 ┃ 
 ┗━━━━━━━━━━━━━━━━┅┈`
@@ -29,7 +29,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: ${taguser}
 ┃ 
-┃ 𝗚𝗿𝘂𝗽𝗼: ${global.welcom2}
+┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
 ┃
 ┃ 
 ┗━━━━━━━━━━━━━━━━┅┈`
@@ -42,7 +42,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: ${taguser}
 ┃ 
-┃ 𝗚𝗿𝘂𝗽𝗼: ${global.welcom2}
+┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
 ┃
 ┃ 
 ┗━━━━━━━━━━━━━━━━┅┈`
