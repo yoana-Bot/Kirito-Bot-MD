@@ -11,8 +11,8 @@ export async function before(m, { conn, participants, groupMetadata }) {
 
     let userId = m.messageStubParameters[0];
 
-    const welcomeImage = 'https://files.catbox.moe/56el7x.jpg'; // Imagen de bienvenida
-    const goodbyeImage = 'https://files.catbox.moe/56el7x.jpg';  // Imagen de despedida
+    const welcomeImage = 'https://files.catbox.moe/56el7x.jpg';
+    const goodbyeImage = 'https://files.catbox.moe/56el7x.jpg';
 
     let pp;
     try {
@@ -30,31 +30,24 @@ export async function before(m, { conn, participants, groupMetadata }) {
 
     let chat = global.db.data.chats[m.chat];
 
-    // --- Obtener fecha y hora local según el prefijo del número ---
-    // Extrae el número (sin el "@s.whatsapp.net")
     let phoneNum = userId.split('@')[0];
-    // Asegurarse de que el número inicie con '+'
     if (!phoneNum.startsWith('+')) phoneNum = '+' + phoneNum;
-    // Usar PhoneNumber para obtener el código de región
     const pn = new PhoneNumber(phoneNum);
-    let region = pn.getRegionCode(); // Ejemplo: "MX", "US", "GB", etc.
-    // Mapeo de algunos países a timezones (agrega más según necesites)
+    let region = pn.getRegionCode();
     const countryTimezones = {
         MX: "America/Mexico_City",
         US: "America/New_York",
         GB: "Europe/London",
         IN: "Asia/Kolkata",
         BR: "America/Sao_Paulo",
-        AR: "America/Argentina/Buenos_Aires"
+        AR: "America/Argentina/Buenos_Aires",
+        HN: "America/Tegucigalpa"
     };
     let timezone = countryTimezones[region] || "UTC";
     let datetime = new Date().toLocaleString("en-US", { timeZone: timezone });
-    // -------------------------------------------------------------------
 
-    // Obtener descripción del grupo
     let groupDesc = groupMetadata.desc || 'Sin descripción';
 
-    // Mensaje de bienvenida
     if (chat.welcome && m.messageStubType === 27) {
         let wel = ` 
 ┏━━━━━━━━━━━━━━━━┅┈
@@ -62,7 +55,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: @${userId.split`@`[0]} 
 ┃ 
-┃ 𝗚𝗿𝗨𝗽𝗢: ${groupMetadata.subject} 
+┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
 ┃
 ┃ 𝗙𝗲𝗰𝗵𝗮 𝘆 𝗛𝗼𝗿𝗮: ${datetime}
 ┗━━━━━━━━━━━━━━━━┅┈
@@ -75,7 +68,6 @@ Descripción del grupo: ${groupDesc}`;
         }
     }
 
-    // Mensaje de despedida (cuando se sale)
     if (chat.welcome && m.messageStubType === 28) {
         let bye = `
 ┏━━━━━━━━━━━━━━━━┅┈
@@ -83,7 +75,7 @@ Descripción del grupo: ${groupDesc}`;
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: @${userId.split`@`[0]} 
 ┃ 
-┃ 𝗚𝗿𝗨𝗽𝗢: ${groupMetadata.subject} 
+┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
 ┃
 ┃ 𝗙𝗲𝗰𝗵𝗮 𝘆 𝗛𝗼𝗿𝗮: ${datetime}
 ┗━━━━━━━━━━━━━━━━┅┈
@@ -98,7 +90,6 @@ Descripción del grupo: ${groupDesc}`;
         }
     }
 
-    // Mensaje de expulsión (cuando se echa a alguien)
     if (chat.welcome && m.messageStubType === 32) {
         let kick = `
 ┏━━━━━━━━━━━━━━━━┅┈
@@ -106,7 +97,7 @@ Descripción del grupo: ${groupDesc}`;
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: @${userId.split`@`[0]} 
 ┃ 
-┃ 𝗚𝗿𝗨𝗽𝗢: ${groupMetadata.subject} 
+┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
 ┃
 ┃ 𝗙𝗲𝗰𝗵𝗮 𝘆 𝗛𝗼𝗿𝗮: ${datetime}
 ┗━━━━━━━━━━━━━━━━┅┈
