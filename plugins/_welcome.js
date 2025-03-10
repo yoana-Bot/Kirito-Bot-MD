@@ -25,15 +25,15 @@ export async function before(m, { conn, participants, groupMetadata }) {
     let chat = global.db.data.chats[m.chat];
 
     if (chat.welcome && m.messageStubType === 27) {
-        let wel = `
-╔═══『⚔️ 𝑲𝑰𝑹𝑰𝑻𝑶-𝑩𝑶𝑻 』═══╗  
-║        𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎          
-╠════『🌟 𝑰𝑵𝑭𝑶 🌟』════╝
-║┏━━━━━━━━━━━━━━┅┈
-║┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: @${userId.split`@`[0]}  
-║┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
-║┗━━━━━━━━━━━━━━┅┈
-╚═══════『🔥』═══════╝\n> sigue el canal\n https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m`;
+        let wel = ` 
+┏━━━━━━━━━━━━━━━━┅┈
+┃      🄱🄸🄴🄽🅅🄴🄽🄸🄳🄾
+┣━━━━━━━━━━━━━━━━┅┈
+┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: @${userId.split`@`[0]} 
+┃ 
+┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
+┃
+┗━━━━━━━━━━━━━━━━┅┈`;
         try {
             await conn.sendMini(m.chat, packname, dev, wel, img, img, channel, fkontak);
         } catch (sendError) {
@@ -44,14 +44,14 @@ export async function before(m, { conn, participants, groupMetadata }) {
     // Mensaje de despedida (cuando se sale)
     if (chat.welcome && m.messageStubType === 28) {
         let bye = `
-╔═══『⚔️ 𝑲𝑰𝑹𝑰𝑻𝑶-𝑩𝑶𝑻 』═══╗  
-║         𝐁 𝐀 𝐘          
-╠════『🌟 𝑰𝑵𝑭𝑶 🌟』════╝
-║┏━━━━━━━━━━━━━━┅┈
-║┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: @${userId.split`@`[0]}  
-║┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
-║┗━━━━━━━━━━━━━━┅┈
-╚═══════『🔥』═══════╝\n> sigue el canal\n https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m`;
+┏━━━━━━━━━━━━━━━━┅┈
+┃      🄱.   🄰.   🅈.
+┣━━━━━━━━━━━━━━━━┅┈
+┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: @${userId.split`@`[0]} 
+┃ 
+┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
+┃
+┗━━━━━━━━━━━━━━━━┅┈`;
         let img2;
         try {
             img2 = await (await fetch(goodbyeImage)).buffer(); 
@@ -64,14 +64,14 @@ export async function before(m, { conn, participants, groupMetadata }) {
     // Mensaje de expulsión (cuando se echa a alguien)
     if (chat.welcome && m.messageStubType === 32) {
         let kick = `
-╔═══『⚔️ 𝑲𝑰𝑹𝑰𝑻𝑶-𝑩𝑶𝑻 』═══╗  
-║         𝐁 𝐀 𝐘          
-╠════『🌟 𝑰𝑵𝑭𝑶 🌟』════╝
-║┏━━━━━━━━━━━━━━┅┈
-║┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: @${userId.split`@`[0]}  
-║┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
-║┗━━━━━━━━━━━━━━┅┈
-╚═══════『🔥』═══════╝\n> sigue el canal\n https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m`;
+┏━━━━━━━━━━━━━━━━┅┈
+┃      🄱.   🄰.   🅈.
+┣━━━━━━━━━━━━━━━━┅┈
+┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: @${userId.split`@`[0]} 
+┃ 
+┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
+┃
+┗━━━━━━━━━━━━━━━━┅┈`;
         let img3;
         try {
             img3 = await (await fetch(goodbyeImage)).buffer();
