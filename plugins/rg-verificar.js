@@ -1,19 +1,17 @@
 import db from '../lib/database.js'
 import fs from 'fs'
-import PhoneNumber from 'awesome-phonenumber'
-import { createHash } from 'crypto'  
-import fetch from 'node-fetch'
+import { createHash } from 'crypto'
 
 let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
 
 let handler = async function (m, { conn, text, usedPrefix, command }) {
   if (!m.sender) return m.reply('Error: No se pudo identificar al usuario.')
 
-  let who = m.mentionedJid && m.mentionedJid[0] 
+  let who = (m.mentionedJid && m.mentionedJid[0]) 
     ? String(m.mentionedJid[0]) 
-    : m.fromMe 
-      ? String(conn.user.jid || '') 
-      : String(m.sender || '')
+    : (m.fromMe && conn.user.jid) 
+      ? String(conn.user.jid) 
+      : String(m.sender)
 
   let mentionedJid = [who]
   let pp = await conn.profilePictureUrl(who, 'image').catch(() => 'https://files.catbox.moe/xr2m6u.jpg')
@@ -41,8 +39,6 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
   user.exp = (user.exp || 0) + 300
   user.joincount = (user.joincount || 0) + 20
 
-  let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 20)
-
   let regbot = `✦ 𝗥 𝗘 𝗚 𝗜 𝗦 𝗧 𝗥 𝗔 𝗗 𝗢 ✦\n`
   regbot += `•──────────────────•\n`
   regbot += `> ᰔᩚ Nombre » ${name}\n`
@@ -59,7 +55,7 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 
   if (!m.chat) return m.reply('Error: No se pudo identificar el chat.')
 
-  await conn.sendMessage(String(m.chat), {
+  await conn.sendMessage(m.chat + '', {
     text: regbot,
     contextInfo: {
       externalAdReply: {
