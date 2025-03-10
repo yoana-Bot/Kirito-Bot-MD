@@ -27,11 +27,10 @@ export async function before(m, { conn, participants, groupMetadata }) {
 
     let chat = global.db.data.chats[m.chat];
 
-    // Obtenemos el número exacto de miembros
-    const totalMembers = groupMetadata.participants.length;
-
-    // Mensaje de bienvenida
+    // Mensaje de bienvenida (evento 27)
     if (chat.welcome && m.messageStubType === 27) {
+        // Al momento de unirse, el nuevo integrante aún no está incluido en groupMetadata
+        const totalMembers = groupMetadata.participants.length + 1;
         let wel = ` 
 ┏━━━━━━━━━━━━━━━━┅┈
 ┃      🄱🄸🄴🄽🅅🄴🄽🄸🄳🄾
@@ -48,8 +47,10 @@ export async function before(m, { conn, participants, groupMetadata }) {
         }
     }
 
-    // Mensaje de despedida (cuando se sale)
+    // Mensaje de despedida (cuando se sale, evento 28)
     if (chat.welcome && m.messageStubType === 28) {
+        // En este caso, el integrante ya se removió, por lo que el conteo es el actual
+        const totalMembers = groupMetadata.participants.length;
         let bye = `
 ┏━━━━━━━━━━━━━━━━┅┈
 ┃      🄱.   🄰.   🅈.
@@ -68,8 +69,10 @@ export async function before(m, { conn, participants, groupMetadata }) {
         }
     }
 
-    // Mensaje de expulsión (cuando se echa a alguien)
+    // Mensaje de expulsión (cuando se echa a alguien, evento 32)
     if (chat.welcome && m.messageStubType === 32) {
+        // Para expulsiones, el miembro ya se ha removido del grupo
+        const totalMembers = groupMetadata.participants.length;
         let kick = `
 ┏━━━━━━━━━━━━━━━━┅┈
 ┃      🄱.   🄰.   🅈.
