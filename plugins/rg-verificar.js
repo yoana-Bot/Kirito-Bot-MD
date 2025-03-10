@@ -7,14 +7,16 @@ import fetch from 'node-fetch'
 let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
 
 let handler = async function (m, { conn, text, usedPrefix, command }) {
+  if (!m.sender) return m.reply('Error: No se pudo identificar al usuario.')
+
   let who = m.mentionedJid && m.mentionedJid[0] 
     ? String(m.mentionedJid[0]) 
     : m.fromMe 
-      ? String(conn.user.jid) 
-      : String(m.sender)
+      ? String(conn.user.jid || '') 
+      : String(m.sender || '')
 
   let mentionedJid = [who]
-  let pp = await conn.profilePictureUrl(who, 'image').catch(() => 'https://qu.ax/JbNrT.jpg')
+  let pp = await conn.profilePictureUrl(who, 'image').catch(() => 'https://files.catbox.moe/xr2m6u.jpg')
   let user = global.db.data.users[m.sender] || {}
   let name2 = conn.getName(m.sender) || 'Usuario'
 
@@ -55,7 +57,9 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 
   await m.react('📩')
 
-  await conn.sendMessage(m.chat + '', {
+  if (!m.chat) return m.reply('Error: No se pudo identificar el chat.')
+
+  await conn.sendMessage(String(m.chat), {
     text: regbot,
     contextInfo: {
       externalAdReply: {
