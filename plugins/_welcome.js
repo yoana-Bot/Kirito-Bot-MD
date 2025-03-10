@@ -16,7 +16,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: ${taguser}
 ┃ 
-┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
+┃ 𝗚𝗿𝘂𝗽𝗼: ${global.welcom1} 
 ┃
 ┃ 
 ┗━━━━━━━━━━━━━━━━┅┈`
@@ -25,11 +25,11 @@ export async function before(m, { conn, participants, groupMetadata }) {
 
     if (chat.welcome && m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_LEAVE) {
       let bye = `┏━━━━━━━━━━━━━━━━┅┈
-┃      🄱.   🄰.   🅈.
+┃       🄱.    🄰.    🅈.
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: ${taguser}
 ┃ 
-┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
+┃ 𝗚𝗿𝘂𝗽𝗼: ${global.welcom2}
 ┃
 ┃ 
 ┗━━━━━━━━━━━━━━━━┅┈`
@@ -38,11 +38,11 @@ export async function before(m, { conn, participants, groupMetadata }) {
 
     if (chat.welcome && m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_REMOVE) { 
       let kick = `┏━━━━━━━━━━━━━━━━┅┈
-┃      🄱.   🄰.   🅈.
+┃       🄱.    🄰.    🅈.
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: ${taguser}
 ┃ 
-┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
+┃ 𝗚𝗿𝘂𝗽𝗼: ${global.welcom2}
 ┃
 ┃ 
 ┗━━━━━━━━━━━━━━━━┅┈`
