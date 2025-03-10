@@ -13,7 +13,7 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
   let user = global.db.data.users[m.sender]
   let name2 = conn.getName(m.sender)
 
-  if (user.registered) return m.reply(`🚀 *Ya estás registrado.*\n\nSi deseas volver a registrarte, usa:\n*${usedPrefix}unreg*`)
+  if (user.registered) return m.reply(`🚀 *Ya estás registrado.*\n\nSi deseas volver a registrarte, usa:\n*${usedPrefix}unreg*`, m, fake);
 
   if (!Reg.test(text)) return m.reply(`⚠️ *Formato incorrecto.*\n\n💡 *Uso correcto:* *${usedPrefix + command} nombre.edad*\n📌 *Ejemplo:* *${usedPrefix + command} ${name2}.18*`)
 
