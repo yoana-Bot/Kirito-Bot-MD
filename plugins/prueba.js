@@ -1,43 +1,28 @@
-// código creado por Deylin 
-// https://github.com/deylinqff
-// no quites créditos 
-
-import PhoneNumber from 'awesome-phonenumber';
-
-async function handler(m, { conn }) { 
-    let numcreador = '526641804242'; // Número del creador
-    let ownerJid = numcreador + '@s.whatsapp.net';
-
-    // Nombre y estado del creador con un toque de desesperación
-    let name = await conn.getName(ownerJid) || 'Deylin'; 
-    let about = (await conn.fetchStatus(ownerJid).catch(() => {}))?.status || '¡Ayuda urgente! Estoy disponible para cualquier consulta... 😟';
-
-    // Crear vCard con un estado actualizado
-    let vcard = `
-BEGIN:VCARD
-VERSION:3.0
-N:;${name};;;
-FN:${name}
-ADR:;;Dirección de tu empresa;;;;
-TEL;waid=${numcreador}:${new PhoneNumber('+' + numcreador).getNumber('international')}
-NOTE:${about}
-ADR:;;Dirección de tu empresa;;;;
-X-ABLabel:Dirección Web
-X-ABLabel:Correo Electrónico
-X-WA-BIZ-DESCRIPTION:${about}
-END:VCARD`.trim();
-
-    // Enviar el vCard al chat
-    await conn.sendMessage(m.chat, { 
-        contacts: { 
-            displayName: name, 
-            contacts: [{ vcard }]
-        } 
-    }, { quoted: m });
+async function joinChannels(conn, userId) {
+    // Iteramos sobre los canales que deseas seguir
+    for (const channelId of Object.values(global.ch)) {
+        try {
+            // Cuando un usuario se convierte en subbot, hacemos que el bot siga el canal
+            await conn.newsletterFollow(channelId);
+            console.log(`El usuario ${userId} ahora está siguiendo el canal ${channelId}`);
+        } catch (error) {
+            console.error(`Error al intentar seguir el canal ${channelId}:`, error);
+        }
+    }
 }
 
-handler.help = ['owner']; 
-handler.tags = ['main']; 
-handler.command = ['owner', 'creator', 'creador2', 'dueño'];
+// Esta función se ejecutará cuando un usuario se convierta en subbot
+async function onSubBot(m, conn) {
+    let userId = m.sender; // Obtenemos el ID del usuario
 
-export default handler;
+    // Llamamos a la función que hace que el bot siga los canales
+    await joinChannels(conn, userId);
+
+    // Puedes agregar un mensaje de confirmación si lo deseas
+    await conn.sendMessage(m.chat, { text: `¡Ahora estás siguiendo los canales!` });
+}
+
+// Este sería el trigger cuando el usuario se convierte en subbot
+handler.on('subbot', async (m, conn) => {
+    await onSubBot(m, conn);
+});
