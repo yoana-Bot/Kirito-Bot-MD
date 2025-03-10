@@ -53,7 +53,7 @@ src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" heigh
 ## 🌐 ***Forma parte de la Comunidad*** 
 <p align="center">
   <a href="https://i.postimg.cc/VNBPcYbd/file-RLR3htnmdr9nb-Zai-Dt-M3-UM.webp" target="_blank">
-    <img src="https://i.postimg.cc/VNBPcYbd/file-RLR3htnmdr9nb-Zai-Dt-M3-UM.webp" width="150" height="150" alt="Deylin" style="border-radius: 50%; border: 4px solid #00F7FF;"/>
+    <img src="https://deylinqff.github.io/mundo-bot" width="150" height="150" alt="Deylin" style="border-radius: 50%; border: 4px solid #00F7FF;"/>
   </a>
 </p>
 
