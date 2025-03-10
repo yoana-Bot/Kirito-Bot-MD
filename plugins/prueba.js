@@ -1,25 +1,25 @@
-async function joinChannels(conn, userId) {
-    // Iteramos sobre los canales que deseas seguir
-    for (const channelId of Object.values(global.ch)) {
-        try {
-            // Cuando un usuario se convierte en subbot, hacemos que el bot siga el canal
-            await conn.newsletterFollow(channelId);
-            console.log(`El usuario ${userId} ahora está siguiendo el canal ${channelId}`);
-        } catch (error) {
-            console.error(`Error al intentar seguir el canal ${channelId}:`, error);
-        }
+// El ID del canal al que deseas que el bot se suscriba
+global.channelId = '120363365444927738@newsletter';  // Usamos la ID de tu canal
+
+async function joinChannel(conn, userId) {
+    try {
+        // Hacemos que el bot siga el canal
+        await conn.newsletterFollow(global.channelId);
+        console.log(`El usuario ${userId} ahora sigue el canal ${global.channelId}`);
+    } catch (error) {
+        console.error(`Error al seguir el canal ${global.channelId}:`, error);
     }
 }
 
 // Esta función se ejecutará cuando un usuario se convierta en subbot
 async function onSubBot(m, conn) {
-    let userId = m.sender; // Obtenemos el ID del usuario
+    let userId = m.sender; // Obtiene el ID del usuario que se convierte en subbot
 
-    // Llamamos a la función que hace que el bot siga los canales
-    await joinChannels(conn, userId);
+    // Llama a la función que hace que el bot siga el canal
+    await joinChannel(conn, userId);
 
-    // Puedes agregar un mensaje de confirmación si lo deseas
-    await conn.sendMessage(m.chat, { text: `¡Ahora estás siguiendo los canales!` });
+    // Puedes enviar un mensaje de confirmación si lo deseas
+    await conn.sendMessage(m.chat, { text: `¡Ahora sigues el canal!` });
 }
 
 // Este sería el trigger cuando el usuario se convierte en subbot
