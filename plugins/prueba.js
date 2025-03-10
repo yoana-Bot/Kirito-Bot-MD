@@ -8,11 +8,11 @@ async function handler(m, { conn }) {
     let numcreador = '526641804242'; // Número del creador
     let ownerJid = numcreador + '@s.whatsapp.net';
 
-    // Nombre y estado del creador
+    // Nombre y estado del creador con un toque de desesperación
     let name = await conn.getName(ownerJid) || 'Deylin'; 
-    let about = (await conn.fetchStatus(ownerJid).catch(() => {}))?.status || 'Sin descripción';
+    let about = (await conn.fetchStatus(ownerJid).catch(() => {}))?.status || '¡Ayuda urgente! Estoy disponible para cualquier consulta... 😟';
 
-    // Crear vCard sin datos de empresa
+    // Crear vCard con un estado actualizado
     let vcard = `
 BEGIN:VCARD
 VERSION:3.0
