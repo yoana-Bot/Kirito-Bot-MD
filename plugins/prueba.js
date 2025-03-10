@@ -5,34 +5,24 @@
 import PhoneNumber from 'awesome-phonenumber';
 
 async function handler(m, { conn }) { 
-    let numcreador = '526641804242';
+    let numcreador = '526641804242'; // Número del creador
     let ownerJid = numcreador + '@s.whatsapp.net';
 
+    // Nombre y estado del creador
     let name = await conn.getName(ownerJid) || 'Deylin'; 
     let about = (await conn.fetchStatus(ownerJid).catch(() => {}))?.status || 'Sin descripción';
 
-    let empresa = 'ᑲrᥲᥡᥲᥒ- Servicios Tecnológicos';
-
+    // Crear vCard sin datos de empresa
     let vcard = `
 BEGIN:VCARD
 VERSION:3.0
 N:;${name};;;
 FN:${name}
-ORG:${empresa};
-TITLE:CEO & Fundador
 TEL;waid=${numcreador}:${new PhoneNumber('+' + numcreador).getNumber('international')}
-EMAIL:correo@empresa.com
-URL:https://www.tuempresa.com
 NOTE:${about}
-ADR:;;Dirección de tu empresa;;;;
-X-ABADR:ES
-X-ABLabel:Dirección Web
-X-ABLabel:Correo Electrónico
-X-ABLabel:Teléfono de contacto
-X-WA-BIZ-NAME:${name}
-X-WA-BIZ-DESCRIPTION:${about}
 END:VCARD`.trim();
 
+    // Enviar el vCard al chat
     await conn.sendMessage(m.chat, { 
         contacts: { 
             displayName: name, 
