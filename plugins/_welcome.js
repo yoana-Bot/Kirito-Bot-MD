@@ -10,7 +10,10 @@ export async function before(m, { conn, participants, groupMetadata }) {
   let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://files.catbox.moe/56el7x.jpg')
   let img = await (await fetch(`${pp}`)).buffer()
 
-    if (chat.welcome && m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_ADD) {
+  if (chat.welcome) {
+    let messageOptions = { image: img, mentions: [who], ...m.fake } // Agrega m.fake a los mensajes
+
+    if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_ADD) {
       let bienvenida = `┏━━━━━━━━━━━━━━━━┅┈
 ┃      🄱🄸🄴🄽🅅🄴🄽🄸🄳🄾
 ┣━━━━━━━━━━━━━━━━┅┈
@@ -20,10 +23,10 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┃
 ┃ 
 ┗━━━━━━━━━━━━━━━━┅┈`
-      await conn.sendMessage(m.chat, { image: img, caption: bienvenida, mentions: [who] })
+      await conn.sendMessage(m.chat, { ...messageOptions, caption: bienvenida })
     }
 
-    if (chat.welcome && m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_LEAVE) {
+    if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_LEAVE) {
       let bye = `┏━━━━━━━━━━━━━━━━┅┈
 ┃       🄱.    🄰.    🅈.
 ┣━━━━━━━━━━━━━━━━┅┈
@@ -33,10 +36,10 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┃
 ┃ 
 ┗━━━━━━━━━━━━━━━━┅┈`
-      await conn.sendMessage(m.chat, { image: img, caption: bye, mentions: [who] })
+      await conn.sendMessage(m.chat, { ...messageOptions, caption: bye })
     }
 
-    if (chat.welcome && m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_REMOVE) { 
+    if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_REMOVE) { 
       let kick = `┏━━━━━━━━━━━━━━━━┅┈
 ┃       🄱.    🄰.    🅈.
 ┣━━━━━━━━━━━━━━━━┅┈
@@ -46,5 +49,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┃
 ┃ 
 ┗━━━━━━━━━━━━━━━━┅┈`
-      await conn.sendMessage(m.chat, { image: img, caption: kick, mentions: [who] })
-  }}
+      await conn.sendMessage(m.chat, { ...messageOptions, caption: kick })
+    }
+  }
+}
