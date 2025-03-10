@@ -24,8 +24,6 @@ NOTE:${about}
 ADR:;;Dirección de tu empresa;;;;
 X-ABLabel:Dirección Web
 X-ABLabel:Correo Electrónico
-X-ABLabel:Teléfono de contacto
-X-WA-BIZ-NAME:${name}
 X-WA-BIZ-DESCRIPTION:${about}
 END:VCARD`.trim();
 
