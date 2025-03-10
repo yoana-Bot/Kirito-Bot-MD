@@ -1,80 +1,62 @@
 import db from '../lib/database.js'
 import fs from 'fs'
-import { createHash } from 'crypto'
+import PhoneNumber from 'awesome-phonenumber'
+import { createHash } from 'crypto'  
+import fetch from 'node-fetch'
 
 let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
 
 let handler = async function (m, { conn, text, usedPrefix, command }) {
-  if (!m.sender) return m.reply('Error: No se pudo identificar al usuario.')
-
-  let who = (m.mentionedJid && m.mentionedJid[0]) 
-    ? String(m.mentionedJid[0]) 
-    : (m.fromMe && conn.user?.id) 
-      ? String(conn.user.id) 
-      : String(m.sender)
-
-  // Asegurarse de que el JID tenga el formato correcto
-  if (!who.includes('@s.whatsapp.net')) who += '@s.whatsapp.net'
-
+  let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
   let mentionedJid = [who]
-  let pp = await conn.profilePictureUrl(who, 'image').catch(() => 'https://files.catbox.moe/xr2m6u.jpg')
-  let user = global.db.data.users[m.sender] || {}
-  let name2 = conn.getName(m.sender) || 'Usuario'
-
-  if (user.registered) return m.reply(`『✦』Ya estás registrado.\n\n*¿Quieres volver a registrarte?*\n\nUsa *${usedPrefix}unreg*`, m)
-
-  if (!Reg.test(text)) return m.reply(`『✦』Formato incorrecto.\n\nUso: *${usedPrefix + command} nombre.edad*\nEjemplo: *${usedPrefix + command} ${name2}.18*`, m)
-
-  let [_, name, _, age] = text.match(Reg)
-  if (!name) return m.reply(`『✦』El nombre no puede estar vacío.`, m)
-  if (!age) return m.reply(`『✦』La edad no puede estar vacía.`, m)
-  if (name.length >= 100) return m.reply(`『✦』El nombre es demasiado largo.`, m)
-
+  let pp = await conn.profilePictureUrl(who, 'image').catch((_) => 'https://files.catbox.moe/xr2m6u.jpg')
+  let user = global.db.data.users[m.sender]
+  let name2 = conn.getName(m.sender)
+  if (user.registered === true) return m.reply(`『✦』Ya estás registrado.\n\n*¿Quiere volver a registrarse?*\n\nUse este comando para eliminar su registro.\n*${usedPrefix}unreg*`)
+  if (!Reg.test(text)) return m.reply(`『✦』Formato incorrecto.\n\nUso del comamdo: *${usedPrefix + command} nombre.edad*\nEjemplo : *${usedPrefix + command} ${name2}.18*`)
+  let [_, name, splitter, age] = text.match(Reg)
+  if (!name) return m.reply(`『✦』El nombre no puede estar vacío.`)
+  if (!age) return m.reply(`『✦』La edad no puede estar vacía.`)
+  if (name.length >= 100) return m.reply(`『✦』El nombre es demasiado largo.`)
   age = parseInt(age)
-  if (age > 1000) return m.reply(`『✦』Wow, el abuelo quiere jugar con el bot.`, m)
-  if (age < 5) return m.reply(`『✦』Hay un abuelo bebé jsjsj.`, m)
-
-  user.name = name + '✓'
+  if (age > 1000) return m.reply(`『✦』Wow el abuelo quiere jugar al bot.`)
+  if (age < 5) return m.reply(`『✦』hay un abuelo bebé jsjsj.`)
+  user.name = name + '✓'.trim()
   user.age = age
-  user.regTime = Date.now()
+  user.regTime = + new Date      
   user.registered = true
-  user.coin = (user.coin || 0) + 40
-  user.exp = (user.exp || 0) + 300
-  user.joincount = (user.joincount || 0) + 20
+  global.db.data.users[m.sender].coin += 40
+  global.db.data.users[m.sender].exp += 300
+  global.db.data.users[m.sender].joincount += 20
+  let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 20)
+let regbot = `✦ 𝗥 𝗘 𝗚 𝗜 𝗦 𝗧 𝗥 𝗔 𝗗 𝗢 ✦\n`
+regbot += `•┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•\n`
+regbot += `> ᰔᩚ Nombre » ${name}\n`
+regbot += `> ✎ Edad » ${age} años\n`
+regbot += `•┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•\n`
+regbot += `❀ 𝗥𝗲𝗰𝗼𝗺𝗽𝗲𝗻𝘀𝗮𝘀:\n`
+regbot += `> • ⛁ *${moneda}* » 40\n`
+regbot += `> • ✰ *Experiencia* » 300\n`
+regbot += `> • ❖ *Tokens* » 20\n`
+regbot += `•┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•\n`
+regbot += `> ${dev}`
+await m.react('📩')
 
-  let regbot = `✦ 𝗥 𝗘 𝗚 𝗜 𝗦 𝗧 𝗥 𝗔 𝗗 𝗢 ✦\n`
-  regbot += `•──────────────────•\n`
-  regbot += `> ᰔᩚ Nombre » ${name}\n`
-  regbot += `> ✎ Edad » ${age} años\n`
-  regbot += `•──────────────────•\n`
-  regbot += `❀ 𝗥𝗲𝗰𝗼𝗺𝗽𝗲𝗻𝘀𝗮𝘀:\n`
-  regbot += `> • ⛁ Monedas » 40\n`
-  regbot += `> • ✰ Experiencia » 300\n`
-  regbot += `> • ❖ Tokens » 20\n`
-  regbot += `•──────────────────•\n`
-  regbot += `> ${global.dev || ''}`
-
-  await m.react('📩')
-
-  if (!m.chat) return m.reply('Error: No se pudo identificar el chat.')
-
-  await conn.sendMessage(String(m.chat), {
-    text: regbot,
-    mentions: [who], // Se usa mentions correctamente
-    contextInfo: {
-      externalAdReply: {
-        title: '✧ Usuario Verificado ✧',
-        body: global.textbot || '',
-        thumbnailUrl: pp,
-        sourceUrl: global.channel || '',
-        mediaType: 1,
-        showAdAttribution: true,
-        renderLargerThumbnail: true
-      }
-    }
-  }, { quoted: m })
-}
-
+await conn.sendMessage(m.chat, {
+        text: regbot,
+        contextInfo: {
+            externalAdReply: {
+                title: '✧ Usuario Verificado ✧',
+                body: textbot,
+                thumbnailUrl: pp,
+                sourceUrl: channel,
+                mediaType: 1,
+                showAdAttribution: true,
+                renderLargerThumbnail: true
+            }
+        }
+    }, { quoted: m });    
+}; 
 handler.help = ['reg']
 handler.tags = ['rg']
 handler.command = ['verify', 'verificar', 'reg', 'register', 'registrar'] 
