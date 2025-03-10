@@ -14,7 +14,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
       let bienvenida = `┏━━━━━━━━━━━━━━━━┅┈
 ┃      🄱🄸🄴🄽🅅🄴🄽🄸🄳🄾
 ┣━━━━━━━━━━━━━━━━┅┈
-┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: @${userId.split`@`[0]} 
+┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: ${taguser}
 ┃ 
 ┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
 ┃
@@ -27,7 +27,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
       let bye = `┏━━━━━━━━━━━━━━━━┅┈
 ┃      🄱.   🄰.   🅈.
 ┣━━━━━━━━━━━━━━━━┅┈
-┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: @${userId.split`@`[0]} 
+┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: ${taguser}
 ┃ 
 ┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
 ┃
@@ -40,7 +40,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
       let kick = `┏━━━━━━━━━━━━━━━━┅┈
 ┃      🄱.   🄰.   🅈.
 ┣━━━━━━━━━━━━━━━━┅┈
-┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: @${userId.split`@`[0]} 
+┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: ${taguser}
 ┃ 
 ┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
 ┃
