@@ -33,7 +33,11 @@ const handler = async (m, { text, conn, args }) => {
 
   try {
     // Intentar enviar el video solo una vez
-    await conn.sendMessage(m.chat, { video: { url: video }, caption: `${emoji} Aqui tienes ฅ^•ﻌ•^ฅ.`, fileName: 'fb.mp4', mimetype: 'video/mp4' }, { quoted: m })
+    await conn.sendMessage(m.chat, { video: { url: video }, caption: ` ╭──────⚔──────╮  
+  ${emoji} 𝑲𝑰𝑹𝑰𝑻𝑶-𝑩𝑶𝑻 𝑴𝑫   
+╰──────⚔──────╯  
+⟢ 𝑨𝒌𝒊 𝒕𝒊𝒆𝒏𝒆𝒔: *˙Ⱉ˙ฅ*  
+⟢ 𝑫𝒊𝒔𝒇𝒓𝒖𝒕𝒂.`, fileName: 'fb.mp4', mimetype: 'video/mp4' }, { quoted: m })
     await m.react(done); // Reacción de éxito
   } catch (e) {
     // En caso de error en el envío
