@@ -1,15 +1,12 @@
 export async function before(m, { conn, participants, groupMetadata }) {
-    const fkontak = { 
-        key: { fromMe: false, participant: '0@s.whatsapp.net' }, 
-        message: { conversation: '¡Hola!' } 
-    };
+    const fkontak = { key: { fromMe: false, participant: '0@s.whatsapp.net' }, message: { conversation: '¡Hola!' } };
 
     if (!m.messageStubType || !m.isGroup) return true;
 
     let userId = m.messageStubParameters[0];
 
     const welcomeImage = 'https://files.catbox.moe/56el7x.jpg'; // Imagen de bienvenida
-    const goodbyeImage = 'https://files.catbox.moe/56el7x.jpg';  // Imagen de despedida
+    const goodbyeImage = 'https://files.catbox.moe/56el7x.jpg'; // Imagen de despedida
 
     let pp;
     try {
@@ -27,10 +24,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 
     let chat = global.db.data.chats[m.chat];
 
-    // Mensaje de bienvenida (evento 27)
     if (chat.welcome && m.messageStubType === 27) {
-        // Al momento de unirse, el nuevo integrante aún no está incluido en groupMetadata
-        const totalMembers = groupMetadata.participants.length + 1;
         let wel = ` 
 ┏━━━━━━━━━━━━━━━━┅┈
 ┃      🄱🄸🄴🄽🅅🄴🄽🄸🄳🄾
@@ -38,7 +32,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: @${userId.split`@`[0]} 
 ┃ 
 ┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
-┃ 𝗠𝗲𝗺𝗯𝗿𝗼𝘀: ${totalMembers}
+┃
 ┗━━━━━━━━━━━━━━━━┅┈`;
         try {
             await conn.sendMini(m.chat, packname, dev, wel, img, img, channel, fkontak);
@@ -47,18 +41,16 @@ export async function before(m, { conn, participants, groupMetadata }) {
         }
     }
 
-    // Mensaje de despedida (cuando se sale, evento 28)
+    // Mensaje de despedida (cuando se sale)
     if (chat.welcome && m.messageStubType === 28) {
-        // En este caso, el integrante ya se removió, por lo que el conteo es el actual
-        const totalMembers = groupMetadata.participants.length;
         let bye = `
 ┏━━━━━━━━━━━━━━━━┅┈
 ┃      🄱.   🄰.   🅈.
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: @${userId.split`@`[0]} 
 ┃ 
-┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject}
-┃ 𝗠𝗲𝗺𝗯𝗿𝗼𝘀: ${totalMembers}
+┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
+┃
 ┗━━━━━━━━━━━━━━━━┅┈`;
         let img2;
         try {
@@ -69,18 +61,16 @@ export async function before(m, { conn, participants, groupMetadata }) {
         }
     }
 
-    // Mensaje de expulsión (cuando se echa a alguien, evento 32)
+    // Mensaje de expulsión (cuando se echa a alguien)
     if (chat.welcome && m.messageStubType === 32) {
-        // Para expulsiones, el miembro ya se ha removido del grupo
-        const totalMembers = groupMetadata.participants.length;
         let kick = `
 ┏━━━━━━━━━━━━━━━━┅┈
 ┃      🄱.   🄰.   🅈.
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: @${userId.split`@`[0]} 
 ┃ 
-┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject}
-┃ 𝗠𝗲𝗺𝗯𝗿𝗼𝘀: ${totalMembers}
+┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
+┃
 ┗━━━━━━━━━━━━━━━━┅┈`;
         let img3;
         try {
@@ -91,6 +81,58 @@ export async function before(m, { conn, participants, groupMetadata }) {
         }
     }
 }
+
+
+/*let WAMessageStubType = (await import('@whiskeysockets/baileys')).default;
+import fetch from 'node-fetch';
+
+export async function before(m, { conn, participants, groupMetadata }) {
+  if (!m.messageStubType || !m.isGroup) return true;
+
+  let vn = 'https://files.catbox.moe/wo866r.m4a';
+  let vn2 = 'https://files.catbox.moe/hmuevx.opus';
+  let chat = global.db.data.chats[m.chat];
+  const getMentionedJid = () => {
+    return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);
+  };
+
+  let who = m.messageStubParameters[0] + '@s.whatsapp.net';
+  let user = global.db.data.users[who];
+
+  let userName = user ? user.name : await conn.getName(who);
+
+ if (chat.welcome && m.messageStubType === 27) {
+    this.sendMessage(m.chat, { audio: { url: vn }, 
+    contextInfo: { forwardedNewsletterMessageInfo: { 
+    newsletterJid: "120363307382381547@newsletter",
+    serverMessageId: '', 
+    newsletterName: namechannel }, forwardingScore: 9999999, isForwarded: true, mentionedJid: getMentionedJid(), "externalAdReply": { 
+    "title": `(ಥ ͜ʖಥ) 𝙒 𝙀 𝙇 𝘾 𝙊 𝙈 𝙀 (◕︿◕✿)`, 
+    "body": `${userName}`, 
+    "previewType": "PHOTO", 
+    "thumbnailUrl": null,
+    "thumbnail": icons, 
+    "sourceUrl": redes, 
+    "showAdAttribution": true}}, 
+     seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+}
+
+  if (chat.welcome && (m.messageStubType === 28 || m.messageStubType === 32)) {
+    this.sendMessage(m.chat, { audio: { url: vn2 }, 
+    contextInfo: { forwardedNewsletterMessageInfo: { 
+    newsletterJid: "120363322713003916@newsletter",
+    serverMessageId: '', 
+    newsletterName: namechannel }, forwardingScore: 9999999, isForwarded: true, mentionedJid: getMentionedJid(), "externalAdReply": { 
+    "title": `(oꆤ︵ꆤo) 𝘼 𝘿 𝙄 𝙊 𝙎 (|||❛︵❛.)`, 
+    "body": `${userName}, Soy gay asi que me voy.`, 
+    "previewType": "PHOTO", 
+    "thumbnailUrl": null,
+    "thumbnail": icons, 
+    "sourceUrl": redes, 
+    "showAdAttribution": true}}, 
+     seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+  }
+}*/
 
 
 /*let WAMessageStubType = (await import('@whiskeysockets/baileys')).default;
