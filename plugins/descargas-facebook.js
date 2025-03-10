@@ -31,7 +31,12 @@ const handler = async (m, { text, conn, args }) => {
 
   let video = data.url;
   try {
-    await conn.sendMessage(m.chat, { video: { url: video }, caption: `${emoji} Aqui tienes ฅ^•ﻌ•^ฅ.`, fileName: 'fb.mp4', mimetype: 'video/mp4' }, { quoted: m })
+    await conn.sendMessage(m.chat, { video: { url: video }, caption: ` ╭─────────⚔─────────╮  
+  ${emoji} 𝑲𝑰𝑹𝑰𝑻𝑶-𝑩𝑶𝑻 𝑴𝑫   
+╰─────────⚔─────────╯  
+
+⟢ 𝑨𝒒𝒖í 𝒕𝒊𝒆𝒏𝒆𝒔: *˙Ⱉ˙ฅ*  
+⟢ 𝑫𝒊𝒔𝒇𝒓𝒖𝒕𝒂 *❛‿˂̵✧*.`, fileName: 'fb.mp4', mimetype: 'video/mp4' }, { quoted: m })
     await m.react(done);
   } catch (e) {
     return conn.reply(m.chat, `${msm} Error al enviar el video.`, m)
