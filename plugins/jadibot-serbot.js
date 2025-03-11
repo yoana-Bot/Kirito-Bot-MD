@@ -85,7 +85,7 @@ kiritoJBOptions.args = args
 kiritoJBOptions.usedPrefix = usedPrefix
 kiritoJBOptions.command = command
 kiritoJBOptions.fromCommand = true
-kiritoJadiBot(yukiJBOptions)
+kiritoJadiBot(kiritoJBOptions)
 global.db.data.users[m.sender].Subs = new Date * 1
 } 
 handler.help = ['qr', 'code']
