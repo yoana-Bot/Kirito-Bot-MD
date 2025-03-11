@@ -70,7 +70,7 @@ return m.reply(`${emoji2} No se han encontrado espacios para *Sub-Bots* disponib
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let id = `${who.split`@`[0]}`  //conn.getName(who)
 let pathkiritoJadiBot = path.join(`./${jadi}/`, id)
-if (!fs.existsSync(pathkititoJadiBot)){
+if (!fs.existsSync(pathkiritoJadiBot)){
 fs.mkdirSync(pathkiritoJadiBot, { recursive: true })
 }
 kiritoJBOptions.pathkiritoJadiBot = pathkiritoJadiBot
