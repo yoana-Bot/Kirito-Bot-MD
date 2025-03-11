@@ -17,11 +17,11 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: ${taguser}
 ┃ 
-┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
+┃ 𝗚𝗿𝗨𝗽𝗢: ${groupMetadata.subject} 
 ┃
 ┃ 
 ┗━━━━━━━━━━━━━━━━┅┈`
-      await conn.sendMessage(m.chat, { image: img, caption: bienvenida, mentions: [who] }, m, fake);
+      await conn.sendMessage(m.chat, { image: img, caption: bienvenida, mentions: [who] })
     }
 
     if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_LEAVE) {
@@ -30,11 +30,11 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: ${taguser}
 ┃ 
-┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
+┃ 𝗚𝗿𝗨𝗽𝗢: ${groupMetadata.subject} 
 ┃
 ┃ 
 ┗━━━━━━━━━━━━━━━━┅┈`
-      await conn.sendMessage(m.chat, { image: img, caption: bye, mentions: [who] }, m, fake);
+      await conn.sendMessage(m.chat, { image: img, caption: bye, mentions: [who] })
     }
 
     if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_REMOVE) { 
@@ -43,11 +43,11 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: ${taguser}
 ┃ 
-┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject} 
+┃ 𝗚𝗿𝗨𝗽𝗢: ${groupMetadata.subject} 
 ┃
 ┃ 
 ┗━━━━━━━━━━━━━━━━┅┈`
-      await conn.sendMessage(m.chat, { image: img, caption: kick, mentions: [who] }, m, fake);
+      await conn.sendMessage(m.chat, { image: img, caption: kick, mentions: [who] })
     }
   }
 }
