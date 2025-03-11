@@ -4,7 +4,7 @@ const handler = async (m, { conn }) => {
     buttons: [
       {
         buttonId: 'servicios',
-        buttonText: { displayText: '#serbot --code' },
+        buttonText: { displayText: '#code' },
       },
       {
         buttonId: 'contacto',
@@ -18,6 +18,6 @@ const handler = async (m, { conn }) => {
 
 handler.tags = ['tools'];
 handler.help = ['webinfo'];
-handler.command = ['code','Code'];
+handler.command = ['serbot code','serbot --code'];
 
 export default handler;
