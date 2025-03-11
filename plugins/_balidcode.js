@@ -21,7 +21,7 @@ const handler = async (m, { conn, command, args }) => {
 };
 
 handler.tags = ['tools'];
-handler.help = ['serbot --code'];
-handler.command = ['serbot'];
+handler.help = ['fun'];
+handler.command = ['cide', 'Code'];
 
 export default handler;
