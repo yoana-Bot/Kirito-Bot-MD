@@ -18,6 +18,6 @@ const handler = async (m, { conn }) => {
 
 handler.tags = ['tools'];
 handler.help = ['webinfo'];
-handler.command = ['serbot code','😾'];
+handler.command = ['serbotcode','😾'];
 
 export default handler;
