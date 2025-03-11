@@ -53,7 +53,7 @@ let rtx2 = `★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★
 ➤ \`3\` 〉 Selecciona *Vincular con el número de teléfono*.
 ➤ \`4\` 〉 Ingresa el código y conéctate al bot.
 
-⚠ *No uses tu cuenta principal. Podría ser peligroso.*`;
+⚠ *Si estás conectado a otra sesión de sub-bot, por favor te recomiendo que te desconectes o no te conectes a este bot. Si estás conectado a dos, tu cuenta podría ser baneada de WhatsApp y además podrían surgir problemas en el sistema del bot.*`;
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
