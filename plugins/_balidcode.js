@@ -10,8 +10,8 @@ const handler = async (m, { conn }) => {
         buttonText: { displayText: '#serbot --code 👑' },
       },
       {
-        buttonId: 'contacto',
-        buttonText: { displayText: '#serbot' },
+        buttonId: '#serbot',
+        buttonText: { displayText: '°serbot ⚡' },
       },
        ],
     footer: '¡MITSURI - KANROJI - BOT!',
