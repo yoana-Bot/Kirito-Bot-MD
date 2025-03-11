@@ -38,7 +38,7 @@ global.nameqr = '𝕂𝕚𝕣𝕚𝕥𝕠 𝕓𝕠𝕥 𝕄𝔻'
 global.namebot = '𝐤𝐢𝐫𝐢𝐭𝐨 𝐌𝐃'
 global.sessions = 'Sessions'
 global.jadi = 'JadiBots' 
-global.yukiJadibts = true
+global.kiritoJadibts = true
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
