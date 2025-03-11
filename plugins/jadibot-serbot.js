@@ -30,14 +30,9 @@ let crm3 = "SBpbmZvLWRvbmFyLmpz"
 let crm4 = "IF9hdXRvcmVzcG9uZGVyLmpzIGluZm8tYm90Lmpz"
 let drm1 = ""
 let drm2 = ""
-let rtx = "★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★\n\n✦ *Conexión Sub-Bot Modo QR* ✦\n\n☰ Escanea este código QR con otro celular o desde la PC para convertirte en un *Sub-Bot* Temporal.\n\n➤ \1\ 〉 Toca los tres puntos en la esquina superior derecha.
-➤ \2\ 〉 Ve a "Dispositivos vinculados".
-➤ \3\ 〉 Escanea este QR y conéctate al bot.\n\n⚠ *Este código QR expira en 45 segundos. No pierdas tiempo.*"
+let rtx = "★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★\n\n✦ *Conexión Sub-Bot Modo QR* ✦\n\n☰ Escanea este código QR con otro celular o desde la PC para convertirte en un *Sub-Bot* Temporal.\n\n➤ \1\ 〉 Toca los tres puntos en la esquina superior derecha.\n➤ \2\ 〉 Ve a "Dispositivos vinculados".\n➤ \3\ 〉 Escanea este QR y conéctate al bot.\n\n⚠ *Este código QR expira en 45 segundos. No pierdas tiempo.*"
 
-let rtx2 = "★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★\n\n✦ *Conexión Sub-Bot Modo Código* ✦\n\n☰ Usa este código para convertirte en un *Sub-Bot* Temporal.\n\n➤ \1\ 〉 Toca los tres puntos en la esquina superior derecha.
-➤ \2\ 〉 Ve a "Dispositivos vinculados".
-➤ \3\ 〉 Selecciona *Vincular con el número de teléfono*.
-➤ \4\ 〉 Ingresa el código y conéctate al bot.\n\n⚠ *Si estás conectado a otra sesión de sub-bot, por favor te recomiendo que te desconectes o no te conectes a este bot. Si estás conectado a dos, tu cuenta podría ser baneada de WhatsApp y además podrían surgir problemas en el sistema del bot.*"
+let rtx2 = "★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★\n\n✦ *Conexión Sub-Bot Modo Código* ✦\n\n☰ Usa este código para convertirte en un *Sub-Bot* Temporal.\n\n➤ \1\ 〉 Toca los tres puntos en la esquina superior derecha.\n➤ \2\ 〉 Ve a "Dispositivos vinculados".\n➤ \3\ 〉 Selecciona *Vincular con el número de teléfono*.\n➤ \4\ 〉 Ingresa el código y conéctate al bot.\n\n⚠ *Si estás conectado a otra sesión de sub-bot, por favor te recomiendo que te desconectes o no te conectes a este bot. Si estás conectado a dos, tu cuenta podría ser baneada de WhatsApp y además podrían surgir problemas en el sistema del bot.*"
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
