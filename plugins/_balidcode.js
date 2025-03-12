@@ -3,7 +3,7 @@
 
 const handler = async (m, { conn }) => {
   await conn.sendMessage(m.chat, { 
-    text: '',
+    text: '⚠ *Si estás conectado a otra sesión de sub-bot, por favor te recomiendo que te desconectes o no te conectes a este bot. Si estás conectado a dos, tu cuenta podría ser baneada de WhatsApp y además podrían surgir problemas en el sistema del bot.*',
     buttons: [
       {
         buttonId: 'servicios',
@@ -14,7 +14,7 @@ const handler = async (m, { conn }) => {
         buttonText: { displayText: '°serbot ⚡' },
       },
        ],
-    footer: '⚠ Si estás conectado a otra sesión de sub-bot, por favor te recomiendo que te desconectes o no te conectes a este bot. Si estás conectado a dos, tu cuenta podría ser baneada de WhatsApp y además podrían surgir problemas en el sistema del bot.',
+    footer: '👑 Kirito-Bot MD 👑',
     viewOnce: true,
   }, { quoted: m });
 };
