@@ -6,6 +6,6 @@ let tex: 'hola'
 // Definición de los metadatos del comando
 handler.help = ['hola'];
 handler.tags = ['fun'];
-handler.command = ['hola'];
+handler.command = ['hol'];
 
 export default handler;
