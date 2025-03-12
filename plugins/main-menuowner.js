@@ -8,7 +8,7 @@ let owner = `
 👑 *Comandos exclusivos para Moderadores*
 
 ╭━━⊷ *comandos medios* ⊶━━╮
-┃ 💠 *#addcoins* - Añadir llamas a un usuario.
+┃ 💠 *#addllama* - Añadir llamas a un usuario.
 ┃ 💠 *#userpremium* - Otorgar premium a un usuario.
 ┃ 💠 *#delprem* - Quitar premium a un usuario.
 ┃ 💠 *#addexp* - Añadir XP a un usuario.
