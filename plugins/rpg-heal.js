@@ -13,7 +13,7 @@ let handler = async (m, { conn }) => {
         user.health = 100; 
     }
     user.lastHeal = new Date();
-    let info = `❤️ *Te has curado ${healAmount} puntos de salud.*\n💸 *${moneda} restantes:* ${user.coin}\n❤️ *Salud actual:* ${user.health}`;
+    let info = `❤️ *Te has curado ${healAmount} puntos de salud.*\n🔥 *${moneda} restantes:* ${user.coin}\n❤️ *Salud actual:* ${user.health}`;
     await conn.sendMessage(m.chat, { text: info }, { quoted: m });
 };
 
