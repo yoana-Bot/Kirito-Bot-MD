@@ -21,6 +21,6 @@ const handler = async (m, { conn }) => {
 
 handler.tags = ['tools'];
 handler.help = ['webinfo'];
-handler.command = ['Xd','Xd'];
+handler.command = ['xd','Xd'];
 
 export default handler;
