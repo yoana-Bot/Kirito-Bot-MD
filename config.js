@@ -142,7 +142,7 @@ global.rpg = {
     string = string.toLowerCase();
     const emot = {
       level: '🌟 Nivel',
-      coin: '💸 Coin',
+      coin: '🔥 Coin',
       exp: '✨ Experiencia',
       bank: '🏦 Banco',
       diamond: '💎 Diamante',
@@ -169,7 +169,7 @@ global.rpgg = {
     string = string.toLowerCase();
     const emott = {
       level: '🌟',
-      coin: '💸',
+      coin: '🔥',
       exp: '✨',
       bank: '🏦',
       diamond: '💎',
