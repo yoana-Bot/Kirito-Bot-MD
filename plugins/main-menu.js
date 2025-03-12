@@ -126,7 +126,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
 
     let text = menuText.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
-    let videoUrl = 'https://qu.ax/FBjYO.mp4'
+    let videoUrl = ['https://qu.ax/FBjYO.mp4', 'https://files.catbox.moe/pddr88.mp4']
     await m.react('🚀')
     await conn.sendMessage(m.chat, { video: { url: videoUrl }, gifPlayback: true, caption: text.trim(), mentions: [m.sender] }, { quoted: m })
   } catch (e) {
