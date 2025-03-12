@@ -49,7 +49,7 @@ user.health = 0;
 }
 let info = `🛫 Te has aventurado en el *<${randomKingdom}>*\n` +
 `🏞️ *Aventura Finalizada* 🏞️\n` +
-`💸 *${moneda} Ganados:* ${coin}\n` +
+`🔥 *${moneda} Ganados:* ${coin}\n` +
 `♦️ *Esmeralda:* ${emerald}\n` +
 `🔩 *Hierro:* ${iron}\n` +
 `🏅 *Oro:* ${gold}\n` +
