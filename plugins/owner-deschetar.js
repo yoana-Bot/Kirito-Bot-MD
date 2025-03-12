@@ -54,7 +54,7 @@ let handler = async (m, { conn, text }) => {
     await m.reply(
         `☁️ *¡Usuario descheteado con éxito!*\n\n` +
         `👤 Usuario: @${who.split`@`[0]}\n` +
-        `💸 ${moneda}: *0*\n` +
+        `🔥 ${moneda}: *0*\n` +
         `✨ Experiencia: *0*\n` +
         `🌟 Nivel: *0*`,
         null,
