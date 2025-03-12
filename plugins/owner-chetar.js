@@ -35,7 +35,7 @@ let handler = async (m, { conn, text }) => {
     await m.reply(
         `☁️ *¡Usuario chetado con éxito!*\n\n` +
         `👤 Usuario: @${who.split`@`[0]}\n` +
-        `💸 ${moneda}: *${users[who].coin.toLocaleString()}*\n` +
+        `🔥 ${moneda}: *${users[who].coin.toLocaleString()}*\n` +
         `✨ Experiencia: *${users[who].exp.toLocaleString()}*\n` +
         `🌟 Nivel: *${users[who].level.toLocaleString()}*`,
         null,
