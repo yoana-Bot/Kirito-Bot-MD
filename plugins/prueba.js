@@ -1,73 +1,53 @@
+import { createCanvas, loadImage } from 'canvas';
 import axios from 'axios';
+import fs from 'fs';
 
-async function generarLogo(estilo, texto, m, conn) {
+async function generarLogoImagen(texto, imagenURL, m, conn) {
     try {
-        // Se añade "imageoutput=true" para que se genere una imagen directa
-        const url = `https://flamingtext.com/net-fu/proxy_form.cgi?imageoutput=true&script=${estilo}-logo&text=${encodeURIComponent(texto)}`;
-        
+        const ancho = 500; 
+        const alto = 300; 
+
+        const canvas = createCanvas(ancho, alto);
+        const ctx = canvas.getContext('2d');
+
+        const imagen = await loadImage(imagenURL);
+        ctx.drawImage(imagen, 0, 0, ancho, alto);
+
+        ctx.font = 'bold 40px Arial';
+        ctx.fillStyle = 'white';
+        ctx.textAlign = 'center';
+        ctx.fillText(texto, ancho / 2, alto / 2);
+
+        const buffer = canvas.toBuffer('image/png');
+        fs.writeFileSync('./temp/logo.png', buffer);
+
         await conn.sendMessage(m.chat, { 
-            image: { url }, 
-            caption: `Aquí tienes tu logo estilo *${estilo}* con el texto *${texto}*` 
+            image: fs.readFileSync('./temp/logo.png'), 
+            caption: `Aquí tienes tu logo con imagen y texto: *${texto}*`
         }, { quoted: m });
+
     } catch (error) {
         console.error('Error al generar el logo:', error);
-        await conn.sendMessage(m.chat, { 
-            text: '❌ Error al generar el logo. Prueba con otro estilo.' 
-        }, { quoted: m });
+        await conn.sendMessage(m.chat, { text: '❌ Error al generar el logo. Intenta de nuevo.' }, { quoted: m });
     }
 }
 
 // Handler para el bot
 const handler = async (m, { conn, args }) => {
     if (!args || args.length < 2) {
-        const ejemplo = `Ejemplo: /logo neon Kirito-Bot
-
-Estilos disponibles:
-- 3D
-- Animado
-- Azul
-- Marca
-- Negocios
-- Colorido
-- Fresco
-- Decorado
-- Efectos
-- Famoso
-- Fuego
-- Diversión
-- Resplandor
-- Oro
-- Verde
-- Horror
-- Luz
-- Líquido
-- Metal
-- Película
-- Naturaleza
-- Neón
-- Púrpura
-- Orgullo
-- Promoción
-- Rojo
-- Reflexión
-- Retro
-- Plata
-- Web 2.0
-- Deportes
-- Textura
-- Otros`;
-
-return conn.sendMessage(m.chat, { text: `❌ Uso incorrecto.\n\n${ejemplo}` }, { quoted: m });
+        return conn.sendMessage(m.chat, { 
+            text: '❌ Uso incorrecto. Ejemplo: /logopic Kirito-Bot https://imagen.com/kirito.jpg' 
+        }, { quoted: m });
     }
 
-    const estilo = args[0].toLowerCase();
-    const texto = args.slice(1).join(' ');
+    const texto = args.slice(0, -1).join(' ');  
+    const imagenURL = args[args.length - 1];  
 
-    await generarLogo(estilo, texto, m, conn);
+    await generarLogoImagen(texto, imagenURL, m, conn);
 };
 
-handler.help = ['logo'];
+handler.help = ['logopic'];
 handler.tags = ['fun'];
-handler.command = ['logo'];
+handler.command = ['logopic'];
 
 export default handler;
