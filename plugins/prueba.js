@@ -32,6 +32,6 @@ const handler = async (m, { conn, args }) => {
 
 handler.help = ['logo'];
 handler.tags = ['fun'];
-handler.command = /^logo$/i;
+handler.command = ['logo'];
 
 export default handler;
