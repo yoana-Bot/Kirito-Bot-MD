@@ -32,8 +32,8 @@ let handler = async (m, { conn, text }) => {
     let users = global.db.data.users;
     users[who].coin += dmt;
     
-    m.reply(`💸 *Añadido:*
-» ${dmt} \n@${who.split('@')[0]}, recibiste ${dmt} 💸`, null, { mentions: [who] });
+    m.reply(`🔥 *Añadido:*
+» ${dmt} \n@${who.split('@')[0]}, recibiste ${dmt} 🔥`, null, { mentions: [who] });
 };
 
 handler.help = ['addcoins *<@user>*'];
