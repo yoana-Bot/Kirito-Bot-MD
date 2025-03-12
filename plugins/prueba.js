@@ -2,7 +2,8 @@ import axios from 'axios';
 
 async function generarLogo(estilo, texto, m, conn) {
     try {
-        const url = `https://flamingtext.com/net-fu/proxy_form.cgi?script=${estilo}-logo&text=${encodeURIComponent(texto)}`;
+        // Se añade "imageoutput=true" para que se genere una imagen directa
+        const url = `https://flamingtext.com/net-fu/proxy_form.cgi?imageoutput=true&script=${estilo}-logo&text=${encodeURIComponent(texto)}`;
 
         await conn.sendMessage(m.chat, { 
             image: { url }, 
