@@ -4,7 +4,7 @@ async function generarLogo(estilo, texto, m, conn) {
     try {
         // Se añade "imageoutput=true" para que se genere una imagen directa
         const url = `https://flamingtext.com/net-fu/proxy_form.cgi?imageoutput=true&script=${estilo}-logo&text=${encodeURIComponent(texto)}`;
-
+        
         await conn.sendMessage(m.chat, { 
             image: { url }, 
             caption: `Aquí tienes tu logo estilo *${estilo}* con el texto *${texto}*` 
@@ -20,7 +20,8 @@ async function generarLogo(estilo, texto, m, conn) {
 // Handler para el bot
 const handler = async (m, { conn, args }) => {
     if (!args || args.length < 2) {
-        return conn.sendMessage(m.chat, { text: '❌ Uso incorrecto. Ejemplo: /logo neon Kirito-Bot' }, { quoted: m });
+        const ejemplo = 'Ejemplo: /logo neon Kirito-Bot\n\nEstilos disponibles: neon, neon-glow, graffiti, fire, glow, steel';
+        return conn.sendMessage(m.chat, { text: `❌ Uso incorrecto.\n\n${ejemplo}` }, { quoted: m });
     }
 
     const estilo = args[0].toLowerCase();
