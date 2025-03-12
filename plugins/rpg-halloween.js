@@ -33,7 +33,7 @@ var handler = async (m, { conn }) => {
     m.reply(`
 \`\`\`🎃 ¡Feliz Halloween! ¡Disfruta de tu regalo de Halloween! 👻\`\`\`
 
-💸 *${moneda}* : +${coinReward}
+🔥 *${moneda}* : +${coinReward}
 🍯 *Dulces* : +${candyReward}
 ✨ *Experiencia* : +${expReward}
 🎃 *Regalos de Halloween* : +${giftReward}`);
