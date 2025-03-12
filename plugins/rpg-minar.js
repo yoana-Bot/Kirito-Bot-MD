@@ -22,7 +22,7 @@ let hasil = Math.floor(Math.random() * 1000);
 let info = `⛏️ *Te has adentrando en lo profundo de las cuevas*\n\n` +
 `> *👑 Obtuviste estos recursos*\n\n` +
 `✨ *Exp*: ${hasil}\n` +
-`💸 *${moneda}*: ${coin}\n` +
+`🔥 *${moneda}*: ${coin}\n` +
 `♦️ *Esmeralda*: ${emerald}\n` +
 `🔩 *Hierro*: ${iron}\n` +
 `🏅 *Oro*: ${gold}\n` +
