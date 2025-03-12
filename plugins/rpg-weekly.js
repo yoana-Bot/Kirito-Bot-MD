@@ -19,7 +19,7 @@ let handler = async (m, { conn }) => {
     m.reply(`
 🎁 ¡Ha pasado una semana! ¡Disfruta de tu regalo semanal!.
 
-💸 *${moneda}* : +${coinReward}
+🔥 *${moneda}* : +${coinReward}
 ✨ *Experiencia* : +${expReward}`);
 
     user.weekly = new Date * 1;
