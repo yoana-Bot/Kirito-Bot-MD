@@ -5,8 +5,8 @@ let isClose = { // Switch Case Like :v
 'close': 'announcement',
 'abierto': 'not_announcement',
 'cerrado': 'announcement',
-'abrir': 'not_announcement',
-'cerrar': 'announcement',
+'om': 'not_announcement',
+'off': 'announcement',
 }[(args[0] || '')]
 if (isClose === undefined)
 return conn.reply(m.chat, `${emoji} *Elija una opción para configurar el grupo*\n\nEjemplo:\n*✰ #${command} abrir*\n*✰ #${command} cerrar*\n*✰ #${command} close*\n*✰ #${command} open*`, m)
@@ -19,7 +19,7 @@ m.reply(`${emoji} *Ya pueden escribir en este grupo.*`)
 if (isClose === 'announcement'){
 m.reply(`${emoji2} *Solos los admins pueden escribir en este grupo.*`)
 }}
-handler.help = ['group open / close', 'grupo abrir / cerrar']
+handler.help = ['group open / close', 'grupo on / off']
 handler.tags = ['grupo']
 handler.command = ['group', 'grupo']
 handler.admin = true
