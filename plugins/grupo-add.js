@@ -9,13 +9,10 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
     let jid = text.trim() + '@s.whatsapp.net';
 
     try {
-        // Enviar mensaje de prueba para verificar el contacto
-        await conn.sendMessage(jid, { text: "Hola, este es un mensaje de prueba para verificar tu contacto." });
-
-        // Enviar invitación sin vista previa de enlace
+        // Enviar la invitación con vista previa de enlace activada
         await conn.reply(jid, `${emoji} *INVITACIÓN A GRUPO*\n\nUn usuario te invitó a unirte a este grupo \n\n${link}`, m, {
             mentions: [m.sender],
-            linkPreview: false
+            linkPreview: true // Activar vista previa del enlace
         });
 
         m.reply(`${emoji} Se envió un enlace de invitación al usuario.`);
