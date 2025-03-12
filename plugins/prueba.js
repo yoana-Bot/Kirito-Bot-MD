@@ -20,8 +20,44 @@ async function generarLogo(estilo, texto, m, conn) {
 // Handler para el bot
 const handler = async (m, { conn, args }) => {
     if (!args || args.length < 2) {
-        const ejemplo = 'Ejemplo: /logo neon Kirito-Bot\n\nEstilos disponibles: neon, neon-glow, graffiti, fire, glow, steel';
-        return conn.sendMessage(m.chat, { text: `❌ Uso incorrecto.\n\n${ejemplo}` }, { quoted: m });
+        const ejemplo = `Ejemplo: /logo neon Kirito-Bot
+
+Estilos disponibles:
+- 3D
+- Animado
+- Azul
+- Marca
+- Negocios
+- Colorido
+- Fresco
+- Decorado
+- Efectos
+- Famoso
+- Fuego
+- Diversión
+- Resplandor
+- Oro
+- Verde
+- Horror
+- Luz
+- Líquido
+- Metal
+- Película
+- Naturaleza
+- Neón
+- Púrpura
+- Orgullo
+- Promoción
+- Rojo
+- Reflexión
+- Retro
+- Plata
+- Web 2.0
+- Deportes
+- Textura
+- Otros`;
+
+return conn.sendMessage(m.chat, { text: `❌ Uso incorrecto.\n\n${ejemplo}` }, { quoted: m });
     }
 
     const estilo = args[0].toLowerCase();
