@@ -26,8 +26,8 @@ const handler = async (m, { sock, args }) => {
     await generarLogo(estilo, texto, m, sock);
 };
 
-handler.help = ['logo'];
-handler.command = ['logo'];
-handler.tags = ['editor'];
+handler.help = ['logo']
+handler.tags = ['fun']
+handler.command = ['Logo', 'logo']
 
 export default handler
