@@ -21,7 +21,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┃
 ┃ 
 ┗━━━━━━━━━━━━━━━━┅┈`
-await conn.sendFile(m.chat, img, 'thumbnail.jpg', bienvenida, m, null, rcanal)
+      await conn.sendMessage(m.chat, { image: img, fake, caption: bienvenida, mentions: [who] })
     }
 
     if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_LEAVE) {
@@ -34,7 +34,7 @@ await conn.sendFile(m.chat, img, 'thumbnail.jpg', bienvenida, m, null, rcanal)
 ┃
 ┃ 
 ┗━━━━━━━━━━━━━━━━┅┈`
-await conn.sendFile(m.chat, img, 'thumbnail.jpg', bye, m, null, rcanal)
+      await conn.sendMessage(m.chat, { image: img, caption: bye, mentions: [who] })
     }
 
     if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_REMOVE) { 
@@ -47,7 +47,7 @@ await conn.sendFile(m.chat, img, 'thumbnail.jpg', bye, m, null, rcanal)
 ┃
 ┃ 
 ┗━━━━━━━━━━━━━━━━┅┈`
-await conn.sendFile(m.chat, img, 'thumbnail.jpg', kick, m, null, rcanal)
+      await conn.sendMessage(m.chat, { image: img, fake, caption: kick, mentions: [who] })
     }
   }
 }
