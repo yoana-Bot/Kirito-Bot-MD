@@ -55,33 +55,33 @@ setTimeout(resolve, 1000)
 }
 let timestamp = speed()
 let latensi = speed() - timestamp
-let yuki = `╭─⬣「 *Info De ${botname}* 」⬣\n`
-yuki += `│ 👑 *Creador* : @${owner[0][0].split('@s.whatsapp.net')[0]}\n`
-yuki += `│ ${emoji} *Prefijo* : [  ${usedPrefix}  ]\n`
-yuki += `│ 📦 *Total Plugins* : ${totalf}\n`
-yuki += `│ 🖥️ *Plataforma* : ${platform()}\n`
-yuki += `│ 📡 *Servidor* : ${hostname()}\n`
-yuki += `│ 📈 *RAM* : ${format(totalmem() - freemem())} / ${format(totalmem())}\n`
-yuki += `│ 💾 *FreeRAM* : ${format(freemem())}\n`
-yuki += `│ 🚀 *Speed* : ${latensi.toFixed(4)} ms\n`
-yuki += `│ 🕗 *Uptime* : ${uptime}\n`
-yuki += `│ 🔮 *Modo* : ${bot.public ? 'Privado' : 'Publico'}\n`
-yuki += `│ 📜 *Comandos Ejecutados* : ${toNum(totalStats)} ( *${totalStats}* )\n`
-yuki += `│ 📍 *Grupos Registrados* : ${toNum(totalchats)} ( *${totalchats}* )\n`
-yuki += `│ 📌 *Registrados* : ${toNum(totalreg)} ( *${totalreg}* ) Usuarios\n`
-yuki += `╰─⬣\n\n`
-yuki += `╭─⬣「 *Chats De ${botname}* 」⬣\n`
-yuki += `│ 🪧 *${groupsIn.length}* Chats en Grupos\n`
-yuki += `│ 📰 *${groupsIn.length}* Grupos Unidos\n`
-yuki += `│ 📄 *${groupsIn.length - groupsIn.length}* Grupos Salidos\n`
-yuki += `│ 💬 *${chats.length - groupsIn.length}* Chats Privados\n`
-yuki += `│ 💭 *${chats.length}* Chats Totales\n`
-yuki += `╰─⬣\n\n`
-yuki += `╭─⬣「 *NodeJS Uso de memoria* 」⬣\n`
-yuki += `${'```' + Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v => v.length)), ' ')}: ${format(used[key])}`).join('\n') + '```'}\n`
-yuki += `╰─⬣`
+let kirito = `╭─⬣「 *Info De ${botname}* 」⬣\n`
+kirito += `│ 👑 *Creador* : @${owner[0][0].split('@s.whatsapp.net')[0]}\n`
+kirito += `│ ${emoji} *Prefijo* : [  ${usedPrefix}  ]\n`
+kirito += `│ 📦 *Total Plugins* : ${totalf}\n`
+kirito += `│ 🖥️ *Plataforma* : ${platform()}\n`
+kirito += `│ 📡 *Servidor* : ${hostname()}\n`
+kirito += `│ 📈 *RAM* : ${format(totalmem() - freemem())} / ${format(totalmem())}\n`
+kirito += `│ 💾 *FreeRAM* : ${format(freemem())}\n`
+kirito += `│ 🚀 *Speed* : ${latensi.toFixed(4)} ms\n`
+kirito += `│ 🕗 *Uptime* : ${uptime}\n`
+kirito += `│ 🔮 *Modo* : ${bot.public ? 'Privado' : 'Publico'}\n`
+kirito += `│ 📜 *Comandos Ejecutados* : ${toNum(totalStats)} ( *${totalStats}* )\n`
+kirito += `│ 📍 *Grupos Registrados* : ${toNum(totalchats)} ( *${totalchats}* )\n`
+kirito += `│ 📌 *Registrados* : ${toNum(totalreg)} ( *${totalreg}* ) Usuarios\n`
+kirito += `╰─⬣\n\n`
+kirito += `╭─⬣「 *Chats De ${botname}* 」⬣\n`
+kirito += `│ 🪧 *${groupsIn.length}* Chats en Grupos\n`
+kirito += `│ 📰 *${groupsIn.length}* Grupos Unidos\n`
+kirito += `│ 📄 *${groupsIn.length - groupsIn.length}* Grupos Salidos\n`
+kirito += `│ 💬 *${chats.length - groupsIn.length}* Chats Privados\n`
+kirito += `│ 💭 *${chats.length}* Chats Totales\n`
+kirito += `╰─⬣\n\n`
+kirito += `╭─⬣「 *NodeJS Uso de memoria* 」⬣\n`
+kirito += `${'```' + Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v => v.length)), ' ')}: ${format(used[key])}`).join('\n') + '```'}\n`
+kirito += `╰─⬣`
 
-await conn.reply(m.chat, yuki, fkontak, { contextInfo: { mentionedJid: [owner[0][0] + '@s.whatsapp.net'] }})
+await conn.reply(m.chat, kirito, fkontak, { contextInfo: { mentionedJid: [owner[0][0] + '@s.whatsapp.net'] }})
 }
 handler.help = ['infobot']
 handler.tags = ['info']
