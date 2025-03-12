@@ -7,11 +7,17 @@ async function generarLogoImagen(texto, imagenURL, m, conn) {
         const ancho = 500; 
         const alto = 300; 
 
+        console.log('Creando lienzo...');
+
         const canvas = createCanvas(ancho, alto);
         const ctx = canvas.getContext('2d');
 
+        console.log('Cargando imagen desde:', imagenURL);
+
         const imagen = await loadImage(imagenURL);
         ctx.drawImage(imagen, 0, 0, ancho, alto);
+
+        console.log('Dibujando texto en la imagen...');
 
         ctx.font = 'bold 40px Arial';
         ctx.fillStyle = 'white';
@@ -20,6 +26,8 @@ async function generarLogoImagen(texto, imagenURL, m, conn) {
 
         const buffer = canvas.toBuffer('image/png');
         fs.writeFileSync('./temp/logo.png', buffer);
+
+        console.log('Enviando imagen...');
 
         await conn.sendMessage(m.chat, { 
             image: fs.readFileSync('./temp/logo.png'), 
@@ -42,6 +50,8 @@ const handler = async (m, { conn, args }) => {
 
     const texto = args.slice(0, -1).join(' ');  
     const imagenURL = args[args.length - 1];  
+
+    console.log('Comando recibido:', texto, imagenURL);
 
     await generarLogoImagen(texto, imagenURL, m, conn);
 };
