@@ -19,23 +19,32 @@ const handler = async (m, { conn }) => {
   // Envía el mensaje con la lista de opciones
   await conn.sendMessage(m.chat, listMessage);
 
-  // Aquí puedes esperar que el usuario seleccione una opción y luego manejar la respuesta
-  // Este es un ejemplo de cómo manejar la respuesta en función del comando
+  // Ahora verificamos si el mensaje recibido tiene una respuesta seleccionada
+  // Aquí deberías estar manejando la respuesta de la selección en un evento posterior
+  // Dependiendo del framework, aquí podrías usar algo como conn.on('message') o usar
+  // un manejador de eventos para capturar la respuesta del usuario y seguir con el flujo.
+
+  // Verificamos si el mensaje tiene un "selectedRowId"
   if (m.selectedRowId) {
-    switch (m.selectedRowId) {
+    const selectedOption = m.selectedRowId;
+    
+    // Dependiendo de la opción seleccionada, se envía un mensaje con la respuesta
+    switch (selectedOption) {
       case 'opcion_1':
-        await conn.sendMessage(m.chat, { text: "Has seleccionado Opción 1" });
+        await conn.sendMessage(m.chat, { text: "Has seleccionado la Opción 1" });
         break;
       case 'opcion_2':
-        await conn.sendMessage(m.chat, { text: "Has seleccionado Opción 2" });
+        await conn.sendMessage(m.chat, { text: "Has seleccionado la Opción 2" });
         break;
       case 'opcion_3':
-        await conn.sendMessage(m.chat, { text: "Has seleccionado Opción 3" });
+        await conn.sendMessage(m.chat, { text: "Has seleccionado la Opción 3" });
         break;
       default:
-        await conn.sendMessage(m.chat, { text: "Opción no válida" });
+        await conn.sendMessage(m.chat, { text: "Opción no válida." });
         break;
     }
+  } else {
+    console.log("Esperando respuesta del usuario...");
   }
 };
 
