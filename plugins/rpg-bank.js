@@ -12,7 +12,7 @@ let handler = async (m, {conn, usedPrefix}) => {
    if (!(who in global.db.data.users)) return m.reply(`${emoji4} El usuario no se encuentra en mi base de datos.`)
    let user = global.db.data.users[who]
    let name = conn.getName(who);
-   let txt = (`${who == m.sender ? `╭━〔  ⪛ ʙᴀɴᴄᴏ ᴄᴇɴᴛʀᴀʟ ⪜  〕⬣\n┋ 👤 *Cliente:* ${name}\n┋ 💸 *${moneda} En Cartera*: ${user.coin}\n┋ 🏦 *${moneda} En Banco*: ${user.bank}\n┋ ✨ *Experiencia:* ${user.exp}\n┋ 📅 *Fecha:* ${new Date().toLocaleString('id-ID')}\n╰━━━━━━━━━━━━⬣` : `╭━〔  ⪛ ʙᴀɴᴄᴏ ᴄᴇɴᴛʀᴀʟ ⪜  〕⬣\n┋ 👤 *Cliente:* @${who.split('@')[0]}\n┋ 💸 *${moneda} En Cartera*: ${user.coin}\n┋ 🏦 *${moneda} En Banco*: ${user.bank}\n┋ *✨ Experiencia:* ${user.exp}\n┋ 📅 *Fecha:* ${new Date().toLocaleString('id-ID')}\n╰━━━━━━━━━━━━⬣`}`)
+   let txt = (`${who == m.sender ? `╭━〔  ⪛ ʙᴀɴᴄᴏ ᴄᴇɴᴛʀᴀʟ ⪜  〕⬣\n┋ 👤 *Cliente:* ${name}\n┋ 🔥 *${moneda} En Cartera*: ${user.coin}\n┋ 🏦 *${moneda} En Banco*: ${user.bank}\n┋ ✨ *Experiencia:* ${user.exp}\n┋ 📅 *Fecha:* ${new Date().toLocaleString('id-ID')}\n╰━━━━━━━━━━━━⬣` : `╭━〔  ⪛ ʙᴀɴᴄᴏ ᴄᴇɴᴛʀᴀʟ ⪜  〕⬣\n┋ 👤 *Cliente:* @${who.split('@')[0]}\n┋ 💸 *${moneda} En Cartera*: ${user.coin}\n┋ 🏦 *${moneda} En Banco*: ${user.bank}\n┋ *✨ Experiencia:* ${user.exp}\n┋ 📅 *Fecha:* ${new Date().toLocaleString('id-ID')}\n╰━━━━━━━━━━━━⬣`}`)
 await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, fkontak, null, {mentions: [who] })
 }
 
