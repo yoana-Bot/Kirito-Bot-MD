@@ -32,7 +32,7 @@ const handler = async (m, { isPrems, conn }) => {
 ╰━━━━━━━━━━━━⬣
 
 ╭━〔 Nυҽʋσʂ Rҽƈυɾʂσʂ 〕⬣
-┃ *${dia} ${moneda}* 💸
+┃ *${dia} ${moneda}* 🔥
 ┃ *${tok} Tokens* ⚜️
 ┃ *${ai} Diamantes* 💎
 ┃ *${expp} Exp* ✨
