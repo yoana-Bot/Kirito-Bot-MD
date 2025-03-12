@@ -38,8 +38,8 @@ let handler = async (m, { conn, text }) => {
 
     users[who].coin -= dmt;
     
-    m.reply(`💸 *Quitado:*
-» ${dmt} \n@${who.split('@')[0]}, te han quitado ${dmt} 💸`, null, { mentions: [who] });
+    m.reply(`🔥 *Quitado:*
+» ${dmt} \n@${who.split('@')[0]}, te han quitado ${dmt} 🔥`, null, { mentions: [who] });
 };
 
 handler.help = ['quitarllama *<@user>*', 'quitarllama all'];
