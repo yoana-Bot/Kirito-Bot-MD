@@ -46,8 +46,8 @@ const handler = async (m, { conn, args }) => {
     await generarLogoImagen(texto, imagenURL, m, conn);
 };
 
-handler.help = ['logo'];
+handler.help = ['logopic'];
 handler.tags = ['fun'];
-handler.command = ['logop'];
+handler.command = /^logopic$/i;
 
 export default handler;
