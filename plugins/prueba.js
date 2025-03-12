@@ -17,6 +17,27 @@ const handler = async (m, { conn }) => {
   };
 
   await conn.sendMessage(m.chat, listMessage);
+
+  // Manejo de la respuesta del usuario
+  conn.on('message', async (message) => {
+    if (message.isInteractiveMessage && message.selectedRowId) {
+      const selectedOption = message.selectedRowId;
+      switch (selectedOption) {
+        case 'opcion_1':
+          await conn.sendMessage(m.chat, { text: "Has seleccionado Opción 1" });
+          break;
+        case 'opcion_2':
+          await conn.sendMessage(m.chat, { text: "Has seleccionado Opción 2" });
+          break;
+        case 'opcion_3':
+          await conn.sendMessage(m.chat, { text: "Has seleccionado Opción 3" });
+          break;
+        default:
+          await conn.sendMessage(m.chat, { text: "Opción no válida" });
+          break;
+      }
+    }
+  });
 };
 
 handler.tags = ['tools'];
