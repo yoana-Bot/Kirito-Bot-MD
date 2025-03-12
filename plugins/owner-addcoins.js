@@ -36,7 +36,7 @@ let handler = async (m, { conn, text }) => {
 » ${dmt} \n@${who.split('@')[0]}, recibiste ${dmt} 🔥`, null, { mentions: [who] });
 };
 
-handler.help = ['addcoins *<@user>*'];
+handler.help = ['addllama *<@user>*'];
 handler.tags = ['owner'];
 handler.command = ['añadirllama', 'addllama', 'addllamas']; 
 handler.rowner = true;
