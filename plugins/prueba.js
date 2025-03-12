@@ -16,16 +16,18 @@ async function generarLogo(estilo, texto, m, sock) {
     }
 }
 
-// Uso en el bot
-module.exports = {
-    command: 'logo',
-    description: 'Genera un logo con texto personalizado',
-    execute: async (m, { sock, args }) => {
-        if (args.length < 2) return sock.sendMessage(m.key.remoteJid, { text: '❌ Uso incorrecto. Ejemplo: /logo neon Kirito-Bot' }, { quoted: m });
+// Handler para el bot
+const handler = async (m, { sock, args }) => {
+    if (args.length < 2) return sock.sendMessage(m.key.remoteJid, { text: '❌ Uso incorrecto. Ejemplo: /logo neon Kirito-Bot' }, { quoted: m });
 
-        const estilo = args[0].toLowerCase();
-        const texto = args.slice(1).join(' ');
+    const estilo = args[0].toLowerCase();
+    const texto = args.slice(1).join(' ');
 
-        await generarLogo(estilo, texto, m, sock);
-    }
+    await generarLogo(estilo, texto, m, sock);
 };
+
+handler.help = ['logo'];
+handler.command = ['logo'];
+handler.tags = ['editor'];
+
+export default handler
