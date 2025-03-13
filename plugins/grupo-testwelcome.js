@@ -1,7 +1,7 @@
 import { WAMessageStubType } from '@whiskeysockets/baileys';
 import fetch from 'node-fetch';
 
-let handler = async (m, { conn, usedPrefix, command, text }) => {
+global.dfail = (type, m, usedPrefix, command, conn) => {
     if (!db.data.chats[m.chat].welcome && m.isGroup) {
         return m.reply(`${emoji} Para usar este comando debe activar las Bienvenidas con *#welcome*`, m, fake);
     }
