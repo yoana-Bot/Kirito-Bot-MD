@@ -138,7 +138,8 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
 handler.help = ['allmenu']
 handler.tags = ['main']
 handler.command = ['allmenu', 'menucompleto', 'menúcompleto', 'menú', 'menu', 'help'] 
-handler.register = true 
+handler.group = true;
+
 export default handler
 
 const more = String.fromCharCode(8206)
