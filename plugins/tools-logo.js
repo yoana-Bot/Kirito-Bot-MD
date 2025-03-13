@@ -16,11 +16,11 @@ async function generarLogo(estilo, texto, m, conn) {
         fs.writeFileSync(filePath, buffer);
 
         if (extension === 'gif') {
-            // Enviar como GIF animado
+            // Enviar como documento o convertirlo a video
             await conn.sendMessage(m.chat, { 
-                video: fs.readFileSync(filePath), 
-                mimetype: 'video/gif', 
-                gifPlayback: true, // Activa reproducción automática
+                document: fs.readFileSync(filePath), 
+                mimetype: 'image/gif', 
+                fileName: `logo.gif`,
                 caption: `Aquí tienes tu logo animado estilo *${estilo}* con el texto *${texto}*`
             }, { quoted: m });
         } else {
