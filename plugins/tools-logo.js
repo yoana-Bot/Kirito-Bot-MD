@@ -1,3 +1,5 @@
+//© Código hecho por Deylin 
+
 import axios from 'axios';
 
 async function generarLogo(estilo, texto, m, conn) {
