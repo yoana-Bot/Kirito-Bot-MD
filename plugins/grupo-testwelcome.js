@@ -3,13 +3,14 @@ import fetch from 'node-fetch';
 
 let handler = async (m, { conn, usedPrefix, command, text }) => {
     if (!db.data.chats[m.chat].welcome && m.isGroup) {
-    return m.reply(`${emoji} Para usar este comando debe activar las Bienvenidas con *#welcome*`);
+        return m.reply(`${emoji} Para usar este comando debe activar las Bienvenidas con *#welcome*`, m, fake);
     }
+
     let chat = global.db.data.chats[m.chat];
-    
     let mentions = text.trim();
     let who = mentions ? conn.parseMention(mentions) : [];
-    if (!text) return conn.reply(m.chat, `${emoji} Menciona al usuario con @ para simular la bienvenida.`, m);
+    
+    if (!text) return conn.reply(m.chat, `${emoji} Menciona al usuario con @ para simular la bienvenida.`, m, fake);
 
     let taguser = `@${who[0].split('@')[0]}`;
     let groupMetadata = await conn.groupMetadata(m.chat);
@@ -23,16 +24,16 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
         img = await (await fetch(defaultImage)).buffer();
     }
 
-          let bienvenida = `┏━━━━━━━━━━━━━━━━┅┈
+    let bienvenida = `┏━━━━━━━━━━━━━━━━┅┈
 ┃      🄱🄸🄴🄽🅅🄴🄽🄸🄳🄾
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: ${taguser}
 ┃ 
 ┃ 𝗚𝗿𝗨𝗽𝗢: ${groupMetadata.subject} 
 ┃
-┃ 
-┗━━━━━━━━━━━━━━━━┅┈`, m, fake);
-    await conn.sendMessage(m.chat, { image: img, caption: bienvenida, mentions: who });
+┗━━━━━━━━━━━━━━━━┅┈`;
+
+    await conn.sendMessage(m.chat, { image: img, caption: bienvenida, mentions: who }, { quoted: fake });
 };
 
 handler.help = ['testwelcome @user'];
@@ -41,4 +42,4 @@ handler.command = ['welcome1'];
 handler.admin = true;
 handler.group = true;
 
-export default handler;
+export default handler; de 
