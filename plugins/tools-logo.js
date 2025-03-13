@@ -1,15 +1,22 @@
-//© Código hecho por Deylin 
+//© Código hecho por Deylin  
 
 import axios from 'axios';
 
+const estilosDisponibles = [
+    '3D', 'Winner', 'smurfs', 'wrooom', 'fabulous', 
+    'fire', 'Fluffy', 'Glow', 'Neón', 'summer', 
+    'flaming', 'Retro'
+];
+
 async function generarLogo(estilo, texto, m, conn) {
     try {
+        await conn.sendMessage(m.chat, { text: '⏳ Generando tu logo, espera un momento...' }, { quoted: m });
 
         const url = `https://flamingtext.com/net-fu/proxy_form.cgi?imageoutput=true&script=${estilo}-logo&text=${encodeURIComponent(texto)}`;
 
         await conn.sendMessage(m.chat, { 
             image: { url }, 
-            caption: `Aquí tienes tu logo estilo *${estilo}* con el texto *${texto}*` 
+            caption: `✅ Aquí tienes tu logo estilo *${estilo}* con el texto *${texto}*` 
         }, { quoted: m });
     } catch (error) {
         console.error('Error al generar el logo:', error);
@@ -19,8 +26,11 @@ async function generarLogo(estilo, texto, m, conn) {
     }
 }
 
+const handler = async (m, { conn, args, command }) => {
+    if (command !== 'logo') {
+        return conn.sendMessage(m.chat, { text: '❌ El comando no existe.' }, { quoted: m });
+    }
 
-const handler = async (m, { conn, args }) => {
     if (!args || args.length < 2) {
         const ejemplo = `Ejemplo: /logo neon Kirito-Bot
 
@@ -38,11 +48,17 @@ Estilos disponibles:
 - flaming 
 - Retro`;
 
-return conn.sendMessage(m.chat, { text: `❌ Uso incorrecto.\n\n${ejemplo}` }, { quoted: m });
+        return conn.sendMessage(m.chat, { text: `❌ Uso incorrecto.\n\n${ejemplo}` }, { quoted: m });
     }
 
     const estilo = args[0].toLowerCase();
     const texto = args.slice(1).join(' ');
+
+    if (!estilosDisponibles.map(e => e.toLowerCase()).includes(estilo)) {
+        return conn.sendMessage(m.chat, { 
+            text: `❌ El estilo *${estilo}* no está disponible.\n\nEstilos disponibles:\n- ${estilosDisponibles.join('\n- ')}` 
+        }, { quoted: m });
+    }
 
     await generarLogo(estilo, texto, m, conn);
 };
