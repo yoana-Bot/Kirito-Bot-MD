@@ -1,4 +1,3 @@
-/** By @MoonContentCreator || https://github.com/MoonContentCreator/BixbyBot-Md **/
 import fetch from 'node-fetch';
 
 const handler = async (message, { conn, command, text, isAdmin }) => {
@@ -19,10 +18,15 @@ const handler = async (message, { conn, command, text, isAdmin }) => {
         const groupMetadata = await conn.groupMetadata(message.chat);
         const groupOwner = groupMetadata.owner || message.chat.split`-`[0] + '@s.whatsapp.net';
         
-        if (targetJid === groupOwner) throw '🔥 *No puedes mutar el creador del grupo*';
+        if (targetJid === groupOwner) throw '🔥 *No puedes mutar al creador del grupo*';
 
+        // Asegurar que el usuario esté registrado en la base de datos
+        if (!global.db.data.users[targetJid]) {
+            global.db.data.users[targetJid] = { muted: false };
+        }
         let userData = global.db.data.users[targetJid];
-        if (userData.muted) throw '👑 *Este usuario ya ha sido mutado*';
+
+        if (userData.muted) throw '🔥 *Este usuario ya ha sido mutado*';
 
         const muteMessage = {
             key: {
@@ -56,6 +60,10 @@ const handler = async (message, { conn, command, text, isAdmin }) => {
                 ? message.quoted.sender 
                 : text;
 
+        // Asegurar que el usuario esté registrado en la base de datos
+        if (!global.db.data.users[targetJid]) {
+            global.db.data.users[targetJid] = { muted: false };
+        }
         let userData = global.db.data.users[targetJid];
 
         if (!message.mentionedJid[0] && !message.quoted) {
