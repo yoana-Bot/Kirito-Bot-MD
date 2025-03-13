@@ -16,7 +16,7 @@ async function generarLogo(estilo, texto, m, conn) {
 
         await conn.sendMessage(m.chat, { 
             image: { url }, 
-            caption: `✅ Aquí tienes tu logo estilo *${estilo}* con el texto *${texto}*` 
+            caption: `${emoji} Resultado de *${texto}*` 
         }, { quoted: m });
     } catch (error) {
         console.error('Error al generar el logo:', error);
