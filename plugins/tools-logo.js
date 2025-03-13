@@ -2,7 +2,7 @@ import axios from 'axios';
 
 async function generarLogo(estilo, texto, m, conn) {
     try {
-        // Se añade "imageoutput=true" para que se genere una imagen directa
+        
         const url = `https://flamingtext.com/net-fu/proxy_form.cgi?imageoutput=true&script=${estilo}-logo&text=${encodeURIComponent(texto)}`;
 
         await conn.sendMessage(m.chat, { 
@@ -17,7 +17,7 @@ async function generarLogo(estilo, texto, m, conn) {
     }
 }
 
-// Handler para el bot
+
 const handler = async (m, { conn, args }) => {
     if (!args || args.length < 2) {
         const ejemplo = `Ejemplo: /logo neon Kirito-Bot
