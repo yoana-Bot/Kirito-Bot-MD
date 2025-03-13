@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 
-async function generarLogo(estilo, texto, m, conn) {
+async function generarLogo(estilo, texto, m, conn, esVideo = false) {
     try {
         // Enviar mensaje de progreso
         const mensajeProgreso = await conn.sendMessage(m.chat, { text: '⏳ Generando tu logo, espera un momento...' }, { quoted: m });
@@ -10,11 +10,20 @@ async function generarLogo(estilo, texto, m, conn) {
         // Generar la URL del logo
         const url = `https://flamingtext.com/net-fu/proxy_form.cgi?imageoutput=true&script=${estilo}-logo&text=${encodeURIComponent(texto)}`;
 
-        // Enviar el logo generado
-        await conn.sendMessage(m.chat, { 
-            image: { url }, 
-            caption: `Aquí tienes tu logo estilo *${estilo}* con el texto *${texto}*` 
-        }, { quoted: m });
+        if (esVideo) {
+            // Enviar el logo como GIF/Video
+            await conn.sendMessage(m.chat, { 
+                video: { url }, 
+                caption: `Aquí tienes tu logo animado estilo *${estilo}* con el texto *${texto}*`, 
+                gifPlayback: true // Esto hace que el video se reproduzca como GIF en WhatsApp
+            }, { quoted: m });
+        } else {
+            // Enviar el logo como imagen
+            await conn.sendMessage(m.chat, { 
+                image: { url }, 
+                caption: `Aquí tienes tu logo estilo *${estilo}* con el texto *${texto}*` 
+            }, { quoted: m });
+        }
 
         // Eliminar el mensaje de progreso
         await conn.sendMessage(m.chat, { delete: mensajeProgreso.key });
@@ -72,7 +81,13 @@ Estilos disponibles:
     const estilo = args[0].toLowerCase();
     const texto = args.slice(1).join(' ');
 
-    await generarLogo(estilo, texto, m, conn);
+    // Lista de estilos que son animados
+    const estilosAnimados = ['animado', 'neon-glow', 'fire', 'resplandor', 'horror'];
+
+    // Determinar si es un logo animado (GIF/Video)
+    const esVideo = estilosAnimados.includes(estilo);
+
+    await generarLogo(estilo, texto, m, conn, esVideo);
 };
 
 handler.help = ['logo'];
