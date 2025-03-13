@@ -23,7 +23,15 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
         img = await (await fetch(defaultImage)).buffer();
     }
 
-    let bienvenida = `❀ *Bienvenido* a ${groupMetadata.subject}\n ✰ ${taguser}\n${global.welcom1}\n •(=^●ω●^=)• Disfruta tu estadía en el grupo!\n> ✐ Puedes usar *#help* para ver la lista de comandos.`;
+          let bienvenida = `┏━━━━━━━━━━━━━━━━┅┈
+┃      🄱🄸🄴🄽🅅🄴🄽🄸🄳🄾
+┣━━━━━━━━━━━━━━━━┅┈
+┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: ${taguser}
+┃ 
+┃ 𝗚𝗿𝗨𝗽𝗢: ${groupMetadata.subject} 
+┃
+┃ 
+┗━━━━━━━━━━━━━━━━┅┈`;
     await conn.sendMessage(m.chat, { image: img, caption: bienvenida, mentions: who });
 };
 
