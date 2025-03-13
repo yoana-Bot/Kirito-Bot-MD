@@ -81,6 +81,19 @@ Estilos disponibles:
     const estilo = args[0].toLowerCase();
     const texto = args.slice(1).join(' ');
 
+    // Lista de estilos disponibles
+    const estilosDisponibles = [
+        '3d', 'animado', 'azul', 'marca', 'negocios', 'colorido', 'fresco', 'decorado', 'efectos', 
+        'famoso', 'fuego', 'diversión', 'resplandor', 'oro', 'verde', 'horror', 'luz', 'líquido', 
+        'metal', 'película', 'naturaleza', 'neón', 'púrpura', 'orgullo', 'promoción', 'rojo', 
+        'reflexión', 'retro', 'plata', 'web-2.0', 'deportes', 'textura', 'otros'
+    ];
+
+    // Validar si el estilo ingresado está en la lista
+    if (!estilosDisponibles.includes(estilo)) {
+        return conn.sendMessage(m.chat, { text: `❌ El estilo *${estilo}* no existe.\n\nUsa uno de los siguientes estilos:\n${estilosDisponibles.map(e => `- ${e}`).join('\n')}` }, { quoted: m });
+    }
+
     // Lista de estilos que son animados
     const estilosAnimados = ['animado', 'neon-glow', 'fire', 'resplandor', 'horror'];
 
