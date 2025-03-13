@@ -21,7 +21,7 @@ async function generarLogo(estilo, texto, m, conn) {
     } catch (error) {
         console.error('Error al generar el logo:', error);
         await conn.sendMessage(m.chat, { 
-            text: '${emoji} Error al generar el logo. Prueba con otro estilo.' 
+            text: '${emoji6} Error al generar el logo. Prueba con otro estilo.' 
         }, { quoted: m });
     }
 }
@@ -56,7 +56,7 @@ Estilos disponibles:
 
     if (!estilosDisponibles.map(e => e.toLowerCase()).includes(estilo)) {
         return conn.sendMessage(m.chat, { 
-            text: `${emoji} El estilo *${estilo}* no está disponible.\n\nEstilos disponibles:\n- ${estilosDisponibles.join('\n- ')}` 
+            text: `${emoji6} El estilo *${estilo}* no está disponible.\n\nEstilos disponibles:\n- ${estilosDisponibles.join('\n- ')}` 
         }, { quoted: m });
     }
 
