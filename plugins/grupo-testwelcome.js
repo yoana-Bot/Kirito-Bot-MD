@@ -29,7 +29,7 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
 
 handler.help = ['testwelcome @user'];
 handler.tags = ['group'];
-handler.command = ['testwelcome'];
+handler.command = ['welcome1'];
 handler.admin = true;
 handler.group = true;
 
