@@ -31,7 +31,7 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
 ┃ 𝗚𝗿𝗨𝗽𝗢: ${groupMetadata.subject} 
 ┃
 ┃ 
-┗━━━━━━━━━━━━━━━━┅┈`;
+┗━━━━━━━━━━━━━━━━┅┈`, m, fake);
     await conn.sendMessage(m.chat, { image: img, caption: bienvenida, mentions: who });
 };
 
