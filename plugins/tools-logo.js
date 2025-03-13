@@ -21,18 +21,18 @@ async function generarLogo(estilo, texto, m, conn) {
     } catch (error) {
         console.error('Error al generar el logo:', error);
         await conn.sendMessage(m.chat, { 
-            text: '❌ Error al generar el logo. Prueba con otro estilo.' 
+            text: '${emoji} Error al generar el logo. Prueba con otro estilo.' 
         }, { quoted: m });
     }
 }
 
 const handler = async (m, { conn, args, command }) => {
     if (command !== 'logo') {
-        return conn.sendMessage(m.chat, { text: '❌ El comando no existe.' }, { quoted: m });
+        return conn.sendMessage(m.chat, { text: '${emoji} El comando no existe.' }, { quoted: m });
     }
 
     if (!args || args.length < 2) {
-        const ejemplo = `Ejemplo: /logo neon Kirito-Bot
+        const ejemplo = `${emoji} Ejemplo: /logo neon Kirito-Bot
 
 Estilos disponibles:
 - 3D
@@ -48,7 +48,7 @@ Estilos disponibles:
 - flaming 
 - Retro`;
 
-        return conn.sendMessage(m.chat, { text: `❌ Uso incorrecto.\n\n${ejemplo}` }, { quoted: m });
+        return conn.sendMessage(m.chat, { text: `${emoji} Uso incorrecto.\n\n${ejemplo}` }, { quoted: m });
     }
 
     const estilo = args[0].toLowerCase();
@@ -56,7 +56,7 @@ Estilos disponibles:
 
     if (!estilosDisponibles.map(e => e.toLowerCase()).includes(estilo)) {
         return conn.sendMessage(m.chat, { 
-            text: `❌ El estilo *${estilo}* no está disponible.\n\nEstilos disponibles:\n- ${estilosDisponibles.join('\n- ')}` 
+            text: `${emoji} El estilo *${estilo}* no está disponible.\n\nEstilos disponibles:\n- ${estilosDisponibles.join('\n- ')}` 
         }, { quoted: m });
     }
 
