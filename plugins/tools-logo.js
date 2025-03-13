@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const estilosDisponibles = [
     '3D', 'Winner', 'smurfs', 'wrooom', 'fabulous', 
-    'fire', 'Fluffy', 'Glow', 'Neón', 'summer', 
+    'fire', 'Fluffy', 'Glow', 'neon', 'summer', 
     'flaming', 'Retro'
 ];
 
@@ -43,7 +43,7 @@ Estilos disponibles:
 - fire
 - Fluffy 
 - Glow
-- Neón
+- neon
 - summer
 - flaming 
 - Retro`;
