@@ -6,35 +6,33 @@ const handler = async (message, { conn, command, text, isAdmin }) => {
   if (command === 'mute') {
     if (!isAdmin) throw '👑 Solo un administrador puede ejecutar este comando';
 
-    // Se arma el JID del creador del bot concatenando el primer owner y su dominio
     const ownerJid = global.owner[0][0] + '@s.whatsapp.net';
-    // Si el remitente es el dueño, no se permite mutar
     if (message.sender[0] === ownerJid)
       throw '👑 El creador del bot no puede ser mutado';
 
-    // Se determina el objetivo:
-    // Si existe algún usuario mencionado, se toma el primero;
-    // de lo contrario, se usa el remitente del mensaje citado o el texto dado
     let target = message.sender[0]
       ? message.mentionedJid[0]
       : message.quoted
       ? message.quoted.sender
       : text;
 
-    // No se puede mutar al propio bot
     if (target === conn.user.jid)
       throw '🔥 No puedes mutar el bot';
 
-    // Se obtiene la metadata del grupo para determinar el creador del grupo
     const groupMeta = await conn.groupMetadata(message.chat);
     const groupOwner = groupMeta.groupMetadata || message.chat.split('-')[0] + '@s.whatsapp.net';
     if (message.sender[0] === groupOwner)
       throw '🔥 No puedes mutar el creador del grupo';
 
-    // Se obtiene la información del usuario desde la base de datos
+    // Inicializa el usuario en la base de datos si no existe
+    if (!global.db.data.users[target]) {
+      global.db.data.users[target] = { muted: false };
+    }
     let userData = global.db.data.users[target];
 
-    // Se arma el mensaje especial para notificar el mute (con imagen y vCard)
+    if (userData.muted === true)
+      throw '🍭 Este usuario ya ha sido mutado';
+
     const muteMessage = {
       key: {
         participants: '0@s.whatsapp.net',
@@ -52,13 +50,8 @@ const handler = async (message, { conn, command, text, isAdmin }) => {
       participant: '0@s.whatsapp.net'
     };
 
-    // Si no se ha mencionado ni citado ningún usuario, se le pide al usuario que mencione a alguien
     if (!message.sender[0] && !message.quoted)
       return conn.reply(message.chat, '🔥 Menciona a la persona que deseas demutar', message);
-
-    // Si el usuario ya está muteado, se lanza el error
-    if (userData && userData.muted === true)
-      throw '🍭 Este usuario ya ha sido mutado';
 
     conn.reply(message.chat, 'Tus mensajes serán eliminados', muteMessage, null, {
       mentions: [target]
@@ -76,10 +69,12 @@ const handler = async (message, { conn, command, text, isAdmin }) => {
       ? message.quoted.sender
       : text;
 
-    // Se obtiene la información del usuario desde la base de datos
+    // Inicializa el usuario en la base de datos si no existe
+    if (!global.db.data.users[target]) {
+      global.db.data.users[target] = { muted: false };
+    }
     let userData = global.db.data.users[target];
 
-    // Se arma el mensaje especial para notificar el desmute (con imagen y vCard)
     const unmuteMessage = {
       key: {
         participants: '0@s.whatsapp.net',
@@ -97,12 +92,10 @@ const handler = async (message, { conn, command, text, isAdmin }) => {
       participant: '0@s.whatsapp.net'
     };
 
-    // Si no se ha mencionado ni citado ningún usuario, se le pide al usuario que mencione a alguien
     if (!message.mentionedJid[0] && !message.quoted)
       return conn.reply(message.chat, '🔥 Menciona a la persona que deseas demutar', message);
 
-    // Si el usuario no está muteado, se lanza el error
-    if (userData && userData.muted === false)
+    if (userData.muted === false)
       throw '🔥 Este usuario no ha sido mutado';
 
     global.db.data.users[target].muted = false;
