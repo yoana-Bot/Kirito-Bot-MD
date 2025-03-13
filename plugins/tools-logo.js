@@ -66,5 +66,6 @@ Estilos disponibles:
 handler.help = ['logo'];
 handler.tags = ['fun'];
 handler.command = ['logo'];
+handler.group = true;
 
 export default handler;
