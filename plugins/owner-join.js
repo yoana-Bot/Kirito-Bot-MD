@@ -31,7 +31,7 @@ async function generarLogo(estilo, texto, m, conn, esVideo = false) {
     } catch (error) {
         console.error('Error al generar el logo:', error);
         await conn.sendMessage(m.chat, { 
-            text: '❌ Error al generar el logo. Prueba con otro estilo.' 
+            text: '⚠️ Error al generar el logo. Prueba con otro estilo.' 
         }, { quoted: m });
     }
 }
@@ -42,40 +42,19 @@ const handler = async (m, { conn, args }) => {
 
 Estilos disponibles:
 - 3D
-- Animado
-- Azul
-- Marca
-- Negocios
-- Colorido
-- Fresco
-- Decorado
-- Efectos
-- Famoso
-- Fuego
-- Diversión
-- Resplandor
-- Oro
-- Verde
-- Horror
-- Luz
-- Líquido
-- Metal
-- Película
-- Naturaleza
+- Winner 
+- smurfs 
+- wrooom
+- fabulous
+- fire
+- Fluffy 
+- Glow
 - Neón
-- Púrpura
-- Orgullo
-- Promoción
-- Rojo
-- Reflexión
-- Retro
-- Plata
-- Web 2.0
-- Deportes
-- Textura
-- Otros`;
+- summer
+- flaming 
+- Retro`;
 
-        return conn.sendMessage(m.chat, { text: `❌ Uso incorrecto.\n\n${ejemplo}` }, { quoted: m });
+        return conn.sendMessage(m.chat, { text: `🔥 Uso incorrecto.\n\n${ejemplo}` }, { quoted: m });
     }
 
     const estilo = args[0].toLowerCase();
