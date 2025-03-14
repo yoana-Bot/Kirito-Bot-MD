@@ -29,7 +29,6 @@ let rtx = `★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★
 
 ⚠ *Este código QR expira en 45 segundos. No pierdas tiempo.*`;
 
-let imageUrl = 'https://files.catbox.moe/svmwvg.jpg'; // Asegúrate de que esta URL es válida
 let rtx2 = `★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★
 
 ✦ *Conexión Sub-Bot Modo Código* ✦
@@ -42,12 +41,6 @@ let rtx2 = `★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★
 ➤ \`4\` 〉 Ingresa el código y conéctate al bot.
 
 ⚠ *Si estás conectado a otra sesión de sub-bot, por favor te recomiendo que te desconectes o no te conectes a este bot. Si estás conectado a dos, tu cuenta podría ser baneada de WhatsApp y además podrían surgir problemas en el sistema del bot.*`;
-
-try {
-    await conn.sendMessage(m.chat, { image: { url: imageUrl }, caption: rtx2 }, { quoted: m });
-} catch (error) {
-    console.error("Error enviando el mensaje:", error);
-}
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
