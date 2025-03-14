@@ -35,7 +35,7 @@ async function uploadToKirito(content) {
   const formData = new FormData();
   formData.append("file", blob, `imagen.${ext}`);
 
-  const response = await fetch("https://kirito-md.vercel.app/upload", {
+  const response = await fetch("https://kirito-md.vercel.app/file.html/upload", {
     method: "POST",
     body: formData
   });
