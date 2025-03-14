@@ -8,7 +8,7 @@ async function loadCharacters() {
         const data = await fs.readFile(charactersFilePath, 'utf-8');
         return JSON.parse(data);
     } catch (error) {
-        throw new Error('❀ No se pudo cargar el archivo characters.json.');
+        throw new Error('👑 No se pudo cargar el archivo characters.json.');
     }
 }
 
@@ -29,16 +29,16 @@ let handler = async (m, { conn, args }) => {
         const character = characters.find(c => c.name.toLowerCase() === characterName);
 
         if (!character) {
-            await conn.reply(m.chat, `《✧》No se ha encontrado el personaje *${characterName}*. Asegúrate de que el nombre esté correcto.`, m);
+            await conn.reply(m.chat, `👑 No se ha encontrado el personaje *${characterName}*. Asegúrate de que el nombre esté correcto.`, m);
             return;
         }
 
         // Seleccionar una imagen aleatoria
         const randomImage = character.img[Math.floor(Math.random() * character.img.length)];
 
-        const message = `❀ Nombre » *${character.name}*
-⚥ Género » *${character.gender}*
-❖ Fuente » *${character.source}*`;
+        const message = `✰ Nombre » *${character.name}*
+✰ Género » *${character.gender}*
+✰ Fuente » *${character.source}*`;
 
         await conn.sendFile(m.chat, randomImage, `${character.name}.jpg`, message, m);
     } catch (error) {
