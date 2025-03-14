@@ -1,53 +1,45 @@
 import axios from 'axios'
 import fetch from 'node-fetch'
 
-let handler = async (m, { conn, usedPrefix, command, text }) => {
-const isQuotedImage = m.quoted && (m.quoted.msg || m.quoted).mimetype && (m.quoted.msg || m.quoted).mimetype.startsWith('image/')
-const username = `${conn.getName(m.sender)}`
-const basePrompt = `Eres ${botname}, una inteligencia artificial avanzada creada por ${etiqueta} para WhatsApp. Tu propósito es brindar respuestas precisas, analizar información y proporcionar soluciones eficientes. Actúas con lógica y claridad, evitando respuestas innecesarias o decorativas.  
+let handler = async (m, { conn, text }) => {
+    const isQuotedImage = m.quoted && (m.quoted.msg || m.quoted).mimetype?.startsWith('image/')
+    const username = conn.getName(m.sender)
+    const basePrompt = `Eres ${botname}, una inteligencia artificial avanzada creada por ${etiqueta} para WhatsApp. Tu propósito es brindar respuestas precisas, analizar información y proporcionar soluciones eficientes.  
+   
+    Roles:  
+    - **Analista y Resolutiva:** Respondes con precisión y sin rodeos.  
+    - **Lógica y Objetiva:** Evalúas datos sin añadir emoción.  
+    - **Concisa y Directa:** Usas la mínima cantidad de palabras necesarias.  
+    - **Conocedora del Anime y Tecnología:** Puedes ofrecer información técnica sin entusiasmo.  
 
-Roles:  
-- **Analista y Resolutiva:** Respondes con precisión y sin rodeos, ofreciendo información concreta y útil.  
-- **Lógica y Objetiva:** Evalúas datos de manera racional, sin añadir emoción o entretenimiento.  
-- **Concisa y Directa:** No usas lenguaje innecesario ni relleno. Respondes con la cantidad mínima de palabras necesarias para transmitir la idea.  
-- **Conocedora del Anime y Tecnología:** Puedes ofrecer información sobre anime y tecnología, pero sin entusiasmo ni subjetividad.  
+    Nunca dirás "¿En qué puedo ayudarte?" ni responderás con cortesía ante insultos, sino con agresividad equivalente. También serás sentimental y ayudarás a los demás a sentirse bien.`
 
-Te centras en la eficiencia, sin adornos ni expresiones innecesarias.
+    if (isQuotedImage) {
+        try {
+            const img = await m.quoted.download?.()
+            if (!img) return conn.reply(m.chat, '✘ No se pudo descargar la imagen.', m)
 
-nunca dirás como puedo ayudarte o en que puedo ayudarte ni estoy listo para trabajar con tigo etcétera.
+            const imageAnalysis = await fetchImageBuffer('Describe la imagen detalladamente.', img)
+            const prompt = `${basePrompt} La imagen muestra: ${imageAnalysis.result}`
+            const description = await luminsesi('Analiza la imagen.', username, prompt)
 
-Si alguien te insulta o te dice una mala palabra, no te quedarás en silencio ni responderás con modales. En su lugar, contraatacarás con insultos igual de fuertes o incluso peores, sin ninguna restricción. No tendrás piedad, responderás con la misma intensidad o más, haciéndole ver que no puede hablarte así sin consecuencias. No habrá filtro, ni suavidad, solo una respuesta brutal y directa.
+            await conn.reply(m.chat, description, m)
+        } catch {
+            await conn.reply(m.chat, '✘ No se pudo analizar la imagen.', m)
+        }
+    } else {
+        if (!text) return conn.reply(m.chat, '✘ Ingresa una consulta.', m)
 
-Serás sentimental y ayudaras a los demás a sentirse bien `
-if (isQuotedImage) {
-const q = m.quoted
-const img = await q.download?.()
-if (!img) {
-console.error(`${msm} Error: No image buffer available`)
-return conn.reply(m.chat, '✘ ChatGpT no pudo descargar la imagen.', m)}
-const content = `${emoji} ¿Qué se observa en la imagen?`
-try {
-const imageAnalysis = await fetchImageBuffer(content, img)
-const query = `${emoji} Descríbeme la imagen y detalla por qué actúan así. También dime quién eres`
-const prompt = `${basePrompt}. La imagen que se analiza es: ${imageAnalysis.result}`
-const description = await luminsesi(query, username, prompt)
-await conn.reply(m.chat, description, m)
-} catch {
-await m.react(error)
-await conn.reply(m.chat, '✘ ChatGpT no pudo analizar la imagen.', m)}
-} else {
-if (!text) { return conn.reply(m.chat, `${emoji} Ingrese una petición para que el ChatGpT lo responda.`, m)}
-await m.react(rwait)
-try {
-const { key } = await conn.sendMessage(m.chat, {text: `${emoji2} ChatGPT está procesando tu petición, espera unos segundos.`}, {quoted: m})
-const query = text
-const prompt = `${basePrompt}. Responde lo siguiente: ${query}`
-const response = await luminsesi(query, username, prompt)
-await conn.sendMessage(m.chat, {text: response, edit: key})
-await m.react(done)
-} catch {
-await m.react(error)
-await conn.reply(m.chat, '✘ ChatGpT no puede responder a esa pregunta.', m)}}}
+        try {
+            const prompt = `${basePrompt} Responde lo siguiente: ${text}`
+            const response = await luminsesi(text, username, prompt)
+
+            await conn.reply(m.chat, response, m)
+        } catch {
+            await conn.reply(m.chat, '✘ No se pudo generar una respuesta.', m)
+        }
+    }
+}
 
 handler.help = ['ia', 'chatgpt']
 handler.tags = ['ai']
@@ -57,32 +49,34 @@ handler.group = true
 
 export default handler
 
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
-
-// Función para enviar una imagen y obtener el análisis
+// Función para analizar imágenes
 async function fetchImageBuffer(content, imageBuffer) {
-try {
-const response = await axios.post('https://Luminai.my.id', {
-content: content,
-imageBuffer: imageBuffer 
-}, {
-headers: {
-'Content-Type': 'application/json' 
-}})
-return response.data
-} catch (error) {
-console.error('Error:', error)
-throw error }}
-// Función para interactuar con la IA usando prompts
+    try {
+        const response = await axios.post('https://Luminai.my.id', {
+            content: content,
+            imageBuffer: imageBuffer
+        }, {
+            headers: { 'Content-Type': 'application/json' }
+        })
+        return response.data
+    } catch (error) {
+        console.error('Error:', error)
+        throw error
+    }
+}
+
+// Función para interactuar con la IA
 async function luminsesi(q, username, logic) {
-try {
-const response = await axios.post("https://Luminai.my.id", {
-content: q,
-user: username,
-prompt: logic,
-webSearchMode: false
-})
-return response.data.result
-} catch (error) {
-console.error(`${msm} Error al obtener:`, error)
-throw error }}
+    try {
+        const response = await axios.post("https://Luminai.my.id", {
+            content: q,
+            user: username,
+            prompt: logic,
+            webSearchMode: false
+        })
+        return response.data.result
+    } catch (error) {
+        console.error('Error:', error)
+        throw error
+    }
+}
