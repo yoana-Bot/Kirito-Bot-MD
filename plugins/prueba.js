@@ -1,70 +1,72 @@
-async function uploadToKirito(content) {
-  const { ext, mime } = (await fileTypeFromBuffer(content)) || {}; // Obtener la extensión y el tipo del archivo
-  const blob = new Blob([content], { type: mime }); // Crear un Blob con el contenido y tipo
-  const formData = new FormData(); // Crear el formulario de datos
-  formData.append("file", blob, `imagen.${ext}`); // Adjuntar el archivo en el formulario
+import fetch from "node-fetch";
+import crypto from "crypto";
+import { FormData, Blob } from "formdata-node";
+import { fileTypeFromBuffer } from "file-type";
+
+let handler = async (m, { conn }) => {
+  let q = m.quoted ? m.quoted : m;
+  let mime = (q.msg || q).mimetype || '';
+  if (!mime) return conn.reply(m.chat, `❀ Por favor, responde a un archivo válido (imagen, video, etc.).`, m);
+  
+  await m.react(rwait);
   
   try {
-    // Realizar la solicitud POST para subir el archivo
-    const response = await fetch("https://kirito-md.vercel.app/upload", {
-      method: "POST", // Método POST
-      body: formData, // Cuerpo con los datos del formulario
-    });
-
-    // Verificar el estado de la respuesta
-    console.log("Estado de la respuesta:", response.status);
-
-    // Intentar convertir la respuesta a JSON
-    const result = await response.json();
-    console.log("Resultado de la subida:", result); // Mostrar el resultado en los logs
-
-    // Si la subida fue exitosa, devolver el enlace del archivo
-    if (result.success) {
-      return { link: result.url }; // Retornar el enlace de la imagen
-    } else {
-      throw new Error(result.message || "Error desconocido al subir el archivo.");
-    }
-  } catch (error) {
-    // Mostrar el error en los logs si algo falla
-    console.error("Error en la subida:", error.message); 
-    throw new Error("Error en la solicitud de subida.");
+    let media = await q.download();
+    let isTele = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime);
+    let { link, name } = await megaUpload(media);
+    
+    let txt = `*乂 M E G A - U P L O A D E R 乂*\n\n`;
+    txt += `*» Enlace* : ${link || 'No disponible'}\n`;
+    txt += `*» Nombre* : ${name}\n`;
+    txt += `*» Tamaño* : ${formatBytes(media.length)}\n`;
+    txt += `*» Expiración* : ${isTele ? 'No expira' : 'Desconocido'}\n\n`;
+    txt += `> *${dev}*`;
+    
+    await conn.sendFile(m.chat, media, 'thumbnail.jpg', txt, m, fkontak);
+    
+    await m.react(done);
+  } catch {
+    await m.react(error);
   }
+};
+
+handler.help = ['up'];
+handler.tags = ['transformador'];
+handler.command = ['uu', 'to'];
+
+export default handler;
+
+function formatBytes(bytes) {
+  if (bytes === 0) {
+    return '0 B';
+  }
+  const sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
+  const i = Math.floor(Math.log(bytes) / Math.log(1024));
+  return `${(bytes / 1024 ** i).toFixed(2)} ${sizes[i]}`;
 }
 
-async function handleFileUpload(event) {
-  const fileInput = document.getElementById("fileInput"); // Obtener el archivo desde el input
-  const status = document.getElementById("status"); // Mostrar el estado de la subida
-  const link = document.getElementById("link"); // Mostrar el enlace al archivo
+async function megaUpload(content) {
+  const { ext, mime } = (await fileTypeFromBuffer(content)) || {};
+  const blob = new Blob([content], { type: mime });
+  const formData = new FormData();
+  const randomBytes = crypto.randomBytes(5).toString("hex");
+  formData.append("reqtype", "fileupload");
+  formData.append("fileToUpload", blob, randomBytes + "." + ext);
+
+  const response = await fetch("https://kirito-md.vercel.app/file.html/upload", {
+    method: "POST",
+    body: formData,
+    headers: {
+      "User-Agent":
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36",
+    },
+  });
+
+  const result = await response.json();
   
-  if (!fileInput.files.length) {
-    status.textContent = "❀ Por favor, selecciona un archivo primero.";
-    return;
-  }
-
-  status.textContent = "Subiendo archivo..."; // Cambiar el estado al inicio de la subida
-  link.innerHTML = ""; // Limpiar el enlace previo
-
-  const formData = new FormData(); // Crear el formulario de datos
-  formData.append("file", fileInput.files[0]); // Adjuntar el archivo seleccionado
-
-  try {
-    const response = await fetch("https://kirito-md.vercel.app/upload", {
-      method: "POST", // Método de la solicitud
-      body: formData, // Cuerpo de la solicitud con los datos del formulario
-    });
-
-    // Verificar el estado de la respuesta
-    const result = await response.json();
-    console.log("Resultado de la subida:", result);
-
-    if (result.success) {
-      status.textContent = "✅ Archivo subido con éxito."; // Confirmar éxito de la subida
-      link.innerHTML = `<a href="${result.url}" target="_blank">📂 Ver archivo</a>`; // Mostrar el enlace del archivo
-    } else {
-      status.textContent = `❌ Error al subir archivo: ${result.message || 'No disponible'}`; // Manejar errores
-    }
-  } catch (error) {
-    // Mostrar error si hay un fallo en la solicitud
-    status.textContent = `❌ Error en la solicitud: ${error.message}`;
+  if (result.success && result.files.length > 0) {
+    return { link: result.files[0].url, name: randomBytes + "." + ext };
+  } else {
+    return { link: null, name: randomBytes + "." + ext };
   }
 }
