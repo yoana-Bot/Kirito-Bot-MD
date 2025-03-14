@@ -127,7 +127,18 @@ let isInit = true
 async function connectionUpdate(update) {
 const { connection, lastDisconnect, isNewLogin, qr } = update
 if (isNewLogin) sock.isInit = false
-if (qr && !mcode) {
+const imageUrl = "https://files.catbox.moe/svmwvg.jpg"; // Reemplaza con la URL de tu imagen
+
+if (qr && mcode) {
+    let secret = await sock.requestPairingCode((m.sender.split`@`[0]));
+    secret = secret.match(/.{1,4}/g)?.join("-");
+    txtCode = await conn.sendMessage(m.chat, {
+        image: { url: imageUrl },
+        caption: rtx2
+    }, { quoted: m });
+    codeBot = await m.reply(secret);
+    console.log(secret);
+}
 if (m?.chat) {
 txtQR = await conn.sendMessage(m.chat, { image: await qrcode.toBuffer(qr, { scale: 8 }), caption: rtx.trim()}, { quoted: m})
 } else {
