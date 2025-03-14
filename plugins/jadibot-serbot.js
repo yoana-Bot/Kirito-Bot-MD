@@ -42,7 +42,7 @@ let rtx2 = `★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★
 
 ⚠ *Si estás conectado a otra sesión de sub-bot, por favor te recomiendo que te desconectes o no te conectes a este bot. Si estás conectado a dos, tu cuenta podría ser baneada de WhatsApp y además podrían surgir problemas en el sistema del bot.*`;
 
-let imageUrl = 'https://ejemplo.com/imagen.jpg'; // Reemplaza con la URL de tu imagen
+let imageUrl = 'https://files.catbox.moe/svmwvg.jpg'; 
 
 conn.sendMessage(m.chat, { image: { url: imageUrl }, caption: rtx2 }, { quoted: m });
 
