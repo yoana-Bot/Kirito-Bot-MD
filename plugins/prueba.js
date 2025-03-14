@@ -31,7 +31,7 @@ let handler = async (m, { conn }) => {
   } catch (error) {
     console.error("Error en la solicitud:", error); // Log detallado del error
     await m.react(error); // Indicador de error
-    conn.reply(m.chat, `❌ Error al procesar la solicitud.`, m);
+    conn.reply(m.chat, `❌ Error al procesar la solicitud: ${error.message || error}`, m); // Mostrar mensaje de error detallado
   }
 };
 
@@ -49,20 +49,25 @@ async function uploadToKirito(content) {
   const formData = new FormData();
   formData.append("file", blob, `imagen.${ext}`); // Nombre del archivo como 'imagen.ext'
 
-  // Realizar la solicitud POST a la API para subir el archivo
-  const response = await fetch("https://kirito-md.vercel.app/upload", {
-    method: "POST",
-    body: formData,
-  });
+  try {
+    // Realizar la solicitud POST a la API para subir el archivo
+    const response = await fetch("https://kirito-md.vercel.app/upload", {
+      method: "POST",
+      body: formData,
+    });
 
-  // Comprobar la respuesta de la API
-  const result = await response.json();
-  console.log("Resultado de la subida:", result); // Verificación de la respuesta
+    // Comprobar la respuesta de la API
+    const result = await response.json();
+    console.log("Resultado de la subida:", result); // Verificación de la respuesta
 
-  // Si la subida fue exitosa, devolver el enlace
-  if (result.success) {
-    return { link: result.url };
-  } else {
-    throw new Error("Error al subir la imagen."); // Lanzar error si la subida falla
+    // Si la subida fue exitosa, devolver el enlace
+    if (result.success) {
+      return { link: result.url };
+    } else {
+      throw new Error("Error al subir la imagen."); // Lanzar error si la subida falla
+    }
+  } catch (error) {
+    console.error("Error en la subida:", error); // Log detallado si ocurre un error en la subida
+    throw new Error("Error en la solicitud de subida.");
   }
 }
