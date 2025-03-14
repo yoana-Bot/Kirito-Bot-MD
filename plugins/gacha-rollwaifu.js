@@ -62,10 +62,10 @@ let handler = async (m, { conn }) => {
             : 'Libre';
 
         const message = `❀ Nombre » *${randomCharacter.name}*
-⚥ Género » *${randomCharacter.gender}*
+✰ Género » *${randomCharacter.gender}*
 ✰ Valor » *${randomCharacter.value}*
-♡ Estado » ${statusMessage}
-❖ Fuente » *${randomCharacter.source}*
+✰ Estado » ${statusMessage}
+✰ Fuente » *${randomCharacter.source}*
 ID: *${randomCharacter.id}*`;
 
         const mentions = userEntry ? [userEntry.userId] : [];
