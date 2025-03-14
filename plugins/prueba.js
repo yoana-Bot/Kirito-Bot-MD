@@ -56,7 +56,7 @@ async function uploadToKirito(content) {
       body: formData,
     });
 
-    // Comprobar la respuesta de la API
+    console.log("Estado de la respuesta:", response.status); // Verificar el estado de la respuesta
     const result = await response.json();
     console.log("Resultado de la subida:", result); // Verificación de la respuesta
 
@@ -64,7 +64,7 @@ async function uploadToKirito(content) {
     if (result.success) {
       return { link: result.url };
     } else {
-      throw new Error("Error al subir la imagen."); // Lanzar error si la subida falla
+      throw new Error(result.message || "Error desconocido al subir el archivo.");
     }
   } catch (error) {
     console.error("Error en la subida:", error); // Log detallado si ocurre un error en la subida
