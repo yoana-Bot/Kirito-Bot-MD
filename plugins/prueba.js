@@ -1,73 +1,70 @@
-import fetch from "node-fetch";
-import { FormData, Blob } from "formdata-node";
-import { fileTypeFromBuffer } from "file-type";
-
-// Función principal que maneja el comando de subida de archivo
-let handler = async (m, { conn }) => {
-  let q = m.quoted ? m.quoted : m; // Obtener el mensaje citado o el mensaje actual
-  let mime = (q.msg || q).mimetype || ''; // Obtener el tipo de mime del archivo
-  if (!mime) return conn.reply(m.chat, `❀ Por favor, responde a un archivo válido (imagen, video, etc.).`, m);
-
-  await m.react(rwait); // Indicador de que el bot está esperando
-
-  try {
-    // Descargar el archivo desde WhatsApp
-    let media = await q.download();
-    console.log("Archivo descargado:", media); // Verificación de que el archivo se descargó
-
-    // Verificar que el archivo es una imagen o un video
-    let isTele = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime);
-    if (!isTele) return conn.reply(m.chat, `❀ El archivo no es compatible. Por favor, sube una imagen o video.`, m);
-
-    // Subir el archivo al servidor
-    let { link, name } = await uploadToKirito(media);
-    console.log("Enlace recibido:", link); // Verificación de la URL generada
-
-    // Responder con la URL del archivo subido
-    let txt = `*✅ Imagen subida con éxito.*\n\n🔗 *URL:* ${link || 'No disponible'}`;
-    await conn.sendMessage(m.chat, { text: txt }, { quoted: m });
-
-    await m.react(done); // Indicador de que la acción fue completada con éxito
-  } catch (error) {
-    console.error("Error en la solicitud:", error); // Log detallado del error
-    await m.react(error); // Indicador de error
-    conn.reply(m.chat, `❌ Error al procesar la solicitud: ${error.message || error}`, m); // Mostrar mensaje de error detallado
-  }
-};
-
-// Métodos auxiliares para manejar los comandos
-handler.help = ['subir'];
-handler.tags = ['herramientas'];
-handler.command = ['subirimg', 'imgurl'];
-
-export default handler;
-
-// Función para subir el archivo a tu servidor
 async function uploadToKirito(content) {
-  const { ext, mime } = (await fileTypeFromBuffer(content)) || {}; // Obtener extensión y tipo de archivo
-  const blob = new Blob([content], { type: mime });
-  const formData = new FormData();
-  formData.append("file", blob, `imagen.${ext}`); // Nombre del archivo como 'imagen.ext'
-
+  const { ext, mime } = (await fileTypeFromBuffer(content)) || {}; // Obtener la extensión y el tipo del archivo
+  const blob = new Blob([content], { type: mime }); // Crear un Blob con el contenido y tipo
+  const formData = new FormData(); // Crear el formulario de datos
+  formData.append("file", blob, `imagen.${ext}`); // Adjuntar el archivo en el formulario
+  
   try {
-    // Realizar la solicitud POST a la API para subir el archivo
+    // Realizar la solicitud POST para subir el archivo
     const response = await fetch("https://kirito-md.vercel.app/upload", {
-      method: "POST",
-      body: formData,
+      method: "POST", // Método POST
+      body: formData, // Cuerpo con los datos del formulario
     });
 
-    console.log("Estado de la respuesta:", response.status); // Verificar el estado de la respuesta
-    const result = await response.json();
-    console.log("Resultado de la subida:", result); // Verificación de la respuesta
+    // Verificar el estado de la respuesta
+    console.log("Estado de la respuesta:", response.status);
 
-    // Si la subida fue exitosa, devolver el enlace
+    // Intentar convertir la respuesta a JSON
+    const result = await response.json();
+    console.log("Resultado de la subida:", result); // Mostrar el resultado en los logs
+
+    // Si la subida fue exitosa, devolver el enlace del archivo
     if (result.success) {
-      return { link: result.url };
+      return { link: result.url }; // Retornar el enlace de la imagen
     } else {
       throw new Error(result.message || "Error desconocido al subir el archivo.");
     }
   } catch (error) {
-    console.error("Error en la subida:", error); // Log detallado si ocurre un error en la subida
+    // Mostrar el error en los logs si algo falla
+    console.error("Error en la subida:", error.message); 
     throw new Error("Error en la solicitud de subida.");
+  }
+}
+
+async function handleFileUpload(event) {
+  const fileInput = document.getElementById("fileInput"); // Obtener el archivo desde el input
+  const status = document.getElementById("status"); // Mostrar el estado de la subida
+  const link = document.getElementById("link"); // Mostrar el enlace al archivo
+  
+  if (!fileInput.files.length) {
+    status.textContent = "❀ Por favor, selecciona un archivo primero.";
+    return;
+  }
+
+  status.textContent = "Subiendo archivo..."; // Cambiar el estado al inicio de la subida
+  link.innerHTML = ""; // Limpiar el enlace previo
+
+  const formData = new FormData(); // Crear el formulario de datos
+  formData.append("file", fileInput.files[0]); // Adjuntar el archivo seleccionado
+
+  try {
+    const response = await fetch("https://kirito-md.vercel.app/upload", {
+      method: "POST", // Método de la solicitud
+      body: formData, // Cuerpo de la solicitud con los datos del formulario
+    });
+
+    // Verificar el estado de la respuesta
+    const result = await response.json();
+    console.log("Resultado de la subida:", result);
+
+    if (result.success) {
+      status.textContent = "✅ Archivo subido con éxito."; // Confirmar éxito de la subida
+      link.innerHTML = `<a href="${result.url}" target="_blank">📂 Ver archivo</a>`; // Mostrar el enlace del archivo
+    } else {
+      status.textContent = `❌ Error al subir archivo: ${result.message || 'No disponible'}`; // Manejar errores
+    }
+  } catch (error) {
+    // Mostrar error si hay un fallo en la solicitud
+    status.textContent = `❌ Error en la solicitud: ${error.message}`;
   }
 }
