@@ -27,9 +27,8 @@ handler.before = async function (m, { conn }) {
 ✦ *Nivel anterior:* ${before}  
 ✦ *Nivel actual:* ${user.level}  
 ✦ *Fecha:* ${fecha}  
-✰━━━━━━━━━━━━━━━━━━✰  
-> ¡Sigue subiendo como un campeón! 
-`;
+✰━━━━━━━━━━━━━━━━━━━━━✰  
+> ¡Sigue subiendo como un campeón!`;
 
         m.reply(mensaje);
 
