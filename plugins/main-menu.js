@@ -128,9 +128,11 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
 
     let videoUrl = 'https://files.catbox.moe/pddr88.mp4'
     await m.react('🚀')
-    await conn.sendMessage(m.chat, { video: { url: videoUrl }, gifPlayback: true, caption: text.trim(), mentions: [m.sender] }, { quoted: m })
-  } catch (e) {
-    conn.reply(m.chat, '❎ Lo sentimos, el menú tiene un error.', m)
+    await conn.sendMessage(m.chat, { 
+  image: { url: imageUrl }, 
+  caption: text.trim(), 
+  mentions: [m.sender] 
+}, { quoted: m })
     throw e
   }
 }
