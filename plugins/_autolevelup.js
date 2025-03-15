@@ -22,13 +22,14 @@ handler.before = async function (m, { conn }) {
         let fecha = moment.tz('America/Bogota').format('DD/MM/YY');
 
         let mensaje = `
-╭━━━✦ *𝑳𝑬𝑽𝑬𝑳 𝑼𝑷* ✦━━━╮\n
-┃✰ *Usuario:* ${userName}\n
-┃✰ *Nivel anterior:* ${before}\n
-┃✰ *Nivel actual:* ${user.level}\n
-┃✰ *Fecha:* ${fecha}\n
-╰━━━━━━━━━━━━━━━╯\n
-✨ *¡Sigue adelante para volverte más fuerte!* ✨`;
+✰━─━─━《 𝑳𝑬𝑽𝑬𝑳 𝑼𝑷! 》━─━─━✰  
+✦ *Usuario:* ${userName}  
+✦ *Nivel anterior:* ${before}  
+✦ *Nivel actual:* ${user.level}  
+✦ *Fecha:* ${fecha}  
+✰━━━━━━━━━━━━━━━━━━✰  
+> ¡Sigue subiendo como un campeón! 
+`;
 
         m.reply(mensaje);
 
