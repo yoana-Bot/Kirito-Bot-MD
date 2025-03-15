@@ -21,7 +21,7 @@ handler.before = async function (m, { conn }) {
     if (before !== user.level) {
         let fecha = moment.tz('America/Bogota').format('DD/MM/YY');
 
-        let mensaje = `✰━─━─━《 𝑳𝑬𝑽𝑬𝑳 𝑼𝑷! 》━─━─━✰\n✦ *Usuario:* ${userName}}n✦ *Nivel anterior:* ${before}\n✦ *Nivel actual:* ${user.level}\n✦ *Fecha:* ${fecha}\n✰━━━━━━━━━━━━━━━━━━━━━✰\n> ¡Sigue subiendo como un campeón!`;
+        let mensaje = `✰━─━─━《 𝑳𝑬𝑽𝑬𝑳 𝑼𝑷! 》━─━─━✰\n✦ *Usuario:* ${userName}}\n✦ *Nivel anterior:* ${before}\n✦ *Nivel actual:* ${user.level}\n✦ *Fecha:* ${fecha}\n✰━━━━━━━━━━━━━━━━━━━━━✰\n> ¡Sigue subiendo como un campeón!`;
 
         m.reply(mensaje);
 
