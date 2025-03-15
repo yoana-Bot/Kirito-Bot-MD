@@ -1,5 +1,3 @@
-
-
 <h1 align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=40&pause=500&color=00F7FF&center=true&vCenter=true&width=500&lines=👑+¡HOLA,+SOY+KIRITO-BOT!+🔥" alt="Typing SVG">
 </h1>
@@ -35,13 +33,13 @@ src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" heigh
 
 
 <details>
-<summary><b> 🔥 clona</b></summary>
+<summary><b>##👑 Instalación y ejecución</b></summary>
 
-```bash
+
+Para clonar el repositorio y ejecutar el bot, sigue estos pasos:  
+
+```sh
 git clone https://github.com/deylinqff/Kirito_Bot.git
-cd Kirito_Bot
-npm install
-npm start
 ```
 </details>
 
