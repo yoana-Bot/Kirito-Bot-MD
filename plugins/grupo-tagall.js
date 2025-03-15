@@ -14,7 +14,7 @@ const handler = async (m, { isOwner, isAdmin, conn, text, participants, args, co
     "32": "🇧🇪", "33": "🇫🇷", "34": "🇪🇸", "36": "🇭🇺", "39": "🇮🇹", "40": "🇷🇴",
     "41": "🇨🇭", "43": "🇦🇹", "44": "🇬🇧", "45": "🇩🇰", "46": "🇸🇪", "47": "🇳🇴",
     "48": "🇵🇱", "49": "🇩🇪", "51": "🇵🇪", "52": "🇲🇽", "53": "🇨🇺", "54": "🇦🇷",
-    "55": "🇧🇷", "56": "🇨🇱", "57": "🇨🇴", "58": "🇻🇪", "504": "🇭🇳"
+    "55": "🇧🇷", "56": "🇨🇱", "57": "🇨🇴", "58": "🇻🇪"
   };
 
   function getPrefix(number) {
@@ -22,11 +22,12 @@ const handler = async (m, { isOwner, isAdmin, conn, text, participants, args, co
       const sub = number.slice(0, i);
       if (countryFlags[sub]) return sub;
     }
-    return "1"; // Si no encuentra, usa EE.UU. por defecto
+    return "1"; 
   }
 
-  const mensaje = args.join(' ') || '¡Todos mencionados!';
-  let teks = `*!  MENCION GENERAL  !*\n*PARA ${participants.length} MIEMBROS* ⚡\n\n${mensaje}\n\n`;
+  const pesan = args.join` `;
+  const oi = `*» INFO :* ${pesan}`;
+  let teks = `*!  MENCION GENERAL  !*\n  *PARA ${participants.length} MIEMBROS* ⚡\n\n ${oi}\n\n┏╍┅┅╍┅╍=͟͟͞${botname} ╍┅╍┅┅╍╍╍☾\n`;
 
   for (const mem of participants) {
     const number = mem.id.split('@')[0];
@@ -35,7 +36,7 @@ const handler = async (m, { isOwner, isAdmin, conn, text, participants, args, co
     teks += `┃ ${flag} @${number}\n`;
   }
 
-  teks += `\n┗━ ${botname || "Bot"} ━`;
+  teks += `┗┅╍╍┅╍┅ *${vs}* ╍┅╍┅┅╍┅☾`;
 
   conn.sendMessage(m.chat, { text: teks, mentions: participants.map(p => p.id) }, { quoted: m });
 };
