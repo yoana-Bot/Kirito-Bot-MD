@@ -33,7 +33,7 @@ const handler = async (m, { isOwner, isAdmin, conn, text, participants, args, co
     const number = mem.id.split('@')[0];
     const prefix = getPrefix(number);
     const flag = countryFlags[prefix] || "🏳️‍🌈";
-    teks += `┃ ${flag} @${number}\n`;
+    teks += `┃⏤͟͟͞͞${flag} @${number}\n`;
   }
 
   teks += `┗┅╍╍┅╍┅ *${vs}* ╍┅╍┅┅╍┅☾`;
