@@ -126,7 +126,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
 
     let text = menuText.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
-    let videoUrl = 'https://files.catbox.moe/pddr88.mp4'
+    let imageUrl = ['https://qu.ax/lOVMs.jpg', 'https://qu.ax/FvsSm.jpg']
     await m.react('🚀')
     await conn.sendMessage(m.chat, { 
   image: { url: imageUrl }, 
