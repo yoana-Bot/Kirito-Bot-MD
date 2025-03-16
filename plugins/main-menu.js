@@ -1,6 +1,8 @@
-import { promises } from 'fs'
+import { promises as fs } from 'fs'
 import { join } from 'path'
 import { xpRange } from '../lib/levelling.js'
+
+let mediaFile = join(process.cwd(), 'menuMedia.json')
 
 let tags = {
   'anime': 'ANIME',
@@ -126,16 +128,30 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
 
     let text = menuText.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
-    // Usamos las imágenes proporcionadas
-    const imageUrls = ['https://qu.ax/lOVMs.jpg', 'https://qu.ax/FvsSm.jpg']
-    let selectedImage = imageUrls[Math.floor(Math.random() * imageUrls.length)]
+    // Obtener la imagen o video guardado
+    let mediaData;
+    try {
+      let mediaJSON = await fs.readFile(mediaFile, 'utf-8')
+      mediaData = JSON.parse(mediaJSON)
+    } catch (err) {
+      mediaData = { url: 'https://qu.ax/lOVMs.jpg', type: 'image' } // Imagen por defecto
+    }
 
+    // Enviar el menú con la imagen o video correspondiente
     await m.react('🚀')
-    await conn.sendMessage(m.chat, { 
-      image: { url: selectedImage }, 
-      caption: text.trim(), 
-      mentions: [m.sender] 
-    }, { quoted: m })
+    if (mediaData.type === 'image') {
+      await conn.sendMessage(m.chat, { 
+        image: { url: mediaData.url }, 
+        caption: text.trim(), 
+        mentions: [m.sender] 
+      }, { quoted: m })
+    } else if (mediaData.type === 'video') {
+      await conn.sendMessage(m.chat, { 
+        video: { url: mediaData.url }, 
+        caption: text.trim(), 
+        mentions: [m.sender] 
+      }, { quoted: m })
+    }
   } catch (e) {
     conn.reply(m.chat, '❎ Lo sentimos, el menú tiene un error.', m)
     throw e
@@ -145,7 +161,6 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
 handler.help = ['allmenu']
 handler.tags = ['main']
 handler.command = ['allmenu', 'menucompleto', 'menúcompleto', 'menú', 'menu', 'help'] 
-handler.group = true;
 
 export default handler
 
@@ -165,10 +180,7 @@ function getRandomEmoji() {
 }
 
 function getLevelProgress(exp, min, max, length = 10) {
-  if (exp < min) exp = min;
-  if (exp > max) exp = max;
   let progress = Math.floor(((exp - min) / (max - min)) * length);
-  progress = Math.max(0, Math.min(progress, length)); 
   let bar = '█'.repeat(progress) + '░'.repeat(length - progress);
   return `[${bar}]`;
 }
