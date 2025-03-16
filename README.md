@@ -28,12 +28,12 @@ src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" heigh
 src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
 ## 🔥 **¡Únete y Personaliza!**  
 <a href="https://github.com/deylinqff">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&duration=4000&pause=1000&color=0099FF&width=435&lines=⚔️+CLONA+EL+REPOSITORIO+Y+PERSONALÍZALO+⚔️" alt="Typing SVG">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&duration=4000&pause=1000&color=0099FF&width=435&lines=⚔️+CLONA+EL+REPOSITORIO+⚔️" alt="Typing SVG">
 </a> 
 
 
 <details>
-<summary><b>##👑 Instalación y ejecución</b></summary>
+<summary><b>## Instalación y ejecución</b></summary>
 
 
 Para clonar el repositorio y ejecutar el bot, sigue estos pasos:  
@@ -41,9 +41,21 @@ Para clonar el repositorio y ejecutar el bot, sigue estos pasos:
 ```sh
 git clone https://github.com/deylinqff/Kirito_Bot.git
 ```
+Descripción: Clona el repositorio Kirito_Bot desde GitHub a tu máquina local.
+```sh
+cd Kirito_Bot
+```
+Descripción: Ingresa al directorio del bot recién clonado.
+```sh
+npm install
+```
+Descripción: Instala todas las dependencias necesarias para que el bot funcione correctamente.
+```sh
+npm start
+```
+Descripción: Inicia el bot para que comience a operar en WhatsApp.
 </details>
 
-📢 **¡No olvides dejar los créditos!** → [**Aquí👑**](https://github.com/deylinqff)  
 
 <a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
 src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" height="10" alt="maicolxyz777"/></a>
