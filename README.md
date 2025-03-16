@@ -32,29 +32,47 @@ src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" heigh
 </a> 
 
 
+
 <details>
-<summary><b> 𝗜𝗻𝘀𝘁𝗮𝗹𝘀𝗰𝗶𝗼𝗻 𝘆 𝗲𝗷𝗲𝗰𝘂𝗰𝗶𝗼𝗻</b></summary>
+<summary><b> 𝗜𝗻𝘀𝘁𝗮𝗹𝗮𝗰𝗶𝗼́𝗻 𝘆 𝗲𝗷𝗲𝗰𝘂𝗰𝗶𝗼́𝗻</b></summary>
 
+Para instalar y ejecutar **Kirito-Bot** en Termux, sigue estos pasos:
 
-Para clonar el repositorio y ejecutar el bot, sigue estos pasos:  
+### 1️⃣ **Preparar el entorno**  
+Ejecuta los siguientes comandos en Termux para configurar el almacenamiento y actualizar los paquetes:
 
 ```sh
+termux-setup-storage
+apt update && apt upgrade -y
+pkg install -y git nodejs ffmpeg imagemagick yarn
+
+Esto permite que Termux tenga acceso a la memoria del dispositivo y descargue las herramientas necesarias para el bot.
+
+2️⃣ Clonar el repositorio
+
+Descarga los archivos del bot desde GitHub:
+
 git clone https://github.com/deylinqff/Kirito_Bot.git
-```
-↑↑: Clona el repositorio Kirito_Bot desde GitHub a tu máquina local.
-```sh
 cd Kirito_Bot
-```
-↑↑: Ingresa al directorio del bot recién clonado.
-```sh
+
+3️⃣ Instalar dependencias
+
+Ejecuta:
+
 npm install
-```
-↑↑: Instala todas las dependencias necesarias para que el bot funcione correctamente.
-```sh
+
+Este comando instala las librerías necesarias para que el bot funcione correctamente.
+
+4️⃣ Iniciar el bot
+
+Por último, inicia el bot con:
+
 npm start
-```
-↑↑: Inicia el bot para que comience a operar en WhatsApp.
+
+Con esto, Kirito-Bot estará listo para operar en WhatsApp.
+
 </details>
+```
 
 
 <a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
