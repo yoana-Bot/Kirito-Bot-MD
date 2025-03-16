@@ -28,8 +28,5 @@ export async function before(m) {
     await conn.sendMessage(m.chat, {
       text: `〘👑〙 𝑬𝒍 𝒄𝒐𝒎𝒂𝒏𝒅𝒐 『 *${comando}* 』 𝒏𝒐 𝒆𝒙𝒊𝒔𝒕𝒆.\n𝑷𝒂𝒓𝒂 𝒗𝒆𝒓 𝒍𝒂 𝒍𝒊𝒔𝒕𝒂 𝒅𝒆 𝒄𝒐𝒎𝒂𝒏𝒅𝒐𝒔 𝒖𝒔𝒂:
 */Menu*`,
-      footer: 'KIRITO - BOT MD',
-      viewOnce: true,
-    }, { quoted: m });
   }
 }
