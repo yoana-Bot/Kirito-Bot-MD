@@ -33,53 +33,85 @@ src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" heigh
 
 
 
+#### **`👑 Instalación por termux`**
+
 <details>
-<summary><b> 𝗜𝗻𝘀𝘁𝗮𝗹𝗮𝗰𝗶𝗼́𝗻 𝘆 𝗲𝗷𝗲𝗰𝘂𝗰𝗶𝗼́𝗻</b></summary>
+ <summary><b> 👉 Click para los ver Comandos</b></summary>
 
-Para instalar y ejecutar **Kirito-Bot** en Termux, sigue estos pasos:
-
-### 1️⃣ **Preparar el entorno**  
-Ejecuta los siguientes comandos en Termux para configurar el almacenamiento y actualizar los paquetes:
-
-```sh
+#### **🪄 Instalación manual por termux**
+> copie y peguen en termux uno por uno 
+```bash
 termux-setup-storage
 ```
-```sh
-apt update
-```
-```sh
-apt upgrade
-```
-```sh
-pkg install -y git nodejs ffmpeg imagemagick yarn
+
+```bash
+apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn
 ```
 
-Esto permite que Termux tenga acceso a la memoria del dispositivo y descargue las herramientas necesarias para el bot.
-
-2️⃣ Clonar el repositorio
-
-Descarga los archivos del bot desde GitHub:
-```sh
-git clone https://github.com/deylinqff/Kirito_Bot.git
-cd Kirito_Bot
+```bash
+git clone https://github.com/deylinqff/Kirito-Bot-MD && cd Kirito-Bot-MD
 ```
-3️⃣ Instalar dependencias
 
-Ejecuta:
-```sh
-npm install
+```bash
+yarn install && npm install
 ```
-Este comando instala las librerías necesarias para que el bot funcione correctamente.
 
-4️⃣ Iniciar el bot
-
-Por último, inicia el bot con:
-```sh
+```bash
 npm start
 ```
-Con esto, Kirito-Bot estará listo para operar en WhatsApp.
+> si despues de poner el numero de WhatsApp, y sale letras en roja no se preocupe es normal 
+---
+
+#### **🟢 Activar en caso de detenerse en termux**
+
+Si después de instalar el bot en Termux se detiene (pantalla en blanco, pérdida de conexión a Internet, reinicio del dispositivo), sigue estos pasos:
+
+1. Abre Termux y navega al directorio del bot:
+    ```bash
+    cd Kirito-Bot-MD
+    ```
+
+2. Inicia el bot nuevamente:
+    ```bash
+    npm start
+    ```
+
+---
+
+#### **🔥 Obtener otro codigo qr en termux**
+
+Si después de instalar el bot en Termux y iniciar la session del bot (el numero se va a soporte, se cierra la conexión o demorastes al conectar), sigue estos pasos:
+
+1. Abre Termux y navega al directorio del bot:
+    ```bash
+    cd Kirito-Bot-MD
+    ```
+
+2. Elimina la carpeta MiniSession:
+    ```bash
+    rm -rf kiritoSession
+    ```
+
+3. Inicia el bot nuevamente:
+    ```bash
+    npm start
+    ```
+
+---
+
+### **😼 Para activar 24/7 (termux)**
+
+> comando para obtener la bot 24/7 en termux
+
+```bash
+npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
+```
+
+---
 
 </details>
+
+---
 
 
 <a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
