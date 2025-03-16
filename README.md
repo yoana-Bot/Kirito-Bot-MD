@@ -33,7 +33,7 @@ src="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif" width="350" heigh
 
 
 <details>
-<summary><b>## Instalación y ejecución</b></summary>
+<summary><b> 𝗜𝗻𝘀𝘁𝗮𝗹𝘀𝗰𝗶𝗼𝗻 𝘆 𝗲𝗷𝗲𝗰𝘂𝗰𝗶𝗼𝗻</b></summary>
 
 
 Para clonar el repositorio y ejecutar el bot, sigue estos pasos:  
@@ -41,19 +41,19 @@ Para clonar el repositorio y ejecutar el bot, sigue estos pasos:
 ```sh
 git clone https://github.com/deylinqff/Kirito_Bot.git
 ```
-Descripción: Clona el repositorio Kirito_Bot desde GitHub a tu máquina local.
+↑↑: Clona el repositorio Kirito_Bot desde GitHub a tu máquina local.
 ```sh
 cd Kirito_Bot
 ```
-Descripción: Ingresa al directorio del bot recién clonado.
+↑↑: Ingresa al directorio del bot recién clonado.
 ```sh
 npm install
 ```
-Descripción: Instala todas las dependencias necesarias para que el bot funcione correctamente.
+↑↑: Instala todas las dependencias necesarias para que el bot funcione correctamente.
 ```sh
 npm start
 ```
-Descripción: Inicia el bot para que comience a operar en WhatsApp.
+↑↑: Inicia el bot para que comience a operar en WhatsApp.
 </details>
 
 
