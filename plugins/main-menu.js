@@ -1,8 +1,6 @@
-import { promises as fs } from 'fs'
+import { promises } from 'fs'
 import { join } from 'path'
 import { xpRange } from '../lib/levelling.js'
-
-let mediaFile = join(process.cwd(), 'menuMedia.json')
 
 let tags = {
   'anime': 'ANIME',
@@ -128,30 +126,28 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
 
     let text = menuText.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
-    // Obtener la imagen o video guardado
-    let mediaData;
-    try {
-      let mediaJSON = await fs.readFile(mediaFile, 'utf-8')
-      mediaData = JSON.parse(mediaJSON)
-    } catch (err) {
-      mediaData = { url: 'https://qu.ax/lOVMs.jpg', type: 'image' } // Imagen por defecto
-    }
-
-    // Enviar el menú con la imagen o video correspondiente
+    // Función integrada sin tocar el resto del código
     await m.react('🚀')
-    if (mediaData.type === 'image') {
-      await conn.sendMessage(m.chat, { 
-        image: { url: mediaData.url }, 
-        caption: text.trim(), 
-        mentions: [m.sender] 
-      }, { quoted: m })
-    } else if (mediaData.type === 'video') {
-      await conn.sendMessage(m.chat, { 
-        video: { url: mediaData.url }, 
-        caption: text.trim(), 
-        mentions: [m.sender] 
-      }, { quoted: m })
-    }
+    await conn.sendMessage(m.chat, global.banner.includes('.mp4') || global.banner.includes('.webm') ? {
+        caption: text.trim(),
+        contextInfo: { mentionedJid: [m.sender] },
+        video: { url: global.banner },
+        gifPlayback: true
+    } : {
+        text: text.trim(),
+        contextInfo: {
+            mentionedJid: [m.sender],
+            externalAdReply: {
+                title: global.botname || 'Kirito-Bot',
+                body: global.dev || 'by Deylin',
+                thumbnailUrl: global.banner,
+                mediaType: 1,
+                showAdAttribution: true,
+                renderLargerThumbnail: true
+            }
+        }
+    }, { quoted: m });
+
   } catch (e) {
     conn.reply(m.chat, '❎ Lo sentimos, el menú tiene un error.', m)
     throw e
@@ -161,6 +157,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
 handler.help = ['allmenu']
 handler.tags = ['main']
 handler.command = ['allmenu', 'menucompleto', 'menúcompleto', 'menú', 'menu', 'help'] 
+handler.group = true;
 
 export default handler
 
@@ -180,7 +177,10 @@ function getRandomEmoji() {
 }
 
 function getLevelProgress(exp, min, max, length = 10) {
+  if (exp < min) exp = min;
+  if (exp > max) exp = max;
   let progress = Math.floor(((exp - min) / (max - min)) * length);
+  progress = Math.max(0, Math.min(progress, length)); 
   let bar = '█'.repeat(progress) + '░'.repeat(length - progress);
   return `[${bar}]`;
 }
