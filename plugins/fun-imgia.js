@@ -18,27 +18,6 @@ const handler = async (m, { conn, text }) => {
     await conn.sendMessage(m.chat, { 
       image: buffer, 
       caption: 'Imagen generada con éxito. Elige una opción:',
-      buttons: [
-        {
-          buttonId: '.imgg gato',
-          buttonText: { displayText: '😻 Gato' },
-        },
-        {
-          buttonId: '.imgg perro',
-          buttonText: { displayText: '🐶 Perro' },
-        },
-        {
-          buttonId: '.imgg raton',
-          buttonText: { displayText: '🐁 Rata' },
-        },
-        {
-          buttonId: '.imgg caballo',
-          buttonText: { displayText: '🐎 Caballo' },
-        },
-      ],
-      footer: '¡Disfruta!',
-      viewOnce: true,
-    }, { quoted: m });
   } catch (e) {
     await conn.sendMessage(m.chat, { text: '*🚨 Ha ocurrido un error 😔*' }, { quoted: m });
   }
