@@ -43,36 +43,43 @@ Ejecuta los siguientes comandos en Termux para configurar el almacenamiento y ac
 
 ```sh
 termux-setup-storage
-apt update && apt upgrade -y
+```
+```sh
+apt update
+```
+```sh
+apt upgrade
+```
+```sh
 pkg install -y git nodejs ffmpeg imagemagick yarn
+```
 
 Esto permite que Termux tenga acceso a la memoria del dispositivo y descargue las herramientas necesarias para el bot.
 
 2️⃣ Clonar el repositorio
 
 Descarga los archivos del bot desde GitHub:
-
+```sh
 git clone https://github.com/deylinqff/Kirito_Bot.git
 cd Kirito_Bot
-
+```
 3️⃣ Instalar dependencias
 
 Ejecuta:
-
+```sh
 npm install
-
+```
 Este comando instala las librerías necesarias para que el bot funcione correctamente.
 
 4️⃣ Iniciar el bot
 
 Por último, inicia el bot con:
-
+```sh
 npm start
-
+```
 Con esto, Kirito-Bot estará listo para operar en WhatsApp.
 
 </details>
-```
 
 
 <a href="https://media.tenor.com/0y8yGK559cAAAAAM/flames-twin.gif"><img
