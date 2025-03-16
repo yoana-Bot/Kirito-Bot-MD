@@ -27,9 +27,6 @@ let handler = async (m, { conn }) => {
   conn.reply(m.chat, `✅ Se ha guardado la nueva ${isImage ? '📷 Imagen' : '🎥 Video'} para el menú.`, m)
 }
 
-handler.help = ['Addimagemenu']
-handler.tags = ['owner']
-handler.command = ['Addimagemenu']
-handler.owner = true 
-
-export default handler
+handler.command = ['.Addimagemenu', 'delowner']
+handler.rowner = true;
+export default handler;
