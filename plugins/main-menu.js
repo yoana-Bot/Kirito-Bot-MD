@@ -128,25 +128,30 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
 
     // Función integrada sin tocar el resto del código
     await m.react('🚀')
-    await conn.sendMessage(m.chat, global.banner.includes('.mp4') || global.banner.includes('.webm') ? {
+    await conn.sendMessage(m.chat, 
+  global.banner.includes('.mp4') || global.banner.includes('.webm') 
+    ? {
         caption: text.trim(),
         contextInfo: { mentionedJid: [m.sender] },
         video: { url: global.banner },
         gifPlayback: true
-    } : {
-        text: text.trim(),
+      } 
+    : {
+        image: { url: global.banner },
+        caption: text.trim(),
         contextInfo: {
-            mentionedJid: [m.sender],
-            externalAdReply: {
-                title: global.botname || 'Kirito-Bot',
-                body: global.dev || 'by Deylin',
-                thumbnailUrl: global.banner,
-                mediaType: 1,
-                showAdAttribution: true,
-                renderLargerThumbnail: true
-            }
+          mentionedJid: [m.sender],
+          externalAdReply: {
+            title: global.botname || 'Kirito-Bot',
+            body: global.dev || 'by Deylin',
+            thumbnailUrl: global.banner,
+            mediaType: 1,
+            showAdAttribution: true,
+            renderLargerThumbnail: true
+          }
         }
-    }, { quoted: m });
+      }
+, { quoted: m });
 
   } catch (e) {
     conn.reply(m.chat, '❎ Lo sentimos, el menú tiene un error.', m)
