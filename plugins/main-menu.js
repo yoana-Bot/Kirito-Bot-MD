@@ -131,19 +131,9 @@ await conn.sendMessage(m.chat,
   {
     image: { url: global.banner },
     caption: text.trim(),
-    contextInfo: {
-      mentionedJid: [m.sender],
-      externalAdReply: {
-        title: global.botname || 'Kirito-Bot',
-        body: global.dev || 'by Deylin',
-        thumbnailUrl: global.banner,
-        mediaType: 1,
-        showAdAttribution: true,
-        renderLargerThumbnail: true
-      }
-    }
-  }
-, { quoted: m });
+    mentions: [m.sender] 
+  }, 
+  { quoted: m });
 
   } catch (e) {
     conn.reply(m.chat, '❎ Lo sentimos, el menú tiene un error.', m)
