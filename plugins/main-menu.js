@@ -114,12 +114,12 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
 
     let replace = { 
       "%": "%", p: _p, mode, muptime, name, 
-      exp: exp,
+      exp: exp, // Usamos el valor de experiencia real
       level, 
-      levelprogress: getLevelProgress(exp, min, max),
+      levelprogress: getLevelProgress(exp, min, max), // Usamos la función para obtener la barra de progreso
       maxexp: xp, 
       totalexp: exp, 
-      xp4levelup: max - exp,
+      xp4levelup: max - exp, // Experiencia necesaria para subir de nivel
       totalreg, 
       readmore: readMore, 
     };
@@ -131,10 +131,10 @@ await conn.sendMessage(m.chat,
   {
     image: { url: global.banner },
     caption: text.trim(),
-    mentions: [m.sender] 
+    mentions: [m.sender] // En vez de contextInfo, se puede usar directamente 'mentions'
   }, 
-  { quoted: m });
-
+  { quoted: m }
+);
   } catch (e) {
     conn.reply(m.chat, '❎ Lo sentimos, el menú tiene un error.', m)
     throw e
@@ -144,6 +144,7 @@ await conn.sendMessage(m.chat,
 handler.help = ['allmenu']
 handler.tags = ['main']
 handler.command = ['allmenu', 'menucompleto', 'menúcompleto', 'menú', 'menu', 'help'] 
+handler.group = false;
 
 export default handler
 
@@ -163,10 +164,16 @@ function getRandomEmoji() {
 }
 
 function getLevelProgress(exp, min, max, length = 10) {
+  // Asegurarse de que exp esté entre min y max
   if (exp < min) exp = min;
   if (exp > max) exp = max;
+
+  // Calculamos el progreso de la barra de experiencia
   let progress = Math.floor(((exp - min) / (max - min)) * length);
+
+  // Evitar valores fuera de rango para la barra de progreso
   progress = Math.max(0, Math.min(progress, length)); 
-  let bar = '█'.repeat(progress) + '░'.repeat(length - progress);
+
+  let bar = '█'.repeat(progress) + '░'.repeat(length - progress); // Barra de progreso
   return `[${bar}]`;
 }
