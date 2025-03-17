@@ -29,8 +29,7 @@ export async function before(m) {
     await conn.sendMessage(
       m.chat,
       {
-        text: `👑 El comando 『 *${comando}* 』 no existe.\nPara ver la lista de comandos usa:`,
-        
+        text: `👑 El comando 『 *${comando}* 』 no existe.\nPara ver la lista de comandos usa:`,        
         buttons: [
           {
             buttonId: '.menu',
