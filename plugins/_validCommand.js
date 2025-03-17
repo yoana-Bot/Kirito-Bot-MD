@@ -29,18 +29,17 @@ export async function before(m) {
     await conn.sendMessage(
       m.chat,
       {
-        text: `〘👑〙 𝑬𝒍 𝒄𝒐𝒎𝒂𝒏𝒅𝒐 『 *${comando}* 』 𝒏𝒐 𝒆𝒙𝒊𝒔𝒕𝒆.\n𝑷𝒂𝒓𝒂 𝒗𝒆𝒓 𝒍𝒂 𝒍𝒊𝒔𝒕𝒂 𝒅𝒆 𝒄𝒐𝒎𝒂𝒏𝒅𝒐𝒔, 𝒑𝒖𝒍𝒔𝒂 𝒆𝒍 𝒃𝒐́𝒕𝒐𝒏 𝒅𝒆 𝒂𝒃𝒂𝒋𝒐.`,
-        footer: 'KIRITO BOT MD',
+        text: `👑 El comando 『 *${comando}* 』 no existe.\nPara ver la lista de comandos usa:`,
+        
         buttons: [
           {
-            buttonId: 'menu',
-            buttonText: { displayText: 'Ver Menú' },
+            buttonId: '.menu',
+            buttonText: { displayText: '👑 Ver Menú' },
             type: 1
           }
-        ],
-        headerType: 1
-      },
-      { quoted: m }
-    );
+        ]
+      footer: 'KIRITO - BOT MD',
+        viewOnce: true,
+      { quoted: m });
   }
 }
