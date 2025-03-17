@@ -37,6 +37,7 @@ handler.command = ['top']
 handler.tags = ['fun']
 handler.group = true;
 handler.register = true
+handler.restrict = true
 
 export default handler
 
