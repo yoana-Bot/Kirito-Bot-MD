@@ -42,13 +42,13 @@ const defaultMenu = {
 
 Hola *%name* soy *kirito*
 
-╔══════⌬『 𝑰𝑵𝑭𝑶-𝑼𝑺𝑬𝑹 』
+╔══════⌬『 𝑰𝑵𝑭𝑶-𝑩𝑶𝑻 』
 ║ ✎ Cliente: %name
 ║ ✎ Exp: %exp
 ║ ✎ Nivel: %level %levelprogress
 ╚══════ ♢.✰.♢ ══════
 
-╔═══════⌬『 𝑰𝑵𝑭𝑶-𝑩𝑶𝑻 』
+╔═══════⌬『 𝑰𝑵𝑭𝑶-𝑼𝑺𝑬𝑹 』
 ║ ✎ Bot: Kirito-Bot MD 
 ║ ✎ Modo: %mode
 ║ ✎ Tiempo Activo: %muptime
@@ -126,15 +126,16 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
 
     let text = menuText.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
-    await m.react('🚀')
-await conn.sendMessage(m.chat, 
-  {
-    image: { url: global.banner },
-    caption: text.trim(),
-    mentions: [m.sender] 
-  }, 
-  { quoted: m });
+    // Usamos las imágenes proporcionadas
+    const imageUrls = ['https://files.catbox.moe/ngz0ng.jpg', 'https://files.catbox.moe/5olr3c.jpg', 'https://files.catbox.moe/9g3348.jpg', 'https://files.catbox.moe/91wohc.jpg']
+    let selectedImage = imageUrls[Math.floor(Math.random() * imageUrls.length)]
 
+    await m.react('🚀')
+    await conn.sendMessage(m.chat, { 
+      image: { url: selectedImage }, 
+      caption: text.trim(), 
+      mentions: [m.sender] 
+    }, { quoted: m })
   } catch (e) {
     conn.reply(m.chat, '❎ Lo sentimos, el menú tiene un error.', m)
     throw e
@@ -144,7 +145,7 @@ await conn.sendMessage(m.chat,
 handler.help = ['allmenu']
 handler.tags = ['main']
 handler.command = ['allmenu', 'menucompleto', 'menúcompleto', 'menú', 'menu', 'help'] 
-handler.register = true
+handler.group = true;
 
 export default handler
 
