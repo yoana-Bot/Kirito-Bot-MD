@@ -28,11 +28,15 @@ export async function before(m) {
    const comando = m.text.trim().split(' ')[0];
    await m.reply(`〘👑〙 𝑬𝒍 𝒄𝒐𝒎𝒂𝒏𝒅𝒐 『 *${comando}* 』 𝒏𝒐 𝒆𝒙𝒊𝒔𝒕𝒆.\n𝑷𝒂𝒓𝒂 𝒗𝒆𝒓 𝒍𝒂 𝒍𝒊𝒔𝒕𝒂 𝒅𝒆 𝒄𝒐𝒎𝒂𝒏𝒅𝒐𝒔 𝒖𝒔𝒂`,
   buttons: [
-    {
-      buttonId: '/Menu',
-      buttonText: { displayText: 'Menú' },
-      type: 1
-    }
-  ],
+  {
+    buttonId: 'menu',
+    buttonText: { displayText: 'Ver Menú' },
+    type: 1
+  }
+],
+
+footer: 'KIRITO BOT MD',
+viewOnce: true
+}, { quoted: m });
   }
 }
