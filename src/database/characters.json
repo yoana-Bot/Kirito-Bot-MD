@@ -3396,6 +3396,25 @@
         "votes": 0
     },
     {
+    "id": "2",
+    "name": "Kazuto Kirigaya",
+    "gender": "Hombre",
+    "value": 1700,
+    "source": "Sword Art Online",
+    "images": [
+            "https://files.catbox.moe/8wntjh.jpg",
+            "https://files.catbox.moe/ngz0ng.jpg",
+            "https://files.catbox.moe/1e0roy.jpg" 
+        ],
+        "vid": [
+            "https://files.catbox.moe/2pbyxy.mp4",
+            "https://files.catbox.moe/w9l3qt.mp4"
+        ],
+        "user": null,
+        "status": "libre",
+        "votes": 0
+    },
+    {
         "id": "182",
         "name": "Kaede Hoshizuki",
         "gender": "Mujer",
