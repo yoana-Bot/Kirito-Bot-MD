@@ -129,7 +129,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     // Función integrada sin tocar el resto del código
     await m.react('🚀')
     await conn.sendMessage(m.chat, 
-  global.banner.includes('.mp4') || global.banner.includes('.webm') 
+  global.banner.includes('.jpg') || global.banner.includes('.webm') 
     ? {
         caption: text.trim(),
         contextInfo: { mentionedJid: [m.sender] },
