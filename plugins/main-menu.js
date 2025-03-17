@@ -126,31 +126,23 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
 
     let text = menuText.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
-    // Función integrada sin tocar el resto del código
     await m.react('🚀')
-    await conn.sendMessage(m.chat, 
-  global.banner.includes('.jpg')
-    ? {
-        caption: text.trim(),
-        contextInfo: { mentionedJid: [m.sender] },
-        video: { url: global.banner },
-        gifPlayback: true
-      } 
-    : {
-        image: { url: global.banner },
-        caption: text.trim(),
-        contextInfo: {
-          mentionedJid: [m.sender],
-          externalAdReply: {
-            title: global.botname || 'Kirito-Bot',
-            body: global.dev || 'by Deylin',
-            thumbnailUrl: global.banner,
-            mediaType: 1,
-            showAdAttribution: true,
-            renderLargerThumbnail: true
-          }
-        }
+await conn.sendMessage(m.chat, 
+  {
+    image: { url: global.banner },
+    caption: text.trim(),
+    contextInfo: {
+      mentionedJid: [m.sender],
+      externalAdReply: {
+        title: global.botname || 'Kirito-Bot',
+        body: global.dev || 'by Deylin',
+        thumbnailUrl: global.banner,
+        mediaType: 1,
+        showAdAttribution: true,
+        renderLargerThumbnail: true
       }
+    }
+  }
 , { quoted: m });
 
   } catch (e) {
