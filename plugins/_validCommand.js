@@ -25,22 +25,16 @@ export async function before(m) {
     user.commands += 1;
   } else {
     const comando = m.text.trim().split(' ')[0];
-
-    await conn.sendMessage(
-      m.chat,
-      {
-        text: `👑 𝐄𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨〘 *${comando}* 〙𝐧𝐨 𝐞𝐱𝐢𝐬𝐭𝐞.\n𝐏𝐚𝐫𝐚 𝐯𝐞𝐫 𝐥𝐚 𝐥𝐢𝐬𝐭𝐚 𝐝𝐞 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬 𝐮𝐬𝐚:`,
-        buttons: [
-          {
-            buttonId: '.menu',
-            buttonText: { displayText: '👑 preciona aquí\n 👇🏻 \n si no sabes pregunta a alguien 😐👑👇🏻🥱✈️😐☠️😭😆😧🥒🔥🇭🇳💤🌐🇨🇷⚠️🍆' },
-            type: 1
-          }
-        ],
-        footer: 'KIRITO - BOT MD',
-        viewOnce: true
-      },
-      { quoted: m }
-    );
+    await conn.sendMessage(m.chat, {
+      text: `〘👑〙 𝑬𝒍 𝒄𝒐𝒎𝒂𝒏𝒅𝒐 『 *${comando}* 』 𝒏𝒐 𝒆𝒙𝒊𝒔𝒕𝒆.\n𝑷𝒂𝒓𝒂 𝒗𝒆𝒓 𝒍𝒂 𝒍𝒊𝒔𝒕𝒂 𝒅𝒆 𝒄𝒐𝒎𝒂𝒏𝒅𝒐𝒔 𝒖𝒔𝒂:`,
+      buttons: [
+        {
+          buttonId: '.menu',
+          buttonText: { displayText: '📜 Ver Menú' },
+        },
+      ],
+      footer: 'Kirito-Bot',
+      viewOnce: true,
+    }, { quoted: m });
   }
 }
