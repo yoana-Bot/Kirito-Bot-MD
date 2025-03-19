@@ -121,16 +121,15 @@ const thumb = (await conn.getFile(thumbnail))?.data;
     } else if (command === 'play2' || command === 'ytv' || command === 'ytmp4') {
 
       const response = await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=video&quality=480p&apikey=GataDios`)
-      const json = await response.json()
+const json = await response.json()
 
-      try {
-        await conn.sendMessage(m.chat, {
-          video: { url: json.data.url },
-          fileName: json.data.filename,
-          mimetype: 'video/mp4',
-          caption: '',
-          thumbnail: json.thumbnail
-        }, { quoted: m });
+await conn.sendMessage(m.chat, {
+  video: { url: json.data.url },
+  fileName: json.data.filename,
+  mimetype: 'video/mp4',
+  caption: '',
+  thumbnail: json.thumbnail
+}, { quoted: m });
       } catch (e) {
         console.error(`Error con la fuente de descarga:`, e.message);
       }
