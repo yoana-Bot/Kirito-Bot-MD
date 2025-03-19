@@ -128,7 +128,6 @@ const thumb = (await conn.getFile(thumbnail))?.data;
           video: { url: json.data.url },
           fileName: json.data.filename,
           mimetype: 'video/mp4',
-          title: 'Kirito',
           caption: '',
           thumbnail: json.thumbnail
         }, { quoted: m });
