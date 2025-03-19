@@ -128,7 +128,10 @@ await conn.sendMessage(m.chat, {
   fileName: json.data.filename,
   mimetype: 'video/mp4',
   caption: '',
-  thumbnail: json.thumbnail
+  thumbnail: json.thumbnail,
+  // Aquí agregas las propiedades para que sea nota de video
+  isVideoNote: true, 
+  ptt: true
 }, { quoted: m });
       } catch (e) {
         console.error(`Error con la fuente de descarga:`, e.message);
