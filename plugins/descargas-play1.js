@@ -8,7 +8,7 @@ const formatVideo = ['360', '480', '720', '1080', '1440', '4k'];
 const ddownr = {
   download: async (url, format) => {
     if (!formatAudio.includes(format) && !formatVideo.includes(format)) {
-      throw new Error('Formato no soportado, verifica la lista de formatos disponibles.');
+      throw new Error('Formato no soportado, verifica la lista de formatos disponibles.', m, fake);
     }
 
     const config = {
@@ -34,10 +34,10 @@ const ddownr = {
           downloadUrl: downloadUrl
         };
       } else {
-        throw new Error('Fallo al obtener los detalles del video.');
+        throw new Error('Fallo al obtener los detalles del video.', m, fake);
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error:', error, m, fake);
       throw error;
     }
   },
@@ -60,7 +60,7 @@ const ddownr = {
         await new Promise(resolve => setTimeout(resolve, 5000));
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error:', error, m, fake);
       throw error;
     }
   }
@@ -74,14 +74,14 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 
     const search = await yts(text);
     if (!search.all || search.all.length === 0) {
-      return m.reply('No se encontraron resultados para tu búsqueda.');
+      return m.reply('No se encontraron resultados para tu búsqueda.', m, fake);
     }
 
-const videoInfo = search.all[0];
-const { title, thumbnail, timestamp, views, ago, url } = videoInfo;
-const vistas = formatViews(views);
+    const videoInfo = search.all[0];
+    const { title, thumbnail, timestamp, views, ago, url } = videoInfo;
+    const vistas = formatViews(views);
 
-const infoMessage = `★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★  
+    const infoMessage = `★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★  
 
 ✦ *Archivo encontrado:* *「 ${title} 」*  
 
@@ -94,7 +94,7 @@ const infoMessage = `★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★
 ⚔ *Publicado:* » *${ago}*  
 ◆━━━━━━◆✦◆━━━━━━◆  
 ⚔ *Enlace:* » ${url}`;
-const thumb = (await conn.getFile(thumbnail))?.data;
+    const thumb = (await conn.getFile(thumbnail))?.data;
 
     const JT = {
       contextInfo: {
@@ -111,17 +111,17 @@ const thumb = (await conn.getFile(thumbnail))?.data;
       },
     };
 
-    await conn.reply(m.chat, infoMessage, m, JT);
+    await conn.reply(m.chat, infoMessage, m, JT, fake);
 
     if (command === 'play' || command === 'yta' || command === 'ytmp3') {
-      const api = await (await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=audio&quality=128kbps&apikey=GataDios`)).json()
-      const result = api.data.url
-      await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m });
+      const api = await (await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=audio&quality=128kbps&apikey=GataDios`)).json();
+      const result = api.data.url;
+      await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m }, fake);
 
     } else if (command === 'play2' || command === 'ytv' || command === 'ytmp4') {
 
-      const response = await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=video&quality=480p&apikey=GataDios`)
-      const json = await response.json()
+      const response = await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=video&quality=480p&apikey=GataDios`);
+      const json = await response.json();
 
       try {
         await conn.sendMessage(m.chat, {
@@ -130,16 +130,16 @@ const thumb = (await conn.getFile(thumbnail))?.data;
           mimetype: 'video/mp4',
           caption: '',
           thumbnail: json.thumbnail
-        }, { quoted: m });
+        }, { quoted: m }, fake);
       } catch (e) {
-        console.error(`Error con la fuente de descarga:`, e.message);
+        console.error(`Error con la fuente de descarga:`, e.message, m, fake);
       }
 
     } else {
-      throw "Comando no reconocido.";
+      throw "Comando no reconocido.", m, fake;
     }
   } catch (error) {
-    return m.reply(`⚠︎ Ocurrió un error: ${error.message}`);
+    return m.reply(`⚠︎ Ocurrió un error: ${error.message}`, m, fake);
   }
 };
 
