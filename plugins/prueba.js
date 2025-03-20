@@ -13,18 +13,23 @@ const handler = async (m, { conn, text, command }) => {
     }
 
     const videoInfo = search.all[0];
-    const { url } = videoInfo;
+    const { url, thumbnail } = videoInfo;
 
-    if (command === 'play' || command === 'udiv' || command === 'ytmp3') {
+    if (command === 'ytmp3' || command === 'udiv') {
       const api = await (await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=audio&quality=128kbps&apikey=GataDios`)).json();
       const result = api.data.url;
 
+      // Descarga la miniatura del video
+      const thumbBuffer = await (await fetch(thumbnail)).buffer();
+
       await conn.sendMessage(m.chat, { 
         audio: { url: result }, 
-        mimetype: "audio/mpeg" 
+        mimetype: "audio/mpeg",
+        ptt: false, // Si quieres que se envíe como audio normal y no nota de voz
+        jpegThumbnail: thumbBuffer // Agrega la miniatura al audio
       }, { quoted: m });
 
-    } else if (command === 'play2' || command === 'vids' || command === 'ytmp4') {
+    } else if (command === 'ytmp4' || command === 'vids') {
       const response = await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=video&quality=480p&apikey=GataDios`);
       const json = await response.json();
 
