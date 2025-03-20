@@ -1,62 +1,4 @@
-import yts from 'yt-search';
-
-const handler = async (m, { conn, text, usedPrefix, command }) => {
-  if (!text) throw `${emoji} Por favor ingresa la música que deseas descargar.`;
-
-  const isVideo = /vid|2|mp4|v$/.test(command);
-  const search = await yts(text);
-
-  if (!search.all || search.all.length === 0) {
-    throw "No se encontraron resultados para tu búsqueda.";
-  }
-
-  const videoInfo = search.all[0];
-  const body = `「✦」ძᥱsᥴᥲrgᥲᥒძ᥆ *<${videoInfo.title}>*\n\n> ✦ ᥴᥲᥒᥲᥣ » *${videoInfo.author.name || 'Desconocido'}*\n*◆━━━━━━◆✰◆━━━━━━◆*\n> ✰ ᥎іs𝗍ᥲs » *${videoInfo.views}*\n*◆━━━━━━◆✰◆━━━━━━◆*\n> ⴵ ძᥙrᥲᥴі᥆ᥒ » *${videoInfo.timestamp}*\n*◆━━━━━━◆✰◆━━━━━━◆*\n> ✐ ⍴ᥙᑲᥣіᥴᥲძ᥆ » *${videoInfo.ago}*\n*◆━━━━━━◆✰◆━━━━━━◆*\n> 🜸 ᥣіᥒk » ${videoInfo.url}\n`;
-
-  if (command === 'play' || command === 'play2' || command === 'playvid') {
-    await conn.sendMessage(m.chat, {
-      image: { url: videoInfo.thumbnail },
-      caption: body,
-      footer: dev,
-      buttons: [
-        {
-          buttonId: `.udiv ${videoInfo.title}`,
-          buttonText: {
-            displayText: '⏤͟͟͞͞👑 𝑨𝒖𝒅𝒊𝒐',
-          },
-        },
-        {
-          buttonId: `.vids ${videoInfo.title}`,
-          buttonText: {
-            displayText: '⏤͟͟͞͞🔥 𝑽𝒊𝒅𝒆𝒐',
-          },
-        },
-      ],
-      viewOnce: true,
-      headerType: 4,
-    }, { quoted: fkontak });
-    m.react('🕒');
-
-
-handler.help = ['play', 'playvid', 'ytv', 'yta', 'play2',];
-handler.command = ['play', 'playvid', 'ytv', 'yta', 'play2',];
-handler.tags = ['dl'];
-handler.register = true;
-
-export default handler;
-
-const getVideoId = (url) => {
-  const regex = /(?:v=|\/)([0-9A-Za-z_-]{11}).*/;
-  const match = url.match(regex);
-  if (match) {
-    return match[1];
-  }
-  throw new Error("Invalid YouTube URL");
-};
-
-
-
-/*global.play = {};
+global.play = {};
 import yts from 'yt-search';
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
@@ -81,15 +23,15 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       footer: dev,
       buttons: [
         {
-          buttonId: `.ytmp3 ${videoInfo.url}`,
+          buttonId: `.udiv ${videoInfo.url}`,
           buttonText: {
             displayText: '⏤͟͟͞͞👑 𝑨𝒖𝒅𝒊𝒐',
           },
         },
         {
-          buttonId: `.ytmp4 ${videoInfo.url}`,
+          buttonId: `.vids ${videoInfo.url}`,
           buttonText: {
-            displayText: '⏤͟͟͞͞👑  𝑽𝒊𝒅𝒆𝒐',
+            displayText: '⏤͟͟͞͞🔥  𝑽𝒊𝒅𝒆𝒐',
           },
         },
       ],
