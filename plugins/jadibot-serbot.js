@@ -27,7 +27,7 @@ let rtx = `★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★
 ➤ \`2\` 〉 Ve a "Dispositivos vinculados".
 ➤ \`3\` 〉 Escanea este QR y conéctate al bot.
 
-⚠ *Este código QR expira en 45 segundos. No pierdas tiempo.*`;
+⚠ *Este código QR expira en 45 segundos. No pierdas tiempo.*`, m, fake);
 
 let rtx2 = `★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★
 
