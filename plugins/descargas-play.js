@@ -28,7 +28,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         {
           buttonId: `.vids ${videoInfo.title}`,
           buttonText: {
-            displayText: '⏤͟͟͞͞👑 𝑽𝒊𝒅𝒆𝒐',
+            displayText: '⏤͟͟͞͞🔥 𝑽𝒊𝒅𝒆𝒐',
           },
         },
       ],
@@ -37,48 +37,6 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     }, { quoted: fkontak });
     m.react('🕒');
 
-  } else if (command === 'yta' || command === 'ytmp3') {
-    m.react(rwait);
-    let audio;
-    try {
-      audio = await (await fetch(`https://api.alyachan.dev/api/youtube?url=${videoInfo.url}&type=mp3&apikey=Gata-Dios`)).json();
-    } catch (error) {
-      try {
-        audio = await (await fetch(`https://delirius-apiofc.vercel.app/download/ytmp3?url=${videoInfo.url}`)).json();
-      } catch (error) {
-        audio = await (await fetch(`https://api.vreden.my.id/api/ytmp3?url=${videoInfo.url}`)).json();
-      }
-    }
-
-    if (!audio.data || !audio.data.url) throw "No se pudo obtener el audio.";
-    conn.sendFile(m.chat, audio.data.url, videoInfo.title, '', m, null, { mimetype: "audio/mpeg", asDocument: false });
-    m.react(done);
-
-  } else if (command === 'ytv' || command === 'ytmp4') {
-    m.react(rwait);
-    let video;
-    try {
-      video = await (await fetch(`https://api.alyachan.dev/api/youtube?url=${videoInfo.url}&type=mp4&apikey=Gata-Dios`)).json();
-    } catch (error) {
-      try {
-        video = await (await fetch(`https://delirius-apiofc.vercel.app/download/ytmp4?url=${videoInfo.url}`)).json();
-      } catch (error) {
-        video = await (await fetch(`https://api.vreden.my.id/api/ytmp4?url=${videoInfo.url}`)).json();
-      }
-    }
-
-    if (!video.data || !video.data.url) throw "No se pudo obtener el video.";
-    await conn.sendMessage(m.chat, {
-      video: { url: video.data.url },
-      mimetype: "video/mp4",
-      caption: ``,
-    }, { quoted: m });
-    m.react(done);
-
-  } else {
-    throw "Comando no reconocido.";
-  }
-};
 
 handler.help = ['play', 'playvid', 'ytv', 'yta', 'play2',];
 handler.command = ['play', 'playvid', 'ytv', 'yta', 'play2',];
