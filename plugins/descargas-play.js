@@ -1,4 +1,4 @@
-global.play = {};
+
 import yts from 'yt-search';
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
