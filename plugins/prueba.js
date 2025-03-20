@@ -15,7 +15,7 @@ const handler = async (m, { conn, text, command }) => {
     const videoInfo = search.all[0];
     const { url } = videoInfo;
 
-    if (command === 'play' || command === 'yta' || command === 'ytmp3') {
+    if (command === 'play' || command === 'udiv' || command === 'ytmp3') {
       const api = await (await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=audio&quality=128kbps&apikey=GataDios`)).json();
       const result = api.data.url;
 
@@ -24,7 +24,7 @@ const handler = async (m, { conn, text, command }) => {
         mimetype: "audio/mpeg" 
       }, { quoted: m });
 
-    } else if (command === 'play2' || command === 'ytv' || command === 'ytmp4') {
+    } else if (command === 'play2' || command === 'vids' || command === 'ytmp4') {
       const response = await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=video&quality=480p&apikey=GataDios`);
       const json = await response.json();
 
@@ -39,7 +39,7 @@ const handler = async (m, { conn, text, command }) => {
   }
 };
 
-handler.command = ['ytmp3', 'yta', 'ytmp4', 'ytv'];
+handler.command = ['ytmp3', 'udiv', 'ytmp4', 'vids'];
 handler.tags = ['downloader'];
 handler.group = true;
 
