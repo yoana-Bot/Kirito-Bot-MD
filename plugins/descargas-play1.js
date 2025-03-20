@@ -101,7 +101,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         externalAdReply: {
           mediaType: 1,
           previewType: 0,
-          sourceUrl: url,
+          mediaUrl: url,
           thumbnail: thumb,
           renderLargerThumbnail: true,
         },
