@@ -99,8 +99,6 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const JT = {
       contextInfo: {
         externalAdReply: {
-          title: botname,
-          body: dev,
           mediaType: 1,
           previewType: 0,
           mediaUrl: url,
