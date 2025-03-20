@@ -96,19 +96,10 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 ⚔ *Enlace:* » ${url}`;
     const thumb = (await conn.getFile(thumbnail))?.data;
 
-    const JT = {
-      contextInfo: {
-        externalAdReply: {
-          mediaType: 1,
-          previewType: 0,
-          mediaUrl: url,
-          thumbnail: thumb,
-          renderLargerThumbnail: true,
-        },
-      },
-    };
-
-    await conn.reply(m.chat, infoMessage, m, JT, fake);
+    await conn.sendMessage(m.chat, { 
+  image: { url: thumbnail },
+  caption: infoMessage
+}, { quoted: m, fake });
 
     if (command === 'play' || command === 'yta' || command === 'ytmp3') {
       const api = await (await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=audio&quality=128kbps&apikey=GataDios`)).json();
