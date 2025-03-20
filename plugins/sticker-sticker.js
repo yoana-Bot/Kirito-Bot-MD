@@ -47,10 +47,10 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     if (!stiker) stiker = e;
   } finally {
     if (stiker) {
-      // Enviamos el sticker como mensaje de sticker, incluyendo el contexto (m, fake)
+      // Se envía el sticker directamente (como Buffer) para evitar el error de "path"
       await conn.sendMessage(
         m.chat, 
-        { sticker: { url: stiker } },
+        { sticker: stiker }, 
         { quoted: m, contextInfo: fake }
       );
     } else {
