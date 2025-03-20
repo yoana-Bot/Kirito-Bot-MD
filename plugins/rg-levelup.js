@@ -11,7 +11,7 @@ let handler = async (m, { conn }) => {
     txt += `⭐ *Nivel* : ${user.level}\n`
     txt += `✨ *Experiencia* : ${user.exp - min} / ${xp}\n\n`
     txt += `💫 No es suficiente XP *${max - user.exp}* ¡De nuevo! ✨`
-    await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, fake)
+    await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, { quoted: m, fake: fake })
   }
   let before = user.level * 1
   while (canLevelUp(user.level, user.exp, global.multiplier)) user.level++
@@ -22,7 +22,7 @@ let handler = async (m, { conn }) => {
     txt += `• 🌟 *Nuevos niveles* : ${user.level}\n`
     txt += `• 📅 *Fecha* : ${new Date().toLocaleString('id-ID')}\n\n`
     txt += `${emoji} *Nota:* Cuanto más a interactúes con el Bot, mayor será tu nivel.`
-    await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, fake)
+    await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, { quoted: m, fake: fake })
   }
 }
 
