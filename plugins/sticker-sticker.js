@@ -15,14 +15,14 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
       let img = await q.download?.();
 
       if (!img) {
-        return conn.reply(m.chat, `${emoji} Por favor, envía una imagen o video para hacer un sticker.`, m);
+        return conn.reply(m.chat, `${emoji} Por favor, envía una imagen o video para hacer un sticker.`, m, fake);
       }
 
       let out;
       try {
         const packstickers = global.db.data.users[m.sender];
-        const texto1 = packstickers?.text1 || `${global.packsticker}`;
-        const texto2 = packstickers?.text2 || `${global.packsticker2}`;
+        const texto1 = packstickers?.text1 || `${global.packsticker}` m, fake);
+        const texto2 = packstickers?.text2 || `${global.packsticker2}` m, fake);
 
         stiker = await sticker(img, false, texto1, texto2);
       } catch (e) {
@@ -40,7 +40,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
       if (isUrl(args[0])) {
         stiker = await sticker(false, args[0], global.packsticker, global.packsticker2);
       } else {
-        return m.reply(`${msm} El URL es incorrecto...`);
+        return m.reply(`${msm} El URL es incorrecto...` m, fake);
       }
     }
   } catch (e) {
@@ -50,7 +50,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     if (stiker) {
       conn.sendFile(m.chat, stiker, 'sticker.webp', '', m);
     } else {
-      return conn.reply(m.chat, `${emoji} Por favor, envía una imagen o video para hacer un sticker.`, m);
+      return conn.reply(m.chat, `${emoji} Por favor, envía una imagen o video para hacer un sticker.`, m, fake);
     }
   }
 };
