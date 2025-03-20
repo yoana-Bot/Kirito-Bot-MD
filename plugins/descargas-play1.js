@@ -93,13 +93,13 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 ◆━━━━━━◆✦◆━━━━━━◆  
 ⚔ *Publicado:* » *${ago}*  
 ◆━━━━━━◆✦◆━━━━━━◆  
-⚔ *Enlace:* » ${url}`;
+⚔ *Enlace:* » ${url}`, m, fake);
     const thumb = (await conn.getFile(thumbnail))?.data;
 
     await conn.sendMessage(m.chat, { 
   image: { url: thumbnail },
   caption: infoMessage
-}, { quoted: m, fake });
+}, { quoted: m });
 
     if (command === 'play' || command === 'yta' || command === 'ytmp3') {
       const api = await (await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=audio&quality=128kbps&apikey=GataDios`)).json();
