@@ -22,7 +22,7 @@ let handler = async (m, { conn }) => {
     txt += `• 🌟 *Nuevos niveles* : ${user.level}\n`
     txt += `• 📅 *Fecha* : ${new Date().toLocaleString('id-ID')}\n\n`
     txt += `${emoji} *Nota:* Cuanto más a interactúes con el Bot, mayor será tu nivel.`
-    await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, { quoted: m, fake: fake })
+    await conn.sendFile(m.chat, img, 'await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, { quoted: m }) fake })
   }
 }
 
