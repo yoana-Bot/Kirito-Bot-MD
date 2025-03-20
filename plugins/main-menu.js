@@ -135,7 +135,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       image: { url: selectedImage }, 
       caption: text.trim(), 
       mentions: [m.sender] 
-    }, { quoted: m })
+    }, { quoted: m, fake })
   } catch (e) {
     conn.reply(m.chat, '❎ Lo sentimos, el menú tiene un error.', m)
     throw e
