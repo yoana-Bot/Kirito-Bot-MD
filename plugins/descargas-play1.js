@@ -8,7 +8,7 @@ const formatVideo = ['360', '480', '720', '1080', '1440', '4k'];
 const ddownr = {
   download: async (url, format) => {
     if (!formatAudio.includes(format) && !formatVideo.includes(format)) {
-      throw new Error('Formato no soportado, verifica la lista de formatos disponibles.', m, fake);
+      throw new Error('Formato no soportado, verifica la lista de formatos disponibles.');
     }
 
     const config = {
@@ -34,13 +34,14 @@ const ddownr = {
           downloadUrl: downloadUrl
         };
       } else {
-        throw new Error('Fallo al obtener los detalles del video.', m, fake);
+        throw new Error('Fallo al obtener los detalles del video.');
       }
     } catch (error) {
-      console.error('Error:', error, m, fake);
+      console.error('Error:', error);
       throw error;
     }
   },
+
   cekProgress: async (id) => {
     const config = {
       method: 'GET',
@@ -60,7 +61,7 @@ const ddownr = {
         await new Promise(resolve => setTimeout(resolve, 5000));
       }
     } catch (error) {
-      console.error('Error:', error, m, fake);
+      console.error('Error:', error);
       throw error;
     }
   }
@@ -69,12 +70,12 @@ const ddownr = {
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   try {
     if (!text.trim()) {
-      return conn.reply(m.chat, `┌─⟢ *DESCARGA DE MÚSICA* ⟣─┐\n│\n│ ✦ Ingresa el nombre de la música a descargar.\n│\n└────────────────────┘`, m, fake);
+      return conn.reply(m.chat, `┌─⟢ *DESCARGA DE MÚSICA* ⟣─┐\n│\n│ ✦ Ingresa el nombre de la música a descargar.\n│\n└────────────────────┘`, m);
     }
 
     const search = await yts(text);
     if (!search.all || search.all.length === 0) {
-      return m.reply('No se encontraron resultados para tu búsqueda.', m, fake);
+      return m.reply('No se encontraron resultados para tu búsqueda.');
     }
 
     const videoInfo = search.all[0];
@@ -93,18 +94,19 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 ◆━━━━━━◆✦◆━━━━━━◆  
 ⚔ *Publicado:* » *${ago}*  
 ◆━━━━━━◆✦◆━━━━━━◆  
-⚔ *Enlace:* » ${url}`, m, fake);
+⚔ *Enlace:* » ${url}`;
+
     const thumb = (await conn.getFile(thumbnail))?.data;
 
     await conn.sendMessage(m.chat, { 
-  image: { url: thumbnail },
-  caption: infoMessage
-}, { quoted: m });
+      image: { url: thumbnail },
+      caption: infoMessage
+    }, { quoted: m });
 
     if (command === 'play' || command === 'yta' || command === 'ytmp3') {
       const api = await (await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=audio&quality=128kbps&apikey=GataDios`)).json();
       const result = api.data.url;
-      await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m }, fake);
+      await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m });
 
     } else if (command === 'play2' || command === 'ytv' || command === 'ytmp4') {
 
@@ -117,17 +119,17 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
           fileName: json.data.filename,
           mimetype: 'video/mp4',
           caption: '',
-          thumbnail: json.thumbnail
-        }, { quoted: m }, fake);
+          thumbnail: json.thumbnail || null
+        }, { quoted: m });
       } catch (e) {
-        console.error(`Error con la fuente de descarga:`, e.message, m, fake);
+        console.error(`Error con la fuente de descarga:`, e.message);
       }
 
     } else {
-      throw "Comando no reconocido.", m, fake;
+      throw new Error("Comando no reconocido.");
     }
   } catch (error) {
-    return m.reply(`⚠︎ Ocurrió un error: ${error.message}`, m, fake);
+    return m.reply(`⚠︎ Ocurrió un error: ${error.message}`);
   }
 };
 
