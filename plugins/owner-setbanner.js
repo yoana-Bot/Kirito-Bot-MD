@@ -7,33 +7,20 @@ import { fileTypeFromBuffer } from "file-type";
 
 let handler = async (m, { conn, isRowner }) => {
 
-  // Verifica que se responda a un mensaje que contenga imagen o video
-  if (!m.quoted || !/(image|video)/.test(m.quoted.mimetype)) 
-    return m.reply(`${emoji} Por favor, responde a una imagen o video con el comando *setbanner* para actualizar el banner del menú.`);
+  if (!m.quoted || !/image/.test(m.quoted.mimetype)) return m.reply(`${emoji} Por favor, responde a una imagen con el comando *setbanner* para actualizar la foto del menu.`);
 
   try {
+
     const media = await m.quoted.download();
+    let link = await catbox(media);
 
-    // Determina si es imagen o video
-    const isImg = /image/.test(m.quoted.mimetype);
-    const isVid = /video/.test(m.quoted.mimetype);
-
-    // Si es imagen, valida que sea una imagen válida
-    if (isImg && !isImageValid(media)) {
+    if (!isImageValid(media)) {
       return m.reply(`${emoji2} El archivo enviado no es una imagen válida.`);
     }
 
-    // Subimos el archivo a catbox y obtenemos el link
-    let link = await catbox(media);
+    global.banner = `${link}`;  
 
-    // Asignamos global.banner con el link obtenido
-    global.banner = `${link}`;
-
-    // Definimos la extensión en base al tipo de archivo
-    let ext = isImg ? 'jpg' : 'mp4';
-    let filename = `banner.${ext}`;
-
-    await conn.sendFile(m.chat, media, filename, `${emoji} Banner actualizado.`, m);
+    await conn.sendFile(m.chat, media, 'banner.jpg', `${emoji} Banner actualizado.`, m);
 
   } catch (error) {
     console.error(error);
@@ -41,17 +28,25 @@ let handler = async (m, { conn, isRowner }) => {
   }
 };
 
+
 const isImageValid = (buffer) => {
   const magicBytes = buffer.slice(0, 4).toString('hex');
+
+
   if (magicBytes === 'ffd8ffe0' || magicBytes === 'ffd8ffe1' || magicBytes === 'ffd8ffe2') {
     return true;
   }
+
+
   if (magicBytes === '89504e47') {
     return true;
   }
+
+
   if (magicBytes === '47494638') {
     return true;
   }
+
   return false; 
 };
 
