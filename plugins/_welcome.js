@@ -7,8 +7,26 @@ export async function before(m, { conn, participants, groupMetadata }) {
   let who = m.messageStubParameters[0]
   let taguser = `@${who.split('@')[0]}`
   let chat = global.db.data.chats[m.chat]
-  let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://files.catbox.moe/56el7x.jpg')
+  let pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://files.catbox.moe/56el7x.jpg')
   let img = await (await fetch(`${pp}`)).buffer()
+  let totalMembers = participants.length 
+  let date = new Date().toLocaleString('es-ES', { timeZone: 'America/Mexico_City' })
+
+  let frasesBienvenida = [
+    "¡Esperamos que disfrutes tu estadía!",
+    "Recuerda leer las reglas del grupo.",
+    "Diviértete y participa en las conversaciones.",
+    "¡Un placer tenerte aquí!"
+  ]
+  let frasesDespedida = [
+    "Esperamos verte pronto de nuevo.",
+    "¡Suerte en tus proyectos futuros!",
+    "Hasta la próxima, cuídate.",
+    "Nos vemos en otra ocasión."
+  ]
+
+  let fraseRandomBienvenida = frasesBienvenida[Math.floor(Math.random() * frasesBienvenida.length)]
+  let fraseRandomDespedida = frasesDespedida[Math.floor(Math.random() * frasesDespedida.length)]
 
   if (chat.welcome) {
     if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_ADD) {
@@ -18,36 +36,30 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: ${taguser}
 ┃ 
 ┃ 𝗚𝗿𝗨𝗽𝗢: ${groupMetadata.subject} 
-┃
+┃ 𝗠𝗶𝗲𝗺𝗯𝗿𝗼𝘀: ${totalMembers}
+┃ 𝗙𝗲𝗰𝗵𝗮: ${date}
 ┃ 
+┃ ${fraseRandomBienvenida}
+┃
 ┗━━━━━━━━━━━━━━━━┅┈`
-      await conn.sendMessage(m.chat, { image: img, fake, caption: bienvenida, mentions: [who] })
+      await conn.sendMessage(m.chat, { image: img, caption: bienvenida, mentions: [who] })
     }
 
-    if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_LEAVE) {
-      let bye = `┏━━━━━━━━━━━━━━━━┅┈
+    if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_LEAVE || 
+        m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_REMOVE) { 
+      let despedida = `┏━━━━━━━━━━━━━━━━┅┈
 ┃       🄱.    🄰.    🅈.
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: ${taguser}
 ┃ 
 ┃ 𝗚𝗿𝗨𝗽𝗢: ${groupMetadata.subject} 
+┃ 𝗠𝗶𝗲𝗺𝗯𝗿𝗼𝘀: ${totalMembers}
+┃ 𝗙𝗲𝗰𝗵𝗮: ${date}
+┃ 
+┃ ${fraseRandomDespedida}
 ┃
-┃ 
 ┗━━━━━━━━━━━━━━━━┅┈`
-      await conn.sendMessage(m.chat, { image: img, caption: bye, mentions: [who] })
-    }
-
-    if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_REMOVE) { 
-      let kick = `┏━━━━━━━━━━━━━━━━┅┈
-┃       🄱.    🄰.    🅈.
-┣━━━━━━━━━━━━━━━━┅┈
-┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: ${taguser}
-┃ 
-┃ 𝗚𝗿𝗨𝗽𝗢: ${groupMetadata.subject} 
-┃
-┃ 
-┗━━━━━━━━━━━━━━━━┅┈`
-      await conn.sendMessage(m.chat, { image: img, fake, caption: kick, mentions: [who] })
+      await conn.sendMessage(m.chat, { image: img, caption: despedida, mentions: [who] })
     }
   }
 }
