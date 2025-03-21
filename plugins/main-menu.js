@@ -1,174 +1,441 @@
-import { promises } from 'fs'
-import { join } from 'path'
-import { xpRange } from '../lib/levelling.js'
+Hola! Soy  *${botname}*  ٩(˘◡˘)۶
+Aquí tienes la lista de comandos
+╭┈ ↷
+│ᰔᩚ Cliente » @${userId.split('@')[0]}
+│❀ Modo » Publico
+│✦ Bot » ${(conn.user.jid == global.conn.user.jid ? 'Principal 🅥' : 'Prem Bot 🅑')}
+│ⴵ Activada » ${uptime}
+│✰ Usuarios » ${totalreg}
+│✧ Comandos » ${totalCommands}
+│🜸 Baileys » Multi Device
+╰─────────────────
 
-let tags = {
-  'anime': 'ANIME',
-  'main': 'INFO',
-  'search': 'SEARCH',
-  'game': 'GAME',
-  'serbot': 'SUB BOTS',
-  'rpg': 'RPG',
-  'sticker': 'STICKER',
-  'group': 'GROUPS',
-  'nable': 'ON / OFF',
-  'premium': 'PREMIUM',
-  'downloader': 'DOWNLOAD',
-  'tools': 'TOOLS',
-  'fun': 'FUN',
-  'nsfw': 'NSFW',
-  'cmd': 'DATABASE',
-  'owner': 'OWNER',
-  'audio': 'AUDIOS',
-  'advanced': 'ADVANCED',
-  'weather': 'WEATHER',
-  'news': 'NEWS',
-  'finance': 'FINANCE',
-  'education': 'EDUCATION',
-  'health': 'HEALTH',
-  'entertainment': 'ENTERTAINMENT',
-  'sports': 'SPORTS',
-  'travel': 'TRAVEL',
-  'food': 'FOOD',
-  'shopping': 'SHOPPING',
-  'productivity': 'PRODUCTIVITY',
-  'social': 'SOCIAL',
-  'security': 'SECURITY',
-  'custom': 'CUSTOM'
-};
 
-const defaultMenu = {
-  before: `*⌬━━━━━▣━━◤⌬◢━━▣━━━━━━⌬*
 
-Hola *%name* soy *kirito*
+
+
+
+import moment from 'moment-timezone';
+
+let handler = async (m, { conn, args }) => {
+    let userId = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.sender;
+    let user = global.db.data.users[userId];
+    let name = conn.getName(userId);
+    let _uptime = process.uptime() * 1000;
+    let uptime = clockString(_uptime);
+    let totalreg = Object.keys(global.db.data.users).length;
+    let totalCommands = Object.values(global.plugins).filter((v) => v.help && v.tags).length;
+
+    let txt = `
+*⌬━━━━━▣━━◤⌬◢━━▣━━━━━━⌬*
+
+Hola *@${userId.split('@')[0]}* soy *kirito*
 
 ╔══════⌬『 𝑰𝑵𝑭𝑶-𝑼𝑺𝑬𝑹 』
-║ ✎ Cliente: %name
-║ ✎ Exp: %exp
-║ ✎ Nivel: %level %levelprogress
-╚══════ ♢.✰.♢ ══════
-
-╔═══════⌬『 𝑰𝑵𝑭𝑶-𝑩𝑶𝑻 』
-║ ✎ Bot: Kirito-Bot MD 
-║ ✎ Modo: %mode
-║ ✎ Tiempo Activo: %muptime
-║ ✎ Usuarios: %totalreg 
+║ ✎ Cliente: @${userId.split('@')[0]}
+║ ✎ Bot: ${(conn.user.jid == global.conn.user.jid ? 'Principal 🅥' : 'Prem Bot 🅑')}
+║ ✎ Modo: Público
+║ ✎ Tiempo ${uptime}
+║ ✎ Comandos » ${totalCommands}
 ╚══════ ♢.✰.♢ ══════
 
 *◤━━━━━ ☆. ⌬ .☆ ━━━━━◥*
- %readmore
+ ‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎
 ⚙_*𝑳𝑰𝑺𝑻𝑨 𝑫𝑬 𝑪𝑶𝑴𝑨𝑵𝑫𝑶𝑺*_
-`.trimStart(),
-  header: '*┏━━━━▣━━⌬〘 %category %emoji 〙*',
-  body: '┃〘  %emoji %cmd %islimit %isPremium\n',
-  footer: '*┗━━━▣━━⌬⌨⌬━━▣━━━━⌬*',
-  after: `> © kirito-Bot by Deylin`,
-}
 
-let handler = async (m, { conn, usedPrefix: _p }) => {
-  try {
-    let name = await conn.getName(m.sender)
-    let mode = global.opts["self"] ? "Privado" : "Público"
+*┏━━━━▣━━⌬〘 ANIME 🔥 〙*
+┃〘  🔥 .angry/enojado @tag
+┃〘  🌟 .bath/bañarse @tag
+┃〘  🔥 .bite/morder @tag
+┃〘  🌟 .bleh/lengua @tag
+┃〘  ⚡ .blush/sonrojarse @tag
+┃〘  ⚡ .bored/aburrido @tag
+┃〘  ⚡ .coffe/cafe @tag
+┃〘  🔥 .cry/llorar @tag
+┃〘  ⚡ .cuddle/acurrucarse @tag
+┃〘  🔥 .dance/bailar @tag
+┃〘  🌟 .drunk/borracho @tag
+┃〘  🌟 .facepalm/palmada @tag
+┃〘  ⚡ .happy/feliz @tag
+┃〘  ⚡ .hello/hola @tag
+┃〘  ⚡ .hug/abrazar @tag
+┃〘  🌟 .kill/matar @tag
+┃〘  🌟 .kiss/besar @tag
+┃〘  🔥 .kiss2/besar2 @tag
+┃〘  👑 .laugh/reirse @tag
+┃〘  👑 .lick/lamer @tag
+┃〘  🔥 .love2/enamorada @tag
+┃〘  🌟 .patt/acariciar @tag
+┃〘  🌟 .poke/picar @tag
+┃〘  👑 .pout/pucheros @tag
+┃〘  🔥 .ppcouple
+┃〘  👑 .pregg/embarazar @tag
+┃〘  ⚡ .punch/golpear @tag
+┃〘  🔥 .run/correr @tag
+┃〘  👑 .sad/triste @tag
+┃〘  👑 .scared/asustada @tag
+┃〘  🌟 .seduce/seducir @tag
+┃〘  🌟 .shy/timida @tag
+┃〘  ⚡ .slap/bofetada @tag
+┃〘  ⚡ .sleep/dormir @tag
+┃〘  ⚡ .smoke/fumar @tag
+┃〘  ⚡ .think/pensando @tag
+┃〘  👑 .undress/encuerar @tag
+┃〘  🔥 .waifu
+┃〘  🌟 .infoanime
+┃〘  🔥 .harem [@usuario] [pagina]
+┃〘  🌟 .regalar <nombre del personaje> @usuario
+┃〘  🌟 .topwaifus [página]
+┃〘  ⚡ .vote <nombre>
+┃〘  👑 .wvideo <nombre del personaje>
+┃〘  🌟 .wimage <nombre del personaje>
+┃〘  👑 .charinfo <nombre del personaje>
+┃〘  🌟 .winfo <nombre del personaje>
+┃〘  🌟 .waifuinfo <nombre del personaje>
+*┗━━━▣━━⌬⌨⌬━━▣━━━━⌬*
+*┏━━━━▣━━⌬〘 INFO 🌟 〙*
+┃〘  👑 .afk [alasan]
+┃〘  ⚡ .owner
+┃〘  🔥 .totalfunciones
+┃〘  👑 .allmenu
+┃〘  🔥 .mods
+┃〘  👑 .runtime
+┃〘  🌟 .script
+┃〘  🔥 .staff
+┃〘  🔥 .blocklist
+*┗━━━▣━━⌬⌨⌬━━▣━━━━⌬*
+*┏━━━━▣━━⌬〘 GAME 👑 〙*
+┃〘  ⚡ .ahorcado
+┃〘  🌟 .delttt
+┃〘  👑 .math <mode>
+┃〘  ⚡ .sopa
+┃〘  ⚡ .buscarpalabras
+*┗━━━▣━━⌬⌨⌬━━▣━━━━⌬*
+*┏━━━━▣━━⌬〘 SUB BOTS ⚡ 〙*
+┃〘  👑 .serbot
+┃〘  ⚡ .serbot code
+┃〘  👑 .token
+┃〘  🌟 .sockets
+┃〘  ⚡ .deletesesion
+┃〘  🔥 .pausarai
+*┗━━━▣━━⌬⌨⌬━━▣━━━━⌬*
+*┏━━━━▣━━⌬〘 RPG 🔥 〙*
+┃〘  ⚡ .lb
+┃〘  🔥 .levelup
+┃〘  🌟 .aventura
+┃〘  🌟 .adventure
+┃〘  👑 .baltop
+┃〘  👑 .berburu
+┃〘  🌟 .cofre
+┃〘  ⚡ .daily
+┃〘  👑 .claim
+┃〘  🌟 .depositar
+┃〘  ⚡ .explorar
+┃〘  🔥 .gremio
+┃〘  🌟 .halloween
+┃〘  🔥 .heal
+┃〘  🌟 .inventario
+┃〘  🔥 .inv
+┃〘  ⚡ .explorar
+┃〘  👑 .monthly
+┃〘  👑 .navidad
+┃〘  ⚡ .christmas
+┃〘  🌟 .retirar
+┃〘  🔥 .rob
+┃〘  🔥 .slut
+┃〘  🔥 .pay
+┃〘  ⚡ .weekly
+*┗━━━▣━━⌬⌨⌬━━▣━━━━⌬*
+*┏━━━━▣━━⌬〘 STICKER 🔥 〙*
+┃〘  🔥 .brat *<texto>*
+┃〘  🔥 .emojimix *<emoji+emoji>*
+┃〘  🌟 .pfp @user
+┃〘  🌟 .qc
+┃〘  👑 .stiker <img>
+┃〘  👑 .sticker <url>
+┃〘  ⚡ .toimg (reply)
+┃〘  🌟 .ttp
+┃〘  🌟 .attp
+*┗━━━▣━━⌬⌨⌬━━▣━━━━⌬*
+*┏━━━━▣━━⌬〘 GROUPS 🔥 〙*
+┃〘  ⚡ .invite *<521>*
+┃〘  👑 .setemoji *<emoji>*
+┃〘  🔥 .todos *<mensaje opcional>*
+┃〘  🔥 .testwelcome @user
+*┗━━━▣━━⌬⌨⌬━━▣━━━━⌬*
+*┏━━━━▣━━⌬〘 ON / OFF ⚡ 〙*
+┃〘  🔥 .welcome
+┃〘  🔥 .bv
+┃〘  👑 .bienvenida
+┃〘  🔥 .antiprivado
+┃〘  🌟 .antipriv
+┃〘  🔥 .antiprivate
+┃〘  🌟 .restrict
+┃〘  🔥 .restringir
+┃〘  🌟 .autolevelup
+┃〘  ⚡ .autonivel
+┃〘  ⚡ .autosticker
+┃〘  👑 .antibot
+┃〘  ⚡ .antibots
+┃〘  🔥 .autoaceptar
+┃〘  🔥 .aceptarauto
+┃〘  ⚡ .autorechazar
+┃〘  🌟 .rechazarauto
+┃〘  🌟 .autoresponder
+┃〘  🌟 .autorespond
+┃〘  🌟 .antisubbots
+┃〘  ⚡ .antisub
+┃〘  🌟 .antisubot
+┃〘  🔥 .antibot2
+┃〘  🌟 .modoadmin
+┃〘  🌟 .soloadmin
+┃〘  👑 .autoread
+┃〘  👑 .autoleer
+┃〘  🌟 .autover
+┃〘  👑 .antiver
+┃〘  🌟 .antiocultar
+┃〘  ⚡ .antiviewonce
+┃〘  ⚡ .reaction
+┃〘  🔥 .reaccion
+┃〘  🌟 .emojis
+┃〘  👑 .nsfw
+┃〘  🌟 .nsfwhot
+┃〘  🌟 .nsfwhorny
+┃〘  👑 .antispam
+┃〘  🌟 .antiSpam
+┃〘  ⚡ .antispamosos
+┃〘  👑 .antidelete
+┃〘  🔥 .antieliminar
+┃〘  ⚡ .jadibotmd
+┃〘  🔥 .modejadibot
+┃〘  🔥 .subbots
+┃〘  ⚡ .detect
+┃〘  👑 .configuraciones
+┃〘  🔥 .avisodegp
+┃〘  🔥 .detect2
+┃〘  🔥 .avisos
+┃〘  🌟 .eventos
+┃〘  🔥 .autosimi
+┃〘  🌟 .simsimi
+┃〘  🌟 .antilink
+┃〘  🔥 .antilink2
+┃〘  ⚡ .antitoxic
+┃〘  🔥 .antitoxicos
+┃〘  ⚡ .antitraba
+┃〘  ⚡ .antitrabas
+┃〘  🌟 .antifake
+┃〘  🔥 .antivirtuales
+*┗━━━▣━━⌬⌨⌬━━▣━━━━⌬*
+*┏━━━━▣━━⌬〘 PREMIUM ⚡ 〙*
+┃〘  🔥 .comprarpremium
+*┗━━━▣━━⌬⌨⌬━━▣━━━━⌬*
+*┏━━━━▣━━⌬〘 DOWNLOAD 👑 〙*
+┃〘  🔥 .play
+┃〘  ⚡ .play2
+┃〘  🌟 .ytmp3
+┃〘  🔥 .yta
+┃〘  👑 .ytmp4
+┃〘  👑 .ytv
+┃〘  👑 .spotify
+┃〘  🌟 .music
+┃〘  🔥 .pl
+┃〘  🌟 .pla
+┃〘  🔥 .ytmp3
+┃〘  👑 .yta
+┃〘  🌟 .ytmp4
+┃〘  🌟 .ytv
+*┗━━━▣━━⌬⌨⌬━━▣━━━━⌬*
+*┏━━━━▣━━⌬〘 TOOLS 🔥 〙*
+┃〘  🌟 .webinfo
+┃〘  🌟 .dalle
+┃〘  🔥 .imagen
+┃〘  🌟 .genearimg
+┃〘  ⚡ .setdespedida
+┃〘  🌟 .setwelcome
+┃〘  🌟 .nuevafotochannel
+┃〘  ⚡ .nosilenciarcanal
+┃〘  ⚡ .silenciarcanal
+┃〘  🔥 .noseguircanal
+┃〘  ⚡ .seguircanal
+┃〘  🔥 .avisoschannel
+┃〘  🌟 .resiviravisos
+┃〘  🔥 .inspect
+┃〘  🔥 .inspeccionar
+┃〘  ⚡ .eliminarfotochannel
+┃〘  🔥 .reactioneschannel
+┃〘  ⚡ .reaccioneschannel
+┃〘  👑 .nuevonombrecanal
+┃〘  👑 .nuevadescchannel
+┃〘  👑 .invite
+┃〘  👑 .setcatalogo
+┃〘  🌟 .setbanner
+┃〘  🔥 .setcatalogo
+┃〘  👑 .setmoneda
+┃〘  🔥 .setname
+┃〘  ⚡ .wm
+┃〘  ⚡ .cal *<ecuacion>*
+┃〘  🔥 .fake
+┃〘  🌟 .remini
+┃〘  👑 .hd
+┃〘  👑 .enhance
+┃〘  👑 .ver
+┃〘  🌟 .whatmusic <audio/video>
+┃〘  ⚡ .spamwa <number>|<mesage>|<no of messages>  ◜🪪◞
+┃〘  🔥 .ssweb
+┃〘  🌟 .ss
+┃〘  ⚡ .tamaño *<cantidad>*
+┃〘  🌟 .document *<audio/video>*
+┃〘  ⚡ .wikipedia
+*┗━━━▣━━⌬⌨⌬━━▣━━━━⌬*
+*┏━━━━▣━━⌬〘 FUN ⚡ 〙*
+┃〘  👑 .simi
+┃〘  🔥 .bot
+┃〘  🔥 .amistad
+┃〘  ⚡ .gay <@tag> | <nombre>
+┃〘  🌟 .lesbiana <@tag> | <nombre>
+┃〘  🔥 .pajero <@tag> | <nombre>
+┃〘  ⚡ .pajera <@tag> | <nombre>
+┃〘  🌟 .puto <@tag> | <nombre>
+┃〘  ⚡ .puta <@tag> | <nombre>
+┃〘  🌟 .manco <@tag> | <nombre>
+┃〘  🔥 .manca <@tag> | <nombre>
+┃〘  ⚡ .rata <@tag> | <nombre>
+┃〘  🔥 .prostituta <@tag> | <nombre>
+┃〘  👑 .prostituto <@tag> | <nombre>
+┃〘  ⚡ .chiste
+┃〘  🌟 .consejo
+┃〘  ⚡ .doxear
+┃〘  👑 .doxxing <nombre> | <@tag>
+┃〘  🔥 .facto
+┃〘  🌟 .formarpareja
+┃〘  ⚡ .formarpareja5
+┃〘  🔥 .frase
+┃〘  ⚡ .huevo @user
+┃〘  🌟 .iqtest
+┃〘  👑 .meme
+┃〘  🌟 .morse *<encode|decode>*
+┃〘  👑 .nombreninja *<texto>*
+┃〘  🔥 .pajeame
+┃〘  👑 .personalidad
+┃〘  🔥 .piropo
+┃〘  🔥 .pokedex *<pokemon>*
+┃〘  🌟 .pregunta
+┃〘  👑 .ship
+┃〘  👑 .love
+┃〘  👑 .sorteo
+┃〘  🔥 .top *<texto>*
+┃〘  🌟 .formartrio @usuario1 @usuario2
+┃〘  🔥 .zodiac *2002 02 25*
+┃〘  👑 .8ball *<pregunta>*
+┃〘  👑 .marry *@usuario*
+┃〘  👑 .divorce
+┃〘  👑 .si
+┃〘  🔥 .no
+┃〘  ⚡ .letra <estilo> <texto>
+┃〘  🔥 .logo
+*┗━━━▣━━⌬⌨⌬━━▣━━━━⌬*
+*┏━━━━▣━━⌬〘 NSFW ⚡ 〙*
+┃〘  🔥 .sixnine/69 @tag
+┃〘  ⚡ .anal/culiar @tag
+┃〘  🔥 .blowjob/mamada @tag
+┃〘  ⚡ .boobjob/rusa @tag
+┃〘  ⚡ .cum/leche @tag
+┃〘  ⚡ .fap/paja @tag
+┃〘  🔥 .follar @tag
+┃〘  🔥 .footjob/pies @tag
+┃〘  ⚡ .fuck/coger @tag
+┃〘  ⚡ .fuck2/coger2 @tag
+┃〘  👑 .grabboobs/agarrartetas @tag
+┃〘  👑 .penetrar @user
+┃〘  🔥 .lickpussy/coño @tag
+┃〘  🔥 .r34 <tag>
+┃〘  🔥 .rule34 <tag>
+┃〘  🔥 .sexo/sex @tag
+┃〘  🌟 .spank/nalgada @tag
+┃〘  ⚡ .suckboobs/chupartetas @tag
+┃〘  🔥 .violar/perra @tag
+┃〘  ⚡ .lesbianas/tijeras @tag
+*┗━━━▣━━⌬⌨⌬━━▣━━━━⌬*
+*┏━━━━▣━━⌬〘 OWNER 🔥 〙*
+┃〘  🌟 .addllama *<@user>*
+┃〘  🔥 .addprem [@user] <days>
+┃〘  ⚡ .autoadmin
+┃〘  👑 .copia
+┃〘  ⚡ .broadcastgroup
+┃〘  ⚡ .bcgc
+┃〘  🔥 .chetar *@user*
+┃〘  🌟 .chetar *<número>*
+┃〘  🌟 .cleanfiles *
+┃〘  👑 .cleartmp
+┃〘  🔥 .deletefile
+┃〘  🌟 .delprem <@user>
+┃〘  👑 .deschetar *@user*
+┃〘  🔥 .deschetar *<número>*
+┃〘  🔥 .dsowner
+┃〘  🔥 .>
+┃〘  🔥 .=>
+┃〘  🔥 .fetch
+┃〘  👑 .get
+┃〘  ⚡ .getplugin
+┃〘  🔥 .groups
+┃〘  👑 .grouplist
+┃〘  👑 .invite
+┃〘  ⚡ .prefix [prefix]
+┃〘  🌟 .quitarxp *<@user>*
+┃〘  ⚡ .quitarllama *<@user>*
+┃〘  🌟 .quitarllama all
+┃〘  ⚡ .resetprefix
 
-    if (!global.db.data.users[m.sender]) {
-      global.db.data.users[m.sender] = { exp: 0, level: 1 }
-    }
+┃〘  🌟 .restart
+┃〘  ⚡ .reunion
+┃〘  👑 .meeting
+┃〘  🌟 .savefile <ruta/nombre>
+┃〘  👑 .saveplugin
+┃〘  ⚡ .setcmd *<texto>*
+┃〘  👑 .setimage
+┃〘  👑 .setstatus <teks>
+┃〘  👑 .spam2
+┃〘  ⚡ .update
+┃〘  ⚡ .actualizar
+┃〘  🔥 .codigo <cantidad de llamas>
+┃〘  🔥 .ip <alamat ip>
+*┗━━━▣━━⌬⌨⌬━━▣━━━━⌬*
+> © kirito-Bot by Deylin
+  `.trim();
 
-    let { exp, level } = global.db.data.users[m.sender]
-    let { min, xp, max } = xpRange(level, global.multiplier)
-    let totalreg = Object.keys(global.db.data.users).length
-    let muptime = clockString(process.uptime() * 1000)
+  await conn.sendMessage(m.chat, { 
+      text: txt,
+      contextInfo: {
+          mentionedJid: [m.sender, userId],
+          isForwarded: true,
+          forwardedNewsletterMessageInfo: {
+              newsletterJid: channelRD.id,
+              newsletterName: channelRD.name,
+              serverMessageId: -1,
+          },
+          forwardingScore: 999,
+          externalAdReply: {
+              title: botname,
+              body: textbot,
+              thumbnailUrl: banner,
+              mediaType: 1,
+              showAdAttribution: true,
+              renderLargerThumbnail: true,
+          },
+      },
+  }, { quoted: m });
 
-    let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(plugin => ({
-      help: Array.isArray(plugin.help) ? plugin.help : (plugin.help ? [plugin.help] : []),
-      tags: Array.isArray(plugin.tags) ? plugin.tags : (plugin.tags ? [plugin.tags] : []),
-      limit: plugin.limit,
-      premium: plugin.premium,
-    }));
+};
 
-    let menuText = [
-      defaultMenu.before,
-      ...Object.keys(tags).map(tag => {
+handler.help = ['menu'];
+handler.tags = ['main'];
+handler.command = ['menu', 'menú', 'help'];
 
-        const commandsForTag = help.filter(menu => menu.tags.includes(tag));
-
-        if (commandsForTag.length === 0) return ''; 
-
-        return defaultMenu.header
-          .replace(/%category/g, tags[tag])
-          .replace(/%emoji/g, getRandomEmoji()) + '\n' + [
-            ...commandsForTag.map(menu =>
-              menu.help.map(help => defaultMenu.body
-                .replace(/%emoji/g, getRandomEmoji()) 
-                .replace(/%cmd/g, _p + help)
-                .replace(/%islimit/g, menu.limit ? '◜⭐◞' : '')
-                .replace(/%isPremium/g, menu.premium ? '◜🪪◞' : '')
-                .trim()
-              ).join('\n')
-            ),
-            defaultMenu.footer
-          ].join('\n')
-      }).filter(text => text !== ''), 
-      defaultMenu.after
-    ].join('\n')
-
-    let replace = { 
-      "%": "%", p: _p, mode, muptime, name, 
-      exp: exp,
-      level, 
-      levelprogress: getLevelProgress(exp, min, max),
-      maxexp: xp, 
-      totalexp: exp, 
-      xp4levelup: max - exp,
-      totalreg, 
-      readmore: readMore, 
-    };
-
-    let text = menuText.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-
-    // Usamos las imágenes proporcionadas
-    const imageUrls = ['https://files.catbox.moe/ngz0ng.jpg', 'https://files.catbox.moe/5olr3c.jpg', 'https://files.catbox.moe/9g3348.jpg', 'https://files.catbox.moe/91wohc.jpg']
-    let selectedImage = imageUrls[Math.floor(Math.random() * imageUrls.length)]
-
-    await m.react('🚀')
-    await conn.sendMessage(m.chat, { 
-      image: { url: selectedImage }, 
-      caption: text.trim(), 
-      mentions: [m.sender] 
-    }, { quoted: m, fake })
-  } catch (e) {
-    conn.reply(m.chat, '❎ Lo sentimos, el menú tiene un error.', m)
-    throw e
-  }
-}
-
-handler.help = ['allmenu']
-handler.tags = ['main']
-handler.command = ['allmenu', 'menucompleto', 'menúcompleto', 'menú', 'menu', 'help'] 
-handler.group = true;
-
-export default handler
-
-const more = String.fromCharCode(8206)
-const readMore = more.repeat(4001)
+export default handler;
 
 function clockString(ms) {
-  let h = Math.floor(ms / 3600000)
-  let m = Math.floor(ms / 60000) % 60
-  let s = Math.floor(ms / 1000) % 60
-  return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
-}
-
-function getRandomEmoji() {
-  const emojis = ['👑', '🔥', '🌟', '⚡']
-  return emojis[Math.floor(Math.random() * emojis.length)]
-}
-
-function getLevelProgress(exp, min, max, length = 10) {
-  if (exp < min) exp = min;
-  if (exp > max) exp = max;
-  let progress = Math.floor(((exp - min) / (max - min)) * length);
-  progress = Math.max(0, Math.min(progress, length)); 
-  let bar = '█'.repeat(progress) + '░'.repeat(length - progress);
-  return `[${bar}]`;
+    let seconds = Math.floor((ms / 1000) % 60);
+    let minutes = Math.floor((ms / (1000 * 60)) % 60);
+    let hours = Math.floor((ms / (1000 * 60 * 60)) % 24);
+    return `${hours}h ${minutes}m ${seconds}s`;
 }
