@@ -11,13 +11,14 @@ async function handler(m, { conn }) {
     let aboutCreador = (await conn.fetchStatus(ownerJid).catch(() => {}))?.status || 'Sin descripción';
     let empresa = 'Deylin - Servicios Tecnológicos';
 
-    let bot = 'Solo un Bot';
-
+    // Datos propios del Bot
+    let botLabel = 'Solo un Bot';
     let numBot = conn.user.jid.split('@')[0]; 
     let botJid = numBot + '@s.whatsapp.net';
     let nameBot = await conn.getName(botJid) || 'Kirito-Bot';
     let aboutBot = (await conn.fetchStatus(botJid).catch(() => {}))?.status || 'Bot Oficial de Deylin';
 
+    // VCard del creador con detalles propios y diferenciados
     let vcardCreador = `
 BEGIN:VCARD
 VERSION:3.0
@@ -34,20 +35,21 @@ X-WA-BIZ-NAME:${nameCreador}
 X-WA-BIZ-DESCRIPTION:${aboutCreador}
 END:VCARD`.trim();
 
+    // VCard del Bot con datos y formato diferenciado
     let vcardBot = `
 BEGIN:VCARD
 VERSION:3.0
 N:;${nameBot};;;
 FN:${nameBot}
-ORG:${bot};
+ORG:Automated Bot Services;
 TITLE:Asistente Virtual
 TEL;waid=${numBot}:${new PhoneNumber('+' + numBot).getNumber('international')}
-EMAIL:deylibaquedano801@gmail.com
-URL:https://kirito-md.vercel.app/
+EMAIL:bot@kirito-md.com
+URL:https://bot.kirito-md.vercel.app/
 NOTE:${aboutBot}
-X-ABLabel: Desconocido 🔥
+X-ABLabel:Contacto Bot
 X-WA-BIZ-NAME:${nameBot}
-X-WA-BIZ-DESCRIPTION:${aboutBot}
+X-WA-BIZ-DESCRIPTION:Automatización y asistencia virtual
 END:VCARD`.trim();
 
     await conn.sendMessage(m.chat, { 
