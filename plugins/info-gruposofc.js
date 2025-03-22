@@ -14,12 +14,8 @@ let grupos = `╭━━《 *GRUPOS OFICIALES* 》━━╮
 ➥ *${namechannel}*  
 ⌁ ${channel}  
 
-━═━═━═━═━═━═━═━═━═━═━
-
-☉ *Desarrollador:*  
-${dev}  
-
-╰━═━═━═━═━═━═━═━═━━═━╯`
+━═━═━═━═━═━═━═━═━═━═━  
+${dev}`
 
 await conn.sendFile(m.chat, catalogo, "grupos.jpg", grupos, m)
 await m.react(emojis)
