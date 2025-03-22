@@ -15,7 +15,7 @@ async function handler(m, { conn }) {
     
     let numBot = conn.user.jid.split('@')[0]; 
     let botJid = numBot + '@s.whatsapp.net';
-    let nameBot = 'Lusete Bot';
+    let nameBot = 'Kirito-Bot MD';
     let aboutBot = (await conn.fetchStatus(botJid).catch(() => {}))?.status || 'Bot de asistencia personalizada';
 
     
@@ -39,7 +39,7 @@ BEGIN:VCARD
 VERSION:3.0
 N:;${nameBot};;;
 FN:${nameBot}
-ORG:Lusete - Asistente Virtual;
+ORG: kirito - by Deylin;
 TITLE:Bot de Asistencia Personalizada
 TEL;waid=${numBot}:${new PhoneNumber('+' + numBot).getNumber('international')}
 EMAIL:contacto@lusetebot.com
