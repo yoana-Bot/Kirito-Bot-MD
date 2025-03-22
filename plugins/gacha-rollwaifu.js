@@ -93,7 +93,7 @@ ID: *${randomCharacter.id}*`;
 
 handler.help = ['ver', 'rw', 'rollwaifu'];
 handler.tags = ['gacha'];
-handler.command = ['ver', 'rw', 'rollwaifu'];
+handler.command = ['rw', 'rollwaifu'];
 handler.group = true;
 handler.register = true;
 
