@@ -124,4 +124,4 @@ async function getTinyURL(text) {
     } catch (error) {
         return text
     }
-}*/
+}
