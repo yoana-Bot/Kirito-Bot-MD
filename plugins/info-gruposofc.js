@@ -1,32 +1,31 @@
 import fetch from 'node-fetch'
 
-let handler  = async (m, { conn, usedPrefix, command }) => {
+let handler = async (m, { conn }) => {
 
-let grupos = `*Hola!, te invito a unirte a los grupos oficiales del Bot para convivir con la comunidad.....*
+let grupos = `╭━━《《 *GRUPOS OFICIALES* 》》━━╮
 
-- ${namegrupo}
-> *🌟* ${gp1}
+✧ *Únete a nuestra comunidad:*  
+➥ *${namegrupo}*  
+⌁ ${gp1}  
 
-${namecomu}
-> *🌟* ${comunidad1}
+━═━═━═━═━═━═━═━═━═━═━═━
 
-*ׄ─ׄ⭒─ׄ─ׅ─ׄ⭒─ׄ─ׅ─ׄ⭒─ׄ─ׅ─ׄ⭒─ׄ─ׅ─ׄ⭒─ׄ*
+⚠ *¿Enlace inválido? Usa el alternativo:*  
+➥ *${namechannel}*  
+⌁ ${channel}  
 
-🔥 Enlace anulado? entre aquí! 
+━═━═━═━═━═━═━═━═━═━═━═━
 
-- ${namechannel}
-> *🌟* ${channel}
+☉ *Desarrollador:*  
+${dev}  
 
-- ${namechannel2}
-> *🌟* ${channel2}
-
-> ${dev}`
+╰━═━═━═━═━═━═━═━═━━═━═━╯`
 
 await conn.sendFile(m.chat, catalogo, "grupos.jpg", grupos, m)
-
 await m.react(emojis)
 
 }
+
 handler.help = ['grupos']
 handler.tags = ['info']
 handler.command = ['grupos', 'links', 'groups']
