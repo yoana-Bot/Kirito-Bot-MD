@@ -11,8 +11,8 @@ let handler = async (m, { conn }) => {
   let name = await conn.getName(who);
 
   await sendContactArray(conn, m.chat, [
-    [`${suittag}`, `Deylin`, name, `❀ No Hacer Spam`, correo, `⊹˚• Deylin sabe •˚⊹`, md, bio],
-    [`${conn.user.jid.split('@')[0]}`, `✦ Es Un Bot`, packname, dev, correo, `region& 🫏`, channel, biobot]
+    [`${suittag}`, `Deylin`, name, `❀ No Hacer Spam`, correo, `⊹˚• Honduras •˚⊹`, md, bio],
+    [`${conn.user.jid.split('@')[0]}`, `✦ Es Un Bot`, packname, dev, correo, `de donde sea 🫏`, channel, biobot]
   ], m);
 }
 
