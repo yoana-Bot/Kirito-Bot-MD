@@ -24,14 +24,10 @@ FN:${nameCreador}
 ORG:${empresa};
 TITLE:CEO & Fundador
 TEL;waid=${numCreador}:${new PhoneNumber('+' + numCreador).getNumber('international')}
-EMAIL:correo@empresa.com
-URL:https://www.tuempresa.com
+EMAIL:deylibaquedano801@gmail.com
+URL:https://kirito-md.vercel.app/
 NOTE:${aboutCreador}
-ADR:;;Dirección de tu empresa;;;;
-X-ABADR:ES
-X-ABLabel:Dirección Web
-X-ABLabel:Correo Electrónico
-X-ABLabel:Teléfono de contacto
+X-ABLabel:+50488198573
 X-WA-BIZ-NAME:${nameCreador}
 X-WA-BIZ-DESCRIPTION:${aboutCreador}
 END:VCARD`.trim();
@@ -43,13 +39,10 @@ N:;${nameBot};;;
 FN:${nameBot}
 TITLE:Asistente Virtual
 TEL;waid=${numBot}:${new PhoneNumber('+' + numBot).getNumber('international')}
-EMAIL:bot@tuempresa.com
-URL:https://www.tuempresa.com
+EMAIL:deylibaquedano801@gmail.com
+URL:https://kirito-md.vercel.app/
 NOTE:${aboutBot}
-X-ABADR:ES
-X-ABLabel:Dirección Web
-X-ABLabel:Correo Electrónico
-X-ABLabel:Teléfono del Bot
+X-ABLabel: Desconocido 🔥
 X-WA-BIZ-NAME:${nameBot}
 X-WA-BIZ-DESCRIPTION:${aboutBot}
 END:VCARD`.trim();
