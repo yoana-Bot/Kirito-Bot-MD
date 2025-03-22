@@ -8,8 +8,8 @@ export async function before(m, { conn, participants, groupMetadata }) {
   let taguser = `@${who.split('@')[0]}`
   let chat = global.db.data.chats[m.chat]
   let pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://files.catbox.moe/56el7x.jpg')
-  let img = await (await fetch(`${pp}`)).buffer()
-  let totalMembers = participants.length 
+  let img = await (await fetch(pp)).buffer()
+  let totalMembers = participants.length
   let date = new Date().toLocaleString('es-ES', { timeZone: 'America/Mexico_City' })
 
   let frasesBienvenida = [
@@ -37,7 +37,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┃ 
 ┃ 𝗚𝗿𝗨𝗽𝗢: ${groupMetadata.subject}
 ┃ 
-┃ 𝗠𝗶𝗲𝗺𝗯𝗿𝗼𝘀: ${totalMembers} 
+┃ 𝗠𝗶𝗲𝗺𝗯𝗿𝗼𝘀: ${totalMembers + 1} 
 ┃
 ┃ 𝗙𝗲𝗰𝗵𝗮: ${date}
 ┃
@@ -55,7 +55,7 @@ ${fraseRandomBienvenida}`
 ┃ 
 ┃ 𝗚𝗿𝗨𝗽𝗢: ${groupMetadata.subject} 
 ┃
-┃ 𝗠𝗶𝗲𝗺𝗯𝗿𝗼𝘀: ${totalMembers} 
+┃ 𝗠𝗶𝗲𝗺𝗯𝗿𝗼𝘀: ${totalMembers - 1} 
 ┃
 ┃ 𝗙𝗲𝗰𝗵𝗮: ${date}
 ┃
