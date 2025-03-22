@@ -43,7 +43,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┃
 ┗━━━━━━━━━━━━━━━━┅┈
 ${fraseRandomBienvenida}`
-      await conn.sendMessage(m.chat, { video: { url: videoUrl }, caption: bienvenida, mentions: [who] })
+      await conn.sendMessage(m.chat, { video: { url: videoUrl }, gifPlayback: true, caption: bienvenida, mentions: [who] })
     }
 
     if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_LEAVE || 
@@ -61,7 +61,7 @@ ${fraseRandomBienvenida}`
 ┃
 ┗━━━━━━━━━━━━━━━━┅┈
 ${fraseRandomDespedida}`
-      await conn.sendMessage(m.chat, { video: { url: videoUrl }, caption: despedida, mentions: [who] })
+      await conn.sendMessage(m.chat, { video: { url: videoUrl }, gifPlayback: true, caption: despedida, mentions: [who] })
     }
   }
 }
