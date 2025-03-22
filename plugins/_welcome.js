@@ -35,13 +35,14 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: ${taguser}
 ┃ 
-┃ 𝗚𝗿𝗨𝗽𝗢: ${groupMetadata.subject} 
-┃ 𝗠𝗶𝗲𝗺𝗯𝗿𝗼𝘀: ${totalMembers}
-┃ 𝗙𝗲𝗰𝗵𝗮: ${date}
+┃ 𝗚𝗿𝗨𝗽𝗢: ${groupMetadata.subject}
 ┃ 
-┃ ${fraseRandomBienvenida}
+┃ 𝗠𝗶𝗲𝗺𝗯𝗿𝗼𝘀: ${totalMembers} 
 ┃
-┗━━━━━━━━━━━━━━━━┅┈`
+┃ 𝗙𝗲𝗰𝗵𝗮: ${date}
+┃
+┗━━━━━━━━━━━━━━━━┅┈
+${fraseRandomBienvenida}`
       await conn.sendMessage(m.chat, { image: img, caption: bienvenida, mentions: [who] })
     }
 
@@ -53,12 +54,13 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: ${taguser}
 ┃ 
 ┃ 𝗚𝗿𝗨𝗽𝗢: ${groupMetadata.subject} 
-┃ 𝗠𝗶𝗲𝗺𝗯𝗿𝗼𝘀: ${totalMembers}
-┃ 𝗙𝗲𝗰𝗵𝗮: ${date}
-┃ 
-┃ ${fraseRandomDespedida}
 ┃
-┗━━━━━━━━━━━━━━━━┅┈`
+┃ 𝗠𝗶𝗲𝗺𝗯𝗿𝗼𝘀: ${totalMembers} 
+┃
+┃ 𝗙𝗲𝗰𝗵𝗮: ${date}
+┃
+┗━━━━━━━━━━━━━━━━┅┈
+${fraseRandomDespedida}`
       await conn.sendMessage(m.chat, { image: img, caption: despedida, mentions: [who] })
     }
   }
