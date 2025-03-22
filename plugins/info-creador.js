@@ -42,10 +42,6 @@ FN:${nameBot}
 ORG: kirito - by Deylin;
 TITLE:Bot de Asistencia Personalizada
 TEL;waid=${numBot}:${new PhoneNumber('+' + numBot).getNumber('international')}
-EMAIL:contacto@lusetebot.com
-URL:https://lusetebot.com
-NOTE:Un bot único y diferente, creado para ofrecer asistencia personalizada. ${aboutBot}
-X-ABLabel:Soporte Técnico
 END:VCARD`.trim();
 
     
