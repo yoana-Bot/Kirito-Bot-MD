@@ -39,6 +39,7 @@ BEGIN:VCARD
 VERSION:3.0
 N:;${nameBot};;;
 FN:${nameBot}
+ORG:${bot};
 TITLE:Asistente Virtual
 TEL;waid=${numBot}:${new PhoneNumber('+' + numBot).getNumber('international')}
 EMAIL:deylibaquedano801@gmail.com
