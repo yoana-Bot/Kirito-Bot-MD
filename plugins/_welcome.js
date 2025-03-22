@@ -14,13 +14,35 @@ export async function before(m, { conn, participants, groupMetadata }) {
     "¡Esperamos que disfrutes tu estadía!",
     "Recuerda leer las reglas del grupo.",
     "Diviértete y participa en las conversaciones.",
-    "¡Un placer tenerte aquí!"
+    "¡Un placer tenerte aquí!",
+    "¡Bienvenido! Esperamos que la pases genial con nosotros.",
+    "¡Nuevo miembro en la casa! Siéntete como en tu hogar.",
+    "¡Hola! No olvides presentarte y participar en las charlas.",
+    "¡Un nuevo compañero ha llegado! Que disfrutes el grupo.",
+    "¡Qué bueno verte por aquí! Esperamos que te diviertas.",
+    "¡Un gusto tenerte con nosotros! Anímate a participar.",
+    "¡Bienvenido! No te preocupes, aquí todos somos buena onda.",
+    "¡Hola! Te estábamos esperando, siéntete libre de opinar.",
+    "¡Qué alegría tenerte aquí! Disfruta del grupo.",
+    "¡Un nuevo integrante ha llegado! Ponte cómodo.",
+    "¡Bienvenido! Siéntete libre de compartir y disfrutar."
   ]
   let frasesDespedida = [
     "Esperamos verte pronto de nuevo.",
     "¡Suerte en tus proyectos futuros!",
     "Hasta la próxima, cuídate.",
-    "Nos vemos en otra ocasión."
+    "Nos vemos en otra ocasión.",
+    "¡Fue un placer tenerte aquí! Mucho éxito.",
+    "Nos vemos, que te vaya bien en todo.",
+    "¡Gracias por haber sido parte del grupo!",
+    "¡Adiós! Esperamos verte en otra oportunidad.",
+    "¡Te extrañaremos! Vuelve cuando quieras.",
+    "Hasta luego, que la vida te sonría.",
+    "¡Buena suerte en todo lo que hagas!",
+    "¡Nos vemos! Que te vaya increíble.",
+    "¡Hasta siempre! Te esperamos de vuelta.",
+    "¡Que te vaya bien! Gracias por haber compartido con nosotros.",
+    "Adiós, pero recuerda que siempre serás bienvenido de vuelta."
   ]
 
   let fraseRandomBienvenida = frasesBienvenida[Math.floor(Math.random() * frasesBienvenida.length)]
@@ -42,6 +64,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┃ 𝗙𝗲𝗰𝗵𝗮: ${date}
 ┃
 ┗━━━━━━━━━━━━━━━━┅┈
+> Frase de bienvenida 
 ${fraseRandomBienvenida}`
       await conn.sendMessage(m.chat, { video: { url: videoUrl }, gifPlayback: true, caption: bienvenida, mentions: [who] })
     }
@@ -60,6 +83,7 @@ ${fraseRandomBienvenida}`
 ┃ 𝗙𝗲𝗰𝗵𝗮: ${date}
 ┃
 ┗━━━━━━━━━━━━━━━━┅┈
+> Frase de despedida 
 ${fraseRandomDespedida}`
       await conn.sendMessage(m.chat, { video: { url: videoUrl }, gifPlayback: true, caption: despedida, mentions: [who] })
     }
