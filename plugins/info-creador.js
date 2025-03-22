@@ -11,6 +11,8 @@ async function handler(m, { conn }) {
     let aboutCreador = (await conn.fetchStatus(ownerJid).catch(() => {}))?.status || 'Sin descripción';
     let empresa = 'Deylin - Servicios Tecnológicos';
 
+    let bot = 'Solo un Bot';
+
     let numBot = conn.user.jid.split('@')[0]; 
     let botJid = numBot + '@s.whatsapp.net';
     let nameBot = await conn.getName(botJid) || 'Kirito-Bot';
