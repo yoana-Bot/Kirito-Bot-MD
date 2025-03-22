@@ -6,7 +6,7 @@
 
 // DOWNLOAD - SPOTIFY
 
-/*import axios from 'axios'
+import axios from 'axios'
 import fetch from 'node-fetch'
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
