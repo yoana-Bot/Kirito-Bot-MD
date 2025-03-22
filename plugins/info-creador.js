@@ -6,6 +6,8 @@ import PhoneNumber from 'awesome-phonenumber';
 
 async function handler(m, { conn }) { 
 
+    let empresa= 'kirito';
+
     let numBot= '50488198573';
     let ownerJid = numBot + '@s.whatsapp.net';
     let nameBot = await conn.getName(ownerJid) || 'Kirito-Bot-MD'; 
