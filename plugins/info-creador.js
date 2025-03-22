@@ -5,20 +5,21 @@
 import PhoneNumber from 'awesome-phonenumber';
 
 async function handler(m, { conn }) { 
+    // Datos del creador
     let numCreador = '50488198573';
     let ownerJid = numCreador + '@s.whatsapp.net';
     let nameCreador = await conn.getName(ownerJid) || 'Deylin'; 
     let aboutCreador = (await conn.fetchStatus(ownerJid).catch(() => {}))?.status || 'Sin descripción';
     let empresa = 'Deylin - Servicios Tecnológicos';
 
-    // Datos propios del Bot
-    let botLabel = 'Solo un Bot';
+    // Datos del Bot (diferenciado y único: Lusete Bot)
     let numBot = conn.user.jid.split('@')[0]; 
     let botJid = numBot + '@s.whatsapp.net';
-    let nameBot = await conn.getName(botJid) || 'Kirito-Bot';
-    let aboutBot = (await conn.fetchStatus(botJid).catch(() => {}))?.status || 'Bot Oficial de Deylin';
+    // Aquí se forza un nombre único para el Bot
+    let nameBot = 'Lusete Bot';
+    let aboutBot = (await conn.fetchStatus(botJid).catch(() => {}))?.status || 'Bot de asistencia personalizada';
 
-    // VCard del creador con detalles propios y diferenciados
+    // VCard del creador
     let vcardCreador = `
 BEGIN:VCARD
 VERSION:3.0
@@ -29,32 +30,29 @@ TITLE:CEO & Fundador
 TEL;waid=${numCreador}:${new PhoneNumber('+' + numCreador).getNumber('international')}
 EMAIL:deylibaquedano801@gmail.com
 URL:https://kirito-md.vercel.app/
-NOTE:${aboutCreador}
-X-ABLabel:+50488198573
-X-WA-BIZ-NAME:${nameCreador}
-X-WA-BIZ-DESCRIPTION:${aboutCreador}
+NOTE:Perfil oficial de ${nameCreador}. ${aboutCreador}
+X-ABLabel:Contacto Directo
 END:VCARD`.trim();
 
-    // VCard del Bot con datos y formato diferenciado
+    // VCard del Bot con datos únicos y diferentes
     let vcardBot = `
 BEGIN:VCARD
 VERSION:3.0
 N:;${nameBot};;;
 FN:${nameBot}
-ORG:Automated Bot Services;
-TITLE:Asistente Virtual
+ORG:Lusete - Asistente Virtual;
+TITLE:Bot de Asistencia Personalizada
 TEL;waid=${numBot}:${new PhoneNumber('+' + numBot).getNumber('international')}
-EMAIL:bot@kirito-md.com
-URL:https://bot.kirito-md.vercel.app/
-NOTE:${aboutBot}
-X-ABLabel:Contacto Bot
-X-WA-BIZ-NAME:${nameBot}
-X-WA-BIZ-DESCRIPTION:Automatización y asistencia virtual
+EMAIL:contacto@lusetebot.com
+URL:https://lusetebot.com
+NOTE:Un bot único y diferente, creado para ofrecer asistencia personalizada. ${aboutBot}
+X-ABLabel:Soporte Técnico
 END:VCARD`.trim();
 
+    // Envío de ambos contactos en un solo mensaje
     await conn.sendMessage(m.chat, { 
         contacts: { 
-            displayName: 'Deylin & Kirito-Bot', 
+            displayName: 'Deylin & Lusete Bot', 
             contacts: [{ vcard: vcardCreador }, { vcard: vcardBot }]
         } 
     }, { quoted: m });
