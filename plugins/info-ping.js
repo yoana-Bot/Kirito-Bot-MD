@@ -1,19 +1,30 @@
-import speed from 'performance-now'
-import { spawn, exec, execSync } from 'child_process'
+import speed from 'performance-now';
+import { exec } from 'child_process';
 
 let handler = async (m, { conn }) => {
-         let timestamp = speed();
-         let latensi = speed() - timestamp;
-         exec(`neofetch --stdout`, (error, stdout, stderr) => {
-          let child = stdout.toString("utf-8");
-          let ssd = child.replace(/Memory:/, "Ram:");
+    let timestamp = speed();
+    let latensi = speed() - timestamp;
+    exec(`neofetch --stdout`, (error, stdout, stderr) => {
+        let sysinfo = stdout.toString("utf-8");
+        sysinfo = sysinfo.replace(/Memory:/, "Ram:");
+        // Extraer las primeras líneas de la info para un mensaje compacto
+        let sysLines = sysinfo.split("\n").slice(0, 5).join("\n");
 
-          conn.reply(m.chat, `✰ *¡Pong!*\n> Tiempo ⴵ ${latensi.toFixed(4)}ms`, m);
-            });
-}
-handler.help = ['ping']
-handler.tags = ['info']
-handler.command = ['ping', 'p']
-handler.register = true
+        let message = `
+╭───〔 *¡Pong!* 〕───╮
+│ ⏱️ *Tiempo:* ${latensi.toFixed(4)} ms
+│
+│ 💻 *Sistema:*
+│ ${sysLines}
+╰────────────────────╯
+`;
+        conn.reply(m.chat, message, m);
+    });
+};
 
-export default handler
+handler.help = ['ping'];
+handler.tags = ['info'];
+handler.command = ['ping', 'p'];
+handler.register = true;
+
+export default handler;
