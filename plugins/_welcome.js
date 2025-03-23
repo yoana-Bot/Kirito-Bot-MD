@@ -5,7 +5,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
   if (!m.messageStubType || !m.isGroup) return !0;
 
   let who = m.messageStubParameters[0]
-  let taguser = @${who.split('@')[0]}
+  let taguser = `@${who.split('@')[0]}`  // Corrección aquí
   let chat = global.db.data.chats[m.chat]
   let totalMembers = participants.length
   let date = new Date().toLocaleString('es-ES', { timeZone: 'America/Mexico_City' })
@@ -66,12 +66,13 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┗━━━━━━━━━━━━━━━━┅┈
 
 > Frase de bienvenida 
-${fraseRandomBienvenida}  await conn.sendMessage(m.chat, { video: { url: videoUrl }, gifPlayback: true, caption: bienvenida, mentions: [who] })
+${fraseRandomBienvenida}` 
+      await conn.sendMessage(m.chat, { video: { url: videoUrl }, gifPlayback: true, caption: bienvenida, mentions: [who] })
     }
   
-  if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_LEAVE ||
-      m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_REMOVE) {
-    let despedida =┏━━━━━━━━━━━━━━━━┅┈
+    if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_LEAVE ||
+        m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_REMOVE) {
+      let despedida = `┏━━━━━━━━━━━━━━━━┅┈
 ┃       🄱.    🄰.    🅈.
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: ${taguser}
@@ -84,7 +85,8 @@ ${fraseRandomBienvenida}  await conn.sendMessage(m.chat, { video: { url: videoUr
 ┃
 ┗━━━━━━━━━━━━━━━━┅┈
 Frase de despedida
-${fraseRandomDespedida}`
-    await conn.sendMessage(m.chat, { video: { url: videoUrl }, gifPlayback: true, caption: despedida, mentions: [who] })
+${fraseRandomDespedida}` 
+      await conn.sendMessage(m.chat, { video: { url: videoUrl }, gifPlayback: true, caption: despedida, mentions: [who] })
+    }
   }
 }
