@@ -68,7 +68,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ${fraseRandomBienvenida}`
       await conn.sendMessage(m.chat, { video: { url: videoUrl }, gifPlayback: true, caption: bienvenida, mentions: [who] })
     }
-
+  }
     if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_LEAVE || 
         m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_REMOVE) { 
       let despedida = `┏━━━━━━━━━━━━━━━━┅┈
