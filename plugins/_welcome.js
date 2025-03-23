@@ -1,6 +1,3 @@
-import { WAMessageStubType } from '@whiskeysockets/baileys'
-import fetch from 'node-fetch'
-
 export async function before(m, { conn, participants, groupMetadata }) {
   if (!m.messageStubType || !m.isGroup) return !0;
 
@@ -10,7 +7,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
   let totalMembers = participants.length
   let date = new Date().toLocaleString('es-ES', { timeZone: 'America/Mexico_City' })
 
-  let frasesBienvenida = [
+    let frasesBienvenida = [
     "¡Esperamos que disfrutes tu estadía!",
     "Recuerda leer las reglas del grupo.",
     "Diviértete y participa en las conversaciones.",
@@ -68,7 +65,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ${fraseRandomBienvenida}`
       await conn.sendMessage(m.chat, { video: { url: videoUrl }, gifPlayback: true, caption: bienvenida, mentions: [who] })
     }
-  }
+
     if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_LEAVE || 
         m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_REMOVE) { 
       let despedida = `┏━━━━━━━━━━━━━━━━┅┈
