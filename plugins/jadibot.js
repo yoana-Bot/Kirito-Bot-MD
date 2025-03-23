@@ -52,11 +52,11 @@ let handler = async (m, { conn: _envio, command, usedPrefix, args, text, isOwner
 
             const replyMessage = users.length === 0
                 ? `No hay Sub-Bots disponibles por el momento.`
-                : `> \n\nSub-Bots conectados: ${users.length}`;
+                : `> para ser un subbot usa el comando *#serbot --code*\n\n> *Sub-Bots conectados: ${users.length}*`;
 
             const responseMessage = isMainBot
-                ? `${emoji} **BOT PRINCIPAL**\n${replyMessage}`
-                : `${emoji} **SUB-BOT**\n${replyMessage}`;
+                ? `${emoji} *ESTE ES EL BOT PRINCIPAL*\n${replyMessage}`
+                : `${emoji} *ESTE ES UN SUB-BOT*\n${replyMessage}`;
 
             await _envio.sendMessage(m.chat, {text: responseMessage, mentions: _envio.parseMention(responseMessage)}, {quoted: m})
             break
