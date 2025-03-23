@@ -5,5 +5,9 @@ global.dfail = (type, m, usedPrefix, command, conn) => {
     conn.sendMessage(m.chat, { text: tex, image: { url: l } }, { quoted: m });
 };
 
-handler.command = ['l', 'tex'];
-handler.tags = ['downloader'];
+handler.tags = ['fun'];
+handler.help = ['+'];
+handler.command = ['tex', 'l'];
+handler.group = true;
+
+export default handler;
