@@ -51,7 +51,8 @@ let handler = async (m, { conn: _envio, command, usedPrefix, args, text, isOwner
             const isMainBot = global.conn.user.jid === conn.user.jid;
 
             const replyMessage = users.length === 0
-                ? `No hay Sub-Bots disponibles por el momento.\n\nSub-Bots conectados: ${users.length}`;
+                ? `No hay Sub-Bots disponibles por el momento.`
+                : `> \n\nSub-Bots conectados: ${users.length}`;
 
             const responseMessage = isMainBot
                 ? `${emoji} **BOT PRINCIPAL**\n${replyMessage}`
