@@ -15,25 +15,34 @@ var handler = async (m, { usedPrefix, command }) => {
 
         for (const file of files) {
             const filePath = path.resolve(pluginsDir, file);
+            const code = fs.readFileSync(filePath, 'utf-8');
+
             try {
-                // Leer el contenido del archivo
-                const code = fs.readFileSync(filePath, 'utf-8');
-                // Analizar el código para detectar errores de sintaxis
-                acorn.parse(code, { ecmaVersion: 'latest' });
+                // Primero se verifica el código con acorn para detectar errores de sintaxis
+                acorn.parse(code, { ecmaVersion: 'latest', locations: true });
+            } catch (error) {
+                hasErrors = true;
+                response += `🚩 *Error de sintaxis en:* ${file}\n`;
+                if (error.loc) {
+                    response += `*Línea:* ${error.loc.line}, *Columna:* ${error.loc.column}\n`;
+                }
+                response += `*Mensaje:* ${error.message}\n\n`;
+                // Saltar la importación si ya hay error de sintaxis
+                continue;
+            }
+
+            try {
                 // Si el parseo fue exitoso, se intenta la importación
                 await import(filePath);
             } catch (error) {
                 hasErrors = true;
-                response += `🚩 *Error en:* ${file}\n`;
-                if (error.loc) {
-                    response += `*Línea:* ${error.loc.line}, *Columna:* ${error.loc.column}\n`;
-                }
+                response += `🚩 *Error en la importación de:* ${file}\n`;
                 response += `*Mensaje:* ${error.message}\n\n`;
             }
         }
 
         if (!hasErrors) {
-            response += '✅ ¡Todo está en orden! No se detectaron errores de sintaxis.';
+            response += '✅ ¡Todo está en orden! No se detectaron errores de sintaxis ni de importación.';
         }
 
         await conn.reply(m.chat, response, m);
