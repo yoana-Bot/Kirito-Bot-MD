@@ -38,7 +38,7 @@ var handler = async (m, { usedPrefix, command }) => {
 };
 
 handler.command = ['detectarsyntax'];
-handler.help = ['error'];
+handler.help = ['errores'];
 handler.tags = ['tools'];
 handler.register = true;
 
