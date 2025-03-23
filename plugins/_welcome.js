@@ -1,4 +1,4 @@
-export async function before(m, { conn, participants, groupMetadata }) {
+/*export async function before(m, { conn, participants, groupMetadata }) {
   if (!m.messageStubType || !m.isGroup) return !0;
 
   let who = m.messageStubParameters[0]
@@ -85,4 +85,4 @@ ${fraseRandomDespedida}`
       await conn.sendMessage(m.chat, { video: { url: videoUrl }, gifPlayback: true, caption: despedida, mentions: [who] })
     }
   }
-}
+}*/
