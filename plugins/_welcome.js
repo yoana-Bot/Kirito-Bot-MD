@@ -84,7 +84,7 @@ ${fraseRandomBienvenida}`
 ┃ 𝗙𝗲𝗰𝗵𝗮: ${date}
 ┃
 ┗━━━━━━━━━━━━━━━━┅┈
-Frase de despedida
+> Frase de despedida
 ${fraseRandomDespedida}` 
       await conn.sendMessage(m.chat, { video: { url: videoUrl }, gifPlayback: true, caption: despedida, mentions: [who] })
     }
