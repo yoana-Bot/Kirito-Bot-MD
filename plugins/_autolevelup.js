@@ -1,4 +1,4 @@
-import { canLevelUp, xpRange } from '../lib/levelling.js';
+/*import { canLevelUp, xpRange } from '../lib/levelling.js';
 import { levelup } from '../lib/canvas.js';
 import moment from 'moment-timezone';
 
@@ -37,4 +37,4 @@ handler.before = async function (m, { conn }) {
     }
 };
 
-export default handler;
+export default handler;*/
