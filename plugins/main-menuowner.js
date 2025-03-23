@@ -1,4 +1,4 @@
-import moment from 'moment-timezone';
+/*import moment from 'moment-timezone';
 
 let handler = async (m, { conn }) => {
 let owner = `
@@ -77,4 +77,4 @@ handler.tags = ['main'];
 handler.command = ['mods', 'dev', 'owners'];
 handler.mods = true;
 
-export default handler;
+export default handler;*/
