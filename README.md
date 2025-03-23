@@ -4,8 +4,9 @@
 
 ---
 <p align="center">
-  <img src="https://tinyurl.com/2yeaghq8" alt="Menú Principal">
+  <img src="https://files.catbox.moe/i9m71s.jpg" alt="Menú Principal">
 </p>  
+
 ---
 
 ### 🏆 **Poder y Precisión en un Solo Bot**  
@@ -17,7 +18,7 @@
 ---
 ## 🚀 **Explora Kirito-Bot**  
 <p align="center">
-  <img src="https://qu.ax/SuZFt.jpg" alt="Kirito-Bot">
+  <img src="https://files.catbox.moe/91wohc.jpg" alt="Kirito-Bot">
 </p>  
 
 ---
