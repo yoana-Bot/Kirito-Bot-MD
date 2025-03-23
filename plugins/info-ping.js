@@ -8,7 +8,7 @@ let handler = async (m, { conn }) => {
           let child = stdout.toString("utf-8");
           let ssd = child.replace(/Memory:/, "Ram:");
 
-          conn.reply(m.chat, `> ╭───〔 *¡Pong!* 〕───╮\n> │ 👑 *Tiempo:* ${latensi.toFixed(4)} ms\n> ╰────────────────────╯
+          conn.reply(m.chat, `> ╭───〔 *¡Pong!* 〕───╮\n> │ 👑 *Tiempo:* ${latensi.toFixed(4)}ms\n> ╰────────────────────╯
 `;`, m);
             });
 }
