@@ -1,4 +1,4 @@
-import moment from 'moment-timezone';
+/*import moment from 'moment-timezone';
 
 let handler = async (m, { conn, args }) => {
     let userId = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.sender;
@@ -422,4 +422,4 @@ function clockString(ms) {
     let minutes = Math.floor((ms / (1000 * 60)) % 60);
     let hours = Math.floor((ms / (1000 * 60 * 60)) % 24);
     return `${hours}h ${minutes}m ${seconds}s`;
-}
+}*/
