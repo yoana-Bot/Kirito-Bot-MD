@@ -24,7 +24,7 @@ let handler = async (m, { conn, usedPrefix, __dirname }) => {
 
     let botname = '𝐊𝐢𝐫𝐢𝐭𝐨 - 𝐁𝐨𝐭 𝐌𝐃'
     let dev = 'Desarrollador: Deylin'
-    let redes = 'https://tumejorenlace.com'
+    let redes = 'https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m'
     let totalCommands = 50
     let emojis = '✅'
     let error = '❌'
