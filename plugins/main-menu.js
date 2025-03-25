@@ -22,7 +22,7 @@ let handler = async (m, { conn, usedPrefix, __dirname }) => {
     ]
     let randomImage = images[Math.floor(Math.random() * images.length)]  
 
-    let botname = '𝚅𝙴𝙶𝙴𝚃𝙰-𝙱𝙾𝚃'
+    let botname = '𝐊𝐢𝐫𝐢𝐭𝐨 - 𝐁𝐨𝐭 𝐌𝐃'
     let dev = 'Desarrollador: Deylin'
     let redes = 'https://tumejorenlace.com'
     let totalCommands = 50
