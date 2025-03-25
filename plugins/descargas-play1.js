@@ -166,36 +166,32 @@ import fetch from "node-fetch";
 const handler = async (m, { conn, text, command }) => {
   try {
     if (!text.trim()) {
-      return conn.reply(m.chat, `✦ Ingresa el nombre de la música a descargar.`, m);
+      return conn.reply(m.chat, `✦ Por favor, ingresa el nombre de la canción que deseas descargar.`, m);
     }
 
-    const searchUrl = `https://api.agungny.my.id/api/youtube-search?q=${encodeURIComponent(text)}`;
+    // Buscar el video en YouTube
+    const searchUrl = `https://youtube-download-api.matheusishiyama.repl.co/info/?url=https://www.youtube.com/results?search_query=${encodeURIComponent(text)}`;
     const searchResponse = await fetch(searchUrl);
     const searchData = await searchResponse.json();
 
-    if (!searchData || !searchData.data || searchData.data.length === 0) {
+    if (!searchData || !searchData.title) {
       return m.reply('No se encontraron resultados para tu búsqueda.');
     }
 
-    const videoInfo = searchData.data[0]; // Primer resultado
-    const { title, thumbnail, duration, views, uploadDate, url } = videoInfo;
-    const formattedViews = views ? views.toLocaleString() : "Desconocidas";
+    const { title, thumbnail } = searchData;
 
-    const infoMessage = `★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★  
+    const infoMessage = `★ *Descarga de Música* ★
 
-✦ *Archivo encontrado:* *「 ${title} 」*  
-⚔ *Duración:* » *${duration}*  
-⚔ *Vistas:* » *${formattedViews}*  
-⚔ *Publicado:* » *${uploadDate}*  
-⚔ *Enlace:* » ${url}`;
+✦ *Título:* ${title}
+✦ *Enlace:* https://www.youtube.com/watch?v=${searchData.videoId}`;
 
     await conn.reply(m.chat, infoMessage, m);
 
     if (command === 'play' || command === 'yta' || command === 'ytmp3') {
-      const downloadUrl = `https://api.agungny.my.id/api/youtube-audio?url=${encodeURIComponent(url)}`;
+      const downloadUrl = `https://youtube-download-api.matheusishiyama.repl.co/mp3/?url=https://www.youtube.com/watch?v=${searchData.videoId}`;
       await conn.sendMessage(m.chat, { audio: { url: downloadUrl }, mimetype: "audio/mpeg" }, { quoted: m });
     } else {
-      throw "Comando no reconocido.";
+      throw new Error("Comando no reconocido.");
     }
   } catch (error) {
     return m.reply(`⚠︎ Ocurrió un error: ${error.message}`);
