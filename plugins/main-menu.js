@@ -20,6 +20,11 @@ setTimeout(resolve, 1000)
 }) * 1000
 }
 let user = global.db.data.users[userId];
+let name = conn.getName(userId);
+let _uptime = process.uptime() * 1000;
+let uptime = clockString(_uptime);
+let totalreg = Object.keys(global.db.data.users).length;
+let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
 let muptime = clockString(_muptime)
 let uptime = clockString(_uptime)
 let totalreg = Object.keys(global.db.data.users).length
