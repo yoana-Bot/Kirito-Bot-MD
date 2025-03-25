@@ -36,7 +36,7 @@ let menu = `
 Hola *@${userId.split('@')[0]}* soy *${botname}*
 
 ╔══════⌬『 𝑰 𝑵 𝑭 𝑶 』
-//║ ✎ Cliente: @${userId.split('@')[0]}
+/*║ ✎ Cliente: @${userId.split('@')[0]}*/
 ║ ✎ Bot: ${(conn.user.jid == global.conn.user.jid ? 'Principal 🅥' : 'Prem Bot 🅑')}
 ║ ✎ Modo: Público
 ║ ✎ Usuarios » ${totalreg}
