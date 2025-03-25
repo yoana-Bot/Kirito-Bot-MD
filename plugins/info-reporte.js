@@ -1,7 +1,7 @@
 let handler = async (m, { conn, text, isOwner, isROwner }) => {
-    if (!text) return conn.reply(m.chat, `${emoji} Por favor, ingrese el error que desea reportar.`, m)
-    if (text.length < 10) return conn.reply(m.chat, `${emoji} Especifique bien el error, mínimo 10 caracteres.`, m)
-    if (text.length > 1000) return conn.reply(m.chat, `${emoji2} *Máximo 1000 caracteres para enviar el error.`, m)
+    if (!text) return m.reply(`${emoji} Por favor, ingrese el error que desea reportar.`)
+    if (text.length < 10) return m.reply(`${emoji} Especifique bien el error, mínimo 10 caracteres.`)
+    if (text.length > 1000) return m.reply(`${emoji2} *Máximo 1000 caracteres para enviar el error.*`)
 
     const teks = `*✖️ \`R E P O R T E\` ✖️*
 
@@ -14,15 +14,19 @@ let handler = async (m, { conn, text, isOwner, isROwner }) => {
 💬 Mensaje:
 • ${text}`
 
-    let destino = '120363399467898268@g.us' 
+    let destino = '120363399467898268@g.us' // Grupo de reportes
 
     if (global.db.data.users[m.sender]?.sudbot || isOwner || isROwner) {
-        destino = global.owner[0] + '@s.whatsapp.net' 
+        destino = global.owner[0] + '@s.whatsapp.net' // Creador si es un SUDBOT
     }
 
-    await conn.reply(destino, m.quoted ? teks + m.quoted.text : teks, m, { mentions: conn.parseMention(teks) })
-
-    m.reply(`${emoji} El reporte se envió correctamente. Recuerda que cualquier informe falso puede ocasionar baneo.`)
+    try {
+        await conn.sendMessage(destino, { text: teks, mentions: conn.parseMention(teks) })
+        m.reply(`${emoji} El reporte se envió correctamente.`)
+    } catch (e) {
+        m.reply(`${emoji2} Hubo un error al enviar el reporte. Inténtelo nuevamente.`)
+        console.error(e)
+    }
 }
 
 handler.help = ['reportar']
