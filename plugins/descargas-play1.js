@@ -1,4 +1,4 @@
-import fetch from "node-fetch";
+/*import fetch from "node-fetch";
 import yts from 'yt-search';
 import axios from "axios";
 
@@ -144,6 +144,68 @@ const thumb = (await conn.getFile(thumbnail))?.data;
 };
 
 handler.command = handler.help = ['play', 'play2', 'ytmp3', 'yta', 'ytmp4', 'ytv'];
+handler.tags = ['downloader'];
+handler.group = true;
+
+export default handler;
+
+function formatViews(views) {
+  if (views >= 1000) {
+    return (views / 1000).toFixed(1) + 'k (' + views.toLocaleString() + ')';
+  } else {
+    return views.toString();
+  }
+}*/
+
+
+import fetch from "node-fetch";
+
+const handler = async (m, { conn, text, usedPrefix, command }) => {
+  try {
+    if (!text.trim()) {
+      return conn.reply(m.chat, `┌─⟢ *DESCARGA DE MÚSICA* ⟣─┐\n│\n│ ✦ Ingresa el nombre de la música a descargar.\n│\n└────────────────────┘`, m);
+    }
+
+    const searchUrl = `https://api.agungny.my.id/api/youtube-search?q=${encodeURIComponent(text)}`;
+    const searchResponse = await fetch(searchUrl);
+    const searchData = await searchResponse.json();
+
+    if (!searchData || !searchData.data || searchData.data.length === 0) {
+      return m.reply('No se encontraron resultados para tu búsqueda.');
+    }
+
+    const videoInfo = searchData.data[0]; // Primer resultado
+    const { title, thumbnail, duration, views, uploadDate, url } = videoInfo;
+    
+    const vistas = formatViews(views);
+    
+    const infoMessage = `★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★  
+
+✦ *Archivo encontrado:* *「 ${title} 」*  
+
+⚔ *Duración:* » *${duration}*  
+◆━━━━━━◆✦◆━━━━━━◆  
+⚔ *Vistas:* » *${vistas}*  
+◆━━━━━━◆✦◆━━━━━━◆  
+⚔ *Publicado:* » *${uploadDate}*  
+◆━━━━━━◆✦◆━━━━━━◆  
+⚔ *Enlace:* » ${url}`;
+
+    await conn.reply(m.chat, infoMessage, m);
+
+    if (command === 'play' || command === 'yta' || command === 'ytmp3') {
+      const downloadUrl = `https://api.agungny.my.id/api/youtube-audio?url=${encodeURIComponent(url)}`;
+      await conn.sendMessage(m.chat, { audio: { url: downloadUrl }, mimetype: "audio/mpeg" }, { quoted: m });
+
+    } else {
+      throw "Comando no reconocido.";
+    }
+  } catch (error) {
+    return m.reply(`⚠︎ Ocurrió un error: ${error.message}`);
+  }
+};
+
+handler.command = handler.help = ['play', 'yta', 'ytmp3'];
 handler.tags = ['downloader'];
 handler.group = true;
 
