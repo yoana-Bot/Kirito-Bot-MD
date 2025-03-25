@@ -114,7 +114,7 @@ const thumb = (await conn.getFile(thumbnail))?.data;
     await conn.reply(m.chat, infoMessage, m, JT);
 
     if (command === 'play' || command === 'yta' || command === 'ytmp3') {
-      const api = await (await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=audio&quality=128kbps&apikey=GataDios`)).json()
+      const api = await (await fetch(`https://api.agungny.my.id/api/youtube-audio?url=${url}&type=audio&quality=128kbps&apikey=GataDios`)).json()
       const result = api.data.url
       await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m });
 
