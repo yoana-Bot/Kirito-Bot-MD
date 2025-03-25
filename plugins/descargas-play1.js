@@ -172,14 +172,21 @@ const handler = async (m, { conn, text, command }) => {
     // Buscar el video en YouTube
     const searchUrl = `https://api.agungny.my.id/api/ytsearch?q=${encodeURIComponent(text)}`;
     const searchResponse = await fetch(searchUrl);
-    const searchData = await searchResponse.json();
+    const searchText = await searchResponse.text(); // Obtener respuesta como texto
+
+    let searchData;
+    try {
+      searchData = JSON.parse(searchText); // Intentar convertir a JSON
+    } catch {
+      return m.reply('⚠︎ Error: La API de búsqueda no devolvió una respuesta válida.');
+    }
 
     if (!searchData || !searchData.data || searchData.data.length === 0) {
       return m.reply('No se encontraron resultados para tu búsqueda.');
     }
 
     const videoInfo = searchData.data[0]; // Primer resultado
-    const { title, thumbnail, duration, views, uploadDate, url } = videoInfo;
+    const { title, duration, views, uploadDate, url } = videoInfo;
 
     const infoMessage = `★ *Descarga de Música* ★
 
@@ -193,7 +200,21 @@ const handler = async (m, { conn, text, command }) => {
 
     if (command === 'play' || command === 'yta' || command === 'ytmp3') {
       const downloadUrl = `https://api.agungny.my.id/api/ytmp3?url=${encodeURIComponent(url)}`;
-      await conn.sendMessage(m.chat, { audio: { url: downloadUrl }, mimetype: "audio/mpeg" }, { quoted: m });
+      const audioResponse = await fetch(downloadUrl);
+      const audioText = await audioResponse.text();
+
+      let audioData;
+      try {
+        audioData = JSON.parse(audioText);
+      } catch {
+        return m.reply('⚠︎ Error: La API de descarga no devolvió una respuesta válida.');
+      }
+
+      if (!audioData || !audioData.result || !audioData.result.audio) {
+        return m.reply('⚠︎ No se pudo obtener el audio.');
+      }
+
+      await conn.sendMessage(m.chat, { audio: { url: audioData.result.audio }, mimetype: "audio/mpeg" }, { quoted: m });
     } else {
       throw new Error("Comando no reconocido.");
     }
