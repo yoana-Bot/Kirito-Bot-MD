@@ -170,25 +170,29 @@ const handler = async (m, { conn, text, command }) => {
     }
 
     // Buscar el video en YouTube
-    const searchUrl = `https://youtube-download-api.matheusishiyama.repl.co/info/?url=https://www.youtube.com/results?search_query=${encodeURIComponent(text)}`;
+    const searchUrl = `https://api.agungny.my.id/api/ytsearch?q=${encodeURIComponent(text)}`;
     const searchResponse = await fetch(searchUrl);
     const searchData = await searchResponse.json();
 
-    if (!searchData || !searchData.title) {
+    if (!searchData || !searchData.data || searchData.data.length === 0) {
       return m.reply('No se encontraron resultados para tu búsqueda.');
     }
 
-    const { title, thumbnail } = searchData;
+    const videoInfo = searchData.data[0]; // Primer resultado
+    const { title, thumbnail, duration, views, uploadDate, url } = videoInfo;
 
     const infoMessage = `★ *Descarga de Música* ★
 
 ✦ *Título:* ${title}
-✦ *Enlace:* https://www.youtube.com/watch?v=${searchData.videoId}`;
+✦ *Duración:* ${duration}
+✦ *Vistas:* ${views}
+✦ *Publicado:* ${uploadDate}
+✦ *Enlace:* ${url}`;
 
     await conn.reply(m.chat, infoMessage, m);
 
     if (command === 'play' || command === 'yta' || command === 'ytmp3') {
-      const downloadUrl = `https://youtube-download-api.matheusishiyama.repl.co/mp3/?url=https://www.youtube.com/watch?v=${searchData.videoId}`;
+      const downloadUrl = `https://api.agungny.my.id/api/ytmp3?url=${encodeURIComponent(url)}`;
       await conn.sendMessage(m.chat, { audio: { url: downloadUrl }, mimetype: "audio/mpeg" }, { quoted: m });
     } else {
       throw new Error("Comando no reconocido.");
