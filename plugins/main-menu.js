@@ -7,6 +7,9 @@ let handler = async (m, { conn, args }) => {
     let _uptime = process.uptime() * 1000;
     let uptime = clockString(_uptime);
     let totalreg = Object.keys(global.db.data.users).length;
+    let perfil = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://qu.ax/baPyF.jpg')
+    let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
+const img = ['', 'https://qu.ax/TWFjA.mp4', 'https://qu.ax/TWFjA.mp4']
     let totalCommands = Object.values(global.plugins).filter((v) => v.help && v.tags).length;
 
     let txt = `
@@ -388,25 +391,26 @@ Hola *@${userId.split('@')[0]}* soy *${botname}*
   `.trim();
 
     await conn.sendMessage(m.chat, { 
-      text: txt,
-      contextInfo: {
-          mentionedJid: [m.sender, userId],
-          isForwarded: true,
-          forwardedNewsletterMessageInfo: {
-              newsletterJid: channelRD.id,
-              newsletterName: channelRD.name,
-              serverMessageId: -1,
-          },
-          forwardingScore: 999,
-          externalAdReply: {
-              title: botname,
-              body: textbot,
-              thumbnailUrl: banner,
-              mediaType: 1,
-              showAdAttribution: true,
-              renderLargerThumbnail: true,
-          },
-      },
+    image: { url: img.getRandom() }, 
+    caption: menu, 
+    contextInfo: { 
+        mentionedJid: [m.sender], 
+        isForwarded: true, 
+        forwardedNewsletterMessageInfo: { 
+            newsletterJid: channelRD.id, 
+            newsletterName: channelRD.name, 
+            serverMessageId: -1, 
+        }, 
+        forwardingScore: 999, 
+        externalAdReply: { 
+            title: 'Kirito-Bot', 
+            body: dev, 
+            thumbnailUrl: perfil, 
+            sourceUrl: redes, 
+            mediaType: 1, 
+            renderLargerThumbnail: false, 
+        },
+    },
   }, { quoted: m });
 
 };
