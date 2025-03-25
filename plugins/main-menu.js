@@ -7,7 +7,6 @@ let handler = async (m, { conn, args }) => {
     let _uptime = process.uptime() * 1000;
     let uptime = clockString(_uptime);
     let totalreg = Object.keys(global.db.data.users).length;
-    let perfil = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://files.catbox.moe/i9m71s.jpg')
     let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
 const img = ['https://files.catbox.moe/56t2l6.jpg', 'https://files.catbox.moe/i9m71s.jpg', 'https://files.catbox.moe/56t2l6.jpg']
     let totalCommands = Object.values(global.plugins).filter((v) => v.help && v.tags).length;
