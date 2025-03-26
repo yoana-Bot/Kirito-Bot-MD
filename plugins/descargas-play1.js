@@ -69,7 +69,7 @@ const ddownr = {
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   try {
     if (!text.trim()) {
-      return conn.reply(m.chat, `┌─⟢ *DESCARGA DE MÚSICA* ⟣─┐\n│\n│ ✦ Ingresa el nombre de la música a descargar.\n│\n└────────────────────┘`, m, fake);
+      return conn.reply(m.chat, `❀ Por favor, ingresa el nombre de la música a descargar.`, m);
     }
 
     const search = await yts(text);
@@ -77,24 +77,11 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       return m.reply('No se encontraron resultados para tu búsqueda.');
     }
 
-const videoInfo = search.all[0];
-const { title, thumbnail, timestamp, views, ago, url } = videoInfo;
-const vistas = formatViews(views);
-
-const infoMessage = `★ *𝗞𝗜𝗥𝗜𝗧𝗢 - 𝗕𝗢𝗧 𝗠𝗗* ★  
-
-✦ *Archivo encontrado:* *「 ${title} 」*  
-
-⚔ *Canal:* » *${videoInfo.author.name || 'Desconocido'}*  
-◆━━━━━━◆✦◆━━━━━━◆  
-⚔ *Vistas:* » *${vistas}*  
-◆━━━━━━◆✦◆━━━━━━◆  
-⚔ *Duración:* » *${timestamp}*  
-◆━━━━━━◆✦◆━━━━━━◆  
-⚔ *Publicado:* » *${ago}*  
-◆━━━━━━◆✦◆━━━━━━◆  
-⚔ *Enlace:* » ${url}`;
-const thumb = (await conn.getFile(thumbnail))?.data;
+    const videoInfo = search.all[0];
+    const { title, thumbnail, timestamp, views, ago, url } = videoInfo;
+    const vistas = formatViews(views);
+    const infoMessage = `「✦」Descargando *<${title}>*\n\n> ✦ Canal » *${videoInfo.author.name || 'Desconocido'}*\n> ✰ Vistas » *${views}*\n> ⴵ Duración » *${timestamp}*\n> ✐ Publicación » *${ago}*\n> 🜸 Link » ${url}\n`;
+    const thumb = (await conn.getFile(thumbnail))?.data;
 
     const JT = {
       contextInfo: {
@@ -114,7 +101,7 @@ const thumb = (await conn.getFile(thumbnail))?.data;
     await conn.reply(m.chat, infoMessage, m, JT);
 
     if (command === 'play' || command === 'yta' || command === 'ytmp3') {
-      const api = await (await fetch(`https://api.agungny.my.id/api/youtube-audio?url=${url}&type=audio&quality=128kbps&apikey=GataDios`)).json()
+      const api = await (await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=audio&quality=128kbps&apikey=GataDios`)).json()
       const result = api.data.url
       await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m });
 
