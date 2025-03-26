@@ -1,4 +1,4 @@
-/*import fetch from "node-fetch";
+import fetch from "node-fetch";
 import yts from 'yt-search';
 import axios from "axios";
 
@@ -155,76 +155,4 @@ function formatViews(views) {
   } else {
     return views.toString();
   }
-}*/
-
-
-
-
-
-import fetch from "node-fetch";
-
-const handler = async (m, { conn, text, command }) => {
-  try {
-    if (!text.trim()) {
-      return conn.reply(m.chat, `✦ Por favor, ingresa el nombre de la canción que deseas descargar.`, m);
-    }
-
-    // Buscar el video en YouTube
-    const searchUrl = `https://api.agungny.my.id/api/ytsearch?q=${encodeURIComponent(text)}`;
-    const searchResponse = await fetch(searchUrl);
-    const searchText = await searchResponse.text(); // Obtener respuesta como texto
-
-    let searchData;
-    try {
-      searchData = JSON.parse(searchText); // Intentar convertir a JSON
-    } catch {
-      return m.reply('⚠︎ Error: La API de búsqueda no devolvió una respuesta válida.');
-    }
-
-    if (!searchData || !searchData.data || searchData.data.length === 0) {
-      return m.reply('No se encontraron resultados para tu búsqueda.');
-    }
-
-    const videoInfo = searchData.data[0]; // Primer resultado
-    const { title, duration, views, uploadDate, url } = videoInfo;
-
-    const infoMessage = `★ *Descarga de Música* ★
-
-✦ *Título:* ${title}
-✦ *Duración:* ${duration}
-✦ *Vistas:* ${views}
-✦ *Publicado:* ${uploadDate}
-✦ *Enlace:* ${url}`;
-
-    await conn.reply(m.chat, infoMessage, m);
-
-    if (command === 'play' || command === 'yta' || command === 'ytmp3') {
-      const downloadUrl = `https://api.agungny.my.id/api/ytmp3?url=${encodeURIComponent(url)}`;
-      const audioResponse = await fetch(downloadUrl);
-      const audioText = await audioResponse.text();
-
-      let audioData;
-      try {
-        audioData = JSON.parse(audioText);
-      } catch {
-        return m.reply('⚠︎ Error: La API de descarga no devolvió una respuesta válida.');
-      }
-
-      if (!audioData || !audioData.result || !audioData.result.audio) {
-        return m.reply('⚠︎ No se pudo obtener el audio.');
-      }
-
-      await conn.sendMessage(m.chat, { audio: { url: audioData.result.audio }, mimetype: "audio/mpeg" }, { quoted: m });
-    } else {
-      throw new Error("Comando no reconocido.");
-    }
-  } catch (error) {
-    return m.reply(`⚠︎ Ocurrió un error: ${error.message}`);
-  }
-};
-
-handler.command = handler.help = ['play', 'yta', 'ytmp3'];
-handler.tags = ['downloader'];
-handler.group = true;
-
-export default handler;
+}
