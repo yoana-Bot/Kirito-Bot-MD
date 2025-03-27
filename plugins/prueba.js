@@ -33,7 +33,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
   let fraseRandomBienvenida = frasesBienvenida[Math.floor(Math.random() * frasesBienvenida.length)];
   let fraseRandomDespedida = frasesDespedida[Math.floor(Math.random() * frasesDespedida.length)];
 
-  let imageUrl = 'https://files.catbox.moe/jqz8f9.jpg'; 
+  let imageUrl = 'https://files.catbox.moe/x8ej99.jpg'; 
 
   if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_ADD) {
     let bienvenida = `┏━━━━━━━━━━━━━━━━┅┈
