@@ -150,7 +150,7 @@ npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
 ## 🎯 **Apoya el Proyecto**
 
 <p align="center">
-  <a href="mailto:ninopina10@gmail.com">
+  <a href="https://www.paypal.me/kirito98Dey">
     <img src="https://img.shields.io/badge/Apoya a kirito en PayPal-000000?style=for-the-badge&logo=paypal&logoColor=white" alt="Apoya con PayPal" />
   </a>
 </p>
