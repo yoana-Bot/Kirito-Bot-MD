@@ -7,7 +7,7 @@ import fetch from 'node-fetch'
 
 export async function before(m, { conn, participants, groupMetadata }) {
   if (!m.messageStubType || !m.isGroup) return !0;
-  if (m.chat !== '120363416711925079@g.us') return !0; // Solo para el grupo del staff
+  if (m.chat !== '120363416711925079@g.us') return !0; 
 
   let who = m.messageStubParameters[0];
   let taguser = `@${who.split('@')[0]}`;
@@ -21,7 +21,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
     "¡Atención equipo! Un nuevo miembro ha llegado para fortalecer nuestra comunidad.",
     "Unir fuerzas nos hace más fuertes. Bienvenido al equipo de Kirito-Bot, juntos somos imparables."
   ];
-  
+
   let frasesDespedida = [
     "Gracias por tu tiempo y dedicación al equipo. Te deseamos éxito en tus futuros proyectos.",
     "Se cierra un ciclo, pero tu legado en Kirito-Bot queda marcado. ¡Mucho éxito!",
@@ -33,7 +33,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
   let fraseRandomBienvenida = frasesBienvenida[Math.floor(Math.random() * frasesBienvenida.length)];
   let fraseRandomDespedida = frasesDespedida[Math.floor(Math.random() * frasesDespedida.length)];
 
-  let videoUrl = 'https://files.catbox.moe/jlgz1s.mp4';
+  let imageUrl = 'https://files.catbox.moe/jqz8f9.jpg'; 
 
   if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_ADD) {
     let bienvenida = `┏━━━━━━━━━━━━━━━━┅┈
@@ -46,7 +46,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┗━━━━━━━━━━━━━━━━┅┈
 > ${fraseRandomBienvenida}`;
 
-    await conn.sendMessage(m.chat, { video: { url: videoUrl }, gifPlayback: true, caption: bienvenida, mentions: [who] });
+    await conn.sendMessage(m.chat, { image: { url: imageUrl }, caption: bienvenida, mentions: [who] });
   }
 
   if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_LEAVE ||
@@ -61,6 +61,6 @@ export async function before(m, { conn, participants, groupMetadata }) {
 ┗━━━━━━━━━━━━━━━━┅┈
 > ${fraseRandomDespedida}`;
 
-    await conn.sendMessage(m.chat, { video: { url: videoUrl }, gifPlayback: true, caption: despedida, mentions: [who] });
+    await conn.sendMessage(m.chat, { image: { url: imageUrl }, caption: despedida, mentions: [who] });
   }
 }
