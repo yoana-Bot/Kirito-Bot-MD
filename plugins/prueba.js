@@ -15,18 +15,19 @@ export async function before(m, { conn, participants, groupMetadata }) {
   let date = new Date().toLocaleString('es-ES', { timeZone: 'America/Mexico_City' });
 
   let frasesBienvenida = [
-    "¡Bienvenido al staff de Kirito-Bot!",
-    "Recuerda que aquí se trabaja en equipo, participa activamente.",
-    "Tu ayuda es clave para el éxito de Kirito-Bot.",
-    "¡Un nuevo miembro del staff se une a la misión!",
-    "Esperamos grandes cosas de ti, bienvenido."
+    "¡Bienvenido al equipo de élite de Kirito-Bot! Tu aporte será clave para nuestro crecimiento.",
+    "Un nuevo guerrero se une a la batalla. ¡Demos lo mejor para mejorar Kirito-Bot!",
+    "Tu experiencia y habilidades ahora forman parte de nuestro equipo. ¡Bienvenido!",
+    "¡Atención equipo! Un nuevo miembro ha llegado para fortalecer nuestra comunidad.",
+    "Unir fuerzas nos hace más fuertes. Bienvenido al equipo de Kirito-Bot, juntos somos imparables."
   ];
+  
   let frasesDespedida = [
-    "Gracias por tu aporte al staff, te deseamos lo mejor.",
-    "Nos vemos, esperamos contar contigo en el futuro.",
-    "Tu tiempo aquí fue valioso, éxito en todo.",
-    "Hasta la próxima, el equipo te recordará.",
-    "Fue un honor tenerte en el staff, mucha suerte."
+    "Gracias por tu tiempo y dedicación al equipo. Te deseamos éxito en tus futuros proyectos.",
+    "Se cierra un ciclo, pero tu legado en Kirito-Bot queda marcado. ¡Mucho éxito!",
+    "Nos despedimos con gratitud. ¡Siempre serás parte de esta familia!",
+    "El equipo pierde a un gran miembro, pero la puerta queda abierta para tu regreso. ¡Hasta pronto!",
+    "Toda historia tiene un final, pero siempre serás parte del staff de Kirito-Bot. ¡Éxito en todo!"
   ];
 
   let fraseRandomBienvenida = frasesBienvenida[Math.floor(Math.random() * frasesBienvenida.length)];
@@ -38,10 +39,10 @@ export async function before(m, { conn, participants, groupMetadata }) {
     let bienvenida = `┏━━━━━━━━━━━━━━━━┅┈
 ┃    🅂🅃🄰🄵🄵  🄺🄸🅁🄸🅃🄾-🄱🄾🅃
 ┣━━━━━━━━━━━━━━━━┅┈
-┃ 𝗡𝘂𝗲𝘃𝗼 𝗺𝗶𝗲𝗺𝗯𝗿𝗼: ${taguser}
-┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject}
-┃ 𝗘𝗾𝘂𝗶𝗽𝗼 𝘁𝗼𝘁𝗮𝗹: ${totalMembers + 1}
-┃ 𝗙𝗲𝗰𝗵𝗮: ${date}
+┃ ➤ 𝗡𝘂𝗲𝘃𝗼 𝗺𝗶𝗲𝗺𝗯𝗿𝗼: ${taguser}
+┃ ➤ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject}
+┃ ➤ 𝗘𝗾𝘂𝗶𝗽𝗼 𝘁𝗼𝘁𝗮𝗹: ${totalMembers + 1}
+┃ ➤ 𝗙𝗲𝗰𝗵𝗮: ${date}
 ┗━━━━━━━━━━━━━━━━┅┈
 > ${fraseRandomBienvenida}`;
 
@@ -53,10 +54,10 @@ export async function before(m, { conn, participants, groupMetadata }) {
     let despedida = `┏━━━━━━━━━━━━━━━━┅┈
 ┃    🅂🅃🄰🄵🄵  🄺🄸🅁🄸🅃🄾-🄱🄾🅃
 ┣━━━━━━━━━━━━━━━━┅┈
-┃ 𝗠𝗶𝗲𝗺𝗯𝗿𝗼 𝘀𝗮𝗹𝗶𝗲𝗻𝘁𝗲: ${taguser}
-┃ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject}
-┃ 𝗘𝗾𝘂𝗶𝗽𝗼 𝘁𝗼𝘁𝗮𝗹: ${totalMembers - 1}
-┃ 𝗙𝗲𝗰𝗵𝗮: ${date}
+┃ ➤ 𝗠𝗶𝗲𝗺𝗯𝗿𝗼 𝗦𝗮𝗹𝗶𝗲𝗻𝘁𝗲: ${taguser}
+┃ ➤ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject}
+┃ ➤ 𝗘𝗾𝘂𝗶𝗽𝗼 𝘁𝗼𝘁𝗮𝗹: ${totalMembers - 1}
+┃ ➤ 𝗙𝗲𝗰𝗵𝗮: ${date}
 ┗━━━━━━━━━━━━━━━━┅┈
 > ${fraseRandomDespedida}`;
 
