@@ -87,12 +87,12 @@ global.packsticker = `┊ 👑 kirito-Bot MD\n↳https://kirito-md.vercel.app/\n
 //Fakes
 global.fkontak = { key: { participants:"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=50488198573:50488198573\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 
-global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: '120363377595441592@newsletter', newsletterName: "👑 . ˚ Cһᥲᥒᥒᥱᥣ 〢𝚔𝚒𝚛𝚒𝚝𝚘 - 𝙱𝚘𝚝 𝙼𝙳 ☆˒˒", serverMessageId: -1 }
+global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: '120363365444927738@newsletter', newsletterName: "👑 . ˚ Cһᥲᥒᥒᥱᥣ 〢𝚔𝚒𝚛𝚒𝚝𝚘 - 𝙱𝚘𝚝 𝙼𝙳 ☆˒˒", serverMessageId: -1 }
 }}, { quoted: m }
 
 //Id Channel
-global.idchannel = '120363381910502266@newsletter'
-global.canalIdM = ["120363368073378190@newsletter", "120363387375075395@newsletter"]
+global.idchannel = '120363365444927738@newsletter'
+global.canalIdM = ["120363365444927738@newsletter", "120363365444927738@newsletter"]
 global.canalNombreM = ["✯ 🄺🄸🅁🄸🅃🄾 - 🅲🅷🅰🅽🅽🅴🅻 ✯", "⏤͟͟͞͞𝐤𝐢𝐫𝐢𝐭𝐨 - 𝐁𝐨𝐭『𝐌𝐃』"]
 global.channelRD = await getRandomChannel()
 
