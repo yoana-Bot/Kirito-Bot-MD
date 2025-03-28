@@ -100,7 +100,7 @@ global.icono = [
 'https://i.postimg.cc/3JjzVC0N/IMG-20250318-WA0969.jpg',
 'https://i.postimg.cc/3JjzVC0N/IMG-20250318-WA0969.jpg',
 'https://i.postimg.cc/3JjzVC0N/IMG-20250318-WA0969.jpg',
-'https://i.postimg.cc/3JjzVC0N/IMG-20250318-WA0969.jpg,
+'https://i.postimg.cc/3JjzVC0N/IMG-20250318-WA0969.jpg',
 'https://i.postimg.cc/3JjzVC0N/IMG-20250318-WA0969.jpg',
 'https://i.postimg.cc/3JjzVC0N/IMG-20250318-WA0969.jpg'
 ].getRandom()
