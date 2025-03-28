@@ -26,21 +26,21 @@ return res.data
 } catch (e) {
 console.log(`Error : ${e}`)
 }}
-  
+
 //creador y otros
 global.creador = 'Wa.me/50488198573'
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
 global.asistencia = 'Wa.me/50488198573'
-global.namechannel = '𝑲𝒊𝒓𝒊𝒕𝒐-𝑴𝑫 - 𝒖𝒑𝒅𝒂𝒕𝒆𝒔☆'
-global.namechannel2 = '𝑲𝒊𝒓𝒊𝒕𝒐-𝑴𝑫 - 𝒂𝒗𝒊𝒔𝒐𝒔☆'
-global.namegrupo = '✦ 𝐤𝐢𝐫𝐢𝐭𝐨-𝐁𝐨𝐭 𝐌𝐃 ☆'
-global.namecomu = '✭𝐊𝐢𝐫𝐢𝐭𝐨 𝐌𝐃 𝐂𝐨𝐦𝐮𝐧𝐢𝐭𝐲 ✪'
-global.listo = '⚡ *Aquí tienes o(^▽^)o*'
-global.fotoperfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://files.catbox.moe/56el7x.jpg')
+global.namechannel = 'ᴋɪʀɪᴛᴏ - ʙᴏᴛ • ᴜᴘᴅᴀᴛᴇs ☆'
+global.namechannel2 = 'ᴋɪʀɪᴛᴏ - ʙᴏᴛ • ᴀᴠɪsᴏs ☆'
+global.namegrupo = '✦ ᴋɪʀɪᴛᴏ ʙᴏᴛ • ᥆𝖿іᥴіᥲᥣ ☆'
+global.namecomu = '✦ ᴋɪʀɪᴛᴏ ʙᴏᴛ • ᥴ᥆mᥙᥒі𝗍ᥡ ☆'
+global.listo = '☆ *Aquí tienes ฅ՞•ﻌ•՞ฅ*'
+global.fotoperfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg')
 
 //Ids channel
-global.canalIdM = ["120363365444927738@newsletter", "120363365444927738@newsletter"]
-global.canalNombreM = ["☆ 𝒌𝒊𝒓𝒊𝒕𝒐 - 𝑩𝒐𝒕 𝑴𝑫 • 𝒖𝒑𝒅𝒂𝒕𝒆𝒔 ☆", "☆ 𝒌𝒊𝒓𝒊𝒕𝒐 - 𝑩𝒐𝒕 𝑴𝑫 • 𝒂𝒗𝒊𝒔𝒐𝒔 ☆"]
+global.canalIdM = ["120363322713003916@newsletter", "120363322713003916@newsletter"]
+global.canalNombreM = ["ᴋɪʀɪᴛᴏ - ʙᴏᴛ • ᴜᴘᴅᴀᴛᴇs ☆", "ᴋɪʀɪᴛᴏ - ʙᴏᴛ • ᴀᴠɪsᴏs ☆"]
 global.channelRD = await getRandomChannel()
 
 //fechas
@@ -58,27 +58,26 @@ global.done = '✅'
 global.error = '✖️'
 global.msm = '⚠︎'
 
-//Emojis determinado de kirito Bot
-global.emoji = '『✧』'
-global.emoji2 = '《⌬》'
-global.emoji3 = '〖✪〗'
-global.emoji4 = '⦓✰⦔'
-global.emoji5 = '☾۝☽'
-global.emoji6 = '〘߷︎〙'
+//Emojis determinado de ᴋɪʀɪᴛᴏ Bot
+global.emoji = '( ‘-ωก̀ )'
+global.emoji2 = '(๑•̀ㅂ•́)و✧'
+global.emoji3 = '˙Ⱉ˙ฅ'
+global.emoji4 = 'ʚ˙Ⱉ˙ɞ'
+global.emoji5 = 'ฅ'ㅅ'ฅ'
 global.emojis = [emoji, emoji2, emoji3, emoji4].getRandom()
 
 //mensaje en espera
-global.wait = '✪ Espera un momento, soy lento...';
-global.waitt = '★ Espera un momento, soy lento...';
-global.waittt = '✭ Espera un momento, soy lento...';
-global.waitttt = '✯ Espera un momento, soy lento...';
+global.wait = '❍ Espera un momento, soy lento...';
+global.waitt = '❍ Espera un momento, soy lento...';
+global.waittt = '❍ Espera un momento, soy lento...';
+global.waitttt = '❍ Espera un momento, soy lento...';
 
 //Enlaces
-var canal = 'https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m'  
-let canal2 = 'https://whatsapp.com/channel/0029VayQwPsFnSzESZJ9Us3z'
-var git = 'https://github.com/deylinqff'
-var github = 'https://github.com/deylinqff/Kirito-Bot-MD' 
-let correo = 'deylibaquedano801@gmail.com'
+var canal = 'https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T'  
+let canal2 = 'https://whatsapp.com/channel/0029VavzewJLikg78gILRn1o'
+var git = 'https://github.com/The-King-Destroy'
+var github = 'https://github.com/The-King-Destroy/Yuki_Suou-Bot' 
+let correo = 'thekingdestroy507@gmail.com'
 
 global.redes = [canal, canal2, git, github, correo].getRandom()
 
@@ -102,23 +101,14 @@ global.taguser = '@' + m.sender.split("@s.whatsapp.net")
 var more = String.fromCharCode(8206)
 global.readMore = more.repeat(850)
 
-global.packsticker = `┏━──────━◆◆━──────━┓\n✰ Usuario: ${nombre}\n⚔✰ Bot: ${botname}\n✰ Fecha: ${fecha}\n✰ Hora: ${tiempo}\n┗━──────━◆◆━──────━┛`;
-global.packsticker2 = `\n┏━──────━◆◆━──────━┓\n👑 Desarrollador: ${dev}\n┗━──────━◆◆━──────━┛`;
-  
+global.packsticker = `°.______________.°\n✦ Usuario: ${nombre}\n☆ Bot: ${botname}\n✦ Fecha: ${fecha}\nⴵ Hora: ${tiempo}`;
+global.packsticker2 = `\n°._______________.°\n\n${dev}`
+
 //Fakes
 global.fkontak = { key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `6285600793871-1614953337@g.us` } : {}) }, message: { 'contactMessage': { 'displayName': `${nombre}`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${nombre},;;;\nFN:${nombre},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, 'jpegThumbnail': null, thumbnail: null,sendEphemeral: true}}}
 
-global.fake = { 
-  contextInfo: { 
-    isForwarded: true, 
-    forwardedNewsletterMessageInfo: { 
-      newsletterJid: channelRD.id, 
-      newsletterName: channelRD.name, 
-      serverMessageId: -1 
-    } 
-  }, 
-  quoted: m 
-}
+global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, newsletterName: channelRD.name, serverMessageId: -1 }
+}}, { quoted: m }
 
 global.icono = [
 'https://tinyurl.com/285a5ejf',
