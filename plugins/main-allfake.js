@@ -73,11 +73,11 @@ global.waittt = '❍ Espera un momento, soy lento...';
 global.waitttt = '❍ Espera un momento, soy lento...';
 
 //Enlaces
-var canal = 'https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T'  
-let canal2 = 'https://whatsapp.com/channel/0029VavzewJLikg78gILRn1o'
+var canal = https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m'  
+let canal2 = '120363365444927738@newsletter'
 var git = 'https://github.com/The-King-Destroy'
-var github = 'https://github.com/The-King-Destroy/Yuki_Suou-Bot' 
-let correo = 'thekingdestroy507@gmail.com'
+var github = 'https://github.com/deylinqff/Kirito-Bot-MD' 
+let correo = 'deylibaquedano801@gmail.com'
 
 global.redes = [canal, canal2, git, github, correo].getRandom()
 
