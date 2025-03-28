@@ -8,7 +8,7 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
   let tiempo = 5 * 60
   if (cooldowns[m.sender] && Date.now() - cooldowns[m.sender] < tiempo * 1000) {
     let tiempo2 = segundosAHMS(Math.ceil((cooldowns[m.sender] + tiempo * 1000 - Date.now()) / 1000))
-    m.reply(`${emoji3} Debes esperar *${tiempo2}* para usar *#slut* de nuevo.`, m, fake)
+    m.reply(`${emoji3} Debes esperar *${tiempo2}* para usar *#slut* de nuevo.`, m, rcanal)
     return
   }
   cooldowns[m.sender] = Date.now()
@@ -31,12 +31,12 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
         contextInfo: { 
           mentionedJid: [randomUserId],
         }
-      }, { quoted: m }, m, fake)
+      }, { quoted: m }, m, rcanal)
       break
     case 1:
       let amountSubtracted = Math.min(Math.floor(Math.random() * (senderCoin - minAmount + 1)) + minAmount, maxAmount)
       users[senderId].coin -= amountSubtracted
-      conn.reply(m.chat, `${emoji} No fuiste cuidadoso y le rompiste la verga a tu cliente, se te restaron *-${amountSubtracted} ${moneda}* a ${senderName}.`, m, fake)
+      conn.reply(m.chat, `${emoji} No fuiste cuidadoso y le rompiste la verga a tu cliente, se te restaron *-${amountSubtracted} ${moneda}* a ${senderName}.`, m, rcanal)
       break
     case 2:
       let smallAmountTaken = Math.min(Math.floor(Math.random() * (randomUserCoin / 2 - minAmount + 1)) + minAmount, maxAmount)
@@ -47,7 +47,7 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
         contextInfo: { 
           mentionedJid: [randomUserId],
         }
-      }, { quoted: m }, m, fake)
+      }, { quoted: m }, m, rcanal)
       break
   }
   global.db.write()
