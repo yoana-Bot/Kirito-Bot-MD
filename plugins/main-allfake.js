@@ -43,11 +43,11 @@ global.done = '✅'
 global.error = '✖️'
 
 //Emojis determinado de CrowBot
-global.emoji = '❛‿˂̵✧'
-global.emoji2 = '（＾∀＾●）ﾉｼ'
-global.emoji3 = 'ฅ°ㅅ°ฅ'
-global.emoji4 = 'ฅ՞•ﻌ•՞ฅ'
-global.emoji5 = '˙Ⱉ˙ฅ'
+global.emoji = '*❛‿˂̵✧*'
+global.emoji2 = '*（＾∀＾●）ﾉｼ*'
+global.emoji3 = '*ฅ°ㅅ°ฅ*'
+global.emoji4 = '*ฅ՞•ﻌ•՞ฅ*'
+global.emoji5 = '*˙Ⱉ˙ฅ*'
 global.emojis = [emoji, emoji2, emoji3, emoji4, emoji5].getRandom()
 
 //mensaje en espera
