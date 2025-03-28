@@ -60,10 +60,10 @@ global.msm = '⚠︎'
 
 //Emojis determinado de ᴋɪʀɪᴛᴏ Bot
 global.emoji = '( ‘-ωก̀ )'
-global.emoji2 = '(๑•̀ㅂ•́)و✧'
+global.emoji2 = '(๑°ㅂ°)و✧'
 global.emoji3 = '˙Ⱉ˙ฅ'
 global.emoji4 = 'ʚ˙Ⱉ˙ɞ'
-global.emoji5 = 'ฅ'ㅅ'ฅ'
+global.emoji5 = 'ฅ°ㅅ°ฅ'
 global.emojis = [emoji, emoji2, emoji3, emoji4].getRandom()
 
 //mensaje en espera
