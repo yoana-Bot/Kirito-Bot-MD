@@ -85,7 +85,7 @@ global.authsticker = `┊🤖 Bot Ofc\n┊↳ ${wm}\n\n┊👑 Usuario\n┊↳ @
 global.packsticker = `┊ 👑 kirito-Bot MD\n↳https://kirito-md.vercel.app/\n\n┊ 🔥 ɪɴғᴏʀᴍᴀᴄɪᴏɴ\n↳https://github.com/deylinqff/Kirito-Bot-MD`
 
 //Fakes
-global.fkontak = { key: { participants:"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=50557865603:50557865603\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
+global.fkontak = { key: { participants:"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=50488198573:50488198573\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 
 global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: '120363377595441592@newsletter', newsletterName: "👑 . ˚ Cһᥲᥒᥒᥱᥣ 〢𝚔𝚒𝚛𝚒𝚝𝚘 - 𝙱𝚘𝚝 𝙼𝙳 ☆˒˒", serverMessageId: -1 }
 }}, { quoted: m }
