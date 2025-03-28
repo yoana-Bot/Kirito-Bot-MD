@@ -96,7 +96,16 @@ global.canalIdM = ["120363365444927738@newsletter", "120363365444927738@newslett
 global.canalNombreM = ["✯ 🄺🄸🅁🄸🅃🄾 - 🅲🅷🅰🅽🅽🅴🅻 ✯", "⏤͟͟͞͞𝐤𝐢𝐫𝐢𝐭𝐨 - 𝐁𝐨𝐭『𝐌𝐃』"]
 global.channelRD = await getRandomChannel()
 
-global.rcanal = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, serverMessageId: 100, newsletterName: channelRD.name, }, externalAdReply: { showAdAttribution: true, title: textbot, body: dev, mediaUrl: null, description: null, previewType: "PHOTO", thumbnailUrl: icons, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false }, }, }}
+global.icono = [ 
+'https://i.postimg.cc/3JjzVC0N/IMG-20250318-WA0969.jpg',
+'https://i.postimg.cc/3JjzVC0N/IMG-20250318-WA0969.jpg',
+'https://i.postimg.cc/3JjzVC0N/IMG-20250318-WA0969.jpg',
+'https://i.postimg.cc/3JjzVC0N/IMG-20250318-WA0969.jpg,
+'https://i.postimg.cc/3JjzVC0N/IMG-20250318-WA0969.jpg',
+'https://i.postimg.cc/3JjzVC0N/IMG-20250318-WA0969.jpg'
+].getRandom()
+
+global.rcanal = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, serverMessageId: 100, newsletterName: channelRD.name, }, externalAdReply: { showAdAttribution: true, title: textbot, body: '👑҉Kirito- Bot MDᚐ', mediaUrl: null, description: null, previewType: "PHOTO", thumbnailUrl: icono, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false }, }, }}
 
 export default handler
 
