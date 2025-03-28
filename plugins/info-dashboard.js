@@ -13,7 +13,7 @@ let handler = async (m, { conn, command }) => {
             return `⬡ *Comando* : *${name}*\n⬡ *Usos* : ${total}`
         }).join('\n\n')
 
-        conn.reply(m.chat, handlers, m, fake)
+        conn.reply(m.chat, handlers, m, rcanal)
     }
 
     if (command == 'database' || command == 'usuarios' || command == 'user') {
@@ -23,7 +23,7 @@ let handler = async (m, { conn, command }) => {
         conn.reply(m.chat, `
 🗂️ *Tengo ${rtotalreg} Usuarios Registrados*
 
-📂 *${totalreg} No Están Registrados*`, m)
+📂 *${totalreg} No Están Registrados*`, m, rcanal);
     }
 
 }
