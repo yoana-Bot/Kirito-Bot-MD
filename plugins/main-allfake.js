@@ -74,8 +74,8 @@ global.waitttt = '❍ Espera un momento, soy lento...';
 
 //Enlaces
 var canal = 'https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m'  
-let canal2 = '120363365444927738@newsletter'
-var git = 'https://github.com/The-King-Destroy'
+let canal2 = 'https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m'
+var git = 'https://github.com/deylinqff'
 var github = 'https://github.com/deylinqff/Kirito-Bot-MD' 
 let correo = 'deylibaquedano801@gmail.com'
 
