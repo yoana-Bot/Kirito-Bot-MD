@@ -79,7 +79,7 @@ result = await luminsesi(query, username, syms1)
 }
 
 if (result && result.trim().length > 0) {
-await this.reply(m.chat, result, m, fake);
+await this.reply(m.chat, result, m, rcanal);
 } else {    
 }}}
 return true
