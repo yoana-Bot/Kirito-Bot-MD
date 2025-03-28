@@ -15,7 +15,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
       let img = await q.download?.();
 
       if (!img) {
-        return conn.reply(m.chat, `${emoji} *Por favor, envía una imagen o video para hacer un sticker.*`, m, fake);
+        return conn.reply(m.chat, `${emoji} *Por favor, envía una imagen o video para hacer un sticker.*`, m, rcanal);
       }
 
       let out;
@@ -53,7 +53,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         { quoted: m, contextInfo: fake }
       );
     } else {
-      return conn.reply(m.chat, `${emoji} *Por favor, envía una imagen o video para hacer un sticker.*`, m, fake);
+      return conn.reply(m.chat, `${emoji} *Por favor, envía una imagen o video para hacer un sticker.*`, m, rcanal);
     }
   }
 };
