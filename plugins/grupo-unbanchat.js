@@ -1,6 +1,6 @@
 let handler = async (m, { conn, usedPrefix, command, args }) => {
   if (!(m.chat in global.db.data.chats)) 
-    return conn.reply(m.chat, '🔴 *¡ESTE CHAT NO ESTÁ REGISTRADO!*', m, fake);
+    return conn.reply(m.chat, '🔴 *¡ESTE CHAT NO ESTÁ REGISTRADO!*', m, rcanal);
 
   let chat = global.db.data.chats[m.chat];
 
@@ -15,21 +15,21 @@ let handler = async (m, { conn, usedPrefix, command, args }) => {
 ╰━━━━━━━━━━━━━╯  
 🌟 *Estado actual:* ${estado}`;
 
-      return conn.reply(m.chat, info, m, fake);
+      return conn.reply(m.chat, info, m, rcanal);
     }
 
     if (args[0] === 'off') {
       if (chat.isBanned) 
-        return conn.reply(m.chat, '⭕ *¡KIRITO-BOT YA ESTABA DESACTIVADO!*', m, fake);
+        return conn.reply(m.chat, '⭕ *¡KIRITO-BOT YA ESTABA DESACTIVADO!*', m, rcanal);
       
       chat.isBanned = true;
-      return conn.reply(m.chat, '⚠️ *¡KIRITO-BOT HA SIDO DESACTIVADO EN ESTE CHAT!*', m, fake);
+      return conn.reply(m.chat, '⚠️ *¡KIRITO-BOT HA SIDO DESACTIVADO EN ESTE CHAT!*', m, rcanal);
     } else if (args[0] === 'on') {
       if (!chat.isBanned) 
-        return conn.reply(m.chat, '⭕ *¡KIRITO-BOT YA ESTABA ACTIVADO!*', m, fake);
+        return conn.reply(m.chat, '⭕ *¡KIRITO-BOT YA ESTABA ACTIVADO!*', m, rcanal);
       
       chat.isBanned = false;
-      return conn.reply(m.chat, '✅ *¡KIRITO-BOT HA SIDO ACTIVADO EN ESTE CHAT!*', m, fake);
+      return conn.reply(m.chat, '✅ *¡KIRITO-BOT HA SIDO ACTIVADO EN ESTE CHAT!*', m, rcanal);
     }
   }
 };
