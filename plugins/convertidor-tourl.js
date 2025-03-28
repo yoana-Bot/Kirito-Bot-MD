@@ -5,7 +5,7 @@ import fetch from 'node-fetch'
 let handler = async (m) => {
   let q = m.quoted ? m.quoted : m
   let mime = (q.msg || q).mimetype || ''
-  if (!mime) return conn.reply(m.chat, `${emoji} Por favor, responda a una *Imagen* o *Vídeo.*`, m, fake);
+  if (!mime) return conn.reply(m.chat, `${emoji} Por favor, responda a una *Imagen* o *Vídeo.*`, m, rcanal);
   await m.react(rwait);
   try {
     let media = await q.download()
@@ -19,10 +19,10 @@ let handler = async (m) => {
         txt += `*» Expiración* : ${isTele ? 'No expira' : 'Desconocido'}\n\n`
         txt += `> *${dev}*`
 
-    await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, fake, fkontak);
+    await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, rcanal, fkontak);
     await m.react(done);
   } catch {
-    await conn.reply(m.chat, `${emoji} Ocurrió un error al subir el archivo.`, m, fake);
+    await conn.reply(m.chat, `${emoji} Ocurrió un error al subir el archivo.`, m, rcanal);
     await m.react(error);
   }
 }
