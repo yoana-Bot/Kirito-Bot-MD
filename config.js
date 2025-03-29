@@ -20,6 +20,7 @@ global.owner = [
   [ '50488198573', 'Deylin', true ],
   [ '595975677765', 'Davidius', true ],
   [ '639104096580', 'José', true ],
+  [ '584245610338', 'Jose', true ],
   [ '5216633900512', 'Brayan',true ]
 ]; // <-- Corchete de cierre y coma añadidos
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
