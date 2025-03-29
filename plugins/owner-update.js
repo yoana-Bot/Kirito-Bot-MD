@@ -41,9 +41,13 @@ let handler = async (m, { conn, usedPrefix, command, args }) => {
   }
 };
 
-handler.help = ['update', 'actualizar'];
-handler.tags = ['owner'];
-handler.command = ['update', 'actualizar'];
+handler.command = ['update', 'reiniciar']
+handler.before = async (m, { conn }) => {
+    let text = m.text?.toLowerCase()?.trim();
+    if (text === 'update' || text === 'reiniciar') {
+        return handler(m, { conn });
 handler.rowner = true;
+    }
+}
 
-export default handler;
+export default handler
