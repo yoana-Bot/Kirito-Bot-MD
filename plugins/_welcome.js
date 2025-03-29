@@ -8,12 +8,13 @@ import fetch from 'node-fetch'
 
 export async function before(m, { conn, participants, groupMetadata }) {
   if (!m.messageStubType || !m.isGroup) return !0;
+  if (m.chat === "120363416711925079@g.us") return;
 
-  let who = m.messageStubParameters[0]
-  let taguser = `@${who.split('@')[0]}`  // Corrección aquí
-  let chat = global.db.data.chats[m.chat]
-  let totalMembers = participants.length
-  let date = new Date().toLocaleString('es-ES', { timeZone: 'America/Mexico_City' })
+  let who = m.messageStubParameters[0];
+  let taguser = `@${who.split("@")[0]}`;
+  let chat = global.db.data.chats[m.chat];
+  let totalMembers = participants.length;
+  let date = new Date().toLocaleString("es-ES", { timeZone: "America/Mexico_City" });
 
   let frasesBienvenida = [
     "¡Esperamos que disfrutes tu estadía!",
