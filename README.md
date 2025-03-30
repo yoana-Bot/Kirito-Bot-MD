@@ -124,15 +124,15 @@ npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
   <img src="https://github-readme-stats.vercel.app/api?username=deylinqff&repo=Kirito-Bot-MD&show_icons=true&theme=radical&hide_border=true" alt="Estadísticas de GitHub">
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=deylinqff&repo=Kirito-Bot-MD&theme=radical&hide_border=true" alt="Racha de GitHub">
 </p>
-
+---
 ### **`👑 Propietario`**
 
-<h1>Deylin</h1>
+<h1>Deylin 📚</h1>
 <a href="https://github.com/deylinqff"><img src="https://github.com/deylinqff.png" width="130" height="130" alt="
 avaricia"/></a>
 
 
-### **`🪐 Créditos`**
+### **`🪐 Créditos / A`**
 <a
 href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King-Destroy.png" width="140" height="140" alt="Destroy"/></a>
 
