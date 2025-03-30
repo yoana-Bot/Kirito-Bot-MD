@@ -6,7 +6,7 @@
 <p align="center">
   <img src="https://files.catbox.moe/i9m71s.jpg" alt="Menú Principal" 
 width="130" height="130" alt="
-avaricia"/></a>>
+avaricia"/></a>
 </p>  
 
 ---
@@ -20,7 +20,9 @@ avaricia"/></a>>
 ---
 ## 🚀 **Explora Kirito-Bot**  
 <p align="center">
-  <img src="https://files.catbox.moe/91wohc.jpg" alt="Kirito-Bot">
+  <img src="https://files.catbox.moe/91wohc.jpg" alt="Kirito-Bot"
+width="130" height="130" alt="
+avaricia"/></a>
 </p>  
 
 ---
