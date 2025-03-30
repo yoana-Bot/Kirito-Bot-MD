@@ -4,7 +4,9 @@
 
 ---
 <p align="center">
-  <img src="https://files.catbox.moe/i9m71s.jpg" alt="Menú Principal">
+  <img src="https://files.catbox.moe/i9m71s.jpg" alt="Menú Principal" 
+width="130" height="130" alt="
+avaricia"/></a>>
 </p>  
 
 ---
@@ -138,6 +140,7 @@ avaricia"/></a>
 <a
 href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King-Destroy.png" width="140" height="140" alt="Destroy"/></a>
 
+---
 
 ## 👑 **CONTÁCTAME**
 
