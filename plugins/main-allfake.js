@@ -42,7 +42,7 @@ global.rwait = '🕒'
 global.done = '✅'
 global.error = '✖️'
 
-//Emojis determinado de CrowBot
+
 global.emoji = '*❛‿˂̵✧*'
 global.emoji2 = '*（＾∀＾●）ﾉｼ*'
 global.emoji3 = '*ฅ°ㅅ°ฅ*'
