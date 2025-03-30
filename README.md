@@ -125,13 +125,17 @@ npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=deylinqff&repo=Kirito-Bot-MD&theme=radical&hide_border=true" alt="Racha de GitHub">
 </p>
 
-## 🌟 **CREADOR**
+### **`👑 Propietario`**
 
-<p align="center">
-  <a href="https://github.com/deylinqff" target="_blank">
-    <img src="https://github.com/deylinqff.png" width="150" height="150" alt="Deylin" style="border-radius: 50%; border: 4px solid #00F7FF;"/>
-  </a>
-</p>
+<h1>Deylin</h1>
+<a href="https://github.com/deylinqff"><img src="https://github.com/deylinqff.png" width="130" height="130" alt="
+avaricia"/></a>
+
+
+### **`🪐 Créditos`**
+<a
+href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King-Destroy.png" width="140" height="140" alt="Destroy"/></a>
+
 
 ## 👑 **CONTÁCTAME**
 
@@ -156,11 +160,3 @@ npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
 </p>
 
 ## ⚔️ [© Powered By Deyin 👑](https://Wa.me/50488198573)
-
-<p align="center">
-  <a href="https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m" target="_blank">
-    <img src="https://img.shields.io/badge/©%20Powered%20By%20Deyin-000000?style=for-the-badge&logo=whatsapp&logoColor=white" alt="Canal Oficial de Deyin">
-  </a>
-</p>
-
----
