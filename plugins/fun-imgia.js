@@ -14,7 +14,7 @@ const handler = async (m, { conn, text }) => {
   }, { quoted: m });
 
   try {
-    const res = await fetch(`https://api.agungny.my.id/api/nsfwgenerator?prompt=${encodeURIComponent(text)}`);
+        const res = await fetch(`https://api.agungny.my.id/api/text2img?prompt=${encodeURIComponent(text)}`);
     if (!res.ok) throw new Error();
 
     const buffer = await res.buffer();
