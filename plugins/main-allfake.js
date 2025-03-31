@@ -31,11 +31,15 @@ let pp = ''
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 //let pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegra.ph/file/327f6ad853cb4f405aa80.jpg')
 
-//creador y otros
-global.creador = 'Wa.me/50488198573'
-global.botreal = `${(conn.user.jid == global.conn.user.jid ? 'Oficial' : 'Sub-Bot')}`
+global.creador = 'Wa.me/50488198373'
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
 global.asistencia = 'Wa.me/50488198573'
+global.namechannel = '𝐊𝐢𝐫𝐢𝐭𝐨 - 𝐁𝐨𝐭 𝐌𝐃 • ᥙ⍴ძᥲ𝗍ᥱs ฅ՞•ﻌ•՞ฅ'
+global.namechannel2 = '𝐤𝐢𝐫𝐢𝐭𝐨 -𝐁𝐨𝐭 𝐌𝐃 • ᥲ᥎іs᥆s ฅ՞•ﻌ•՞ฅ'
+global.namegrupo = '𝐊𝐢𝐫𝐢𝐭𝐨 -𝐁𝐨𝐭 𝐌𝐃 • ᥆𝖿іᥴіᥲᥣ ˙Ⱉ˙ฅ'
+global.namecomu = '𝐤𝐢𝐫𝐢𝐭𝐨- 𝐁𝐨𝐭 𝐌𝐃 • ᥴ᥆mᥙᥒі𝗍ᥡ ˙Ⱉ˙ฅ'
+global.listo = ' *Aquí tienes ˙Ⱉ˙ฅ*'
+global.fotoperfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg')
 
 //Reacciones De Comandos.!
 global.rwait = '🕒'
