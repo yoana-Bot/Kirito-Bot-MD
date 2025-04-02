@@ -4,8 +4,9 @@ let handler = async (m, { conn }) => {
     let img = './src/catalogo.jpg';
 
     
-    let staffList = [
-  [ '50488198573', 'Deylin 👑', true ],
+    let creador = ['50488198573', 'Deylin 👑', true ]
+
+    lat staff = [
   [ '59169739411', '*~Iván⁩*', true ],
   [ '573007796996', '*~𝕄𝕠𝕣𝕒𝕝𝕖𝕤⁩*', true ],
   [ '50231458537', '*Brayan moscoso*', true ],
@@ -21,7 +22,12 @@ let handler = async (m, { conn }) => {
 
     
     let staffMessage = "🌟 *Lista de Staff* 🌟\n\n" +
-        staffList.map(([number, name]) => `- ${name}:\n https://wa.me/${number}\n\n`).join('\n');
+
+
+let staffMessage = "*creador*\n\n" +
+        creador.map(([number, name]) => `- ${name}:\n https://wa.me/${number}\n\n`).join('\n');
+let staffMessage = " *colaboradores* \n\n" +
+staff.map(([number, name]) => `- ${name}:\n https://wa.me/${number}\n\n`).join('\n');
 
    
     if (!fs.existsSync(img)) {
