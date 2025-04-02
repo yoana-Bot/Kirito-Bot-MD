@@ -25,11 +25,11 @@ let handler = async (m, { conn }) => {
     let staffMessage = "🌟 *Lista de Staff* 🌟\n\n";
     
     
-    staffMessage += "*👑 Creador 👑*\n";
+    staffMessage += "*👑 Creador 👑*\n\n";
     staffMessage += creador.map(([number, name]) => `- ${name}:\n https://wa.me/${number}\n\n`).join('');
     
    
-    staffMessage += "🎩 *Colaboradores* 🎩\n";
+    staffMessage += "🎩 *Colaboradores* 🎩\n\n";
     staffMessage += staff.map(([number, name]) => `- ${name}:\n https://wa.me/${number}\n\n`).join('');
 
     
