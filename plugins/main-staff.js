@@ -21,7 +21,7 @@ let handler = async (m, { conn }) => {
 
     
     let staffMessage = "🌟 *Lista de Staff* 🌟\n\n" +
-        staffList.map(([number, name]) => `- ${name}:\n https://wa.me/${number}`).join('\n');
+        staffList.map(([number, name]) => `- ${name}:\n https://wa.me/${number}\n\n`).join('\n');
 
    
     if (!fs.existsSync(img)) {
