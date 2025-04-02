@@ -1,13 +1,17 @@
 let handler = async (m, { conn, command, usedPrefix }) => {
-let img = './src/catalogo.jpg'
-let staff = `𝐍𝐨 𝐝𝐢𝐬𝐩𝐨𝐧𝐢𝐛𝐥𝐞
-`
-await conn.sendFile(m.chat, img, 'kirito.jpg', staff.trim(), fkontak)
-}
-  
-handler.help = ['staff']
-handler.command = ['colaboradores', 'staff']
-handler.register = true
-handler.tags = ['main']
+    let img = './src/catalogo.jpg';
+    
+    
+    let staffList = config.owner.map(([number, name]) => `- ${name} \n (${number})`).join('\n');
+    
+    let staffMessage = `🌟 *Lista de Staff* 🌟\n\n${staffList}`;
+    
+    await conn.sendFile(m.chat, img, 'staff.jpg', staffMessage.trim(), m);
+};
 
-export default handler
+handler.help = ['staff'];
+handler.command = ['colaboradores', 'staff'];
+handler.register = true;
+handler.tags = ['main'];
+
+export default handler;
