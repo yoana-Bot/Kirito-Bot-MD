@@ -1,5 +1,5 @@
 {
-"name": "kirito-Bot-MD",
+"name": "Nino Nakano",
 "version": "2.2.0",
 "description": "Super WhatsApp Bot Multi Device",
 "main": "index.js",
@@ -18,16 +18,16 @@
 "eslint": "eslint .",
 "eslintfix": "eslint --fix ."
 },
-"homepage": "https://github.com/deylinqff/Kirito-Bot-MD",
+"homepage": "https://github.com/mysticclub/Nino-Nakano",
 "author": {
-"name": "Deylin"
+"name": "Seishiro Nagi"
 },
 "repository": {
 "type": "git",
-"url": "git+https://github.com/deylinqff/Kirito-Bot-MD.git"
+"url": "git+https://github.com/mysticclub/Nino-Nakano.git"
 },
 "bugs": {
-"url": "https://github.com/deylinqff/Kirito-Bot-MD/issues"
+"url": "https://github.com/mysticclub/Nino-Nakano/issues"
 },
 "license": "GPL-3.0-or-later",
 "dependencies": {
