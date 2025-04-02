@@ -6,22 +6,22 @@ let handler = async (m, { conn }) => {
     
     let staffList = [
   [ '50488198573', 'Deylin 👑', true ],
-  [ '59169739411', '~Iván⁩ ', true ],
-  [ '573007796996', '~𝕄𝕠𝕣𝕒𝕝𝕖𝕤⁩  ', true ],
-  [ '50231458537', ' Brayan moscoso', true ],
-  [ '584245610338', 'jose', true ],
-  [ '50557865603', 'willzek 🎩', true ],
-  [ '51928616320', 'manuel', true ],
-  [ '50557333744', ' Jonathang', true ],
-  [ '573154062343', 'http', true ],
-  [ '526671548329', '~/ty.{LegnaJS}⁩', true ],
-  [ '526633900512', 'Brayan⁩ ', true ],
-  [ '51920227615', '~ai.SEƗSĦƗROṈȺGƗ.il⁩ ',true ]
+  [ '59169739411', '*~Iván⁩*', true ],
+  [ '573007796996', '*~𝕄𝕠𝕣𝕒𝕝𝕖𝕤⁩*', true ],
+  [ '50231458537', '*Brayan moscoso*', true ],
+  [ '584245610338', '*jose*', true ],
+  [ '50557865603', '*willzek 🎩*', true ],
+  [ '51928616320', '*manuel*', true ],
+  [ '50557333744', '*Jonathang*', true ],
+  [ '573154062343', '*http*', true ],
+  [ '526671548329', '*~/ty.{LegnaJS}⁩*', true ],
+  [ '526633900512', '*Braya*n⁩ ', true ],
+  [ '51920227615', '*~ai.SEƗSĦƗROṈȺGƗ.il⁩* ',true ]
 ]
 
     
     let staffMessage = "🌟 *Lista de Staff* 🌟\n\n" +
-        staffList.map(([number, name]) => `- ${name}:\n (https://wa.me/${number})`).join('\n');
+        staffList.map(([number, name]) => `- ${name}:\n https://wa.me/${number}`).join('\n');
 
    
     if (!fs.existsSync(img)) {
