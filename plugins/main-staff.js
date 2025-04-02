@@ -4,7 +4,7 @@ let handler = async (m, { conn }) => {
     let img = './src/catalogo.jpg';
 
     
-    let creador = [['50488198573', 'Deylin 👑']];
+    let creador = [['50488198573', '*Deylin 👑*']];
 
     
     let staff = [
@@ -26,11 +26,11 @@ let handler = async (m, { conn }) => {
     
     
     staffMessage += "*👑 Creador 👑*\n\n";
-    staffMessage += creador.map(([number, name]) => `- ${name}:\n https://wa.me/${number}\n\n`).join('');
+    staffMessage += creador.map(([number, name]) => `- ${name}:\n> https://wa.me/${number}\n\n`).join('');
     
    
     staffMessage += "🎩 *Colaboradores* 🎩\n\n";
-    staffMessage += staff.map(([number, name]) => `- ${name}:\n https://wa.me/${number}\n\n`).join('');
+    staffMessage += staff.map(([number, name]) => `- ${name}:\n> https://wa.me/${number}\n\n`).join('');
 
     
     if (!fs.existsSync(img)) {
