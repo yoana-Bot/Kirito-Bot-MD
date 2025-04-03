@@ -4,8 +4,7 @@ const handler = async (m, {conn}) => {
   conn.fakeReply(m.chat, `${emoji} *Prefijo Restablecido Con Éxito!*`, '0@s.whatsapp.net', '✨ PREFIJO RESTABLECIDO ✨')
 };
 handler.help = ['resetprefix'];
-handler.tags = ['owner'];
-handler.command = ['resetprefix'];
-handler.rowner = true;
+handler.customPrefix = /^(resetprefix|l)$/i
+handler.command = new RegExp
 
-export default handler;
+export default handler
