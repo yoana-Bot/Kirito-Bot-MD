@@ -154,14 +154,14 @@ let handler = async (m, { conn, text }) => {
     }
 
 
-    /*await conn.sendMessage(m.chat, {
+    await conn.sendMessage(m.chat, {
       text: `*Pinterest Search Image*\n\n` +
             `• *Búsqueda:* "${text}"\n` +
             `• *Tipo:* Imágenes\n` +
             `• *Resultados:* ${maxImages}\n` +
             `• *Fuente:* Pinterest\n\n` +
             `_BUILD WITH TYLARZ © 2019-2025_`
-    }, { quoted: m });*/
+    }, { quoted: m });
 
 
    /* await sendAlbumMessage(m.chat, medias, {
