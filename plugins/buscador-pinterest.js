@@ -129,14 +129,14 @@ const pins = async (judul) => {
 
 let handler = async (m, { conn, text }) => {
   if (!text) {
-    return m.reply(`${emoji} Ingresa un texto. Ejemplo: .pinterest kirito`);
+    return m.reply(`${emoji} Ingresa un texto. Ejemplo: .pinterest kirito` m, rcanal);
   }
 
   try {
     m.react('🕒');
     const results = await pins(text);
     if (!results || results.length === 0) {
-      return conn.reply(m.chat, `No se encontraron resultados para "${text}".`, m);
+      return conn.reply(m.chat, `No se encontraron resultados para "${text}".`, m, rcanal);
     }
 
     const maxImages = Math.min(results.length, 10);
@@ -161,21 +161,16 @@ let handler = async (m, { conn, text }) => {
             `• *Resultados:* ${maxImages}\n` +
             `• *Fuente:* Pinterest\n\n` +
             `_BUILD WITH TYLARZ © 2019-2025_`,
-      quoted: m
+      quoted: m, rcanal
     });
 
-
-    await sendAlbumMessage(m.chat, medias, {
-      caption: `◜ Pinterest Search ◞\n≡ 🔎 Búsqueda: "${text}"\n≡ 📄 Resultados: ${maxImages}`,
-      quoted: m
-    });
 
 
     await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key } });
 
   } catch (error) {
     console.error(error);
-    conn.reply(m.chat, 'Error al obtener imágenes de Pinterest.', m);
+    conn.reply(m.chat, 'Error al obtener imágenes de Pinterest.', m, rcanal);
   }
 };
 
