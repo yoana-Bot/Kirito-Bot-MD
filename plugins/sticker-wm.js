@@ -12,7 +12,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
   const exif = await addExif(sticker, texto1, texto2);
 
-  await conn.sendMessage(m.chat, { sticker: exif }, { quoted: m });
+  await conn.sendMessage(m.chat, { sticker: exif }, { quoted: fkontak });
 };
 
 handler.help = ['wm'];
