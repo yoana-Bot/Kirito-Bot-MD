@@ -1,6 +1,6 @@
 // Créditos Del Código A FzTeis
 
-import axios from 'axios';
+/*import axios from 'axios';
 import baileys from '@whiskeysockets/baileys';
 
 async function sendAlbumMessage(jid, medias, options = {}) {
@@ -178,4 +178,4 @@ handler.help = ['pinterest'];
 handler.command = ['pinterest', 'pin'];
 handler.tags = ['buscador'];
 
-export default handler;
+export default handler;*/
