@@ -1,6 +1,5 @@
 // © Deylin 
 
-
 const banderas = [
   { pais: "Honduras", emoji: "🇭🇳" },
   { pais: "México", emoji: "🇲🇽" },
@@ -62,7 +61,6 @@ const banderas = [
   { pais: "Ucrania", emoji: "🇺🇦" }
 ]
 
-
 const juegoBanderas = new Map()
 
 function elegirBanderaAleatoria() {
@@ -77,36 +75,41 @@ let handler = async (m, { conn }) => {
   const seleccionada = elegirBanderaAleatoria()
   juegoBanderas.set(m.sender, { pais: seleccionada.pais.toLowerCase(), intentos: 2 })
 
-  let text = `🎌 Adivina la bandera:\n\n» ${seleccionada.emoji}\n\n*Responde con el nombre del país.*\nTienes 2 corazones ❤️❤️`
-  conn.reply(m.chat, text, m)
+  let text = `🎌 *Adivina la bandera:*\n\n» ${seleccionada.emoji}\n\n*Responde con el nombre del país.*\nTienes 2 corazones ❤️❤️`
+  conn.reply(m.chat, text, m, rcanal)
 }
 
 handler.before = async (m, { conn }) => {
   const juego = juegoBanderas.get(m.sender)
   if (!juego) return
 
-        let expGanada = juego.pais.length >= 8
+  if (m.text.toLowerCase() === juego.pais) {
+    let expGanada = juego.pais.length >= 8
       ? Math.floor(Math.random() * 3500)
       : Math.floor(Math.random() * 300)
 
-    global.db.data.users[m.sender].exp += expGanada
+    if (!global.db.data.users[m.sender]) {
+      global.db.data.users[m.sender] = { exp: 0 }
+    }
 
-    return conn.reply(m.chat, `¡Correcto! Adivinaste la bandera de *${juego.pais.charAt(0).toUpperCase() + juego.pais.slice(1)}* \n\n*Has ganado:* ${expGanada} Exp. 🥳`, m, rcanal)
+    global.db.data.users[m.sender].exp += expGanada
+    juegoBanderas.delete(m.sender)
+
+    return conn.reply(m.chat, `✅ ¡Correcto! Adivinaste la bandera de *${juego.pais.charAt(0).toUpperCase() + juego.pais.slice(1)}*\n\n*Has ganado:* ${expGanada} Exp. 🥳`, m, rcanal)
   } else {
     juego.intentos--
     if (juego.intentos <= 0) {
       juegoBanderas.delete(m.sender)
-      return conn.reply(m.chat, `❌ Perdiste. La respuesta correcta era *${juego.pais.charAt(0).toUpperCase() + juego.pais.slice(1)}*`, m)
+      return conn.reply(m.chat, `❌ Perdiste. La respuesta correcta era *${juego.pais.charAt(0).toUpperCase() + juego.pais.slice(1)}*`, m, rcanal)
     } else {
-      return conn.reply(m.chat, `❌ Incorrecto. Te quedan ${juego.intentos} corazón(es) ❤️`, m)
+      return conn.reply(m.chat, `❌ Incorrecto. Te quedan ${juego.intentos} corazón(es) ❤️`, m, rcanal)
     }
   }
 }
 
-handler.help = ['adivinabandera']
+handler.help = ['adivinabandera', 'banderas', 'union']
 handler.tags = ['game']
-handler.command = ['adivinabandera']
-handler.group = true
+handler.command = ['adivinabandera', 'banderas', 'union']
 handler.register = true
 
 export default handler
