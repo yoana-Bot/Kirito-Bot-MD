@@ -88,7 +88,7 @@ handler.before = async (m, { conn }) => {
   const respuesta = m.text.trim().toLowerCase()
   if (respuesta === juego.pais) {
     juegoBanderas.delete(m.sender)
-    return conn.reply(m.chat, `¡Correcto! Adivinaste la bandera de *${juego.pais.charAt(0).toUpperCase() + juego.pais.slice(1)}* 🥳`, m)
+    return conn.reply(m.chat, `¡Correcto! Adivinaste la bandera de *${juego.pais.charAt(0).toUpperCase() + juego.pais.slice(1)}* \n\n*Has ganado:* ${expGanada} Exp. 🥳`, m)
   } else {
     juego.intentos--
     if (juego.intentos <= 0) {
