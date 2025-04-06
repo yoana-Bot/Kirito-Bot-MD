@@ -83,7 +83,7 @@ let handler = async (m, { conn }) => {
 handler.before = async (m, { conn }) => {
   const juego = juegoBanderas.get(m.sender)
   if (!juego) return
-        global.db.data.users[sender].exp += expGanada;
+        global.db.data.users[m.sender].exp += expGanada;
 
   const respuesta = m.text.trim().toLowerCase()
   if (respuesta === juego.pais) {
