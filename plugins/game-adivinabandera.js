@@ -77,7 +77,7 @@ let handler = async (m, { conn }) => {
   const seleccionada = elegirBanderaAleatoria()
   juegoBanderas.set(m.sender, { pais: seleccionada.pais.toLowerCase(), intentos: 2 })
 
-  let text = `🎌 *Adivina la bandera:*\n\n» ${seleccionada.emoji}\n\n*Responde con el nombre del país.*\nTienes 2 corazones ❤️❤️`
+  let text = `🎌 Adivina la bandera:\n\n» ${seleccionada.emoji}\n\n*Responde con el nombre del país.*\nTienes 2 corazones ❤️❤️`
   conn.reply(m.chat, text, m)
 }
 
@@ -85,14 +85,7 @@ handler.before = async (m, { conn }) => {
   const juego = juegoBanderas.get(m.sender)
   if (!juego) return
 
-  
-  if (/^[\/!#.]/.test(m.text)) return
-
-  const respuesta = m.text.trim().toLowerCase()
-  if (respuesta === juego.pais) {
-    juegoBanderas.delete(m.sender)
-
-    let expGanada = juego.pais.length >= 8
+      let expGanada = juego.pais.length >= 8
       ? Math.floor(Math.random() * 3500)
       : Math.floor(Math.random() * 300)
 
@@ -113,6 +106,7 @@ handler.before = async (m, { conn }) => {
 handler.help = ['adivinabandera']
 handler.tags = ['game']
 handler.command = ['adivinabandera']
+handler.group = true
 handler.register = true
 
 export default handler
