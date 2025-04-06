@@ -101,12 +101,12 @@ global.canalNombreM = ["✯ 🄺🄸🅁🄸🅃🄾 - 🅲🅷🅰🅽🅽🅴�
 global.channelRD = await getRandomChannel()
 
 global.icono = [ 
-'https://i.postimg.cc/3JjzVC0N/IMG-20250318-WA0969.jpg',
-'https://i.postimg.cc/3JjzVC0N/IMG-20250318-WA0969.jpg',
-'https://i.postimg.cc/3JjzVC0N/IMG-20250318-WA0969.jpg',
-'https://i.postimg.cc/3JjzVC0N/IMG-20250318-WA0969.jpg',
-'https://i.postimg.cc/3JjzVC0N/IMG-20250318-WA0969.jpg',
-'https://i.postimg.cc/3JjzVC0N/IMG-20250318-WA0969.jpg'
+'https://files.catbox.moe/5olr3c.jpg',
+'https://files.catbox.moe/5olr3c.jpg',
+'https://files.catbox.moe/5olr3c.jpg',
+'https://files.catbox.moe/5olr3c.jpg',
+'https://files.catbox.moe/5olr3c.jpg',
+'https://files.catbox.moe/5olr3c.jpg'
 ].getRandom()
 
 global.rcanal = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, serverMessageId: 100, newsletterName: channelRD.name, }, externalAdReply: { showAdAttribution: true, title: textbot, body: '👑҉Kirito- Bot MDᚐ', mediaUrl: null, description: null, previewType: "PHOTO", thumbnailUrl: icono, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false }, }, }}
