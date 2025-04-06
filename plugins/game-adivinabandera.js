@@ -78,7 +78,7 @@ let handler = async (m, { conn }) => {
   juegoBanderas.set(m.sender, { pais: seleccionada.pais.toLowerCase(), intentos: 2 })
 
   let text = `🎌 Adivina la bandera:\n\n» ${seleccionada.emoji}\n\n*Responde con el nombre del país.*\nTienes 2 corazones ❤️❤️`
-  conn.reply(m.chat, text, m, rcanal)
+  conn.reply(m.chat, text, m, rcanal);
 }
 
 handler.before = async (m, { conn }) => {
@@ -91,14 +91,14 @@ handler.before = async (m, { conn }) => {
 
     global.db.data.users[m.sender].exp += expGanada
 
-    return conn.reply(m.chat, `¡Correcto! Adivinaste la bandera de *${juego.pais.charAt(0).toUpperCase() + juego.pais.slice(1)}* \n\n*Has ganado:* ${expGanada} Exp. 🥳`, m, rcanal)
+    return conn.reply(m.chat, `¡Correcto! Adivinaste la bandera de *${juego.pais.charAt(0).toUpperCase() + juego.pais.slice(1)}* \n\n*Has ganado:* ${expGanada} Exp. 🥳`, m, rcanal);
   } else {
     juego.intentos--
     if (juego.intentos <= 0) {
       juegoBanderas.delete(m.sender)
-      return conn.reply(m.chat, `❌ Perdiste. La respuesta correcta era *${juego.pais.charAt(0).toUpperCase() + juego.pais.slice(1)}*`, m, rcanal)
+      return conn.reply(m.chat, `❌ Perdiste. La respuesta correcta era *${juego.pais.charAt(0).toUpperCase() + juego.pais.slice(1)}*`, m, rcanal);
     } else {
-      return conn.reply(m.chat, `❌ Incorrecto. Te quedan ${juego.intentos} corazón(es) ❤️`, m, rcanal)
+      return conn.reply(m.chat, `❌ Incorrecto. Te quedan ${juego.intentos} corazón(es) ❤️`, m, rcanal);
     }
   }
 }
