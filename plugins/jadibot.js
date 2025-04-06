@@ -65,8 +65,11 @@ function convertirMsADiasHorasMinutosSegundos(ms) {
 }
 
 const message = users.map((v, i) => 
-`[${i + 1}] ${v.user.name || 'Sub-Bot'}\nwa.me/${v.user.jid.replace(/[^0-9]/g, '')}?text=${usedPrefix}estado\nOnline: ${v.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - v.uptime) : 'Desconocido'}`
-).join('\n\n');
+`╭───[ Sub-Bot #${i + 1} ]────
+│ Nombre : ${v.user.name || 'Sub-Bot'}
+│ Enlace : wa.me/${v.user.jid.replace(/[^0-9]/g, '')}?text=${usedPrefix}estado
+│ Online : ${v.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - v.uptime) : 'Desconocido'}
+╰─────────────────────────`).join('\n\n');
 
 const responseMessage = `KIRITO-BOT\nSub-Bots activos: ${users.length}\n\n${message || 'No hay sub-bots conectados.'}`.trim();
 
