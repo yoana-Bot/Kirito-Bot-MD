@@ -73,7 +73,7 @@ const message = users.map((v, i) =>
 
 const responseMessage = `*KIRITO-BOT*\n*Sub-Bots activos*: ${users.length}\n\n${message || 'No hay sub-bots conectados.'}`.trim();
 
-await _envio.sendMessage(m.chat, {text: responseMessage, mentions: _envio.parseMention(responseMessage)}, {quoted: m})
+await _envio.sendMessage(m.chat, {text: responseMessage, mentions: _envio.parseMention(responseMessage)}, {quoted: fkontak})
 break   
 }}
 
