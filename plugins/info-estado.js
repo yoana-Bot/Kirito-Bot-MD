@@ -25,6 +25,7 @@ info += `👑  *◜Actividad◞* ⇢ ${uptime}\n`
 info += `👑  *◜Velocidad◞* ⇢ ${(speed * 1000).toFixed(0) / 1000}\n`
 info += `👑  *◜Sub-Bots Activos◞* ⇢ ${totalUsers || '0'}`
 await conn.sendMessage(m.chat, { text: info }, { quoted: fkontak })
+
 handler.help = ['estado']
 handler.tags = ['info']
 handler.command = ['estado', 'status', 'estate', 'state', 'stado', 'stats']
