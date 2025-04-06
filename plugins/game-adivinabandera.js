@@ -69,7 +69,7 @@ function elegirBanderaAleatoria() {
   return banderas[Math.floor(Math.random() * banderas.length)]
 }
 
-let handler = async (m, { conn, command }) => {
+let handler = async (m, { conn }) => {
   if (juegoBanderas.has(m.sender)) {
     return conn.reply(m.chat, "Ya tienes un juego en curso. ¡Responde primero!", m)
   }
@@ -81,20 +81,19 @@ let handler = async (m, { conn, command }) => {
   conn.reply(m.chat, text, m)
 }
 
-
 handler.before = async (m, { conn }) => {
-  if (m.isCommand) return 
-
   const juego = juegoBanderas.get(m.sender)
   if (!juego) return
+
+  
+  if (/^[\/!#.]/.test(m.text)) return
 
   const respuesta = m.text.trim().toLowerCase()
   if (respuesta === juego.pais) {
     juegoBanderas.delete(m.sender)
 
-
-    let expGanada = juego.pais.length >= 8 
-      ? Math.floor(Math.random() * 3500) 
+    let expGanada = juego.pais.length >= 8
+      ? Math.floor(Math.random() * 3500)
       : Math.floor(Math.random() * 300)
 
     global.db.data.users[m.sender].exp += expGanada
