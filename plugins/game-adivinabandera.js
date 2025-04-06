@@ -88,6 +88,11 @@ handler.before = async (m, { conn }) => {
   const respuesta = m.text.trim().toLowerCase()
   if (respuesta === juego.pais) {
     juegoBanderas.delete(m.sender)
+        let expGanada = Math.floor(Math.random() * 300); //fáciles
+        if (palabra.length >= 8) {
+            expGanada = Math.floor(Math.random() * 3500); //difíciles
+        }
+        global.db.data.users[sender].exp += expGanada;
     return conn.reply(m.chat, `¡Correcto! Adivinaste la bandera de *${juego.pais.charAt(0).toUpperCase() + juego.pais.slice(1)}* \n\n*Has ganado:* ${expGanada} Exp. 🥳`, m)
   } else {
     juego.intentos--
