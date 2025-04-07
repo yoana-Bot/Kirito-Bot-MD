@@ -81,7 +81,7 @@ const videoInfo = search.all[0];
 const { title, thumbnail, timestamp, views, ago, url } = videoInfo;
 const vistas = formatViews(views);
 
-const infoMessage = `★ *𝗠𝗜𝗧𝗦𝗨𝗥𝗜 - 𝗞𝗔𝗡𝗥𝗢𝗝𝗜 - 𝗕𝗢𝗧 𝗠𝗗* ★  
+const infoMessage = `★ *𝐊𝐈𝐑𝐈𝐓𝐎 - 𝐁𝐎𝐓 𝐌𝐃* ★  
 
 ✦ *Archivo encontrado:* *「 ${title} 」*  
 
