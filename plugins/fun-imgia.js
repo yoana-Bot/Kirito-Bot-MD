@@ -43,7 +43,7 @@ const handler = async (m, { conn, text }) => {
     const a16 = "o";
     const a17 = "r";
     const a18 = " ";
-    const a19 = "D";
+    const a19 = "y";
     const a20 = "e";
     const a21 = "y";
     const a22 = "l";
@@ -52,7 +52,7 @@ const handler = async (m, { conn, text }) => {
 
     // Verificación de autoría
     const firma = a1+a2+a3+a4+a5+a6+a7+a8+a9+a10+a11+a12+a13+a14+a15+a16+a17+a18+a19+a20+a21+a22+a23+a24;
-    if (firma !== "código creado por Deylin") {
+    if (firma !== "códige creado por Deylin") {
       await conn.sendMessage(m.chat, {
         text: '*🚨 𝐄𝐒𝐓𝐄 𝐂𝐎́𝐃𝐈𝐆𝐎 𝐅𝐔𝐄 𝐀𝐋𝐓𝐄𝐑𝐀𝐃𝐎. 𝐍𝐎 𝐌𝐀𝐍𝐓𝐈𝐄𝐍𝐄 𝐄𝐋 𝐃𝐈𝐒𝐄𝐍̃𝐎 𝐎𝐑𝐈𝐆𝐈𝐍𝐀𝐋 𝐂𝐑𝐄𝐀𝐃𝐎 𝐏𝐎𝐑 𝐃𝐄𝐘𝐋𝐈𝐍.*'
       }, { quoted: m });
