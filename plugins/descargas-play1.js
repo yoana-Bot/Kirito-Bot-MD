@@ -79,7 +79,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 
     const videoInfo = search.all[0];
     const { title, thumbnail, timestamp, views, ago, url } = videoInfo;
-    const vistas = formatViews(views);
+    const vistas = formatViews(views || 0);
     const infoMessage = ` *˙Ⱉ˙ฅ* 𝐊𝐢𝐫𝐢𝐭𝐨 -𝐁𝐨𝐭 𝐌𝐃
 
 *「✦」Descargando* ${title}
