@@ -77,19 +77,24 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       return m.reply('No se encontraron resultados para tu búsqueda.');
     }
 
-    const videoInfo = search.all[0];
-    const { title, thumbnail, timestamp, views, ago, url } = videoInfo;
-    const vistas = formatViews(views || 0);
-    const infoMessage = ` *˙Ⱉ˙ฅ* 𝐊𝐢𝐫𝐢𝐭𝐨 -𝐁𝐨𝐭 𝐌𝐃
+const videoInfo = search.all[0];
+const { title, thumbnail, timestamp, views, ago, url } = videoInfo;
+const vistas = formatViews(views);
 
-*「✦」Descargando* ${title}
+const infoMessage = `★ *𝗠𝗜𝗧𝗦𝗨𝗥𝗜 - 𝗞𝗔𝗡𝗥𝗢𝗝𝗜 - 𝗕𝗢𝗧 𝗠𝗗* ★  
 
- *✦ Canal* » ${videoInfo.author.name || 'Desconocido'}
-*❥ Vistas* » ${views}
-*∞ Duración* » ${timestamp}
-*✭ Publicación* » ${ago}
-*➳ Link* » ${url}\n`;
-    const thumb = (await conn.getFile(thumbnail))?.data;
+✦ *Archivo encontrado:* *「 ${title} 」*  
+
+⚔ *Canal:* » *${videoInfo.author.name || 'Desconocido'}*  
+◆━━━━━━◆✦◆━━━━━━◆  
+⚔ *Vistas:* » *${vistas}*  
+◆━━━━━━◆✦◆━━━━━━◆  
+⚔ *Duración:* » *${timestamp}*  
+◆━━━━━━◆✦◆━━━━━━◆  
+⚔ *Publicado:* » *${ago}*  
+◆━━━━━━◆✦◆━━━━━━◆  
+⚔ *Enlace:* » ${url}`;
+const thumb = (await conn.getFile(thumbnail))?.data;
 
     const JT = {
       contextInfo: {
@@ -109,7 +114,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     await conn.reply(m.chat, infoMessage, m, JT);
 
     if (command === 'play' || command === 'yta' || command === 'ytmp3') {
-            const api = await (await fetch(`https://delirius-apiofc.vercel.app/download/ytmp3?url=${url}&type=audio&quality=128kbps&apikey=GataDios`)).json()
+      const api = await (await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=audio&quality=128kbps&apikey=GataDios`)).json()
       const result = api.data.url
       await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m });
 
