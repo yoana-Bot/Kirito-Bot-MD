@@ -17,7 +17,7 @@ generando imagen de *${texto}*`, m, rcanal);
 
         const response = await axios.get(apiUrl, { responseType: 'arraybuffer' });
 
-        await conn.sendMessage(m.chat, { image: Buffer.from(response.data) }, { quoted: fkontak });
+        await conn.sendMessage(m.chat, { image: Buffer.from(response.data) }, { quoted: m });
     } catch (error) {
         console.error('Error al generar la imagen:', error);
         await conn.reply(m.chat, `${msm} No se pudo generar la imagen, intenta nuevamente mas tarde.`, m, rcanal);
