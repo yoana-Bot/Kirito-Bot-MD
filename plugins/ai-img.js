@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 const handler = async (m, { conn, args, command }) => {
-    const kiritoLogo = '${emoji} KIRITO-BOT | IA ✨';
+    const kiritoLogo = '✨ KIRITO-BOT | IA ✨';
     const waitMessage = '✨ Generando tu imagen...';
     const errorMessage = '⚠️ No se pudo generar la imagen. Intenta más tarde.';
-    const usageMessage = '${emoji} Por favor, proporciona una descripción para generar la imagen.\n\n*Ejemplo:* .imgg un dragón volando sobre un castillo';
+    const usageMessage = '✨ Por favor, proporciona una descripción para generar la imagen.\n\n*Ejemplo:* .imgg un dragón volando sobre un castillo';
 
     if (!args[0]) {
         await conn.reply(m.chat, `${kiritoLogo}\n\n${usageMessage}`, m, rcanal);
