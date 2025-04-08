@@ -1,4 +1,4 @@
-/*import { WAMessageStubType } from '@whiskeysockets/baileys';
+import { WAMessageStubType } from '@whiskeysockets/baileys';
 import fetch from 'node-fetch';
 
 let handler = async (m, { conn, usedPrefix, command, text }) => {
@@ -42,4 +42,4 @@ handler.command = ['testwelcome'];
 handler.admin = true;
 handler.group = true;
 
-export default handler;*/
+export default handler;
