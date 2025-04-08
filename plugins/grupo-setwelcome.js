@@ -1,4 +1,4 @@
-let handler = async (m, { conn, text, isRowner }) => {
+/*let handler = async (m, { conn, text, isRowner }) => {
   if (!text) return m.reply(`${emoji} Por favor, proporciona una bienvenida para el bot.\n> Ejemplo: #setwelcome Hola user`);
 
   global.welcom1 = text.trim();
@@ -12,4 +12,4 @@ handler.command = ['setwelcome'];
 handler.owner = false;
 handler.admin = true;
 
-export default handler;
+export default handler;*/
