@@ -24,7 +24,7 @@ const handler = async (m, { conn, args }) => {
 };
 
 handler.command = ['imgg', 'kiritoia'];
-handler.help = ['dalle'];
+handler.help = ['imgg', 'kiritoia'];
 handler.tags = ['tools'];
 
 export default handler;
