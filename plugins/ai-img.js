@@ -1,35 +1,25 @@
 import axios from 'axios';
 
-const handler = async (m, { conn, args, command }) => {
-    const kiritoLogo = '☯️ KIRITO-BOT | IA ☯️';
-    const waitMessage = '⌛ Generando tu imagen...';
-    const errorMessage = '❌ No se pudo generar la imagen. Intenta más tarde.';
-    const usageMessage = '✏️ Por favor, proporciona una descripción para generar la imagen.\n\n*Ejemplo:* .imgg un dragón volando sobre un castillo';
-
+const handler = async (m, { conn, args }) => {
     if (!args[0]) {
-        await conn.reply(m.chat, `${kiritoLogo}\n\n${usageMessage}`, m, rcanal);
+        await conn.reply(m.chat, `${emoji} Por favor, proporciona una descripción para generar la imagen.`, m, rcanal);
         return;
     }
 
     const prompt = args.join(' ');
-    const apiUrl = `https://eliasar-yt-api.vercel.app/api/ai/text2img?prompt=${encodeURIComponent(prompt)}`;
+    const apiUrl = `https://eliasar-yt-api.vercel.app/api/ai/text2img?prompt=${prompt}`;
 
     try {
-        await conn.reply(m.chat, `${kiritoLogo}\n\n${waitMessage}`, m, rcanal);
+        conn.reply(m.chat, `${emoji2} Espere un momento...
+
+generando imagen de *${prompt}*`, m, rcanal);
 
         const response = await axios.get(apiUrl, { responseType: 'arraybuffer' });
 
-        await conn.sendMessage(
-            m.chat,
-            {
-                image: Buffer.from(response.data),
-                caption: `${kiritoLogo}\n\n✨ Prompt usado:\n${prompt}`,
-            },
-            { quoted: fkontak }
-        );
+        await conn.sendMessage(m.chat, { image: Buffer.from(response.data) }, { quoted: m });
     } catch (error) {
-        console.error('[KIRITO-IMG-ERROR]:', error);
-        await conn.reply(m.chat, `${kiritoLogo}\n\n${errorMessage}`, m, rcanal);
+        console.error('Error al generar la imagen:', error);
+        await conn.reply(m.chat, ` No se pudo generar la imagen, intenta nuevamente mas tarde.`, m, rcanal);
     }
 };
 
