@@ -7,20 +7,18 @@ const handler = async (m, { conn, args }) => {
         return;
     }
 
-    const texto = args.join(' ');
-    const apiUrl = `https://eliasar-yt-api.vercel.app/api/ai/text2img?prompt=${texto}`;
+    const prompt = args.join(' ');
+    const apiUrl = `https://eliasar-yt-api.vercel.app/api/ai/text2img?prompt=${prompt}`;
 
     try {
-        conn.reply(m.chat, `${emoji2} Espere un momento...
-
-generando imagen de *${texto}*`, m, rcanal);
+        conn.reply(m.chat, `${emoji2} Espere un momento...`, m, rcanal);
 
         const response = await axios.get(apiUrl, { responseType: 'arraybuffer' });
 
-        await conn.sendMessage(m.chat, { image: Buffer.from(response.data) }, { quoted: m });
+        await conn.sendMessage(m.chat, { image: Buffer.from(response.data) }, { quoted: fkontak });
     } catch (error) {
         console.error('Error al generar la imagen:', error);
-        await conn.reply(m.chat, `${emoji} No se pudo generar la imagen, intenta nuevamente mas tarde.`, m, rcanal);
+        await conn.reply(m.chat, ` No se pudo generar la imagen, intenta nuevamente mas tarde.`, m, rcanal);
     }
 };
 
