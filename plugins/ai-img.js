@@ -8,7 +8,7 @@ const handler = async (m, { conn, args }) => {
     }
 
     const texto = args.join(' ');
-    const apiUrl = `https://eliasar-yt-api.vercel.app/api/ai/text2img?prompt=${prompt}`;
+    const apiUrl = `https://eliasar-yt-api.vercel.app/api/ai/text2img?prompt=${texto}`;
 
     try {
         conn.reply(m.chat, `${emoji2} Espere un momento...
