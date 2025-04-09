@@ -101,7 +101,7 @@ handler.command = ['qr', 'code']
 export default handler 
 
 export async function kiritoJadiBot(options) {
-let { pathkiritoJadiBot, m, conn, args, usedPrefix, command } = options
+let { pathkiritoJadiBot, m, conn, args, usedPrefix, command, rcanal } = options
 if (command === 'code') {
 command = 'qr'; 
 args.unshift('code')}
