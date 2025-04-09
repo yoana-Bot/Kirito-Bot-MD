@@ -65,7 +65,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     let menuText = `
 *⌬━━━━▣━━◤👑◢━━▣━━━━━⌬*
 
-Hola *@${userId.split('@')[0]}* soy *𝐀𝐬𝐭𝐫𝐨-𝐁𝐨𝐭 ☆*
+Hola *@${userId.split('@')[0]}* soy *𝐤𝐢𝐫𝐢𝐭𝐨-𝐁𝐨𝐭 𝐌𝐃 ☆*
 
 ╔══════⌬『 ⭐ 𝑰 𝑵 𝑭 𝑶 ✨』
 ║ ✎ *Cliente:* @${userId.split('@')[0]}
@@ -87,7 +87,7 @@ ${commandsForTag.map(menu => menu.help.map(help => `∫➤ ${_p}${help} ${menu.l
 *┗━━━▣━━⌬⌨⌬━━▣━━━━⌬*`
 }).filter(text => text !== '').join('\n')}
 
-> © astro-Bot by Deylin
+> © *kirito-Bot MD by Deylin*
 `;
 
     // no tocar 
