@@ -61,7 +61,7 @@ const ddownr = {
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   try {
     if (!text.trim()) {
-      return conn.reply(m.chat, "⚔️ *Kirito-Bot* | Ingresa el nombre de la canción que deseas buscar.", m, rcanal);
+      return conn.reply(m.chat, "⚔️ *Kirito-Bot* | Ingresa el nombre de la canción que deseas buscar.", m);
     }
 
     const search = await yts(text);
