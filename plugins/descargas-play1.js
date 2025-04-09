@@ -75,12 +75,17 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const thumb = (await conn.getFile(thumbnail))?.data;
 
     const infoMessage = ` 🫆 *Kirito-Bot - Descargas*  🫆\n\n` +
-      `🎶 *Título:* ${title}\n` +
-      `⏳ *Duración:* ${timestamp}\n` +
-      `👁 *Vistas:* ${vistas}\n` +
-      `📺 *Canal:* ${videoInfo.author.name || "Desconocido"}\n` +
-      `📅 *Publicado:* ${ago}\n` +
-      `🔗 *Enlace:* ${url}`;
+      `*✦ Título:* ${title}\n` +
+      `-------------------------` +
+      `*✰ Duración:* ${timestamp}\n` +
+      `-------------------------` +
+      `*✰ Vistas:* ${vistas}\n` +
+      `-------------------------` +
+      `*✰ Canal:* ${videoInfo.author.name || "Desconocido"}\n` +
+      `-------------------------` +
+      `*✰ Publicado:* ${ago}\n` +
+      `-------------------------` +
+      `*∞ Enlace:* ${url}`;
 
     const JT = {
       contextInfo: {
