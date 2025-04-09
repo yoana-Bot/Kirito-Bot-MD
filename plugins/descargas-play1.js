@@ -74,7 +74,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const vistas = formatViews(views);
     const thumb = (await conn.getFile(thumbnail))?.data;
 
-    const infoMessage = `🖤 *Kirito-Bot - Descargas* 🖤\n\n` +
+    const infoMessage = ` 🫆 *Kirito-Bot - Descargas*  🫆\n\n` +
       `🎶 *Título:* ${title}\n` +
       `⏳ *Duración:* ${timestamp}\n` +
       `👁 *Vistas:* ${vistas}\n` +
