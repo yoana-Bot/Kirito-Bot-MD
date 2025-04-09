@@ -110,10 +110,10 @@ ${commandsForTag.map(menu => menu.help.map(help => `∫➤ ${_p}${help} ${menu.l
   }
 };
 
-handler.command = ['menu', 'help']
+handler.command = ['menu', 'help', 'menú']
 handler.before = async (m, { conn }) => {
     let text = m.text?.toLowerCase()?.trim();
-    if (text === 'menu' || text === 'help') {
+    if (text === 'menu', 'help', 'menú') {
         return handler(m, { conn });
     }
 }
