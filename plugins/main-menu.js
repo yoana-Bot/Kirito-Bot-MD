@@ -4,25 +4,38 @@ import fetch from 'node-fetch'
 import { xpRange } from '../lib/levelling.js'
 
 const categorias = {
-  'anime': '🌸 ANIME',
-  'main': '📌 INFO',
-  'search': '🔍 BÚSQUEDA',
-  'game': '🎮 JUEGOS',
-  'serbot': '🤖 SUB BOTS',
-  'rpg': '⚔️ RPG',
-  'sticker': '🎭 STICKERS',
-  'group': '👥 GRUPOS',
-  'premium': '💎 PREMIUM',
-  'downloader': '📥 DESCARGAS',
-  'tools': '🛠️ HERRAMIENTAS',
-  'fun': '🎉 DIVERSIÓN',
-  'nsfw': '🔞 NSFW',
-  'cmd': '📂 BASE DE DATOS',
-  'owner': '👑 ADMIN',
-  'audio': '🎵 AUDIOS',
-  'advanced': '🚀 AVANZADO',
-  'rcanal': '📺 R-CANAL',
-};
+    'anime': 'ANIME',
+  'main': 'INFO',
+  'search': 'SEARCH',
+  'game': 'GAME',
+  'serbot': 'SUB BOTS',
+  'rpg': 'RPG',
+  'sticker': 'STICKER',
+  'group': 'GROUPS',
+  'nable': 'ON / OFF',
+  'premium': 'PREMIUM',
+  'downloader': 'DOWNLOAD',
+  'tools': 'TOOLS',
+  'fun': 'FUN',
+  'nsfw': 'NSFW',
+  'cmd': 'DATABASE',
+  'owner': 'OWNER',
+  'audio': 'AUDIOS',
+  'advanced': 'ADVANCED',
+  'weather': 'WEATHER',
+  'news': 'NEWS',
+  'finance': 'FINANCE',
+  'education': 'EDUCATION',
+  'health': 'HEALTH',
+  'entertainment': 'ENTERTAINMENT',
+  'sports': 'SPORTS',
+  'travel': 'TRAVEL',
+  'food': 'FOOD',
+  'shopping': 'SHOPPING',
+  'productivity': 'PRODUCTIVITY',
+  'social': 'SOCIAL',
+  'security': 'SECURITY',
+  'custom': 'CUSTOM'
 
 
 const generarSaludo = () => {
@@ -48,9 +61,9 @@ const formatoMenu = {
 %readmore
   ───────────────`,
   cabecera: '┏━☾➥ *%categoria* ««✰',
-  cuerpo: '┃ %cmd %isLimit %isPremium',
+  cuerpo: '∮➤  %cmd %isLimit %isPremium',
   pie: '┗━━«✰»━━━━«✰»━━━━«✰»━━┛',
-  despues: '🔥 *By DEYLIN* 🔥',
+  despues: '> © *POWERED By DEYLIN* ',
 };
 
 const more = String.fromCharCode(8206);
