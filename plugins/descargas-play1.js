@@ -97,11 +97,11 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       }
     };
 
-    await conn.reply(m.chat, infoMessage, m, JT);
+    await conn.reply(m.chat, infoMessage, fkontak, JT);
 
     if (["play", "yta", "ytmp3"].includes(command)) {
       const api = await ddownr.download(url, "mp3");
-      await conn.sendMessage(m.chat, { audio: { url: api.downloadUrl }, mimetype: "audio/mpeg" }, { quoted: m });
+      await conn.sendMessage(m.chat, { audio: { url: api.downloadUrl }, mimetype: "audio/mpeg" }, { quoted: fkontak });
 
     } else if (["play2", "ytv", "ytmp4"].includes(command)) {
       const sources = [
@@ -124,9 +124,9 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
               video: { url: downloadUrl },
               fileName: `${title}.mp4`,
               mimetype: "video/mp4",
-              caption: "⚔ Aquí tienes tu video descargado por *Kirito-Bot* ⚔",
+              caption: "⚔ Aquí tienes tu video descargado por *Kirito-Bot MD* ⚔",
               thumbnail: thumb
-            }, { quoted: m });
+            }, { quoted: fkontak });
             break;
           }
         } catch (e) {
