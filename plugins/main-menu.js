@@ -24,26 +24,6 @@ const categorias = {
   'rcanal': '📺 R-CANAL',
 };
 
-const emojisCategorias = {
-  'anime': '🎴',
-  'main': '📌',
-  'search': '🔎',
-  'game': '🕹️',
-  'serbot': '🤖',
-  'rpg': '⚔️',
-  'sticker': '🎭',
-  'group': '👥',
-  'premium': '💎',
-  'downloader': '📥',
-  'tools': '🛠️',
-  'fun': '🎉',
-  'nsfw': '🔞',
-  'cmd': '📂',
-  'owner': '👑',
-  'audio': '🎶',
-  'advanced': '🚀',
-  'rcanal': '📺',
-};
 
 const generarSaludo = () => {
   const hora = new Date().getHours();
