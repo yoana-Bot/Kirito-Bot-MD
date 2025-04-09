@@ -48,7 +48,7 @@ const formatoMenu = {
 %readmore
   ───────────────`,
   cabecera: '┏━☾➥ *%categoria* ««✰',
-  cuerpo: '┃%emoji %cmd %isLimit %isPremium',
+  cuerpo: '┃ %cmd %isLimit %isPremium',
   pie: '┗━━«✰»━━━━«✰»━━━━«✰»━━┛',
   despues: '🔥 *By DEYLIN* 🔥',
 };
