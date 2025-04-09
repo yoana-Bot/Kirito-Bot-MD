@@ -1,7 +1,7 @@
-const fs = require('fs').promises;
-const { join } = require('path');
-const fetch = require('node-fetch');
-const { xpRange } = require('../lib/levelling.js');
+import { promises as fs } from 'fs';
+import { join } from 'path';
+import fetch from 'node-fetch';
+import { xpRange } from '../lib/levelling.js';
 
 const categorias = {
     'anime': 'ANIME',
