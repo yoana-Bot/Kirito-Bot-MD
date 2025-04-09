@@ -101,7 +101,6 @@ const handler = async (m, { conn, usedPrefix }) => {
               .replace(/%cmd/g, usedPrefix + help)
               .replace(/%isLimit/g, cmd.limite)
               .replace(/%isPremium/g, cmd.premium)
-              .replace(/%emoji/g, emojisCategorias[categoria] || '🔹')}`;
           });
         });
         menuTexto += `\n${formatoMenu.pie}`;
