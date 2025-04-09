@@ -5,48 +5,48 @@ import { xpRange } from '../lib/levelling.js'
 
 const categorias = {
     'anime': 'ANIME',
-  'main': 'INFO',
-  'search': 'SEARCH',
-  'game': 'GAME',
-  'serbot': 'SUB BOTS',
-  'rpg': 'RPG',
-  'sticker': 'STICKER',
-  'group': 'GROUPS',
-  'nable': 'ON / OFF',
-  'premium': 'PREMIUM',
-  'downloader': 'DOWNLOAD',
-  'tools': 'TOOLS',
-  'fun': 'FUN',
-  'nsfw': 'NSFW',
-  'cmd': 'DATABASE',
-  'owner': 'OWNER',
-  'audio': 'AUDIOS',
-  'advanced': 'ADVANCED',
-  'weather': 'WEATHER',
-  'news': 'NEWS',
-  'finance': 'FINANCE',
-  'education': 'EDUCATION',
-  'health': 'HEALTH',
-  'entertainment': 'ENTERTAINMENT',
-  'sports': 'SPORTS',
-  'travel': 'TRAVEL',
-  'food': 'FOOD',
-  'shopping': 'SHOPPING',
-  'productivity': 'PRODUCTIVITY',
-  'social': 'SOCIAL',
-  'security': 'SECURITY',
-  'custom': 'CUSTOM'
+    'main': 'INFO',
+    'search': 'SEARCH',
+    'game': 'GAME',
+    'serbot': 'SUB BOTS',
+    'rpg': 'RPG',
+    'sticker': 'STICKER',
+    'group': 'GROUPS',
+    'nable': 'ON / OFF',
+    'premium': 'PREMIUM',
+    'downloader': 'DOWNLOAD',
+    'tools': 'TOOLS',
+    'fun': 'FUN',
+    'nsfw': 'NSFW',
+    'cmd': 'DATABASE',
+    'owner': 'OWNER',
+    'audio': 'AUDIOS',
+    'advanced': 'ADVANCED',
+    'weather': 'WEATHER',
+    'news': 'NEWS',
+    'finance': 'FINANCE',
+    'education': 'EDUCATION',
+    'health': 'HEALTH',
+    'entertainment': 'ENTERTAINMENT',
+    'sports': 'SPORTS',
+    'travel': 'TRAVEL',
+    'food': 'FOOD',
+    'shopping': 'SHOPPING',
+    'productivity': 'PRODUCTIVITY',
+    'social': 'SOCIAL',
+    'security': 'SECURITY',
+    'custom': 'CUSTOM'
 };
 
 const generarSaludo = () => {
-  const hora = new Date().getHours();
-  if (hora >= 5 && hora < 12) return '🌞 ¡Buenos días!';
-  if (hora >= 12 && hora < 18) return '🌤 ¡Buenas tardes!';
-  return '🌙 ¡Buenas noches!';
+    const hora = new Date().getHours();
+    if (hora >= 5 && hora < 12) return '🌞 ¡Buenos días!';
+    if (hora >= 12 && hora < 18) return '🌤 ¡Buenas tardes!';
+    return '🌙 ¡Buenas noches!';
 };
 
 const formatoMenu = {
-  antes: `╔══════════════════╗\n   *Bienvenido a KIRITO-BOT*\n╚══════════════════╝
+    antes: `╔══════════════════╗\n   *Bienvenido a KIRITO-BOT*\n╚══════════════════╝
 
 ✎ ${generarSaludo()}, *%name*.
 
@@ -60,96 +60,97 @@ const formatoMenu = {
 ╚═══════ೋೋ═══════☾
 %readmore
   ───────────────`,
-  cabecera: '┏━☾➥ *%categoria* ««✰',
-  cuerpo: '∮➤  %cmd %isLimit %isPremium',
-  pie: '┗━━«✰»━━━━«✰»━━━━«✰»━━┛',
-  despues: '> © *POWERED By DEYLIN* ',
+    cabecera: '┏━☾➥ *%categoria* ««✰',
+    cuerpo: '∮➤  %cmd %isLimit %isPremium',
+    pie: '┗━━«✰»━━━━«✰»━━━━«✰»━━┛',
+    despues: '> © *POWERED By DEYLIN* ',
 };
 
 const more = String.fromCharCode(8206);
 const readMore = more.repeat(4001);
 
 const handler = async (m, { conn, usedPrefix }) => {
-  try {
-    const usuario = global.db.data.users[m.sender];
-    if (!usuario) {
-      return conn.reply(m.chat, '❌ No estás registrado en la base de datos.', m);
+    try {
+        const usuario = global.db.data.users[m.sender];
+        if (!usuario) {
+            return conn.reply(m.chat, '❌ No estás registrado en la base de datos.', m);
+        }
+
+        const { exp = 0, level = 1 } = usuario;
+        const { min, xp, max } = xpRange(level, global.multiplier || 1);
+        const nombre = (await conn.getName(m.sender)) || 'Usuario';
+        const totalUsuarios = Object.keys(global.db.data.users || {}).length;
+        const modo = global.opts['self'] ? 'Privado' : 'Público';
+
+        if (!global.plugins) {
+            return conn.reply(m.chat, '❌ Error: No se encontraron comandos.', m);
+        }
+
+        const comandos = Object.values(global.plugins)
+            .filter(plugin => plugin && !plugin.disabled)
+            .map(plugin => ({
+                ayuda: Array.isArray(plugin.help) ? plugin.help : [plugin.help],
+                categorias: Array.isArray(plugin.tags) ? plugin.tags : [plugin.tags],
+                limite: plugin.limit ? '🛑' : '',
+                premium: plugin.premium ? '💎' : '',
+            }));
+
+        let menuTexto = formatoMenu.antes
+            .replace(/%name/g, nombre)
+            .replace(/%modo/g, modo)
+            .replace(/%nivel/g, level)
+            .replace(/%exp/g, exp - min)
+            .replace(/%maxexp/g, xp)
+            .replace(/%totalreg/g, totalUsuarios)
+            .replace(/%readmore/g, readMore);
+
+        for (let categoria in categorias) {
+            const comandosFiltrados = comandos.filter(cmd => cmd.categorias.includes(categoria));
+            if (comandosFiltrados.length > 0) {
+                menuTexto += `\n\n${formatoMenu.cabecera.replace(/%categoria/g, categorias[categoria])}\n`;
+                comandosFiltrados.forEach(cmd => {
+                    cmd.ayuda.forEach(help => {
+                        menuTexto += `\n${formatoMenu.cuerpo
+                            .replace(/%cmd/g, usedPrefix + help)
+                            .replace(/%isLimit/g, cmd.limite)
+                            .replace(/%isPremium/g, cmd.premium)
+                        }`;
+                    });
+                });
+                menuTexto += `\n${formatoMenu.pie}`;
+            }
+        }
+
+        menuTexto += `\n\n${formatoMenu.despues}`;
+
+        const imagenesURL = [
+            'https://files.catbox.moe/80uwhc.jpg',
+            'https://files.catbox.moe/hyrmn9.jpg',
+            'https://files.catbox.moe/0tv7r3.jpg',
+            'https://files.catbox.moe/yiaw4a.jpg'
+        ];
+
+        const imagenAleatoria = imagenesURL[Math.floor(Math.random() * imagenesURL.length)];
+
+        await conn.sendMessage(m.chat, {
+            image: { url: imagenAleatoria },
+            caption: menuTexto.trim(),
+            contextInfo: {
+                mentionedJid: [m.sender],
+                isForwarded: true,
+                forwardedNewsletterMessageInfo: {
+                    newsletterJid: 'channelRD.id',
+                    newsletterName: 'channelRD.name',
+                    serverMessageId: -1
+                },
+                forwardingScore: 999
+            }
+        }, { quoted: m });
+
+    } catch (error) {
+        console.error('Error en el menú:', error);
+        conn.reply(m.chat, '❌ Error al generar el menú.', m);
     }
-
-    const { exp = 0, level = 1 } = usuario;
-    const { min, xp, max } = xpRange(level, global.multiplier || 1);
-    const nombre = (await conn.getName(m.sender)) || 'Usuario';
-    const totalUsuarios = Object.keys(global.db.data.users || {}).length;
-    const modo = global.opts['self'] ? 'Privado' : 'Público';
-
-    if (!global.plugins) {
-      return conn.reply(m.chat, '❌ Error: No se encontraron comandos.', m);
-    }
-
-    const comandos = Object.values(global.plugins)
-      .filter(plugin => plugin && !plugin.disabled)
-      .map(plugin => ({
-        ayuda: Array.isArray(plugin.help) ? plugin.help : [plugin.help],
-        categorias: Array.isArray(plugin.tags) ? plugin.tags : [plugin.tags],
-        limite: plugin.limit ? '🛑' : '',
-        premium: plugin.premium ? '💎' : '',
-      }));
-
-    let menuTexto = formatoMenu.antes
-      .replace(/%name/g, nombre)
-      .replace(/%modo/g, modo)
-      .replace(/%nivel/g, level)
-      .replace(/%exp/g, exp - min)
-      .replace(/%maxexp/g, xp)
-      .replace(/%totalreg/g, totalUsuarios)
-      .replace(/%readmore/g, readMore);
-
-    for (let categoria in categorias) {
-      const comandosFiltrados = comandos.filter(cmd => cmd.categorias.includes(categoria));
-      if (comandosFiltrados.length > 0) {
-        menuTexto += `\n\n${formatoMenu.cabecera.replace(/%categoria/g, categorias[categoria])}\n`;
-        comandosFiltrados.forEach(cmd => {
-          cmd.ayuda.forEach(help => {
-            menuTexto += `\n${formatoMenu.cuerpo
-              .replace(/%cmd/g, usedPrefix + help)
-              .replace(/%isLimit/g, cmd.limite)
-              .replace(/%isPremium/g, cmd.premium)
-          });
-        });
-        menuTexto += `\n${formatoMenu.pie}`;
-      }
-    }
-
-    menuTexto += `\n\n${formatoMenu.despues}`;
-
-    const imagenesURL = [
-      'https://files.catbox.moe/80uwhc.jpg',
-      'https://files.catbox.moe/hyrmn9.jpg',
-      'https://files.catbox.moe/0tv7r3.jpg',
-      'https://files.catbox.moe/yiaw4a.jpg'
-    ];
-
-    const imagenAleatoria = imagenesURL[Math.floor(Math.random() * imagenesURL.length)];
-
-    await conn.sendMessage(m.chat, {
-      image: { url: imagenAleatoria },
-      caption: menuTexto.trim(),
-      contextInfo: {
-        mentionedJid: [m.sender],
-        isForwarded: true,
-        forwardedNewsletterMessageInfo: {
-          newsletterJid: 'channelRD.id',
-          newsletterName: 'channelRD.name',
-          serverMessageId: -1
-        },
-        forwardingScore: 999
-      }
-    }, { quoted: m });
-
-  } catch (error) {
-    console.error('Error en el menú:', error);
-    conn.reply(m.chat, '❌ Error al generar el menú.', m);
-  }
 };
 
 handler.help = ['menu', 'allmenu'];
