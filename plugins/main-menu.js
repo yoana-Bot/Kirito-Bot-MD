@@ -36,7 +36,7 @@ const categorias = {
   'social': 'SOCIAL',
   'security': 'SECURITY',
   'custom': 'CUSTOM'
-}
+};
 
 const generarSaludo = () => {
   const hora = new Date().getHours();
