@@ -1,22 +1,22 @@
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-    if (!text) return conn.reply(m.chat, `${emoji} Por favor, ingrese el error que desea reportar.`, m)
-    if (text.length < 10) return conn.reply(m.chat, `${emoji} Especifique bien el error, mínimo 10 caracteres.`, m)
-    if (text.length > 1000) return conn.reply(m.chat, `${emoji2} *Máximo 1000 caracteres para enviar el error.`, m)
-    const teks = `*✖️ \`R E P O R T E\` ✖️*
+    if (!text) return conn.reply(m.chat, `${emoji} Por favor, ingrese el error que desea reportar.`, m, fake)
+    if (text.length < 10) return conn.reply(m.chat, `${emoji} Especifique bien el error, mínimo 10 caracteres.`, m, fake)
+    if (text.length > 1000) return conn.reply(m.chat, `${emoji2} *Máximo 1000 caracteres para enviar el error.`, m, fake)
+    const teks = `*🔥 \`R E P O R T E\` 🔥*
 
-☁️ Número:
+👑 Número:
 • Wa.me/${m.sender.split`@`[0]}
 
-👤 Usuario: 
+✨ Usuario: 
 • ${m.pushName || 'Anónimo'}
 
-💬 Mensaje:
+🔥 Mensaje:
 • ${text}`
     
     await conn.reply(`${suittag}@s.whatsapp.net`, m.quoted ? teks + m.quoted.text : teks, m, { mentions: conn.parseMention(teks) })
     await conn.reply('120363416711925079@g.us', m.quoted ? teks + m.quoted.text : teks, m, { mentions: conn.parseMention(teks) })
 
-    m.reply(`${emoji} El reporte se envió a mi creador y al grupo correspondiente, cualquier informe falso puede ocasionar baneo.`)
+    m.reply(`${emoji} El reporte se envió a mi creador y al grupo correspondiente, cualquier informe falso puede ocasionar baneo.`, m ,fake)
 }
 handler.help = ['reportar']
 handler.tags = ['info']
