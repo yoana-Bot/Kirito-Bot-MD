@@ -50,7 +50,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
       await conn.sendMessage(
         m.chat, 
         { sticker: stiker }, 
-        { quoted: m, rcanal, contextInfo: rcanal }
+        { quoted: fkontak, contextInfo: }
       );
     } else {
       return conn.reply(m.chat, `${emoji} *Por favor, envía una imagen o video para hacer un sticker.*`, m, rcanal);
