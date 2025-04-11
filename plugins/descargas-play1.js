@@ -1,3 +1,7 @@
+// editado y reestructurado por 
+// https://github.com/deylinqff
+
+
 import fetch from "node-fetch";
 import yts from "yt-search";
 import axios from "axios";
@@ -61,7 +65,7 @@ const ddownr = {
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   try {
     if (!text.trim()) {
-      return conn.reply(m.chat, "⚔️ *Kirito-Bot* | Ingresa el nombre de la canción que deseas buscar.", m);
+      return conn.reply(m.chat, "⚔️ *Kirito-Bot* | Ingresa el nombre de la canción que deseas buscar.", m, rcanal);
     }
 
     const search = await yts(text);
