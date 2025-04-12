@@ -23,6 +23,7 @@ avaricia"/></a>
 
 <details>
  <summary><b> 👉 click license copyright </b></summary>
+<\p>
 
 
 
