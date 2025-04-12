@@ -1,21 +1,17 @@
 Copyright (c) 2025 Deylin (KIRITO-BOT). Todos los derechos reservados.
 
-LICENCIA DE USO RESTRINGIDO
+Este repositorio puede ser clonado y usado con fines educativos o personales, siempre que se mantenga el crédito al autor original (Deylin) y no se utilice con fines comerciales.
 
-Este repositorio y su contenido están protegidos por derechos de autor y son propiedad exclusiva de Deylin (KIRITO-BOT). La clonación, distribución, modificación, sublicencia, venta, uso comercial o cualquier forma de explotación de este código o de sus derivados están estrictamente prohibidos sin el permiso expreso y por escrito de Deylin.
+Permitido:
+- Clonar este repositorio.
+- Modificar el código para uso personal o aprendizaje.
+- Compartir forks siempre que no se elimine el crédito original.
 
-**Condiciones de uso:**
-1. No se permite clonar, distribuir, modificar, o crear trabajos derivados de este repositorio.
-2. No se permite el uso comercial del código, ni la redistribución del mismo, ya sea en su forma original o modificada.
-3. No se permite el uso de este código en ninguna plataforma o servicio, ya sea de forma pública o privada, sin una autorización explícita.
-4. Cualquier uso no autorizado de este repositorio constituirá una violación de los derechos de autor y puede resultar en acciones legales.
+No permitido:
+- Uso comercial del código sin permiso.
+- Eliminar el nombre del autor original.
+- Redistribuir versiones modificadas como si fueran originales.
 
-Para obtener permisos adicionales o hacer solicitudes de uso, por favor, contacta a Deylin directamente.
+Para uso comercial u otros permisos, contactar a Deylin directamente.
 
-Este código se proporciona tal cual, sin garantías de ningún tipo, ya sea expresa o implícita, incluyendo pero no limitado a las garantías de comerciabilidad y adecuación para un propósito particular.
-
-**Prohibiciones:**
-- No se permite la ingeniería inversa, descompilación, o desensamblado de cualquier parte de este repositorio.
-- No se permite la redistribución en plataformas públicas o privadas, incluidas redes de distribución de software, servidores de alojamiento o servicios de software como servicio (SaaS).
-
-Cualquier uso del código en violación de estas condiciones puede ser motivo para iniciar procedimientos legales, según lo estipulado por las leyes internacionales de propiedad intelectual.
+Este código se proporciona “tal cual”, sin garantías de ningún tipo.
