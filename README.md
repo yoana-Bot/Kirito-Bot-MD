@@ -24,16 +24,19 @@ avaricia"/></a>
 <details>
  <summary><b> 👉 click license copyright </b></summary>
 
+
+
+
 Copyright (c) 2025 Deylin (KIRITO-BOT). Todos los derechos reservados.
 
 Este repositorio puede ser clonado y usado con fines educativos o personales, siempre que se mantenga el crédito al autor original (Deylin) y no se utilice con fines comerciales.
 
-**Permitido:**
+## **Permitido:**
 - Clonar este repositorio.
 - Modificar el código para uso personal o aprendizaje.
 - Compartir forks siempre que no se elimine el crédito original.
 
-**No permitido:**
+## **No permitido:**
 - Uso comercial del código sin permiso.
 - Eliminar el nombre del autor original.
 - Redistribuir versiones modificadas como si fueran originales.
