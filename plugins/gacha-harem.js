@@ -65,7 +65,7 @@ let handler = async (m, { conn, args }) => {
 
         message += `\n> ⌦ _Página *${page}* de *${totalPages}*_`;
 
-        await conn.reply(m.chat, message, m, rcanal, { mentions: [userId] });
+        await conn.reply(m.chat, message, fkontak, { mentions: [userId] });
     } catch (error) {
         await conn.reply(m.chat, `✘ Error al cargar el harem: ${error.message}`, m,rcanal);
     }
