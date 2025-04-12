@@ -10,7 +10,7 @@ async function handler(m, { conn }) {
   const ownerJid = numCreador + '@s.whatsapp.net';
 
   const name = await conn.getName(ownerJid) || 'Deylin';
-  const about = (await conn.fetchStatus(ownerJid).catch(() => {}))?.status || 'Sin descripción';
+  const about = (await conn.fetchStatus(ownerJid).catch(() => {}))?.status || 'estoy disponible para responder a tus preguntas';
   const empresa = 'Deylin - Servicios Tecnológicos';
 
   
