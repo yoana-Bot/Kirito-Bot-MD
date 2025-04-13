@@ -70,19 +70,8 @@ END:VCARD`
       }
       break
 
-    case 24:
-  if (dbChat.detect) {
-    const usuario = `@${m.sender.split('@')[0]}`
-    await conn.sendMessage(m.chat, {
-      text: `*${kiritoUser}*\n【⚔】 Ha actualizado la descripción del grupo.\n\n【✒】 Nueva descripción:\n"${groupMetadata.desc || 'Sin descripción'}"
-      mentions: [m.sender]
-    }, {
-      quoted: kiritoContact,
-      ephemeralExpiration: 24 * 60 * 100,
-      disappearingMessagesInChat: 24 * 60 * 100
-    })
-  }
-  break
+    await this.sendMessage(m.chat, { text: `${usuario} > 𝐍𝐔𝐄𝐕𝐀 𝐃𝐄𝐒𝐂𝐑𝐈𝐏𝐂𝐈𝐎́𝐍:\n\n${m.messageStubParameters[0]}`, mentions: [m.sender] }, { quoted: kiritoContact, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+  } else if (chat.detect && m.messageStubType == 25) {
 
     case 25:
       if (dbChat.detect) {
