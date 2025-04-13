@@ -1,4 +1,5 @@
-let WAMessageStubType = (await import(global.baileys)).default
+import baileys from '@whiskeysockets/baileys'
+const WAMessageStubType = baileys.WA_DEFAULT_EPHEMERAL
 import { readdirSync, unlinkSync, existsSync, promises as fs, rmSync } from 'fs';
 import path from 'path';
 
