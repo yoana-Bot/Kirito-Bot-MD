@@ -36,7 +36,6 @@ END:VCARD`
     groupStatus: `【⚔】 El grupo ha sido ${m.messageStubParameters[0] === 'on' ? '*cerrado 🔒*' : '*abierto 🔓*'} por *${kiritoUser}*\n\n【⚔】 Ahora ${m.messageStubParameters[0] === 'on' ? '*solo admins*' : '*todos*'} pueden enviar mensajes.`,
     adminAdded: `*@${m.messageStubParameters[0].split('@')[0]}* ha sido ascendido a *admin* 【⚔】\n\n【⚔】 Acción de:\n*» ${kiritoUser}*`,
     adminRemoved: `*@${m.messageStubParameters[0].split('@')[0]}* ha sido removido de *admin* 【⚔】\n\n【⚔】 Acción de:\n*» ${kiritoUser}*`,
-    descriptionChange: `*${kiritoUser}*\n【⚔】 Nueva descripción del grupo:\n\n${m.messageStubParameters[0]}`
   };
 
   switch (m.messageStubType) {
@@ -55,23 +54,6 @@ END:VCARD`
     case 23: // Enlace cambiado
       if (dbChat.detect) {
         await conn.sendMessage(m.chat, { text: messages.newLink, mentions: [m.sender] }, { quoted: kiritoContact });
-      }
-      break;
-
-    case 24: // Descripción cambiada
-      if (dbChat.detect) {
-        await conn.sendMessage(
-          m.chat,
-          {
-            text: messages.descriptionChange,
-            mentions: [m.sender]
-          },
-          {
-            quoted: kiritoContact,
-            ephemeralExpiration: 24 * 60 * 100,
-            disappearingMessagesInChat: 24 * 60 * 100
-          }
-        );
       }
       break;
 
