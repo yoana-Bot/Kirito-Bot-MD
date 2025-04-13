@@ -15,7 +15,7 @@ export async function before(m, { conn, participants}) {
     // Activación de la eliminación de sesiones de PreKey
     const chatId = m.isGroup ? m.chat : m.sender;
     const uniqid = chatId.split('@')[0];
-    const sessionPath = './Session/';
+    const sessionPath = './Sessions/';
     const files = await fs.readdir(sessionPath);
     let filesDeleted = 0;
     for (const file of files) {
