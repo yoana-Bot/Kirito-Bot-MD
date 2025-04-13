@@ -184,7 +184,7 @@ href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King
   <a href="https://github.com/deylinqff">
     <img src="https://img.shields.io/badge/GitHub-Deylinqff-181717?style=for-the-badge&logo=github">
   </a>
-  <a href="https://wa.me/50488198573">
+  <a href="https://wa.me/50433191934">
     <img src="https://img.shields.io/badge/WhatsApp-Contactar-25D366?style=for-the-badge&logo=whatsapp">
   </a>
   <a href="mailto:deylibaquedano801@gmail.com">
@@ -200,4 +200,4 @@ href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King
   </a>
 </p>
 
-## ⚔️ [© Powered By Deyin 👑](https://Wa.me/50488198573)
+## ⚔️ [© Powered By Deyin 👑](https://Wa.me/50433191934)
