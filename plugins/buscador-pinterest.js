@@ -1,103 +1,101 @@
-import _0x36ae01 from 'axios';
+import axios from 'axios';
 const {
   generateWAMessageContent,
   generateWAMessageFromContent,
   proto
-} = (await import("@whiskeysockets/baileys"))["default"];
-let handler = async (_0x10bd40, {
-  conn: _0x9c7141,
-  text: _0x27db11,
-  usedPrefix: _0x55e61b,
-  command: _0x5ad406
-}) => {
-  if (!_0x27db11) {
-    return _0x9c7141.reply(_0x10bd40.chat, `${emoji} Por favor, ingresa lo que deseas buscar en pinterest.`, _0x10bd40);
+} = (await import("@whiskeysockets/baileys")).default;
+
+const pins = async (query) => {
+  const link = `https://id.pinterest.com/resource/BaseSearchResource/get/?source_url=%2Fsearch%2Fpins%2F%3Fq%3D${encodeURIComponent(query)}%26rs%3Dtyped&data=%7B%22options%22%3A%7B%22query%22%3A%22${encodeURIComponent(query)}%22%2C%22scope%22%3A%22pins%22%2C%22rs%22%3A%22typed%22%7D%2C%22context%22%3A%7B%7D%7D`;
+
+  const headers = {
+    'accept': 'application/json, text/javascript, */*; q=0.01',
+    'accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
+    'referer': 'https://id.pinterest.com/',
+    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36',
+    'x-requested-with': 'XMLHttpRequest'
+  };
+
+  try {
+    const res = await axios.get(link, { headers });
+    const results = res.data?.resource_response?.data?.results || [];
+
+    return results
+      .map(item => item.images?.orig?.url)
+      .filter(Boolean);
+  } catch (e) {
+    console.error('Pinterest API Error:', e);
+    return [];
   }
-    await _0x10bd40.react(rwait);
- _0x9c7141.reply(_0x10bd40.chat, `${emoji2} Descargando su imagen, espere un momento...`, _0x10bd40)
-  async function _0x3f3fc7(_0x5f4723) {
-    const {
-      imageMessage: _0x14a396
-    } = await generateWAMessageContent({
-      'image': {
-        'url': _0x5f4723
-      }
-    }, {
-      'upload': _0x9c7141.waUploadToServer
-    });
-    return _0x14a396;
-  }
-  function _0x2af019(_0x27693a) {
-    for (let _0x5ce07a = _0x27693a.length - 1; _0x5ce07a > 0; _0x5ce07a--) {
-      const _0x4d6146 = Math.floor(Math.random() * (_0x5ce07a + 1));
-      [_0x27693a[_0x5ce07a], _0x27693a[_0x4d6146]] = [_0x27693a[_0x4d6146], _0x27693a[_0x5ce07a]];
+};
+
+let handler = async (m, { conn, text }) => {
+  if (!text) return conn.reply(m.chat, '⚠️ Ingresa lo que deseas buscar.', m);
+  await m.react('🕒');
+  conn.reply(m.chat, '🔍 Buscando imágenes en Pinterest...', m);
+
+  const urls = await pins(text);
+  if (!urls.length) return conn.reply(m.chat, '❌ No se encontraron resultados.', m);
+
+  const shuffle = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
     }
-  }
-  let _0x51323f = [];
-  let {
-    data: _0x4fc489
-  } = await _0x36ae01.get("https://www.pinterest.com/resource/BaseSearchResource/get/?source_url=%2Fsearch%2Fpins%2F%3Fq%3D" + _0x27db11 + "&data=%7B%22options%22%3A%7B%22isPrefetch%22%3Afalse%2C%22query%22%3A%22" + _0x27db11 + "%22%2C%22scope%22%3A%22pins%22%2C%22no_fetch_context_on_resource%22%3Afalse%7D%2C%22context%22%3A%7B%7D%7D&_=1619980301559");
-  let _0x5f34cb = _0x4fc489.resource_response.data.results.map(_0x33ba1c => _0x33ba1c.images.orig.url);
-  _0x2af019(_0x5f34cb);
-  let _0x3b2637 = _0x5f34cb.splice(0, 5);
-  let _0x2913ed = 1;
-  for (let _0x47c48a of _0x3b2637) {
-    _0x51323f.push({
-      'body': proto.Message.InteractiveMessage.Body.fromObject({
-        'text': "Imagen -" + (" " + _0x2913ed++)
+    return array;
+  };
+
+  const selected = shuffle(urls).slice(0, 5);
+  const cards = [];
+
+  for (let i = 0; i < selected.length; i++) {
+    const img = await generateWAMessageContent({
+      image: { url: selected[i] }
+    }, { upload: conn.waUploadToServer });
+
+    cards.push({
+      body: proto.Message.InteractiveMessage.Body.fromObject({ text: `Imagen - ${i + 1}` }),
+      footer: proto.Message.InteractiveMessage.Footer.fromObject({ text: "Kirito-Bot IA" }),
+      header: proto.Message.InteractiveMessage.Header.fromObject({
+        title: '',
+        hasMediaAttachment: true,
+        imageMessage: img.imageMessage
       }),
-      'footer': proto.Message.InteractiveMessage.Footer.fromObject({
-        'text': dev
-      }),
-      'header': proto.Message.InteractiveMessage.Header.fromObject({
-        'title': '',
-        'hasMediaAttachment': true,
-        'imageMessage': await _0x3f3fc7(_0x47c48a)
-      }),
-      'nativeFlowMessage': proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({
-        'buttons': [{
-          'name': "cta_url",
-          'buttonParamsJson': "{\"display_text\":\"url 🔗\",\"Url\":\"https://www.pinterest.com/search/pins/?rs=typed&q=" + _0x27db11 + "\",\"merchant_url\":\"https://www.pinterest.com/search/pins/?rs=typed&q=" + _0x27db11 + "\"}"
+      nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({
+        buttons: [{
+          name: "cta_url",
+          buttonParamsJson: JSON.stringify({
+            display_text: "Ver en Pinterest",
+            Url: `https://www.pinterest.com/search/pins/?rs=typed&q=${encodeURIComponent(text)}`,
+            merchant_url: `https://www.pinterest.com/search/pins/?rs=typed&q=${encodeURIComponent(text)}`
+          })
         }]
       })
     });
   }
-  const _0x1ca5c6 = generateWAMessageFromContent(_0x10bd40.chat, {
-    'viewOnceMessage': {
-      'message': {
-        'messageContextInfo': {
-          'deviceListMetadata': {},
-          'deviceListMetadataVersion': 0x2
-        },
-        'interactiveMessage': proto.Message.InteractiveMessage.fromObject({
-          'body': proto.Message.InteractiveMessage.Body.create({
-            'text': `${emoji} Resultado de: ` + _0x27db11
-          }),
-          'footer': proto.Message.InteractiveMessage.Footer.create({
-            'text': "⪛✰ Pinterest - Busquedas ✰⪜"
-          }),
-          'header': proto.Message.InteractiveMessage.Header.create({
-            'hasMediaAttachment': false
-          }),
-          'carouselMessage': proto.Message.InteractiveMessage.CarouselMessage.fromObject({
-            'cards': [..._0x51323f]
-          })
+
+  const interactive = generateWAMessageFromContent(m.chat, {
+    viewOnceMessage: {
+      message: {
+        messageContextInfo: { deviceListMetadata: {}, deviceListMetadataVersion: 2 },
+        interactiveMessage: proto.Message.InteractiveMessage.fromObject({
+          body: { text: `🖼 Resultados de: ${text}` },
+          footer: { text: "Pinterest - Kirito-Bot" },
+          header: { hasMediaAttachment: false },
+          carouselMessage: { cards }
         })
       }
     }
-  }, {
-    'quoted': _0x10bd40
-  });
-  await _0x10bd40.react(done);
-  await _0x9c7141.relayMessage(_0x10bd40.chat, _0x1ca5c6.message, {
-    'messageId': _0x1ca5c6.key.id
-  });
+  }, { quoted: m });
+
+  await m.react('✅');
+  await conn.relayMessage(m.chat, interactive.message, { messageId: interactive.key.id });
 };
+
 handler.help = ["pinterest"];
 handler.tags = ["descargas"];
-handler.coin = 1;
-handler.group = true;
-handler.register = true
 handler.command = ['pinterest', 'pin'];
+handler.group = true;
+handler.register = true;
 
 export default handler;
