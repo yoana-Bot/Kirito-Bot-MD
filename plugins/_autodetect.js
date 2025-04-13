@@ -39,7 +39,6 @@ END:VCARD`
     groupStatus: `【⚔】 El grupo ha sido ${m.messageStubParameters[0] === 'on' ? '*cerrado 🔒*' : '*abierto 🔓*'} por *${kiritoUser}*\n\n【⚔】 Ahora ${m.messageStubParameters[0] === 'on' ? '*solo admins*' : '*todos*'} pueden enviar mensajes.`,
     adminAdded: `*@${m.messageStubParameters[0].split('@')[0]}* ha sido ascendido a *admin* 【⚔】\n\n【⚔】 Acción de:\n*» ${kiritoUser}*`,
     adminRemoved: `*@${m.messageStubParameters[0].split('@')[0]}* ha sido removido de *admin* 【⚔】\n\n【⚔】 Acción de:\n*» ${kiritoUser}*`,
-    descriptionChange: `*${kiritoUser}*\n【⚔】 Ha actualizado la descripción del grupo.\n\n【✒】 Nueva descripción:\n"${groupMetadata.desc || 'Sin descripción'}"`
   }
 
 
@@ -73,12 +72,15 @@ END:VCARD`
 
     case 24:
   if (dbChat.detect) {
-    const newDescription = groupMetadata?.desc || 'Sin descripción disponible.'
-    const message = `*${kiritoUser}*\n【⚔】 Ha actualizado la descripción del grupo...\n\n【✒】 Nueva descripción:\n*"${newDescription}"*`
-    await conn.sendMessage(m.chat,
-      { text: message, mentions: [m.sender] },
-      { quoted: kiritoContact }
-    )
+    const usuario = `@${m.sender.split('@')[0]}`
+    await conn.sendMessage(m.chat, {
+      text: `*${kiritoUser}*\n【⚔】 Ha actualizado la descripción del grupo.\n\n【✒】 Nueva descripción:\n"${groupMetadata.desc || 'Sin descripción'}"
+      mentions: [m.sender]
+    }, {
+      quoted: kiritoContact,
+      ephemeralExpiration: 24 * 60 * 100,
+      disappearingMessagesInChat: 24 * 60 * 100
+    })
   }
   break
 
