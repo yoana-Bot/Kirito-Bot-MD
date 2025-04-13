@@ -4,7 +4,7 @@ let handler = async (m, { conn }) => {
     let img = './src/catalogo.jpg';
 
     
-    let creador = [['50488198573', '*Deylin 👑*']];
+    let creador = [['50433191934', '*Deylin 👑*']];
 
     
     let staff = [
