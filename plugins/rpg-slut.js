@@ -1,6 +1,6 @@
 let cooldowns = {}
 
-let handler = async (m, { conn, text, command, usedPrefix }) => {
+let handler = async (m, { conn, text, command, usedPrefix, rcanal }) => {
   let users = global.db.data.users
   let senderId = m.sender
   let senderName = conn.getName(senderId)
@@ -13,15 +13,17 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
   }
   cooldowns[m.sender] = Date.now()
   let senderCoin = users[senderId].coin || 0
-  let randomUserId = Object.keys(users)[Math.floor(Math.random() * Object.keys(users).length)]
+  let allUserIds = Object.keys(users)
+  let randomUserId = allUserIds[Math.floor(Math.random() * allUserIds.length)]
   while (randomUserId === senderId) {
-    randomUserId = Object.keys(users)[Math.floor(Math.random() * Object.keys(users).length)]
+    randomUserId = allUserIds[Math.floor(Math.random() * allUserIds.length)]
   }
   let randomUserCoin = users[randomUserId].coin || 0
   let minAmount = 15
   let maxAmount = 50
   let amountTaken = Math.floor(Math.random() * (maxAmount - minAmount + 1)) + minAmount
   let randomOption = Math.floor(Math.random() * 3)
+  
   switch (randomOption) {
     case 0:
       users[senderId].coin += amountTaken
@@ -39,7 +41,7 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
       conn.reply(m.chat, `${emoji} No fuiste cuidadoso y le rompiste la verga a tu cliente, se te restaron *-${amountSubtracted} ${moneda}* a ${senderName}.`, m, rcanal)
       break
     case 2:
-      let smallAmountTaken = Math.min(Math.floor(Math.random() * (randomUserCoin / 2 - minAmount + 1)) + minAmount, maxAmount)
+      let smallAmountTaken = Math.min(Math.floor(Math.random() * ((randomUserCoin / 2) - minAmount + 1)) + minAmount, maxAmount)
       users[senderId].coin += smallAmountTaken
       users[randomUserId].coin -= smallAmountTaken
       conn.sendMessage(m.chat, {
@@ -47,9 +49,10 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
         contextInfo: { 
           mentionedJid: [randomUserId],
         }
-      }, { quoted: m }
+      }, { quoted: m }, m, rcanal)
       break
   }
+  
   global.db.write()
 }
 
