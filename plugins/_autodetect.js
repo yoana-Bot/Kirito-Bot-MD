@@ -1,9 +1,8 @@
-const WAMessageStubType = (await import('@whiskeysockets/baileys')).default
+const WAMessageStubType = (await import('@whiskeysockets/baileys')).default;
 
 export async function before(m, { conn, participants, groupMetadata }) {
-  if (!m.messageStubType || !m.isGroup) return
+  if (!m.messageStubType || !m.isGroup) return;
 
- 
   const kiritoContact = {
     key: {
       participants: "0@s.whatsapp.net",
@@ -23,14 +22,12 @@ END:VCARD`
       }
     },
     participant: "0@s.whatsapp.net"
-  }
+  };
 
-  
-  const dbChat = global.db.data.chats[m.chat]
-  const kiritoUser = `@${m.sender.split('@')[0]}`
-  const pp = await conn.profilePictureUrl(m.chat, 'image').catch(() => null) || 'https://files.catbox.moe/xr2m6u.jpg'
+  const dbChat = global.db.data.chats[m.chat];
+  const kiritoUser = `@${m.sender.split('@')[0]}`;
+  const pp = await conn.profilePictureUrl(m.chat, 'image').catch(() => null) || 'https://files.catbox.moe/xr2m6u.jpg';
 
-  
   const messages = {
     nameChange: `*${kiritoUser}*\n【⚔】 Ha renombrado el grupo.\n\n【⚔】 Nuevo nombre:\n*<${m.messageStubParameters[0]}>*`,
     photoChange: `*${kiritoUser}*\n【⚔】 Ha actualizado la imagen del grupo.`,
@@ -39,83 +36,76 @@ END:VCARD`
     groupStatus: `【⚔】 El grupo ha sido ${m.messageStubParameters[0] === 'on' ? '*cerrado 🔒*' : '*abierto 🔓*'} por *${kiritoUser}*\n\n【⚔】 Ahora ${m.messageStubParameters[0] === 'on' ? '*solo admins*' : '*todos*'} pueden enviar mensajes.`,
     adminAdded: `*@${m.messageStubParameters[0].split('@')[0]}* ha sido ascendido a *admin* 【⚔】\n\n【⚔】 Acción de:\n*» ${kiritoUser}*`,
     adminRemoved: `*@${m.messageStubParameters[0].split('@')[0]}* ha sido removido de *admin* 【⚔】\n\n【⚔】 Acción de:\n*» ${kiritoUser}*`,
-  }
-
+    descriptionChange: `*${kiritoUser}*\n【⚔】 Nueva descripción del grupo:\n\n${m.messageStubParameters[0]}`
+  };
 
   switch (m.messageStubType) {
-    case 21:
+    case 21: // Nombre cambiado
       if (dbChat.detect) {
-        await conn.sendMessage(m.chat,
-          { text: messages.nameChange, mentions: [m.sender] },
-          { quoted: kiritoContact }
-        )
+        await conn.sendMessage(m.chat, { text: messages.nameChange, mentions: [m.sender] }, { quoted: kiritoContact });
       }
-      break
+      break;
 
-    case 22:
+    case 22: // Foto cambiada
       if (dbChat.detect) {
-        await conn.sendMessage(m.chat,
-          { image: { url: pp }, caption: messages.photoChange, mentions: [m.sender] },
-          { quoted: kiritoContact }
-        )
+        await conn.sendMessage(m.chat, { image: { url: pp }, caption: messages.photoChange, mentions: [m.sender] }, { quoted: kiritoContact });
       }
-      break
+      break;
 
-    case 23:
+    case 23: // Enlace cambiado
       if (dbChat.detect) {
-        await conn.sendMessage(m.chat,
-          { text: messages.newLink, mentions: [m.sender] },
-          { quoted: kiritoContact }
-        )
+        await conn.sendMessage(m.chat, { text: messages.newLink, mentions: [m.sender] }, { quoted: kiritoContact });
       }
-      break
+      break;
 
-    await this.sendMessage(m.chat, { text: `${usuario} > 𝐍𝐔𝐄𝐕𝐀 𝐃𝐄𝐒𝐂𝐑𝐈𝐏𝐂𝐈𝐎́𝐍:\n\n${m.messageStubParameters[0]}`, mentions: [m.sender] }, { quoted: kiritoContact, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
-  } else if (chat.detect && m.messageStubType == 25) {
-
-    case 25:
+    case 24: // Descripción cambiada
       if (dbChat.detect) {
-        await conn.sendMessage(m.chat,
-          { text: messages.configChange, mentions: [m.sender] },
-          { quoted: kiritoContact }
-        )
+        await conn.sendMessage(
+          m.chat,
+          {
+            text: messages.descriptionChange,
+            mentions: [m.sender]
+          },
+          {
+            quoted: kiritoContact,
+            ephemeralExpiration: 24 * 60 * 100,
+            disappearingMessagesInChat: 24 * 60 * 100
+          }
+        );
       }
-      break
+      break;
 
-    case 26:
+    case 25: // Configuración del grupo (solo admins pueden cambiar info)
       if (dbChat.detect) {
-        await conn.sendMessage(m.chat,
-          { text: messages.groupStatus, mentions: [m.sender] },
-          { quoted: kiritoContact }
-        )
+        await conn.sendMessage(m.chat, { text: messages.configChange, mentions: [m.sender] }, { quoted: kiritoContact });
       }
-      break
+      break;
 
-    case 29:
+    case 26: // Grupo cerrado/abierto
       if (dbChat.detect) {
-        await conn.sendMessage(m.chat,
-          { text: messages.adminAdded, mentions: [m.sender, m.messageStubParameters[0]] },
-          { quoted: kiritoContact }
-        )
+        await conn.sendMessage(m.chat, { text: messages.groupStatus, mentions: [m.sender] }, { quoted: kiritoContact });
       }
-      break
+      break;
 
-    case 30:
+    case 29: // Agregado admin
       if (dbChat.detect) {
-        await conn.sendMessage(m.chat,
-          { text: messages.adminRemoved, mentions: [m.sender, m.messageStubParameters[0]] },
-          { quoted: kiritoContact }
-        )
+        await conn.sendMessage(m.chat, { text: messages.adminAdded, mentions: [m.sender, m.messageStubParameters[0]] }, { quoted: kiritoContact });
       }
-      break
+      break;
+
+    case 30: // Removido admin
+      if (dbChat.detect) {
+        await conn.sendMessage(m.chat, { text: messages.adminRemoved, mentions: [m.sender, m.messageStubParameters[0]] }, { quoted: kiritoContact });
+      }
+      break;
 
     default:
-     
+      // Puedes habilitar esto para debug:
       // console.log({
       //   messageStubType: m.messageStubType,
       //   messageStubParameters: m.messageStubParameters,
       //   type: WAMessageStubType[m.messageStubType]
-      // })
-      break
+      // });
+      break;
   }
 }
