@@ -150,7 +150,7 @@ if (qr && mcode) {
   secret = secret.match(/.{1,4}/g)?.join("-")
   
   txtCode = await conn.sendMessage(m.chat, { text: rtx2 }, { quoted: fkontak })
-  codeBot = await conn.sendMessage(m.chat, { text: secret }, { quoted: m, ...fake })
+  codeBot = await conn.sendMessage(m.chat, { text: secret }, { quoted: fkontak })
 
   console.log(secret)
 }
