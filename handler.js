@@ -164,8 +164,8 @@ if (!('autoRechazar' in chat))
 chat.autoRechazar = false
 if (!('autoresponder' in chat))
 chat.autoresponder = false
-if (!('detect' in chat))
-chat.detect = true
+if (!('detect' in chat)) 
+chat.detect = false
 if (!('antiBot' in chat))
 chat.antiBot = false
 if (!('antiBot2' in chat))
