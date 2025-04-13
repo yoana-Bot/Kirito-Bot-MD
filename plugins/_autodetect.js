@@ -72,13 +72,15 @@ END:VCARD`
       break
 
     case 24:
-      if (dbChat.detect) {
-        await conn.sendMessage(m.chat,
-          { text: messages.descriptionChange, mentions: [m.sender] },
-          { quoted: kiritoContact }
-        )
-      }
-      break
+  if (dbChat.detect) {
+    const newDescription = groupMetadata?.desc || 'Sin descripción disponible.'
+    const message = `*${kiritoUser}*\n【⚔】 Ha actualizado la descripción del grupo...\n\n【✒】 Nueva descripción:\n*"${newDescription}"*`
+    await conn.sendMessage(m.chat,
+      { text: message, mentions: [m.sender] },
+      { quoted: kiritoContact }
+    )
+  }
+  break
 
     case 25:
       if (dbChat.detect) {
