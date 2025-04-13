@@ -145,12 +145,18 @@ setTimeout(() => { conn.sendMessage(m.sender, { delete: txtQR.key })}, 30000)
 }
 return
 } 
-if (qr && mcode) {
-let secret = await sock.requestPairingCode((m.sender.split`@`[0]))
-secret = secret.match(/.{1,4}/g)?.join("-")
-//if (m.isWABusiness) {
-txtCode = await conn.sendMessage(m.chat, {text : rtx2}, { quoted: fkontak })
-codeBot = await conm.sendMessage(m.chat, { text : `codigo\n\n\n${secret}` }, { quoted: fkontak })
+try {
+  let secret = await sock.requestPairingCode((m.sender.split`@`[0]))
+  if (!secret) return await conn.sendMessage(m.chat, { text: "No se pudo generar el código" }, { quoted: fkontak })
+
+  secret = secret.match(/.{1,4}/g)?.join("-")
+
+  await conn.sendMessage(m.chat, { text: rtx2 }, { quoted: fkontak })
+  await conm.sendMessage(m.chat, { text: `Código:\n\n${secret}` }, { quoted: fkontak })
+} catch (err) {
+  console.error("Error enviando código:", err)
+  await conn.sendMessage(m.chat, { text: "Ocurrió un error al generar o enviar el código." }, { quoted: fkontak })
+}
 //} else {
 //txtCode = await conn.sendButton(m.chat, rtx2.trim(), wm, null, [], secret, null, m) 
 //}
