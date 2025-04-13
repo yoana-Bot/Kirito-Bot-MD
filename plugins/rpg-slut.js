@@ -8,7 +8,7 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
   let tiempo = 5 * 60
   if (cooldowns[m.sender] && Date.now() - cooldowns[m.sender] < tiempo * 1000) {
     let tiempo2 = segundosAHMS(Math.ceil((cooldowns[m.sender] + tiempo * 1000 - Date.now()) / 1000))
-    m.reply(`${emoji3} Debes esperar *${tiempo2}* para usar *#slut* de nuevo.`, m, rcanal)
+    m.reply(`${emoji3} Debes esperar *${tiempo2}* para usar *#slut* de nuevo.`)
     return
   }
   cooldowns[m.sender] = Date.now()
@@ -47,7 +47,7 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
         contextInfo: { 
           mentionedJid: [randomUserId],
         }
-      }, { quoted: m }, m, rcanal)
+      }, { quoted: m }
       break
   }
   global.db.write()
