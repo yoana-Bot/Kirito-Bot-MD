@@ -23,10 +23,6 @@ avaricia"/></a>
 
 <details>
  <summary><b> 👉 click license copyright </b></summary>
-<\p>
-
-
-
 
 **Copyright (c) 2025 Deylin (KIRITO-BOT). Todos los derechos reservados.**
 
