@@ -31,9 +31,9 @@ let pp = ''
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 //let pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegra.ph/file/327f6ad853cb4f405aa80.jpg')
 
-global.creador = 'Wa.me/50488198373'
+global.creador = 'Wa.me/50433191934'
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
-global.asistencia = 'Wa.me/50488198573'
+global.asistencia = 'Wa.me/50433191934'
 global.namechannel = '𝐊𝐢𝐫𝐢𝐭𝐨 - 𝐁𝐨𝐭 𝐌𝐃 • ᥙ⍴ძᥲ𝗍ᥱs ฅ՞•ﻌ•՞ฅ'
 global.namechannel2 = '𝐤𝐢𝐫𝐢𝐭𝐨 -𝐁𝐨𝐭 𝐌𝐃 • ᥲ᥎іs᥆s ฅ՞•ﻌ•՞ฅ'
 global.namegrupo = '𝐊𝐢𝐫𝐢𝐭𝐨 -𝐁𝐨𝐭 𝐌𝐃 • ᥆𝖿іᥴіᥲᥣ ˙Ⱉ˙ฅ'
@@ -89,7 +89,7 @@ global.authsticker = `┊🤖 Bot Ofc\n┊↳ ${wm}\n\n┊👑 Usuario\n┊↳ @
 global.packsticker = `┊ 👑 kirito-Bot MD\n↳https://kirito-md.vercel.app/\n\n┊ 🔥 ɪɴғᴏʀᴍᴀᴄɪᴏɴ\n↳https://github.com/deylinqff/Kirito-Bot-MD`
 
 //Fakes
-global.fkontak = { key: { participants:"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=50488198573:50488198573\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
+global.fkontak = { key: { participants:"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=50433191934:50433191934\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 
 global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: '120363365444927738@newsletter', newsletterName: "👑 . ˚ Cһᥲᥒᥒᥱᥣ 〢𝚔𝚒𝚛𝚒𝚝𝚘 - 𝙱𝚘𝚝 𝙼𝙳 ☆˒˒", serverMessageId: -1 }
 }}, { quoted: m }
