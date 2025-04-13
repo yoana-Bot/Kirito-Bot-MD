@@ -28,7 +28,7 @@ avaricia"/></a>
 
 
 
-Copyright (c) 2025 Deylin (KIRITO-BOT). Todos los derechos reservados.
+**Copyright (c) 2025 Deylin (KIRITO-BOT). Todos los derechos reservados.**
 
 Este repositorio puede ser clonado y usado con fines educativos o personales, siempre que se mantenga el crédito al autor original (Deylin) y no se utilice con fines comerciales.
 
