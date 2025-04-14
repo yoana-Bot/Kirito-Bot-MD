@@ -1,4 +1,4 @@
-let adultContentRegex = /(pornhub.com|xvideos.com|xnxx.com|redtube.com|youporn.com|onlyfans.com|sex.com|chaturbate.com|cam4.com|playboy.com|xxx.com|escort|fetish|adult|erotic|nude|hentai|sexchat|camsoda|bongacams|spankbang|rule34|nsfw|18\+|hardcore|taboo|bdsm)/i;
+/*let adultContentRegex = /(pornhub.com|xvideos.com|xnxx.com|redtube.com|youporn.com|onlyfans.com|sex.com|chaturbate.com|cam4.com|playboy.com|xxx.com|escort|fetish|adult|erotic|nude|hentai|sexchat|camsoda|bongacams|spankbang|rule34|nsfw|18\+|hardcore|taboo|bdsm)/i;
 
 export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner, participants }) {
     if (!m.isGroup) return;  
@@ -31,4 +31,4 @@ export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner, 
         }
     }
     return !0;  
-}
+}*/
