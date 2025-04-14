@@ -2,18 +2,18 @@ import Jimp from 'jimp';
 import { writeFileSync } from 'fs';
 
 let handler = async (m, { conn }) => {
-  if (!m.quoted) return conn.reply(m.chat, '${emoji} Por favor, responde a una imagen para cambiar la foto de perfil.', m, rcanal);
+  if (!m.quoted) return conn.reply(m.chat, `${emoji} Por favor, responde a una imagen para cambiar la foto de perfil.`, m, rcanal);
 
   try {
     const media = await m.quoted.download();
-    if (!media) return conn.reply(m.chat, '${emoji} No se pudo obtener la imagen.', m, rcanal);
+    if (!media) return conn.reply(m.chat, `${emoji} No se pudo obtener la imagen.`, m, rcanal);
 
     const image = await Jimp.read(media);
     const buffer = await image.getBufferAsync(Jimp.MIME_JPEG);
 
     
     await conn.updateProfilePicture(conn.user.jid, buffer);
-    await conn.reply(m.chat, '${emoji} Foto de perfil cambiada con éxito.', m, rcanal);
+    await conn.reply(m.chat, `${emoji} Foto de perfil cambiada con éxito.`, m, rcanal);
 
    
     const name = conn.getName(m.sender);
@@ -31,7 +31,7 @@ let handler = async (m, { conn }) => {
 
   } catch (e) {
     console.error(e);
-    return conn.reply(m.chat, '${emoji} Ocurrió un error al intentar cambiar la foto de perfil.', m, rcanal);
+    return conn.reply(m.chat, `${emoji} Ocurrió un error al intentar cambiar la foto de perfil.`, m, rcanal);
   }
 };
 
