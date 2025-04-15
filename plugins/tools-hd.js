@@ -29,7 +29,7 @@ async function remini(imageData, operation) {
     } else {
       operation = availableOperations[0];
     }
-    const baseUrl = "https://inferenceengine.vyro.ai/" + operation + ".vyro";
+    const baseUrl = "https://api.deepai.org/api/torch-srgan" + operation + ".vyro";
     const formData = new FormData();
     formData.append("image", Buffer.from(imageData), {filename: "enhance_image_body.jpg", contentType: "image/jpeg"});
     formData.append("model_version", 1, {"Content-Transfer-Encoding": "binary", contentType: "multipart/form-data; charset=utf-8"});
