@@ -3,9 +3,20 @@
 let handler = async (m, { conn, usedPrefix, command, args }) => {
     // Definición de los botones
     const buttons = [
-        { buttonId: '/qr', buttonText: { displayText: '/qr' }, type: 1 },
-        { buttonId: '/serbot --code', buttonText: { displayText: '/serbot --code' }, type: 1 }
-    ];
+                    {
+                "name": "cta_copy",
+                "buttonParamsJson": JSON.stringify({
+                "display_text": "Descargar audio! 🎧",
+                "copy_code": `.ytmp3`
+                })
+              },{
+                "name": "cta_copy",
+                "buttonParamsJson": JSON.stringify({
+                "display_text": "Descargar video! 📹",
+                "copy_code": `.ytmp4`
+                })
+              }
+                ];
     
     // Mensaje con botones
     const buttonMessage = {
