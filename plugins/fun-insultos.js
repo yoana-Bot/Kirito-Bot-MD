@@ -1,7 +1,7 @@
 const { generateWAMessageFromContent, proto } = (await import('@whiskeysockets/baileys')).default
 
 var handler = async (m, { conn, text }) => {
-  conn.reply(m.chat, `${emoji2} Buscando un insulto, espere un momento...`, m, rcanal)
+  //conn.reply(m.chat, `${emoji2} Buscando un insulto, espere un momento...`, m, rcanal)
 
   conn.reply(m.chat, `*┏━━━━━━━🔥━━━━━━━┓*\n\n» *"${pickRandom(global.insultos)}"*\n\n*┗━━━━━━━🔥━━━━━━━┛*`, m, rcanal);
 }
