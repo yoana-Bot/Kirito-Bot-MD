@@ -146,36 +146,11 @@ setTimeout(() => { conn.sendMessage(m.sender, { delete: txtQR.key })}, 30000)
 return
 } 
 if (qr && mcode) {
-  let secret = await sock.requestPairingCode(m.sender.split('@')[0]);
-  secret = secret.match(/.{1,4}/g)?.join("-");
-
-  // Enviar el primer mensaje de texto (puedes ajustar `rtx2` según tu lógica)
-  const txtCode = await conn.sendMessage(m.chat, { text: rtx2 }, { quoted: m });
-
-  // Enviar el mensaje con botón tipo cta_copy
-  await conn.relayMessage(m.chat, {
-    viewOnceMessage: {
-      message: {
-        messageContextInfo: {},
-        nativeFlowMessage: {
-          buttons: [
-            {
-              name: "cta_copy",
-              buttonParamsJson: JSON.stringify({
-                display_text: "Descargar audio! 🎧",
-                copy_code: `${secret}`
-              })
-            }
-          ],
-          messageParamsJson: JSON.stringify({
-            text: `Tu código de emparejamiento es:\n\n${secret}`,
-            footer: "Presiona el botón para copiar"
-          })
-        }
-      }
-    }
-  }, { messageId: generateMessageID() });
-}
+let secret = await sock.requestPairingCode((m.sender.split`@`[0]))
+secret = secret.match(/.{1,4}/g)?.join("-")
+//if (m.isWABusiness) {
+txtCode = await conn.sendMessage(m.chat, {text : rtx2}, { quoted: m }, fake);
+codeBot = await conn.reply(m.chat, `${secret}`, m, rcanal);
 //} else {
 //txtCode = await conn.sendButton(m.chat, rtx2.trim(), wm, null, [], secret, null, m) 
 //}
