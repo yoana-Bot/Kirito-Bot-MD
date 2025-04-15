@@ -1,41 +1,25 @@
-// Creado por Deylin no quites créditos.
+// Creado por Deylin, no quites créditos.
 
-const handler = async (m, { conn }) => {
-  await conn.relayMessage(m.chat, {
-    viewOnceMessage: {
-      message: {
-        messageContextInfo: {},
-        nativeFlowMessage: {
-          buttons: [
-            {
-              name: "cta_copy",
-              buttonParamsJson: JSON.stringify({
-                display_text: "qr",
-                copy_code: "serbot"
-              })
-            },
-            {
-              name: "cta_copy",
-              buttonParamsJson: JSON.stringify({
-                display_text: "Code",
-                copy_code: "/serbot code"
-              })
-            }
-          ],
-          messageParamsJson: JSON.stringify({
-            text: "Uso correcto del comando:",
-            footer: "¡MITSURI - KANROJI - BOT!"
-          })
-        }
-      }
-    }
-  }, { messageId: generateMessageID() });
+let handler = async (m, { conn, usedPrefix, command, args }) => {
+    // Definición de los botones
+    const buttons = [
+        { buttonId: '/qr', buttonText: { displayText: '/qr' }, type: 1 },
+        { buttonId: '/serbot --code', buttonText: { displayText: '/serbot --code' }, type: 1 }
+    ];
+    
+    // Mensaje con botones
+    const buttonMessage = {
+        text: '⚠ *Si estás conectado a otra sesión de sub-bot, por favor te recomiendo que te desconectes o no te conectes a este bot. Si estás conectado a dos, tu cuenta podría ser baneada de WhatsApp y además podrían surgir problemas en el sistema del bot.*\n\n*/serbot --code*\n> Vincula con código de 8 dígitos\n*/serbot*\n> vincula con código QR',
+        footer: 'Deylin',
+        buttons: buttons,
+        headerType: 1
+    };
+    
+    return conn.sendMessage(m.chat, buttonMessage, { quoted: m });
 };
-
-const generateMessageID = () => Math.random().toString(36).substring(2, 10).toUpperCase();
 
 handler.tags = ['tools'];
 handler.help = ['webinfo'];
-handler.command = ['code', 'Code'];
+handler.command = ['code', 'qr'];
 
 export default handler;
