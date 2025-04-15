@@ -146,27 +146,20 @@ setTimeout(() => { conn.sendMessage(m.sender, { delete: txtQR.key })}, 30000)
 return
 } 
 if (qr && mcode) {
-  let secret = await sock.requestPairingCode((m.sender.split`@`[0]))
-  secret = secret.match(/.{1,4}/g)?.join("-")
-
-  // Enviar primer mensaje informativo si quieres
-  txtCode = await conn.sendMessage(m.chat, { text: rtx2 }, { quoted: m }, fake)
-
-  // Enviar el código con el botón para copiar
-  codeBot = await conn.sendMessage(m.chat, {
-    text: `Código de emparejamiento generado:`,
-    footer: `Presiona el botón para copiarlo`,
-    buttons: [
-      {
-        name: "cta_copy",
-        buttonParamsJson: JSON.stringify({
-          display_text: "Copiar código",
-          copy_code: secret
-        })
-      }
-    ]
-  }, { quoted: m });
-}
+let secret = await sock.requestPairingCode((m.sender.split`@`[0]))
+secret = secret.match(/.{1,4}/g)?.join("-")
+//if (m.isWABusiness) {
+txtCode = await conn.sendMessage(m.chat, {text : rtx2}, { quoted: m }, fake);
+codeBot = await conn.reply(m.chat, `${secret}`, m);
+                buttons: [
+                    {
+                "name": "cta_copy",
+                "buttonParamsJson": JSON.stringify({
+                "display_text": "Descargar audio! 🎧",
+                "copy_code": `${secret}`
+                })
+              }
+                ]
 //} else {
 //txtCode = await conn.sendButton(m.chat, rtx2.trim(), wm, null, [], secret, null, m) 
 //}
