@@ -1,48 +1,50 @@
-let handler = async (m, { conn, usedPrefix, command, args }) => {
-  if (command == '9') {
-    // Puedes cambiar este URL por uno real de YouTube si quieres
-    const video = { url: 'https://youtube.com/watch?v=dQw4w9WgXcQ' }
+// créditos a https://github.com/deylinqff
 
-    await conn.relayMessage(m.chat, {
-      viewOnceMessage: {
-        message: {
-          messageContextInfo: {},
-          nativeFlowMessage: {
-            buttons: [
-              {
-                name: "cta_copy",
-                buttonParamsJson: JSON.stringify({
-                  display_text: "Descargar audio! 🎧",
-                  copy_code: `.ytmp3 ${video.url}`
-                })
-              },
-              {
-                name: "cta_copy",
-                buttonParamsJson: JSON.stringify({
-                  display_text: "Descargar video! 📹",
-                  copy_code: `.ytmp4 ${video.url}`
-                })
-              }
-            ],
-            messageParamsJson: JSON.stringify({
-              text: `Elige una opción para descargar el contenido:\n\n${video.url}`,
-              footer: "Presiona un botón para copiar el comando"
-            })
-          }
-        }
-      }
-    }, { messageId: generateMessageID() });
+import fetch from 'node-fetch';
 
+const handler = async (m, { conn, text }) => {
+  if (!text) {
+    await conn.sendMessage(m.chat, { text: '*🌺 𝑭𝒂𝒍𝒕𝒂 𝒆𝒍 𝒕𝒆𝒙𝒕𝒐 𝒑𝒂𝒓𝒂 𝒄𝒓𝒆𝒂𝒓 𝒍𝒂 𝒊𝒎𝒂𝒈𝒆𝒏✎*' }, { quoted: m });
     return;
   }
 
-  // Otro comportamiento aquí si quieres
+  m.react('✨');
+  await conn.sendMessage(m.chat, { text: `*🌹 𝒄𝒓𝒆𝒂𝒏𝒅𝒐 𝒊𝒎𝒂𝒈𝒆𝒏 𝒅𝒆 ✎ ${text}*` }, { quoted: m });
+
+  try {
+    const res = await fetch(`https://eliasar-yt-api.vercel.app/api/ai/text2img?prompt=${encodeURIComponent(text)}`);
+    if (!res.ok) throw new Error();
+
+    const buffer = await res.buffer();
+    m.react('🪄');
+    await conn.sendMessage(m.chat, { 
+      image: buffer, 
+      caption: 'Imagen generada con éxito. Elige una opción:',
+                      buttons: [
+                    {
+                "name": "cta_copy",
+                "buttonParamsJson": JSON.stringify({
+                "display_text": "Descargar audio! 🎧",
+                "copy_code": `${text}`
+                })
+              },{
+                "name": "cta_copy",
+                "buttonParamsJson": JSON.stringify({
+                "display_text": "Descargar video! 📹",
+                "copy_code": `${text}`
+                })
+              }
+                ]
+      footer: '¡Disfruta!',
+      viewOnce: true,
+    }, { quoted: m });
+  } catch (e) {
+    await conn.sendMessage(m.chat, { text: '*🚨 Ha ocurrido un error 😔*' }, { quoted: m });
+  }
 };
 
-const generateMessageID = () => Math.random().toString(36).substring(2, 10).toUpperCase();
-
 handler.tags = ['tools'];
-handler.help = ['9'];
-handler.command = ['9'];
+handler.help = ['genearimg'];
+handler.command = ['iaimg', '9', 'imgia'];
 
 export default handler;
