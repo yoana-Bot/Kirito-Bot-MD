@@ -9,13 +9,13 @@ const handler = async (m, { conn }) => {
                 "name": "cta_copy",
                 "buttonParamsJson": JSON.stringify({
                 "display_text": "Descargar audio! 🎧",
-                "copy_code": `.ytmp3 ${video.url}`
+                "copy_code": `.ytmp3`
                 })
               },{
                 "name": "cta_copy",
                 "buttonParamsJson": JSON.stringify({
                 "display_text": "Descargar video! 📹",
-                "copy_code": `.ytmp4 ${video.url}`
+                "copy_code": `.ytmp4`
                 })
               }
                 ],
