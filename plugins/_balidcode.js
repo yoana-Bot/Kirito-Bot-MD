@@ -20,16 +20,21 @@ const handler = async (m, { conn, text }) => {
     await conn.sendMessage(m.chat, { 
       image: buffer, 
       caption: 'Imagen generada con éxito. Elige una opción:',
-      buttons: [
-        {
-          buttonId: '.imgg gato',
-          buttonText: { displayText: '😻 gato' },
-        },
-        {
-          buttonId: '.imgg perro',
-          buttonText: { displayText: '🐶 perro' },
-        },
-      ],
+                      buttons: [
+                    {
+                "name": "cta_copy",
+                "buttonParamsJson": JSON.stringify({
+                "display_text": "Descargar audio! 🎧",
+                "copy_code": `.ytmp3 ${texto}`
+                })
+              },{
+                "name": "cta_copy",
+                "buttonParamsJson": JSON.stringify({
+                "display_text": "Descargar video! 📹",
+                "copy_code": `.ytmp4 ${video.url}`
+                })
+              }
+                ],
       footer: '¡Disfruta!',
       viewOnce: true,
     }, { quoted: m });
