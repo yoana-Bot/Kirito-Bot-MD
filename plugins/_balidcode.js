@@ -20,21 +20,16 @@ const handler = async (m, { conn, text }) => {
     await conn.sendMessage(m.chat, { 
       image: buffer, 
       caption: 'Imagen generada con éxito. Elige una opción:',
-                      buttons: [
-                    {
-                "name": "cta_copy",
-                "buttonParamsJson": JSON.stringify({
-                "display_text": "Descargar audio! 🎧",
-                "copy_code": `${text}`
-                })
-              },{
-                "name": "cta_copy",
-                "buttonParamsJson": JSON.stringify({
-                "display_text": "Descargar video! 📹",
-                "copy_code": `${text}`
-                })
-              }
-                ]
+      buttons: [
+        {
+          buttonId: '.imgg gato',
+          buttonText: { displayText: '😻 gato' },
+        },
+        {
+          buttonId: '.imgg perro',
+          buttonText: { displayText: '🐶 perro' },
+        },
+      ],
       footer: '¡Disfruta!',
       viewOnce: true,
     }, { quoted: m });
@@ -45,6 +40,6 @@ const handler = async (m, { conn, text }) => {
 
 handler.tags = ['tools'];
 handler.help = ['genearimg'];
-handler.command = ['iaimg', '9', 'imgia'];
+handler.command = ['iaimg', 'imgg', 'imgia'];
 
 export default handler;
