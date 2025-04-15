@@ -91,7 +91,7 @@ ${commandsForTag.map(menu => menu.help.map(help => `∫➤ ${_p}${help} ${menu.l
 
     // no tocar 
     const imageUrls = [
-                  'https://files.catbox.moe/80uwhc.jpg',          'https://files.catbox.moe/hyrmn9.jpg',   'https://files.catbox.moe/0tv7r3.jpg', 'https://files.catbox.moe/yiaw4a.jpg'
+                  'https://d.uguu.se/DJJGCCFO.jpg',          'https://f.uguu.se/OLrDAPjD.jpg',   'https://f.uguu.se/LHvzYJmg.jpg', 'https://d.uguu.se/DJJGCCFO.jpg'
     ];
     let selectedImage = imageUrls[Math.floor(Math.random() * imageUrls.length)];
 
