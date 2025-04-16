@@ -326,12 +326,27 @@ global.plugins[filename] = module.default || module
 } catch (e) {
 conn.logger.error(e)
 delete global.plugins[filename]
-}}}
+}}
+
+for (const filename of readdirSync(pluginFolder2).filter(pluginFilter)) {
+try {
+const file = global.__filename(join(pluginFolder2, filename))
+const module = await import(file)
+global.plugins2[filename] = module.default || module
+} catch (e) {
+conn.logger.error(e)
+delete global.plugins2[filename]
+}}
+
+Object.assign(global.plugins, global.plugins2)
+}
 filesInit().then((_) => Object.keys(global.plugins)).catch(console.error);
 
 global.reload = async (_ev, filename) => {
 if (pluginFilter(filename)) {
-const dir = global.__filename(join(pluginFolder, filename), true);
+let dir = global.__filename(join(pluginFolder, filename), true)
+if (!existsSync(dir)) dir = global.__filename(join(pluginFolder2, filename), true)
+
 if (filename in global.plugins) {
 if (existsSync(dir)) conn.logger.info(` updated plugin - '${filename}'`)
 else {
