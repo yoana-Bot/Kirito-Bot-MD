@@ -1,7 +1,8 @@
 async function handler(m, { conn, orgs, participants, groupMetadata }) {
   let group = m.chat;
+  let totalMembers = participants.length;
   let link = 'https://chat.whatsapp.com/' + await conn.groupInviteCode(group);
-  conn.reply(m.chat, `☆ 𝐂𝐨𝐦𝐩𝐚𝐫𝐭𝐞 ☆\n\n𝐆𝐫𝐮𝐩𝐨: ${groupMetadata.subject}\n𝐌𝐢𝐞𝐦𝐛𝐫𝐨𝐬: ${totalMembers - 1}\n\n${link}`, m, { detectLink: true });
+  conn.reply(m.chat, `☆ 𝐂𝐨𝐦𝐩𝐚𝐫𝐭𝐞 ☆\n\n𝐆𝐫𝐮𝐩𝐨: ${groupMetadata.subject}\n𝐌𝐢𝐞𝐦𝐛𝐫𝐨𝐬: ${totalMembers}\n\n${link}`, m, { detectLink: true });
 }
 
 handler.help = ['link'];
