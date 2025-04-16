@@ -1,14 +1,20 @@
-export async function before(m, { conn, orgs, participants, groupMetadata }) {
+const handler = async (m, { conn, participants, groupMetadata }) => {
+  try {
+    const group = m.chat;
+    const link = 'https://chat.whatsapp.com/' + await conn.groupInviteCode(group);
+    const mensaje = `\t\t☆ 𝐂𝐨𝐦𝐩𝐚𝐫𝐭𝐞 ☆\n𝗚𝗿𝗨𝗽𝗢: ${groupMetadata.subject}\n\n${link}`;
+    
+    await conn.reply(m.chat, mensaje, m, { detectLink: true });
+  } catch (e) {
+    console.error(e);
+    m.reply('❌ Ocurrió un error al obtener el enlace del grupo.');
+  }
+};
 
-let group = m.chat
-let link = 'https://chat.whatsapp.com/' + await conn.groupInviteCode(group)
-conn.reply(m.chat, '\t\t☆ 𝐂𝐨𝐦𝐩𝐚𝐫𝐭𝐞 ☆\n𝗚𝗿𝗨𝗽𝗢: ${groupMetadata.subject}\n\v' + link, m, { detectLink: true })
+handler.help = ['link'];
+handler.tags = ['grupo'];
+handler.command = ['link', 'enlace'];
+handler.group = true;
+handler.botAdmin = true;
 
-}
-handler.help = ['link']
-handler.tags = ['grupo']
-handler.command = ['link', 'enlace']
-handler.group = true
-handler.botAdmin = true
-
-export default handler
+export default handler;
