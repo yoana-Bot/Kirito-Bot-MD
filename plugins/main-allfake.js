@@ -31,16 +31,16 @@ console.log(`Error : ${e}`)
 global.creador = 'Wa.me/50433191934'
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
 global.asistencia = 'Wa.me/50433191934'
-global.namechannel = '࿋ོ༙𝐊𝐢𝐫𝐢𝐭𝐨-𝑩𝒐𝒕 𝐂𝐡𝐚𝐧𝐧𝐞𝐥࿐ཽ༵'
-global.namechannel2 = '᭄𝐊𝐢𝐫𝐢𝐭𝐨-𝐁𝐨𝐭ᬊᬁ"'
+global.namechannel = '࿋ོ༙𝐊𝐢𝐫𝐢𝐭𝐨-𝑩𝒐𝒕 𝑴𝑫 𝐂𝐡𝐚𝐧𝐧𝐞𝐥࿐ཽ༵'
+global.namechannel2 = '᭄𝐊𝐢𝐫𝐢𝐭𝐨-𝐁𝐨𝐭 𝐌𝐃 👑ᬊᬁ"'
 global.namegrupo = '𝑲𝒊𝒓𝒊𝒕𝒐-𝑩𝒐𝒕'
-global.namecomu = 'ᬊ𝑲𝒊𝒓𝒊𝒕𝒐 𝑩𝒐𝒕 𝑪𝒐𝒎𝒖𝒏𝒊𝒕𝒚ᬊ᭄'
-global.listo = '⚡ *Aquí tienes ฅ^•ﻌ•^ฅ*'
-global.fotoperfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://files.catbox.moe/56el7x.jpg')
+global.namecomu = 'ᬊ𝑲𝒊𝒓𝒊𝒕𝒐 𝑩𝒐𝒕 𝑴𝑫 𝑪𝒐𝒎𝒖𝒏𝒊𝒕𝒚ᬊ᭄'
+global.listo = '⚡ *ᴀǫᴜɪ ᴛɪᴇɴᴇs ˙Ⱉ˙ฅ*'
+global.fotoperfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://i.postimg.cc/RFdNynN5/IMG-20250315-WA0122.jpg')
 
 global.idchannel = '120363365444927738@newsletter'
 global.canalIdM = ["120363365444927738@newsletter", "120363365444927738@newsletter"]
-global.canalNombreM = [" ๖ۣ•҉𝑲𝒊𝒓𝒊𝒕𝒐-𝑩𝒐𝒕 𝑪𝒉𝒂𝒏𝒏𝒆𝒍★᭄", "᭄𝑲𝒊𝒓𝒊𝒕𝒐-𝑩𝒐𝒕ᬊ᭄"]
+global.canalNombreM = [" ๖ۣ•҉𝑲𝒊𝒓𝒊𝒕𝒐-𝑩𝒐𝒕 𝑴𝑫 𝑪𝒉𝒂𝒏𝒏𝒆𝒍★᭄", "᭄𝑲𝒊𝒓𝒊𝒕𝒐-𝑩𝒐𝒕 𝑴𝑫ᬊ᭄"]
 global.channelRD = await getRandomChannel()
 
 //fechas
@@ -72,9 +72,9 @@ global.waitttt = '*ฅ՞•ﻌ•՞ฅ* *𝗘𝘀𝗽𝗲𝗿𝗮 𝗨𝗻 𝗠�
 
 //Enlaces
 var canal = 'https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m'  
-let canal2 = 'https://whatsapp.com/channel/0029VayQwPsFnSzESZJ9Us3z'
+let canal2 = 'https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m'
 var git = 'https://github.com/deylinqff'
-var github = 'https://github.com/deylinqff/Kirito_Bot' 
+var github = 'https://github.com/deylinqff/Kirito-Bot-MD' 
 let correo = 'deylibaquedano801@gmail.com'
 
 global.redes = [canal, canal2, git, github, correo].getRandom()
