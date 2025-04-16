@@ -261,33 +261,28 @@ const isRAdmin = user?.admin == 'superadmin' || false
 const isAdmin = isRAdmin || user?.admin == 'admin' || false
 const isBotAdmin = bot?.admin || false
 
-const ___dirname1 = path.join(path.dirname(fileURLToPath(import.meta.url)), './plugins')
-const ___dirname2 = path.join(path.dirname(fileURLToPath(import.meta.url)), './plugins2')
-
+const ___dirname = path.join(path.dirname(fileURLToPath(import.meta.url)), './plugins')
 for (let name in global.plugins) {
-  let plugin = global.plugins[name]
-  if (!plugin) continue
-  if (plugin.disabled) continue
-
-  const __dirname = name in plugins2 ? ___dirname2 : ___dirname1
-  const __filename = join(__dirname, name)
-
-  if (typeof plugin.all === 'function') {
-    try {
-      await plugin.all.call(this, m, {
-        chatUpdate,
-        __dirname,
-        __filename
-      })
-    } catch (e) {
-      console.error(e)
-    }
-  }
-
-  if (!opts['restrict'])
-    if (plugin.tags && plugin.tags.includes('admin')) {
-      continue
-    }
+let plugin = global.plugins[name]
+if (!plugin)
+continue
+if (plugin.disabled)
+continue
+const __filename = join(___dirname, name)
+if (typeof plugin.all === 'function') {
+try {
+await plugin.all.call(this, m, {
+chatUpdate,
+__dirname: ___dirname,
+__filename
+})
+} catch (e) {
+console.error(e)
+}}
+if (!opts['restrict'])
+if (plugin.tags && plugin.tags.includes('admin')) {
+continue
+}
 const str2Regex = str => str.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&')
 let _prefix = plugin.customPrefix ? plugin.customPrefix : conn.prefix ? conn.prefix : global.prefix
 let match = (_prefix instanceof RegExp ? 
