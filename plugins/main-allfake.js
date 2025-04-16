@@ -122,7 +122,7 @@ global.icono = [
 'https://i.postimg.cc/3JjzVC0N/IMG-20250318-WA0969.jpg'
 ].getRandom()
 
-global.rcanal = { contextInfo: { isForwarded: true, forwardingScore: 999, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, serverMessageId: 100, newsletterName: channelRD.name }, externalAdReply: { showAdAttribution: true, title: textbot, body: '👑҉Kirito- Bot MDᚐ', mediaUrl: null, description: '', previewType: "VIDEO", thumbnailUrl: icono, sourceUrl: redes, mediaType: 2, renderLargerThumbnail: true } } };
+global.rcanal = { contextInfo: { externalAdReply: { showAdAttribution: true, title: textbot, body: '👑҉Kirito- Bot MDᚐ', mediaUrl: null, description: null, previewType: "PHOTO", thumbnailUrl: icono, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: true } } };
 
 export default handler
 
