@@ -27,25 +27,35 @@ return res.data
 console.log(`Error : ${e}`)
 }}
 
-let pp = ''
-let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-//let pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegra.ph/file/327f6ad853cb4f405aa80.jpg')
-
+//creador y otros
 global.creador = 'Wa.me/50433191934'
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
 global.asistencia = 'Wa.me/50433191934'
-global.namechannel = '𝐊𝐢𝐫𝐢𝐭𝐨 - 𝐁𝐨𝐭 𝐌𝐃 • ᥙ⍴ძᥲ𝗍ᥱs ฅ՞•ﻌ•՞ฅ'
-global.namechannel2 = '𝐤𝐢𝐫𝐢𝐭𝐨 -𝐁𝐨𝐭 𝐌𝐃 • ᥲ᥎іs᥆s ฅ՞•ﻌ•՞ฅ'
-global.namegrupo = '𝐊𝐢𝐫𝐢𝐭𝐨 -𝐁𝐨𝐭 𝐌𝐃 • ᥆𝖿іᥴіᥲᥣ ˙Ⱉ˙ฅ'
-global.namecomu = '𝐤𝐢𝐫𝐢𝐭𝐨- 𝐁𝐨𝐭 𝐌𝐃 • ᥴ᥆mᥙᥒі𝗍ᥡ ˙Ⱉ˙ฅ'
-global.listo = ' *Aquí tienes ˙Ⱉ˙ฅ*'
-global.fotoperfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg')
+global.namechannel = '࿋ོ༙𝐊𝐢𝐫𝐢𝐭𝐨-𝑩𝒐𝒕 𝐂𝐡𝐚𝐧𝐧𝐞𝐥࿐ཽ༵'
+global.namechannel2 = '᭄𝐊𝐢𝐫𝐢𝐭𝐨-𝐁𝐨𝐭ᬊᬁ"'
+global.namegrupo = '𝑲𝒊𝒓𝒊𝒕𝒐-𝑩𝒐𝒕'
+global.namecomu = 'ᬊ𝑲𝒊𝒓𝒊𝒕𝒐 𝑩𝒐𝒕 𝑪𝒐𝒎𝒖𝒏𝒊𝒕𝒚ᬊ᭄'
+global.listo = '⚡ *Aquí tienes ฅ^•ﻌ•^ฅ*'
+global.fotoperfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://files.catbox.moe/56el7x.jpg')
+
+global.idchannel = '120363365444927738@newsletter'
+global.canalIdM = ["120363365444927738@newsletter", "120363365444927738@newsletter"]
+global.canalNombreM = [" ๖ۣ•҉𝑲𝒊𝒓𝒊𝒕𝒐-𝑩𝒐𝒕 𝑪𝒉𝒂𝒏𝒏𝒆𝒍★᭄", "᭄𝑲𝒊𝒓𝒊𝒕𝒐-𝑩𝒐𝒕ᬊ᭄"]
+global.channelRD = await getRandomChannel()
+
+//fechas
+global.d = new Date(new Date + 3600000)
+global.locale = 'es'
+global.dia = d.toLocaleDateString(locale, {weekday: 'long'})
+global.fecha = d.toLocaleDateString('es', {day: 'numeric', month: 'numeric', year: 'numeric'})
+global.mes = d.toLocaleDateString('es', {month: 'long'})
+global.año = d.toLocaleDateString('es', {year: 'numeric'})
+global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true})
 
 //Reacciones De Comandos.!
 global.rwait = '🕒'
 global.done = '✅'
 global.error = '✖️'
-
 
 global.emoji = '*❛‿˂̵✧*'
 global.emoji2 = '*（＾∀＾●）ﾉｼ*'
@@ -55,14 +65,19 @@ global.emoji5 = '*˙Ⱉ˙ฅ*'
 global.emojis = [emoji, emoji2, emoji3, emoji4, emoji5].getRandom()
 
 //mensaje en espera
-global.wait = 'ฅ՞•ﻌ•՞ฅ *𝗘𝘀𝗽𝗲𝗿𝗮 𝗨𝗻 𝗠𝗼𝗺𝗲𝗻𝘁𝗼, 𝗦𝗼𝘆 𝗟𝗲𝗻𝘁𝗼 ...*';
+global.wait = '*˙Ⱉ˙ฅ* *𝗘𝘀𝗽𝗲𝗿𝗮 𝗨𝗻 𝗠𝗼𝗺𝗲𝗻𝘁𝗼, 𝗦𝗼𝘆 𝗟𝗲𝗻𝘁𝗼 ...*';
+global.waitt = '*˙Ⱉ˙ฅ* *𝗘𝘀𝗽𝗲𝗿𝗮 𝗨𝗻 𝗠𝗼𝗺𝗲𝗻𝘁𝗼, 𝗦𝗼𝘆 𝗟𝗲𝗻𝘁𝗼 ...*';
+global.waittt = '*ฅ՞•ﻌ•՞ฅ* *𝗘𝘀𝗽𝗲𝗿𝗮 𝗨𝗻 𝗠𝗼𝗺𝗲𝗻𝘁𝗼, 𝗦𝗼𝘆 𝗟𝗲𝗻𝘁𝗼 ...*';
+global.waitttt = '*ฅ՞•ﻌ•՞ฅ* *𝗘𝘀𝗽𝗲𝗿𝗮 𝗨𝗻 𝗠𝗼𝗺𝗲𝗻𝘁𝗼, 𝗦𝗼𝘆 𝗟𝗲𝗻𝘁𝗼 ...*';
 
 //Enlaces
-var github = 'https://github.com/deylinqff/Kirito-Bot-MD' 
-var web = 'https://kirito-md.vercel.app/' 
-let instagram = 'https://www.instagram.com/'
+var canal = 'https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m'  
+let canal2 = 'https://whatsapp.com/channel/0029VayQwPsFnSzESZJ9Us3z'
+var git = 'https://github.com/deylinqff'
+var github = 'https://github.com/deylinqff/Kirito_Bot' 
+let correo = 'deylibaquedano801@gmail.com'
 
-global.redes = [github, web, instagram].getRandom()
+global.redes = [canal, canal2, git, github, correo].getRandom()
 
 //Imagen
 let category = "imagen"
@@ -79,26 +94,16 @@ var ase = new Date(); var hour = ase.getHours(); switch(hour){ case 0: hour = 'L
 global.saludo = hour;
 
 //tags
-global.nombre = conn.getName(m.sender)
+global.nombre = m.pushName || 'Anónimo'
 global.taguser = '@' + m.sender.split("@s.whatsapp.net")
 var more = String.fromCharCode(8206)
 global.readMore = more.repeat(850)
 
-global.authsticker = `┊🤖 Bot Ofc\n┊↳ ${wm}\n\n┊👑 Usuario\n┊↳ @${conn.getName(m.sender)}\n`;
-
-global.packsticker = `┊ 👑 kirito-Bot MD\n↳https://kirito-md.vercel.app/\n\n┊ 🔥 ɪɴғᴏʀᴍᴀᴄɪᴏɴ\n↳https://github.com/deylinqff/Kirito-Bot-MD`
-
 //Fakes
-global.fkontak = { key: { participants:"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=50433191934:50433191934\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
+global.fkontak = { key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `120363365864927734@g.us` } : {}) }, message: { 'contactMessage': { 'displayName': `${nombre}`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${nombre},;;;\nFN:${nombre},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, 'jpegThumbnail': null, thumbnail: null,sendEphemeral: true}}}
 
-global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: '120363365444927738@newsletter', newsletterName: "👑 . ˚ Cһᥲᥒᥒᥱᥣ 〢𝚔𝚒𝚛𝚒𝚝𝚘 - 𝙱𝚘𝚝 𝙼𝙳 ☆˒˒", serverMessageId: -1 }
+global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, newsletterName: channelRD.name, serverMessageId: -1 }
 }}, { quoted: m }
-
-//Id Channel
-global.idchannel = '120363365444927738@newsletter'
-global.canalIdM = ["120363365444927738@newsletter", "120363365444927738@newsletter"]
-global.canalNombreM = ["✯ 🄺🄸🅁🄸🅃🄾 - 🅲🅷🅰🅽🅽🅴🅻 ✯", "⏤͟͟͞͞𝐤𝐢𝐫𝐢𝐭𝐨 - 𝐁𝐨𝐭『𝐌𝐃』"]
-global.channelRD = await getRandomChannel()
 
 global.icono = [ 
 'https://i.postimg.cc/RFdNynN5/IMG-20250315-WA0122.jpg',
@@ -109,7 +114,7 @@ global.icono = [
 'https://i.postimg.cc/3JjzVC0N/IMG-20250318-WA0969.jpg'
 ].getRandom()
 
-global.rcanal = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, serverMessageId: 100, newsletterName: channelRD.name, }, externalAdReply: { showAdAttribution: true, title: textbot, body: '👑҉Kirito- Bot MDᚐ', mediaUrl: null, description: null, previewType: "PHOTO", thumbnailUrl: icono, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false }, }, }}
+global.rcanal = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, serverMessageId: 100, newsletterName: channelRD.name, }, externalAdReply: { showAdAttribution: true, title: packname, body: dev, mediaUrl: null, description: null, previewType: "PHOTO", thumbnailUrl: icono, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false }, }, }}
 
 export default handler
 
@@ -122,4 +127,4 @@ let randomIndex = Math.floor(Math.random() * canalIdM.length)
 let id = canalIdM[randomIndex]
 let name = canalNombreM[randomIndex]
 return { id, name }
-}         
+}
