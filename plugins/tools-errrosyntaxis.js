@@ -6,7 +6,7 @@ var handler = async (m, { usedPrefix, command }) => {
         await m.react('🕒'); 
         conn.sendPresenceUpdate('composing', m.chat);
 
-        const pluginsDir = './plugins';
+        const pluginsDir = ['./plugins', './plugins2'];
 
         const files = fs.readdirSync(pluginsDir).filter(file => file.endsWith('.js'));
 
