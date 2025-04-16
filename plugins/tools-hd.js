@@ -29,7 +29,7 @@ async function upscaleAnonymous(imageBuffer) {
     contentType: "image/jpeg",
   });
 
-  const { data } = await axios.post("https://api.enhanceai.xyz/upscale", form, {
+  const { data } = await axios.post("https://api.deepai.org/api/torch-srgan", form, {
     headers: form.getHeaders(),
     responseType: "arraybuffer",
   });
