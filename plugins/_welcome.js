@@ -64,7 +64,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
   let fraseRandomBienvenida = frasesBienvenida[Math.floor(Math.random() * frasesBienvenida.length)];
   let fraseRandomDespedida = frasesDespedida[Math.floor(Math.random() * frasesDespedida.length)];
 
-  let imagenUrl = 'https://telegra.ph/file/8e90f7d6cf889c676d030.jpg';
+  let imagenUrl = 'https://files.catbox.moe/56el7x.jpg';
 
   if (chat.welcome) {
     if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_ADD) {
