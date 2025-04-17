@@ -262,21 +262,18 @@ const isAdmin = isRAdmin || user?.admin == 'admin' || false
 const isBotAdmin = bot?.admin || false
 
 const ___dirname = path.join(path.dirname(fileURLToPath(import.meta.url)), './plugins')
-const ___dirname2 = path.join(path.dirname(fileURLToPath(import.meta.url)), './plugins2')
-
 for (let name in global.plugins) {
 let plugin = global.plugins[name]
 if (!plugin)
 continue
 if (plugin.disabled)
 continue
-const __filename = join(name in global.plugins2 ? ___dirname2 : ___dirname, name)
-const __dirname = name in global.plugins2 ? ___dirname2 : ___dirname
+const __filename = join(___dirname, name)
 if (typeof plugin.all === 'function') {
 try {
 await plugin.all.call(this, m, {
 chatUpdate,
-__dirname: __dirname,
+__dirname: ___dirname,
 __filename
 })
 } catch (e) {
