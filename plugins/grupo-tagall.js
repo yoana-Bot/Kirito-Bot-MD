@@ -59,7 +59,7 @@ const handler = async (m, { isOwner, isAdmin, conn, text, participants, args, co
     const info = mensaje ? `╰➤ ✉️ *Mensaje:* ${mensaje}` : "╰➤ ⚠️ *Invocación general*";
 
     let texto = `
-╭══🎌 *LLAMADO A TODOS* 🎌══⬣
+╭══ *LLAMADO A TODOS* ══⬣
 │  ⚡ *Total:* ${participants.length}
 │  👑 *Grupo:* ${await conn.getName(m.chat)}
 ${info}
