@@ -311,12 +311,10 @@ kiritoJadiBot({pathkiritoJadiBot: botPath, m: null, conn, args: '', usedPrefix: 
 }
 
 const pluginFolder = global.__dirname(join(__dirname, './plugins/index'))
-const pluginFolder2 = global.__dirname(join(__dirname, './plugins2/index'))
 
 const pluginFilter = (filename) => /\.js$/.test(filename)
 
 global.plugins = {}
-global.plugins2 = {}
 async function filesInit() {
 for (const filename of readdirSync(pluginFolder).filter(pluginFilter)) {
 try {
