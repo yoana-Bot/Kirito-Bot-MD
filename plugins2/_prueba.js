@@ -16,7 +16,7 @@ let handler = async (m, { conn, text }) => {
 }
 
 handler.help = ['demo *<texto>*'];
-handler.command = ['demo', 'openai'];
+handler.command = ['dem', 'openai'];
 handler.tags = ['ai'];
 handler.group = true;
 
