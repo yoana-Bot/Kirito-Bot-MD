@@ -25,17 +25,17 @@ export async function before(m, { conn, participants, groupMetadata }) {
 
   
   const borde = "╭───────────────╮"
-  const medio = "│ KiritoBot MD     │"
+  const medio = "│ KiritoBot MD"
   const fin =   "╰───────────────╯"
 
-  let nombre = `${borde}\n${medio}\n╰➤ ${usuario} cambió el nombre del grupo.\n   Nuevo nombre: *${m.messageStubParameters[0]}*\n${fin}`
+  let nombre = `${borde}\n${medio}\n╰➤ ${usuario} \ncambió el nombre del grupo.\n   Nuevo nombre: *${m.messageStubParameters[0]}*\n${fin}`
   let foto = {
     image: { url: pp },
-    caption: `${borde}\n${medio}\n╰➤ ${usuario} actualizó la foto del grupo.\n   ¡Una nueva etapa comienza!\n${fin}`,
+    caption: `${borde}\n${medio}\n╰➤ ${usuario} \nactualizó la foto del grupo.\n   ¡Una nueva etapa comienza!\n${fin}`,
     mentions: [m.sender]
   }
-  let edit = `${borde}\n${medio}\n╰➤ ${usuario} modificó la configuración del grupo.\n   Ahora *${m.messageStubParameters[0] == 'on' ? 'solo admins' : 'todos'}* pueden editar info.\n${fin}`
-  let newlink = `${borde}\n${medio}\n╰➤ ${usuario} restableció el enlace del grupo.\n   ¡No lo compartas con cualquiera!\n${fin}`
+  let edit = `${borde}\n${medio}\n╰➤ ${usuario} \nmodificó la configuración del grupo.\n   Ahora *${m.messageStubParameters[0] == 'on' ? 'solo admins' : 'todos'}* pueden editar info.\n${fin}`
+  let newlink = `${borde}\n${medio}\n╰➤ ${usuario} \nrestableció el enlace del grupo.\n   ¡No lo compartas con cualquiera!\n${fin}`
   let status = `${borde}\n${medio}\n╰➤ El grupo fue *${m.messageStubParameters[0] == 'on' ? 'cerrado' : 'abierto'}* por ${usuario}.\n   Ahora *${m.messageStubParameters[0] == 'on' ? 'solo admins' : 'todos'}* pueden enviar mensajes.\n${fin}`
   let admingp = `${borde}\n${medio}\n╰➤ *@${m.messageStubParameters[0].split`@`[0]}* ahora es *admin*.\n   Acción realizada por ${usuario}\n${fin}`
   let noadmingp = `${borde}\n${medio}\n╰➤ *@${m.messageStubParameters[0].split`@`[0]}* ya no es *admin*.\n   Acción realizada por ${usuario}\n${fin}`
