@@ -107,38 +107,6 @@ global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo
 }}, { quoted: m }
 
 
-
-
-conn.ev.on('chats.upsert', async (chats) => {
-  for (const chat of chats) {
-    if (!chat.id.endsWith('@g.us')) continue // Solo grupos
-
-    try {
-      const metadata = await conn.groupMetadata(chat.id)
-      const mentions = metadata.participants.map(p => p.id)
-
-      const Kirito = {
-        text: `*kirito-bot MD | 1 De los mejores bots de WhatsApp*\n\n*creador:* Deylin`,
-        contextInfo: {
-          isForwarded: true,
-          mentionedJid: mentions,
-          forwardedNewsletterMessageInfo: {
-            newsletterJid: '120363365444927738@newsletter',
-            newsletterName: '★KIRITO-BOT✪',
-            serverMessageId: -1
-          }
-        }
-      }
-
-      await conn.sendMessage(chat.id, Kirito)
-    } catch (e) {
-      console.error('Error enviando mensaje al nuevo grupo:', e)
-    }
-  }
-})
-
-
-
 global.icono = [ 
 'https://i.postimg.cc/RFdNynN5/IMG-20250315-WA0122.jpg',
 'https://i.postimg.cc/RFdNynN5/IMG-20250315-WA0122.jpg',
