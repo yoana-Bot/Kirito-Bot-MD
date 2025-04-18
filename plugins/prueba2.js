@@ -14,13 +14,7 @@ conn.ev.on('group-participants.update', async (update) => {
         const groupName = metadata.subject;
 
         await conn.sendMessage(update.id, {
-          text: `✨ ¡Hola a todos!\n\nSoy *Kirito-Bot MD*, uno de los mejores bots de WhatsApp desarrollado por *Deylin*.\n\nGracias por añadirme al grupo *${groupName}*.\n\nEscribe *.menu* para ver todos mis comandos.`,
-          footer: 'Kirito-Bot MD | by Deylin',
-          buttons: [
-            { buttonId: '.menu', buttonText: { displayText: 'Ver Menú' }, type: 1 },
-            { buttonId: '.estado', buttonText: { displayText: 'Estado del Bot' }, type: 1 }
-          ],
-          headerType: 1
+          text: `✨ ¡Hola a todos!\n\nSoy *Kirito-Bot MD*, uno de los mejores bots de WhatsApp desarrollado por *Deylin*.\n\nGracias por añadirme al grupo *${groupName}*.\n\nEscribe *.menu* para ver todos mis comandos.`
         });
 
         chat.welcomed = true; // Marcar que ya se envió el mensaje
