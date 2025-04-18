@@ -106,19 +106,35 @@ let pp = null; try { pp = await conn.profilePictureUrl('50433191934@s.whatsapp.n
 global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, newsletterName: channelRD.name, serverMessageId: -1 }
 }}, { quoted: m }
 
-const Kirito = {
-  contextInfo: {
-    isForwarded: true,
-    forwardedNewsletterMessageInfo: {
-      newsletterJid: 'kirito_bot_md@newsletter', // Puedes poner cualquier ID falso si no usas canales reales
-      newsletterName: '★KIRITO-BOT✪',
-      serverMessageId: -1
-    }
-  },
-  text: `kirito-bot MD | 1 De los mejores bots de WhatsApp\n\ncreador: Deylin`
-}
 
-await conn.sendMessage(m.chat, Kirito, { quoted: m })
+
+
+conn.ev.on('groups.update', async (update) => {
+  for (const group of update) {
+    if (!group.participants || !group.id || !group.announce === false) continue
+
+    const metadata = await conn.groupMetadata(group.id)
+    const admins = metadata.participants.filter(p => p.admin)
+    const mentions = metadata.participants.map(p => p.id)
+
+    const Kirito = {
+      text: `*kirito-bot MD | 1 De los mejores bots de WhatsApp*\n\n*creador:* Deylin`,
+      contextInfo: {
+        isForwarded: true,
+        mentionedJid: mentions,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363365444927738@newsletter',
+          newsletterName: '★KIRITO-BOT✪',
+          serverMessageId: -1
+        }
+      }
+    }
+
+    await conn.sendMessage(group.id, Kirito)
+  }
+})
+
+
 
 global.icono = [ 
 'https://i.postimg.cc/RFdNynN5/IMG-20250315-WA0122.jpg',
