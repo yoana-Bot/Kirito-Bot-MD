@@ -39,7 +39,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
     case 'antiprivate':
       isAll = true;
       if (!isOwner) {
-        global.dfail('rowner', m, conn);
+        global.dfail('admin', m, conn);
         throw false;
       }
       bot.antiPrivate = isEnable;
