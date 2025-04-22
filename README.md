@@ -54,7 +54,7 @@ avaricia"/></a>
 
 ---
 ## 🔥 **¡Únete y Personaliza!**  
-<a href="https://github.com/deylinqff">
+<a href="https://github.com/golfitoff">
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&duration=4000&pause=1000&color=0099FF&width=435&lines=⚔️+CLONA+EL+REPOSITORIO+⚔️" alt="Typing SVG">
 </a> 
 
@@ -152,15 +152,15 @@ npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
 ## 📊 **Estadísticas de GitHub**
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=deylinqff&repo=Kirito-Bot-MD&show_icons=true&theme=radical&hide_border=true" alt="Estadísticas de GitHub">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=deylinqff&repo=Kirito-Bot-MD&theme=radical&hide_border=true" alt="Racha de GitHub">
+  <img src="https://github-readme-stats.vercel.app/api?username=golfitoqff&repo=golfito-Bot-MD&show_icons=true&theme=radical&hide_border=true" alt="Estadísticas de GitHub">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=deylinqff&repo=golfito-Bot-MD&theme=radical&hide_border=true" alt="Racha de GitHub">
 </p>
 
 ---
 
 ### **`🌟 Colaboradores`**
-<a href="https://github.com/deylinqff/kirito-Bot-MD/graphs/contributors">
-<img src="https://contrib.rocks/image?repo=deylinqff/kirito-Bot-MD" /> 
+<a href="https://github.com/deylinqff/golfito-Bot-MD/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=deylinqff/golfito-Bot-MD" /> 
 </a>
 
 ---
