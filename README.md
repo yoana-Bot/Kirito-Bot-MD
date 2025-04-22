@@ -12,7 +12,7 @@ avaricia"/></a>
 ---
 
 ### 🏆 **Poder y Precisión en un Solo Bot**  
-📌 **Creado por:** `Deylin`  
+📌 **Creado por:** `golfito`  
 ⚔ **Optimizado para WhatsApp**  
 🔮 **Diseño inspirado en Sword Art Online**  
 🚀 **¡Rápido, potente y seguro!**  
@@ -24,9 +24,9 @@ avaricia"/></a>
 <details>
  <summary><b> 👉 click license copyright </b></summary>
 
-**Copyright (c) 2025 Deylin (KIRITO-BOT). Todos los derechos reservados.**
+**Copyright (c) 2025 golfito (golfito-BOT). Todos los derechos reservados.**
 
-Este repositorio puede ser clonado y usado con fines educativos o personales, siempre que se mantenga el crédito al autor original (Deylin) y no se utilice con fines comerciales.
+Este repositorio puede ser clonado y usado con fines educativos o personales, siempre que se mantenga el crédito al autor original (golfito) y no se utilice con fines comerciales.
 
 ## **Permitido:**
 - Clonar este repositorio.
@@ -38,7 +38,7 @@ Este repositorio puede ser clonado y usado con fines educativos o personales, si
 - Eliminar el nombre del autor original.
 - Redistribuir versiones modificadas como si fueran originales.
 
-Para uso comercial u otros permisos, contactar a Deylin directamente.
+Para uso comercial u otros permisos, contactar a golfito directamente.
 
 Este código se proporciona “tal cual”, sin garantías de ningún tipo.
 
@@ -76,7 +76,7 @@ apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn
 ```
 
 ```bash
-git clone https://github.com/deylinqff/Kirito-Bot-MD && cd Kirito-Bot-MD
+git clone https://github.com/deylinqff/golfito-Bot-MD && cd golfito-Bot-MD
 ```
 
 ```bash
@@ -95,7 +95,7 @@ Si después de instalar el bot en Termux se detiene (pantalla en blanco, pérdid
 
 1. Abre Termux y navega al directorio del bot:
     ```bash
-    cd Kirito-Bot-MD
+    cd golfito-Bot-MD
     ```
 
 2. Inicia el bot nuevamente:
@@ -184,10 +184,10 @@ href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King
   <a href="https://github.com/deylinqff">
     <img src="https://img.shields.io/badge/GitHub-Deylinqff-181717?style=for-the-badge&logo=github">
   </a>
-  <a href="https://wa.me/50433191934">
+  <a href="https://wa.me/8099843134">
     <img src="https://img.shields.io/badge/WhatsApp-Contactar-25D366?style=for-the-badge&logo=whatsapp">
   </a>
-  <a href="mailto:deylibaquedano801@gmail.com">
+  <a href="mailto:golfitomartinez@gmail.com">
     <img src="https://img.shields.io/badge/Email-Enviame%20un%20un%20correo-EA4335?style=for-the-badge&logo=gmail">
   </a>
 </p>
@@ -196,7 +196,7 @@ href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King
 
 <p align="center">
   <a href="https://www.paypal.me/kirito98Dey">
-    <img src="https://img.shields.io/badge/Apoya a kirito en PayPal-000000?style=for-the-badge&logo=paypal&logoColor=white" alt="Apoya con PayPal" />
+    <img src="https://img.shields.io/badge/Apoya a golfito en PayPal-000000?style=for-the-badge&logo=paypal&logoColor=white" alt="Apoya con PayPal" />
   </a>
 </p>
 
