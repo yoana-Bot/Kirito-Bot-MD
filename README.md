@@ -45,9 +45,9 @@ Este código se proporciona “tal cual”, sin garantías de ningún tipo.
 </details>
 
 ---
-## 🚀 **Explora Kirito-Bot**  
+## 🚀 **Explora golfito-Bot**  
 <p align="center">
-  <img src="https://files.catbox.moe/91wohc.jpg" alt="Kirito-Bot"
+  <img src="https://files.catbox.moe/91wohc.jpg" alt="golfito-Bot"
 width="130" height="130" alt="
 avaricia"/></a>
 </p>  
@@ -76,7 +76,7 @@ apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn
 ```
 
 ```bash
-git clone https://github.com/deylinqff/golfito-Bot-MD && cd golfito-Bot-MD
+git clone https://github.com/golfitoqff/golfito-Bot-MD && cd golfito-Bot-MD
 ```
 
 ```bash
@@ -147,7 +147,7 @@ npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
 
 ---
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=400&color=00CCFF&lines=✨+Espero+que+disfrutes+este+repositorio;💙+Creado+con+dedicación;⚔️+By+Mr.|Deyin+🌠🚀)](https://git.io/typing-svg)  
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=400&color=00CCFF&lines=✨+Espero+que+disfrutes+este+repositorio;💙+Creado+con+dedicación;⚔️+By+Mr.|golfito+🌠🚀)](https://git.io/typing-svg)  
 
 ## 📊 **Estadísticas de GitHub**
 
@@ -160,7 +160,7 @@ npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
 
 ### **`🌟 Colaboradores`**
 <a href="https://github.com/deylinqff/golfito-Bot-MD/graphs/contributors">
-<img src="https://contrib.rocks/image?repo=deylinqff/golfito-Bot-MD" /> 
+<img src="https://contrib.rocks/image?repo=golfitoqff/golfito-Bot-MD" /> 
 </a>
 
 ---
@@ -168,7 +168,7 @@ npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
 ### **`👑 Propietario`**
 
 <h1>golfito 📚</h1>
-<a href="https://github.com/deylinqff"><img src="https://github.com/deylinqff.png" width="130" height="130" alt="
+<a href="https://github.com/golfitoqff"><img src="https://github.com/deylinqff.png" width="130" height="130" alt="
 avaricia"/></a>
 
 
@@ -184,7 +184,7 @@ href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King
   <a href="https://github.com/golfitoqff">
     <img src="https://img.shields.io/badge/GitHub-golfitoqff-181717?style=for-the-badge&logo=github">
   </a>
-  <a href="https://wa.me/8099843134">
+  <a href="https://wa.me/+1 (809) 984-3134">
     <img src="https://img.shields.io/badge/WhatsApp-Contactar-25D366?style=for-the-badge&logo=whatsapp">
   </a>
   <a href="mailto:golfitomartinez@gmail.com">
@@ -200,4 +200,4 @@ href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King
   </a>
 </p>
 
-## ⚔️ [© Powered By golfito 👑](https://Wa.me/8099843134)
+## ⚔️ [© Powered By golfito 👑](https://Wa.me/(809) 984-3134
