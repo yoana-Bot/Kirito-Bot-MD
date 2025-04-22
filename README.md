@@ -181,8 +181,8 @@ href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King
 ## 👑 **CONTÁCTAME**
 
 <p align="center">
-  <a href="https://github.com/deylinqff">
-    <img src="https://img.shields.io/badge/GitHub-Deylinqff-181717?style=for-the-badge&logo=github">
+  <a href="https://github.com/golfitoqff">
+    <img src="https://img.shields.io/badge/GitHub-golfitoqff-181717?style=for-the-badge&logo=github">
   </a>
   <a href="https://wa.me/8099843134">
     <img src="https://img.shields.io/badge/WhatsApp-Contactar-25D366?style=for-the-badge&logo=whatsapp">
@@ -195,7 +195,7 @@ href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King
 ## 🎯 **Apoya el Proyecto**
 
 <p align="center">
-  <a href="https://www.paypal.me/kirito98Dey">
+  <a href="https:">
     <img src="https://img.shields.io/badge/Apoya a golfito en PayPal-000000?style=for-the-badge&logo=paypal&logoColor=white" alt="Apoya con PayPal" />
   </a>
 </p>
