@@ -111,7 +111,7 @@ Si después de instalar el bot en Termux y iniciar la session del bot (el numero
 
 1. Abre Termux y navega al directorio del bot:
     ```bash
-    cd Kirito-Bot-MD
+    cd golfito-Bot-MD
     ```
 
 2. Elimina la carpeta MiniSession:
@@ -143,7 +143,7 @@ npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
 
 ## 🌐 ***Forma parte de la Comunidad*** 
 
-💬 **Canal Oficial:** [`Click👑Aquí`](https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m)  
+💬 **Canal Oficial:** [`Click👑Aquí`](https://whatsapp.com/channel/0029VaqWErrKGGGQZ91utK1k)  
 
 ---
 
@@ -167,7 +167,7 @@ npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
 
 ### **`👑 Propietario`**
 
-<h1>Deylin 📚</h1>
+<h1>golfito 📚</h1>
 <a href="https://github.com/deylinqff"><img src="https://github.com/deylinqff.png" width="130" height="130" alt="
 avaricia"/></a>
 
@@ -200,4 +200,4 @@ href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King
   </a>
 </p>
 
-## ⚔️ [© Powered By Deyin 👑](https://Wa.me/50433191934)
+## ⚔️ [© Powered By golfito 👑](https://Wa.me/8099843134)
