@@ -559,17 +559,17 @@ global.dfail = (type, m, conn) => {
   let verifyaleatorio = ['registrar', 'reg', 'verificar', 'verify', 'register'].getRandom();
 
   const msg = {
-    rowner: `*🔥 〘 ${comando} 〙 es solo para los creadores, no insistas.*`,
-    owner: `*⚡ 〘 ${comando} 〙 es exclusivo para los desarrolladores. Nivel insuficiente.*`,
-    mods: `*👑 〘 ${comando} 〙 solo para moderadores. ¿Eres uno? No lo creo.*`,
-    premium: `*🔥 〘 ${comando} 〙 es un lujo de usuarios premium. Tú aún no estás en ese nivel.*`,
-    group: `*🔥 〘 ${comando} 〙 solo funciona en grupos. No intentes engañar al sistema.*`,
-    private: `*⚡ 〘 ${comando} 〙 solo en chat privado. Aquí no, amigo.*`,
-    admin: `*🔥 〘 ${comando} 〙 es un poder reservado para administradores.*`,
-    botAdmin: `*⚡ Necesito ser admin para ejecutar 〘 ${comando} 〙 Dame el rango y hablamos.*`,
-    unreg: `*🔥 Para usar 〘 ${comando} 〙 primero debes registrarte.*\n\n *⚡ Usa: #${verifyaleatorio} ${user2}.${edadaleatoria}*`,
-    restrict: `*⚡ Esta función está bloqueada. Fin de la historia.*`
-  }[type];
+  rowner: `*〘 ${comando} 〙 es una función exclusiva de los propietarios principales. Tu acceso no está autorizado.*`,
+  owner: `*〘 ${comando} 〙 solo puede ser ejecutado por los desarrolladores. No tienes los permisos necesarios.*`,
+  mods: `*〘 ${comando} 〙 está reservado para moderadores. Tu perfil no cumple con los requisitos.*`,
+  premium: `*〘 ${comando} 〙 es un beneficio exclusivo para usuarios premium. Este privilegio aún no te corresponde.*`,
+  group: `*〘 ${comando} 〙 solo está disponible en grupos. Este entorno no es válido.*`,
+  private: `*〘 ${comando} 〙 debe utilizarse en un chat privado. Intenta de nuevo en el canal adecuado.*`,
+  admin: `*〘 ${comando} 〙 requiere permisos de administrador. Acceso denegado.*`,
+  botAdmin: `*Para ejecutar 〘 ${comando} 〙, el bot necesita ser administrador. Por favor, actualiza los permisos.*`,
+  unreg: `*Para usar 〘 ${comando} 〙 primero debes registrarte.*\n\n*Utiliza:* _#${verifyaleatorio} ${user2}.${edadaleatoria}_`,
+  restrict: `*Esta función está desactivada. No se permiten excepciones.*`
+}[type];
 
   if (msg) return conn.reply(m.chat, msg, m, rcanal).then(_ => m.react('✖️'));}
 
