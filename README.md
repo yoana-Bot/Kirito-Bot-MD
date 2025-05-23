@@ -4,6 +4,7 @@
 >
 > **Repositorio afectado:** [Kirito-Bot-MD]
 (https://github.com/BrayanOFC/Kirito-Bot-MD)
+
 > **Estado:** *Acceso restringido temporalmente*  
 > **Motivo:** Posible violación de los [Términos de Servicio](https://docs.github.com/es/site-policy/github-terms/github-terms-of-service), incluyendo automatización no autorizada o uso indebido de la API.
 >
