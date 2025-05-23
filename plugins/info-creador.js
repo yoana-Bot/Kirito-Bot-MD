@@ -6,12 +6,12 @@ import PhoneNumber from 'awesome-phonenumber';
 
 async function handler(m, { conn }) {
   m.react('👑');
-  const numCreador = '50433191934';
+  const numCreador = '526633900512';
   const ownerJid = numCreador + '@s.whatsapp.net';
 
   const name = await conn.getName(ownerJid) || 'Deylin';
   const about = (await conn.fetchStatus(ownerJid).catch(() => {}))?.status || 'estoy disponible para responder a tus preguntas';
-  const empresa = 'Deylin - Servicios Tecnológicos';
+  const empresa = 'Brayan - Servicios Tecnológicos';
 
   
   const vcard = `
