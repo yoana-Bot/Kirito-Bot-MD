@@ -7,7 +7,7 @@
 > **Estado:** *Acceso restringido temporalmente*  
 > **Motivo:** Posible violación de los [Términos de Servicio](https://docs.github.com/es/site-policy/github-terms/github-terms-of-service), incluyendo automatización no autorizada o uso indebido de la API.
 >
-> Si consideras que esto fue un error, puedes apelar la decisión desde: [https://support.github.com/contact](https://support.github.com/contact)
+> Si consideras que esto fue un error, puedes apelar la decisión desde: [support github](https://support.github.com/contact)
 >
 > _GitHub, Inc._  
 > **Última revisión:** 23 de mayo de 2025
