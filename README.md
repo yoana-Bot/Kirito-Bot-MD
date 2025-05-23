@@ -2,7 +2,7 @@
 >
 > Este repositorio ha sido marcado por incumplir nuestras [Normas de la Comunidad](https://docs.github.com/es/site-policy/github-terms/github-community-guidelines) y [Políticas de Seguridad](https://docs.github.com/es/code-security/getting-started/github-security-features).
 >
-> **Repositorio afectado:** [https://github.com/BrayanOFC/Kirito-Bot-MD](https://github.com/Deylin-Eliac/Kirito-Bot-MD)  
+> **Repositorio afectado:** (Kirito-Bot-MD)[https://github.com/BrayanOFC/Kirito-Bot-MD](https://github.com/BrayanOFC/Kirito-Bot-MD)  
 > **Estado:** *Acceso restringido temporalmente*  
 > **Motivo:** Posible violación de los [Términos de Servicio](https://docs.github.com/es/site-policy/github-terms/github-terms-of-service), incluyendo automatización no autorizada o uso indebido de la API.
 >
