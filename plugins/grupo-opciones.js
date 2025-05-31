@@ -56,7 +56,7 @@ _*📝 Ejemplo de uso (#enable antilink).*_`;
     text: text,
     contextInfo: {
       externalAdReply: {
-        title: '⚔️ KIRITO-BOT',
+        title: '⚔️ VEGETA-BOT2.0',
         body: 'Gestión Avanzada del Reino',
         thumbnailUrl: 'src/catalogo.jpg',
         mediaType: 1,
