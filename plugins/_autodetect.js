@@ -12,8 +12,8 @@ export async function before(m, { conn, participants, groupMetadata }) {
     },
     message: {
       contactMessage: {
-        displayName: "KiritoBot",
-        vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Kirito;Bot;;;\nFN:VegetaBot Oficial\nORG:VegetaBot Team;\nTEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nEMAIL;type=INTERNET:soporte@Vegetabot.net\nEND:VCARD`
+        displayName: "VegetaBot",
+        vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Vegeta;Bot;;;\nFN:VegetaBot Oficial\nORG:VegetaBot Team;\nTEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nEMAIL;type=INTERNET:soporte@Vegetabot.net\nEND:VCARD`
       }
     },
     participant: "0@s.whatsapp.net"
