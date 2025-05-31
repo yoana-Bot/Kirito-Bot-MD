@@ -1,5 +1,5 @@
 {
-"name": "kirito-Bot-MD",
+"name": "VEGETA-BOT-MB2.0",
 "version": "2.2.0",
 "description": "Super WhatsApp Bot Multi Device",
 "main": "index.js",
@@ -18,16 +18,16 @@
 "eslint": "eslint .",
 "eslintfix": "eslint --fix ."
 },
-"homepage": "https://github.com/deylinqff/Kirito-Bot-MD",
+"homepage": "https://github.com/BrayanOFC/VEGETA-BOT-MB2.0",
 "author": {
-"name": "Deylin"
+"name": "BrayanOFC"
 },
 "repository": {
 "type": "git",
-"url": "git+https://github.com/deylinqff/Kirito-Bot-MD.git"
+"url": "git+https://github.com/BrayanOFC/VEGETA-BOT-MB2.0.git"
 },
 "bugs": {
-"url": "https://github.com/deylinqff/Kirito-Bot-MD/issues"
+"url": "https://github.com/BrayanOFC/VEGETA-BOT-MB2.0/issues"
 },
 "license": "GPL-3.0-or-later",
 "dependencies": {
@@ -90,7 +90,7 @@
 "@vitalets/google-translate-api": "^8.0.0",
 "hispamemes": "^1.0.7",
 "openai": "^3.3.0",
-"aptoide-scraper": "github:DIEGO-OFC/dv-aptoide-scraper",
+"aptoide-scraper": "github:BrayanOFC/dv-aptoide-scraper",
 "megajs": "^1.1.3",
 "mime-types": "^2.1.35",
 "api-dylux": "^1.7.2",
