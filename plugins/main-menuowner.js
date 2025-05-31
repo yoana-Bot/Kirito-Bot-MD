@@ -54,14 +54,14 @@ let owner = `
 ┃ 🔥 *#update* - Actualizar bot desde GitHub.
 ╰━━━━━━━━━━━━━╯
 
-💾 *Kirito-Bot* ⚔️ - Administración y control avanzado.
+💾 *VEGETA-BOT2.0* ⚔️ - Administración y control avanzado.
 `;
 
 await conn.sendMessage(m.chat, {
 text: owner,
 contextInfo: {
 externalAdReply: {
-title: 'Kirito-Bot ⚔️',
+title: 'VEGETA-BOT2.0 ⚔️',
 body: 'Administración y Control Avanzado',
 thumbnailUrl: icono,
 mediaType: 1,
