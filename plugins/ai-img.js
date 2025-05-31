@@ -24,7 +24,7 @@ generando imagen de *${prompt}*`, m, rcanal);
 };
 
 handler.command = ['imgg', 'kiritoia'];
-handler.help = ['imgg <descripción>', 'kiritoia <descripción>'];
+handler.help = ['imgg <descripción>', 'Vegetaia <descripción>'];
 handler.tags = ['tools'];
 
 export default handler;
