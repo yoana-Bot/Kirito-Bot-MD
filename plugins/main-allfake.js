@@ -30,17 +30,17 @@ console.log(`Error : ${e}`)
 //creador y otros
 global.creador = 'Wa.me/50433191934'
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
-global.asistencia = 'Wa.me/50433191934'
-global.namechannel = '࿋ོ༙𝐊𝐢𝐫𝐢𝐭𝐨-𝑩𝒐𝒕 𝑴𝑫 𝐂𝐡𝐚𝐧𝐧𝐞𝐥࿐ཽ༵'
-global.namechannel2 = '᭄𝐊𝐢𝐫𝐢𝐭𝐨-𝐁𝐨𝐭 𝐌𝐃 👑ᬊᬁ"'
-global.namegrupo = '𝑲𝒊𝒓𝒊𝒕𝒐-𝑩𝒐𝒕'
-global.namecomu = 'ᬊ𝑲𝒊𝒓𝒊𝒕𝒐 𝑩𝒐𝒕 𝑴𝑫 𝑪𝒐𝒎𝒖𝒏𝒊𝒕𝒚ᬊ᭄'
+global.asistencia = 'Wa.me/526633900512'
+global.namechannel = '࿋ོ༙VEGETA-BOT-MB2.0 𝐂𝐡𝐚𝐧𝐧𝐞𝐥࿐ཽ༵'
+global.namechannel2 = '᭄VEGETA BOT MB2.0 👑ᬊᬁ"'
+global.namegrupo = 'Vegeta Bot2.0'
+global.namecomu = 'ᬊVegeta Bot2.0 𝑪𝒐𝒎𝒖𝒏𝒊𝒕𝒚ᬊ᭄'
 global.listo = '⚡ *ᴀǫᴜɪ ᴛɪᴇɴᴇs ˙Ⱉ˙ฅ*'
 global.fotoperfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://i.postimg.cc/RFdNynN5/IMG-20250315-WA0122.jpg')
 
 global.idchannel = '120363365444927738@newsletter'
 global.canalIdM = ["120363365444927738@newsletter", "120363365444927738@newsletter"]
-global.canalNombreM = [" ๖ۣ•҉𝑲𝒊𝒓𝒊𝒕𝒐-𝑩𝒐𝒕 𝑴𝑫 𝑪𝒉𝒂𝒏𝒏𝒆𝒍★᭄", "᭄𝑲𝒊𝒓𝒊𝒕𝒐-𝑩𝒐𝒕 𝑴𝑫ᬊ᭄"]
+global.canalNombreM = [" ๖ۣ•҉Vegeta-𝑩𝒐𝒕 MB2.0 𝑪𝒉𝒂𝒏𝒏𝒆𝒍★᭄", "᭄Vegeta-Bot MB2.0ᬊ᭄"]
 global.channelRD = await getRandomChannel()
 
 //fechas
@@ -74,9 +74,9 @@ global.waitttt = '*ฅ՞•ﻌ•՞ฅ* *𝗘𝘀𝗽𝗲𝗿𝗮 𝗨𝗻 𝗠�
 //Enlaces
 var canal = 'https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m'  
 let canal2 = 'https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m'
-var git = 'https://github.com/deylinqff'
-var github = 'https://github.com/deylinqff/Kirito-Bot-MD' 
-let correo = 'deylibaquedano801@gmail.com'
+var git = 'https://github.com/BrayanOFC'
+var github = 'https://github.com/BrayanOFC/VEGETA-BOT-MB2.0' 
+let correo = 'lourdesagueda93@gmail.com'
 
 global.redes = [canal, canal2, git, github, correo].getRandom()
 
@@ -101,7 +101,7 @@ var more = String.fromCharCode(8206)
 global.readMore = more.repeat(850)
 
 //Fakes
-let pp = null; try { pp = await conn.profilePictureUrl('50433191934@s.whatsapp.net', 'image') } catch (e) { pp = null } global.fkontak = { key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `120363416711925079@g.us` } : {}) }, message: { 'contactMessage': { 'displayName': `Deylin creador`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;Deylin creador,;;;\nFN:Deylin creador\nitem1.TEL;waid=50433191934:50433191934\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, 'jpegThumbnail': pp ? await (await fetch(pp)).buffer() : null, thumbnail: null, sendEphemeral: true }}}
+let pp = null; try { pp = await conn.profilePictureUrl('50433191934@s.whatsapp.net', 'image') } catch (e) { pp = null } global.fkontak = { key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `120363416711925079@g.us` } : {}) }, message: { 'contactMessage': { 'displayName': `Deylin creador`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;Deylin creador,;;;\nFN:Deylin creador\nitem1.TEL;waid=526633900512:526633900512\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, 'jpegThumbnail': pp ? await (await fetch(pp)).buffer() : null, thumbnail: null, sendEphemeral: true }}}
 
 global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, newsletterName: channelRD.name, serverMessageId: -1 }
 }}, { quoted: m }
