@@ -41,15 +41,15 @@ const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
 //let require = createRequire(megu)
 let { say } = cfonts
 
-console.log(chalk.bold.redBright(`\n✰ Iniciando kirito-Bot MD ✰\n`))
+console.log(chalk.bold.redBright(`\n✰ Iniciando Vegeta-Bot MB2.0 ✰\n`))
 
-say('kirito-MD', {
+say('Vegeta-MB2.0', {
 font: 'block',
 align: 'center',
 colors: ['magentaBright']
 })
 
-say(`Developed By • Deylin 👑`, {
+say(`Developed By • Brayan 👑`, {
 font: 'console',
 align: 'center',
 colors: ['blueBright']
