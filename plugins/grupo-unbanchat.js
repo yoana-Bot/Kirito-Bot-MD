@@ -4,10 +4,10 @@ let handler = async (m, { conn, usedPrefix, command, args }) => {
 
   let chat = global.db.data.chats[m.chat];
 
-  if (command === 'kirito') {
+  if (command === 'vegeta') {
     if (args.length === 0) {
       const estado = chat.isBanned ? '⚠️ *DESACTIVADO*' : '✅ *ACTIVADO*';
-      const info = `👑 *KIRITO-BOT CONTROL*  
+      const info = `👑 *VEGETA-BOT2.0 CONTROL*  
 ╭━━━━━━━━━━━━━╮  
 ┃ *🔥 COMANDOS DISPONIBLES:*  
 ┃ ✦ *${usedPrefix}kirito on* – ⚡ 𝗔𝗰𝘁𝗶𝘃𝗮𝗿  
@@ -20,23 +20,23 @@ let handler = async (m, { conn, usedPrefix, command, args }) => {
 
     if (args[0] === 'off') {
       if (chat.isBanned) 
-        return conn.reply(m.chat, '⭕ *¡KIRITO-BOT YA ESTABA DESACTIVADO!*', m, rcanal);
+        return conn.reply(m.chat, '⭕ *¡VEGETA-BOT2.0 YA ESTABA DESACTIVADO!*', m, rcanal);
       
       chat.isBanned = true;
-      return conn.reply(m.chat, '⚠️ *¡KIRITO-BOT HA SIDO DESACTIVADO EN ESTE CHAT!*', m, rcanal);
+      return conn.reply(m.chat, '⚠️ *¡VEGETA-BOT2.0 HA SIDO DESACTIVADO EN ESTE CHAT!*', m, rcanal);
     } else if (args[0] === 'on') {
       if (!chat.isBanned) 
-        return conn.reply(m.chat, '⭕ *¡KIRITO-BOT YA ESTABA ACTIVADO!*', m, rcanal);
+        return conn.reply(m.chat, '⭕ *¡VEGETA-BOT2.0 YA ESTABA ACTIVADO!*', m, rcanal);
       
       chat.isBanned = false;
-      return conn.reply(m.chat, '✅ *¡KIRITO-BOT HA SIDO ACTIVADO EN ESTE CHAT!*', m, rcanal);
+      return conn.reply(m.chat, '✅ *¡VEGETA-BOT2.0 HA SIDO ACTIVADO EN ESTE CHAT!*', m, rcanal);
     }
   }
 };
 
-handler.help = ['kirito'];
+handler.help = ['vegeta'];
 handler.tags = ['grupo'];
-handler.command = ['kirito'];
+handler.command = ['vegeta'];
 handler.admin = true;
 
 export default handler;
