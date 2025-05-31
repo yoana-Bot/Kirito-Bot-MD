@@ -27,7 +27,7 @@ var handler = async (m, { conn, participants, usedPrefix, command }) => {
 
     await conn.sendMessage(user, {
         image: { url: imageUrl },
-        caption: `⚠️ Tu participación es invaluable para nuestro staff.\n\nFuiste eliminado del *staff de Kirito Bot MD* por *inactividad* y por no aportar nada.\n\nGracias por tu tiempo.`,
+        caption: `⚠️ Tu participación es invaluable para nuestro staff.\n\nFuiste eliminado del *staff de VEGETA BOT MB2.0* por *inactividad* y por no aportar nada.\n\nGracias por tu tiempo.`,
     });
 
 
