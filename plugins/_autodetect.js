@@ -8,12 +8,12 @@ export async function before(m, { conn, participants, groupMetadata }) {
     key: {
       remoteJid: "status@broadcast",
       fromMe: false,
-      id: "kirito-bot"
+      id: "Vegeta-Bot2.0"
     },
     message: {
       contactMessage: {
         displayName: "KiritoBot",
-        vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Kirito;Bot;;;\nFN:KiritoBot Oficial\nORG:KiritoBot Team;\nTEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nEMAIL;type=INTERNET:soporte@kiritobot.net\nEND:VCARD`
+        vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Kirito;Bot;;;\nFN:VegetaBot Oficial\nORG:VegetaBot Team;\nTEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nEMAIL;type=INTERNET:soporte@Vegetabot.net\nEND:VCARD`
       }
     },
     participant: "0@s.whatsapp.net"
@@ -25,7 +25,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 
   
   const borde = "╭───────────────╮"
-  const medio = "│ KiritoBot MD"
+  const medio = "│ VegetaBot MB2.0"
   const fin =   "╰───────────────╯"
 
   let nombre = `${borde}\n${medio}\n╰➤ ${usuario} \ncambió el nombre del grupo.\n   Nuevo nombre: *${m.messageStubParameters[0]}*\n${fin}`
