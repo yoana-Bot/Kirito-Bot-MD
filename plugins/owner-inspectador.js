@@ -151,8 +151,8 @@ if (channelUrl && newsletterInfo) {
 await conn.sendMessage(m.chat, { text: caption, contextInfo: {
 mentionedJid: conn.parseMention(caption),
 externalAdReply: {
-title: `${emoji} Kirito-Bot Inspector de Canales`,
-body: `${emoji2} ¡Super kirito bot Inspectador!`,
+title: `${emoji} vegeta-Bot Inspector de Canales`,
+body: `${emoji2} ¡Super Vegeta bot Inspectador!`,
 thumbnailUrl: pp,
 sourceUrl: args[0],
 mediaType: 1,
