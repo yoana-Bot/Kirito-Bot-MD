@@ -72,8 +72,8 @@ global.waittt = '*ฅ՞•ﻌ•՞ฅ* *𝗘𝘀𝗽𝗲𝗿𝗮 𝗨𝗻 𝗠�
 global.waitttt = '*ฅ՞•ﻌ•՞ฅ* *𝗘𝘀𝗽𝗲𝗿𝗮 𝗨𝗻 𝗠𝗼𝗺𝗲𝗻𝘁𝗼, 𝗦𝗼𝘆 𝗟𝗲𝗻𝘁𝗼 ...*';
 
 //Enlaces
-var canal = 'https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m'  
-let canal2 = 'https://whatsapp.com/channel/0029VawF8fBBvvsktcInIz3m'
+var canal = 'https://whatsapp.com/channel/0029Vb9P9ZU0gcfNusD1jG3d'  
+let canal2 = 'https://whatsapp.com/channel/0029Vb9P9ZU0gcfNusD1jG3d'
 var git = 'https://github.com/BrayanOFC'
 var github = 'https://github.com/BrayanOFC/VEGETA-BOT-MB2.0' 
 let correo = 'lourdesagueda93@gmail.com'
