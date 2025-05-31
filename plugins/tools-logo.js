@@ -32,7 +32,7 @@ const handler = async (m, { conn, args, command }) => {
     }
 
     if (!args || args.length < 2) {
-        const ejemplo = `${emoji} Ejemplo: /logo neon Kirito-Bot
+        const ejemplo = `${emoji} Ejemplo: /logo neon VEGETA-BOT-MB2.0
 
 Estilos disponibles:
 - 3D
