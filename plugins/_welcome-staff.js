@@ -15,11 +15,11 @@ export async function before(m, { conn, participants, groupMetadata }) {
   let date = new Date().toLocaleString('es-ES', { timeZone: 'America/Mexico_City' });
 
   let frasesBienvenida = [
-    "¡Bienvenido al equipo de élite de Kirito-Bot! Tu aporte será clave para nuestro crecimiento.",
-    "Un nuevo guerrero se une a la batalla. ¡Demos lo mejor para mejorar Kirito-Bot!",
+    "¡Bienvenido al equipo de élite de Vegeta-Bot! Tu aporte será clave para nuestro crecimiento.",
+    "Un nuevo guerrero se une a la batalla. ¡Demos lo mejor para mejorar Vegeta-Bot!",
     "Tu experiencia y habilidades ahora forman parte de nuestro equipo. ¡Bienvenido!",
     "¡Atención equipo! Un nuevo miembro ha llegado para fortalecer nuestra comunidad.",
-    "Unir fuerzas nos hace más fuertes. Bienvenido al equipo de Kirito-Bot, juntos somos imparables."
+    "Unir fuerzas nos hace más fuertes. Bienvenido al equipo de Vegeta-Bot, juntos somos imparables."
   ];
 
   let frasesDespedida = [
@@ -27,7 +27,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
     "Se cierra un ciclo, pero tu legado en Kirito-Bot queda marcado. ¡Mucho éxito!",
     "Nos despedimos con gratitud. ¡Siempre serás parte de esta familia!",
     "El equipo pierde a un gran miembro, pero la puerta queda abierta para tu regreso. ¡Hasta pronto!",
-    "Toda historia tiene un final, pero siempre serás parte del staff de Kirito-Bot. ¡Éxito en todo!"
+    "Toda historia tiene un final, pero siempre serás parte del staff de Vegetaq-Bot. ¡Éxito en todo!"
   ];
 
   let fraseRandomBienvenida = frasesBienvenida[Math.floor(Math.random() * frasesBienvenida.length)];
@@ -39,7 +39,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 
   if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_ADD) {
     let bienvenida = `┏━━━━━━━━━━━━━━━━┅┈
-┃    🅂🅃🄰🄵🄵  🄺🄸🅁🄸🅃🄾-🄱🄾🅃
+┃    STAFF   VEGETA BOT2.0
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ ➤ 𝗡𝘂𝗲𝘃𝗼 𝗺𝗶𝗲𝗺𝗯𝗿𝗼: ${taguser}
 ┃ ➤ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject}
@@ -54,7 +54,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
   if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_LEAVE ||
       m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_REMOVE) {
     let despedida = `┏━━━━━━━━━━━━━━━━┅┈
-┃    🅂🅃🄰🄵🄵  🄺🄸🅁🄸🅃🄾-🄱🄾🅃
+┃     STAFF  VEGETA-BOT2.0
 ┣━━━━━━━━━━━━━━━━┅┈
 ┃ ➤ 𝗠𝗶𝗲𝗺𝗯𝗿𝗼 𝗦𝗮𝗹𝗶𝗲𝗻𝘁𝗲: ${taguser}
 ┃ ➤ 𝗚𝗿𝘂𝗽𝗼: ${groupMetadata.subject}
