@@ -10,8 +10,8 @@ let handler = async (m, { conn, usedPrefix, command, args }) => {
       const info = `👑 *VEGETA-BOT2.0 CONTROL*  
 ╭━━━━━━━━━━━━━╮  
 ┃ *🔥 COMANDOS DISPONIBLES:*  
-┃ ✦ *${usedPrefix}kirito on* – ⚡ 𝗔𝗰𝘁𝗶𝘃𝗮𝗿  
-┃ ✦ *${usedPrefix}kirito off* – ⚡ 𝗗𝗲𝘀𝗮𝗰𝘁𝗶𝘃𝗮𝗿  
+┃ ✦ *${usedPrefix}vegeta on* – ⚡ 𝗔𝗰𝘁𝗶𝘃𝗮𝗿  
+┃ ✦ *${usedPrefix}vegeta off* – ⚡ 𝗗𝗲𝘀𝗮𝗰𝘁𝗶𝘃𝗮𝗿  
 ╰━━━━━━━━━━━━━╯  
 🌟 *Estado actual:* ${estado}`;
 
