@@ -24,10 +24,10 @@ export async function before(m, { conn, participants, groupMetadata }) {
 
   let frasesDespedida = [
     "Gracias por tu tiempo y dedicación al equipo. Te deseamos éxito en tus futuros proyectos.",
-    "Se cierra un ciclo, pero tu legado en Kirito-Bot queda marcado. ¡Mucho éxito!",
+    "Se cierra un ciclo, pero tu legado en Vegeta-Bot queda marcado. ¡Mucho éxito!",
     "Nos despedimos con gratitud. ¡Siempre serás parte de esta familia!",
     "El equipo pierde a un gran miembro, pero la puerta queda abierta para tu regreso. ¡Hasta pronto!",
-    "Toda historia tiene un final, pero siempre serás parte del staff de Vegetaq-Bot. ¡Éxito en todo!"
+    "Toda historia tiene un final, pero siempre serás parte del staff de Vegeta-Bot. ¡Éxito en todo!"
   ];
 
   let fraseRandomBienvenida = frasesBienvenida[Math.floor(Math.random() * frasesBienvenida.length)];
