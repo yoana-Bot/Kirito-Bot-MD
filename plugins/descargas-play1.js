@@ -83,7 +83,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const JT = {
       contextInfo: {
         externalAdReply: {
-          title: "Kirito-Bot MD 👑",
+          title: "Vegeta-Bot MB2.0 👑",
           body: "(1) Delos mejores Bots de WhatsApp",
           mediaType: 1,
           previewType: 0,
