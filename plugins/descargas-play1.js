@@ -1,7 +1,3 @@
-// editado y reestructurado por 
-// https://github.com/deylinqff
-
-
 import fetch from "node-fetch";
 import yts from "yt-search";
 import axios from "axios";
