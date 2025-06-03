@@ -1,13 +1,11 @@
-// no tocar 
-
 import { xpRange } from '../lib/levelling.js'
 
 let tags = {
-  'anime': 'ANIME',
+  'serbot': 'SUB BOTS',
   'main': 'INFO',
   'search': 'SEARCH',
   'game': 'GAME',
-  'serbot': 'SUB BOTS',
+  'anime': 'ANIME',
   'rpg': 'RPG',
   'sticker': 'STICKER',
   'group': 'GROUPS',
