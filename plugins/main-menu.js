@@ -50,8 +50,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
 
     let name = await conn.getName(userId);
     let { exp, level } = global.db.data.users[userId];
-    let { min, xp, max } = xpRange(level, global.multiplier);
-// no tocar 
+    let { min, xp, max } = xpRange(level, global.multiplier); 
     let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(plugin => ({
       help: Array.isArray(plugin.help) ? plugin.help : (plugin.help ? [plugin.help] : []),
       tags: Array.isArray(plugin.tags) ? plugin.tags : (plugin.tags ? [plugin.tags] : []),
@@ -62,7 +61,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     let menuText = `
 *⌬━━━━▣━━◤👑◢━━▣━━━━━⌬*
 
-Hola *@${userId.split('@')[0]}* soy *𝐊𝐢𝐫𝐢𝐭𝐨-𝐁𝐨𝐭 𝐌𝐃☆*
+Hola *@${userId.split('@')[0]}* soy *𝚅𝙴𝙶𝙴𝚃𝙰-𝙱𝙾𝚃-𝙼𝙱2.0*
 
 ╔══════⌬『 ✨ 𝑰 𝑵 𝑭 𝑶 ✨』
 ║ ✎ *Cliente:* @${userId.split('@')[0]}
@@ -84,10 +83,9 @@ ${commandsForTag.map(menu => menu.help.map(help => `∫➤ ${_p}${help} ${menu.l
 *┗━━━▣━━⌬⌨⌬━━▣━━━━⌬*`
 }).filter(text => text !== '').join('\n')}
 
-> © *Powered by Deylin*
+> © *Powered by BrayanOFC*
 `;
-
-    // no tocar 
+ 
     const imageUrls = [
                   'https://files.catbox.moe/xkx49e.jpg',
 'https://files.catbox.moe/qgg4nl.jpg',
