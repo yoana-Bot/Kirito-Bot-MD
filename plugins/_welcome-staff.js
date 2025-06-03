@@ -1,7 +1,3 @@
-//© código creado por Deylin 
-//https://github.com/deylinqff
-//➤  no quites créditos 
-
 import { WAMessageStubType } from '@whiskeysockets/baileys'
 import fetch from 'node-fetch'
 
