@@ -1,7 +1,3 @@
-// Código creado por Deylin
-// https://github.com/deylinqff
-// No quites créditos
-
 import PhoneNumber from 'awesome-phonenumber';
 
 async function handler(m, { conn }) {
