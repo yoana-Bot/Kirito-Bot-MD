@@ -1,4 +1,4 @@
-// © Deylin 
+ 
 
 const banderas = [
   { pais: "Honduras", emoji: "🇭🇳" },
