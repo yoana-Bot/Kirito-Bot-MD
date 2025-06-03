@@ -7,7 +7,7 @@ async function handler(m, { conn }) {
 
   const name = await conn.getName(ownerJid) || 'Deylin';
   const about = (await conn.fetchStatus(ownerJid).catch(() => {}))?.status || 'estoy disponible para responder a tus preguntas';
-  const empresa = 'Brayan - Servicios Tecnológicos';
+  const empresa = 'BrayanOFC - Servicios Tecnológicos';
 
   
   const vcard = `
