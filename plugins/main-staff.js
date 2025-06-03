@@ -4,7 +4,7 @@ let handler = async (m, { conn }) => {
     let img = './src/catalogo.jpg';
 
     
-    let creador = [['50433191934', '*Deylin 👑*']];
+    let creador = [['526641804242', '*BrayanOFC 👑*']];
 
     
     let staff = [
@@ -17,7 +17,6 @@ let handler = async (m, { conn }) => {
         ['50557333744', '*Jonathang*'],
         ['573154062343', '*http*'],
         ['526671548329', '*~/ty.{LegnaJS}⁩*'],
-        ['526633900512', '*Brayan*'],
         ['51920227615', '*~ai.SEƗSĦƗROṈȺGƗ.il⁩*']
     ];
 
