@@ -1,5 +1,3 @@
-//© Código hecho por Deylin  
-
 import axios from 'axios';
 
 const estilosDisponibles = [
