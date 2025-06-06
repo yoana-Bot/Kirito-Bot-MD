@@ -178,7 +178,7 @@ href="https://dash.luminarys.shop.home"><img src="https://qu.ax/VAgKd.jpg" heigh
 
 ### **`🚀 𝑷𝒓𝒐𝒑𝒊𝒆𝒕𝒂𝒓𝒊𝒐`**
 <a
-href="https://github.com/BrayanOFC"><img src="https://qu.ax/aDqOk.jpg" width="130" height="130" alt="BrayanOFC"/></a>
+href="https://github.com/BrayanOFC"><img src="https://github.com/BrayanOFC.png" width="130" height="130" alt="BrayanOFC"/></a>
 
 </a> 
 
@@ -186,6 +186,6 @@ href="https://github.com/BrayanOFC"><img src="https://qu.ax/aDqOk.jpg" width="13
 
 ### **`💵 𝑪𝑹𝑬𝑫𝑰𝑻𝑶𝑺`**
 <a
-href="https://github.com/BrayanOFC"><img src="https://github.com/BrayanOFC.png" width="140" height="140" alt="Brayan"/></a>
+href="https://github.com/deylin-eliac"><img src="https://github.com/deylin-eliac.png" width="140" height="140" alt="deylin-eliac"/></a>
 
 [© Powered By Team BrayanOFC ⚡︎](https://whatsapp.com/channel/0029Vb7CL7dGk1FtzTLjNt3S)
