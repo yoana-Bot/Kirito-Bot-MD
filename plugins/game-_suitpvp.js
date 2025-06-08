@@ -76,9 +76,9 @@ tijera\nGanador +${room.poin}XP\nPerdedor ${room.poin_lose}XP\n*responda al mens
       else if (k.test(stage) && g.test(stage2)) win = room.p2;
       else if (stage == stage2) tie = true;
       this.reply(room.asal, `
-*👑 Resultados del PVP 👑*${tie ? '\n*—◉ Empate!!*' : ''}
+*🍇 Resultados del PVP 🍇*${tie ? '\n*—◉ Empate!!*' : ''}
 *@${room.p.split`@`[0]} (${room.text})* ${tie ? '' : room.p == win ? ` *Gano 🥳 +${room.poin}XP*` : ` *Perdio 🤡 ${room.poin_lose}XP*`}
-*@${room.p2.split`@`[0]} (${room.text2})* ${tie ? '' : room.p2 == win ? ` *Gano 🥳 +${room.poin}XP*` : ` *Perdio 🤡 ${room.poin_lose}XP*`}
+*@${room.p2.split`@`[0]} (${room.text2})* ${tie ? '' : room.p2 == win ? ` *Gano 💣 +${room.poin}XP*` : ` *Perdio 🤡 ${room.poin_lose}XP*`}
 `.trim(), m, {mentions: [room.p, room.p2]} );
       if (!tie) {
         db.data.users[win == room.p ? room.p : room.p2].exp += room.poin;
